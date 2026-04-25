@@ -1,0 +1,62 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/navbar.astro";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<Navbar />
+        
+        <main>
+            <section id="inicio" class="min-h-screen flex items-center justify-center bg-museum-cream border-b border-museum-gold/10">
+                <h1 class="text-6xl font-display text-museum-dark italic">Museo Pozón</h1>
+            </section>
+
+            <section id="quienes-somos" class="py-32 px-10 bg-white">
+                <h2 class="text-4xl font-display mb-8">Quiénes Somos</h2>
+                <div class="h-64 bg-museum-gold/5 rounded-xl border border-dashed border-museum-gold/20 flex items-center justify-center text-museum-gold/40">Contenido: Quiénes Somos</div>
+            </section>
+
+            <section id="modelo-museal" class="py-32 px-10 bg-museum-cream">
+                <h2 class="text-4xl font-display mb-8">Modelo Museal</h2>
+                <div class="h-64 bg-museum-dark/5 rounded-xl border border-dashed border-museum-dark/20 flex items-center justify-center text-museum-dark/40">Contenido: Modelo Museal</div>
+            </section>
+
+            <section id="nodos-museales" class="py-32 px-10 bg-white">
+                <h2 class="text-4xl font-display mb-8">Nodos Museales</h2>
+            </section>
+
+            <section id="recorrido-museal" class="py-32 px-10 bg-museum-cream">
+                <h2 class="text-4xl font-display mb-8">Recorrido Museal</h2>
+            </section>
+
+            <section id="proyectos-sociales" class="py-32 px-10 bg-white">
+                <h2 class="text-4xl font-display mb-8">Proyectos Sociales</h2>
+            </section>
+
+            <section id="portafolio" class="py-32 px-10 bg-museum-cream">
+                <h2 class="text-4xl font-display mb-8">Portafolio Institucional</h2>
+            </section>
+
+            <section id="eventos" class="py-32 px-10 bg-white">
+                <h2 class="text-4xl font-display mb-8">Eventos</h2>
+            </section>
+
+            <section id="representante" class="py-32 px-10 bg-museum-cream">
+                <h2 class="text-4xl font-display mb-8">Representante Legal</h2>
+            </section>
+
+            <section id="contacto" class="py-32 px-10 bg-museum-dark text-museum-cream">
+                <h2 class="text-4xl font-display mb-8">Contacto</h2>
+            </section>
+        </main>
+	</body>
+</html>

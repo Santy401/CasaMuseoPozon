@@ -1,0 +1,149 @@
+---
+const navItems = [
+    { name: "Inicio", href: "#inicio" },
+    { 
+        name: "Institucional", 
+        children: [
+            { name: "Quiénes Somos", href: "#quienes-somos" },
+            { name: "Representante Legal", href: "#representante" },
+            { name: "Portafolio", href: "#portafolio" },
+        ]
+    },
+    { 
+        name: "Experiencia", 
+        children: [
+            { name: "Modelo Museal", href: "#modelo-museal" },
+            { name: "Nodos Museales", href: "#nodos-museales" },
+            { name: "Recorrido Museal", href: "#recorrido-museal" },
+        ]
+    },
+    { 
+        name: "Comunidad", 
+        children: [
+            { name: "Proyectos Sociales", href: "#proyectos-sociales" },
+            { name: "Eventos", href: "#eventos" },
+        ]
+    },
+    { name: "Contacto", href: "#contacto" },
+];
+---
+
+<nav class="flex flex-row justify-between items-center px-6 md:px-12 py-4 md:py-6 bg-museum-cream/95 backdrop-blur-md sticky top-0 z-[100] border-b border-museum-gold/10">
+    <!-- Mobile Side Drawer Trigger -->
+    <button id="menu-open" class="md:hidden p-2 text-museum-dark overflow-hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+    </button>
+
+    <div class="logo">
+        <img class="w-20 md:w-28 hover:opacity-80 transition-all cursor-pointer" src="/Logo.webp" alt="Logo">
+    </div>
+    
+    <!-- Desktop Navigation -->
+    <ul class="hidden md:flex items-center gap-10">
+        {navItems.map(item => (
+            <li class="relative group">
+                {item.children ? (
+                    <button class="flex items-center gap-1 text-[11px] font-bold tracking-[0.15em] uppercase text-museum-dark/70 group-hover:text-museum-gold transition-all cursor-pointer py-2">
+                        {item.name}
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <ul class="absolute top-full left-0 pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 min-w-[220px]">
+                        <div class="bg-white shadow-xl border border-museum-gold/5 p-4 rounded-sm flex flex-col gap-3">
+                            {item.children.map(child => (
+                                <li>
+                                    <a 
+                                        href={child.href} 
+                                        class="text-[10px] font-semibold tracking-wider uppercase text-museum-dark/60 hover:text-museum-gold transition-colors block py-1"
+                                    >
+                                        {child.name}
+                                    </a>
+                                </li>
+                            ))}
+                        </div>
+                    </ul>
+                ) : (
+                    <a 
+                        href={item.href} 
+                        class="text-[11px] font-bold tracking-[0.15em] uppercase text-museum-dark/70 hover:text-museum-gold transition-all py-2 border-b-2 border-transparent hover:border-museum-gold/30"
+                    >
+                        {item.name}
+                    </a>
+                )}
+            </li>
+        ))}
+    </ul>
+    
+    <a href="#contacto" class="bg-museum-gold text-museum-cream px-5 md:px-8 py-2 md:py-3 rounded-sm text-[10px] md:text-[11px] font-bold tracking-[0.15em] md:tracking-[0.2em] uppercase hover:bg-museum-dark transition-all duration-300 shadow-lg shadow-museum-gold/10">
+        Visítanos
+    </a>
+</nav>
+<!-- Mobile Sidebar Drawer -->
+<div id="mobile-menu" class="fixed inset-0 bg-museum-dark/40 backdrop-blur-sm z-[110] opacity-0 invisible transition-all duration-300 md:hidden">
+    <div class="bg-museum-cream w-[80%] max-w-sm h-full shadow-2xl -translate-x-full transition-transform duration-300 flex flex-col p-8 overflow-y-auto relative z-[120]" id="mobile-drawer">
+        <div class="flex justify-between items-center mb-10">
+            <img class="w-20" src="/Logo.webp" alt="Logo">
+            <button id="menu-close" class="p-2 text-museum-dark">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <ul class="flex flex-col gap-6">
+            {navItems.map(item => (
+                <li class="border-b border-museum-gold/10 pb-4">
+                    {item.children ? (
+                        <div class="flex flex-col gap-4">
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-museum-gold/60">{item.name}</span>
+                            <div class="flex flex-col gap-3 pl-4">
+                                {item.children.map(child => (
+                                    <a href={child.href} class="text-sm font-medium text-museum-dark mobile-link">{child.name}</a>
+                                ))}
+                            </div>
+                        </div>
+                    ) : (
+                        <a href={item.href} class="text-sm font-bold tracking-[0.1em] uppercase text-museum-dark mobile-link">{item.name}</a>
+                    )}
+                </li>
+            ))}
+        </ul>
+
+        <a href="#contacto" class="mt-auto bg-museum-gold text-museum-cream py-4 rounded-sm text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-museum-dark transition-all duration-300 text-center mobile-link">
+            Visítanos
+        </a>
+    </div>
+</div>
+
+<script>
+    const menuOpen = document.getElementById('menu-open');
+    const menuClose = document.getElementById('menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function toggleMenu(isOpen: boolean) {
+        if (isOpen) {
+            mobileMenu?.classList.remove('invisible', 'opacity-0');
+            mobileDrawer?.classList.remove('-translate-x-full');
+            document.body.style.overflow = 'hidden';
+        } else {
+            mobileMenu?.classList.add('invisible', 'opacity-0');
+            mobileDrawer?.classList.add('-translate-x-full');
+            document.body.style.overflow = '';
+        }
+    }
+
+    menuOpen?.addEventListener('click', () => toggleMenu(true));
+    menuClose?.addEventListener('click', () => toggleMenu(false));
+    mobileMenu?.addEventListener('click', (e) => {
+        if (e.target === mobileMenu) toggleMenu(false);
+    });
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
+    });
+</script>
