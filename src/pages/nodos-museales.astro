@@ -1,0 +1,198 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import Navbar from "../components/navbar.astro";
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Nodos Museales | Casa Museo Pozón</title>
+        <ClientRouter />
+	</head>
+	<body class="bg-white font-sans overflow-x-hidden">
+		<Navbar />
+        
+        <main>
+            <!-- Hero Header -->
+            <section class="relative min-h-[60vh] flex items-center justify-center bg-museum-cream pt-20">
+                <div class="relative z-20 text-center px-8" transition:animate="fade">
+                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Ecosistema de Activación Patrimonial</span>
+                    <h1 class="text-6xl md:text-8xl font-display text-museum-dark mb-10 leading-none">
+                        Nodos <br/> <span class="text-museum-gold">Museales</span>
+                    </h1>
+                    <div class="w-24 h-1 bg-museum-gold mx-auto"></div>
+                </div>
+            </section>
+
+            <!-- Navigation Links for Nodes -->
+            <div class="sticky top-20 bg-white/90 backdrop-blur-md z-40 border-b border-zinc-100 py-4 hidden md:block">
+                <div class="max-w-7xl mx-auto flex justify-center gap-8">
+                    <a href="#cartografico" class="text-[10px] font-bold tracking-widest uppercase text-museum-dark/60 hover:text-museum-gold transition-colors">01. Cartográfico</a>
+                    <a href="#memoteca" class="text-[10px] font-bold tracking-widest uppercase text-museum-dark/60 hover:text-museum-gold transition-colors">02. Memoteca</a>
+                    <a href="#laboratorio" class="text-[10px] font-bold tracking-widest uppercase text-museum-dark/60 hover:text-museum-gold transition-colors">03. Laboratorio</a>
+                    <a href="#huerta" class="text-[10px] font-bold tracking-widest uppercase text-museum-dark/60 hover:text-museum-gold transition-colors">04. Huerta</a>
+                </div>
+            </div>
+
+            <!-- 1. Nodo Cartográfico -->
+            <section id="cartografico" class="py-32 px-8 md:px-16 lg:px-24 border-b border-zinc-50">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+                    <div>
+                        <div class="flex items-center gap-4 mb-8">
+                             <div class="w-12 h-12 bg-museum-gold/10 rounded-xl flex items-center justify-center text-2xl">🗺️</div>
+                             <h2 class="text-3xl md:text-4xl font-display text-museum-dark">Nodo Cartográfico de Memorias</h2>
+                        </div>
+                        <h3 class="text-museum-gold font-bold text-sm tracking-widest uppercase mb-6">Archivo Vivo de El Pozón</h3>
+                        
+                        <p class="text-museum-dark/70 text-lg font-light leading-relaxed mb-10">
+                            Plataforma museográfica, educativa y comunitaria que preserva, activa y proyecta el patrimonio visual, sonoro y simbólico de El Pozón. Transforma fotografías históricas y relatos orales en una lectura colectiva del pasado.
+                        </p>
+
+                        <div class="space-y-12">
+                             <div>
+                                 <h4 class="font-bold text-sm uppercase tracking-wider mb-4 border-l-2 border-museum-gold pl-4">Propósitos Institucionales</h4>
+                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                     <div class="p-5 bg-museum-cream/20 rounded-xl">
+                                         <p class="text-xs font-bold mb-2">Preservación</p>
+                                         <p class="text-xs font-light opacity-70">Conservación, restauración y digitalización de archivos visuales y materiales.</p>
+                                     </div>
+                                     <div class="p-5 bg-museum-cream/20 rounded-xl">
+                                         <p class="text-xs font-bold mb-2">Educación</p>
+                                         <p class="text-xs font-light opacity-70">Talleres, laboratorios y recorridos pedagógicos basados en el territorio.</p>
+                                     </div>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="bg-zinc-100 aspect-square rounded-[3rem] sticky top-32 overflow-hidden shadow-2xl relative group">
+                        <div class="absolute inset-0 bg-museum-dark/5 group-hover:bg-transparent transition-colors"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-museum-dark/20 font-display text-4xl uppercase tracking-[0.2em]">Archivo Vivo</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Memoteca Digital -->
+            <section id="memoteca" class="py-32 px-8 md:px-16 lg:px-24 bg-museum-dark text-white relative">
+                <div class="max-w-7xl mx-auto">
+                    <div class="flex flex-col lg:flex-row-reverse gap-20 items-start">
+                        <div class="w-full lg:w-1/2">
+                            <div class="flex items-center gap-4 mb-8">
+                                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-2xl">💻</div>
+                                <h2 class="text-3xl md:text-4xl font-display text-white">Memoteca Digital Pozonera</h2>
+                            </div>
+                            <h3 class="text-museum-gold font-bold text-sm tracking-widest uppercase mb-6">Nodo Digital de Relatos – Sala Multimedia</h3>
+                            
+                            <p class="text-white/60 text-lg font-light leading-relaxed mb-10">
+                                Una plataforma multimedia que democratiza el conocimiento integrando tecnología y pedagogía crítica. Posiciona al sujeto comunitario como protagonista de su propia historia en el ecosistema digital.
+                            </p>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-white/50 text-xs leading-relaxed">
+                                <div>
+                                    <h4 class="text-museum-gold font-bold mb-3 uppercase">Visibilización</h4>
+                                    <p>Repositorio multimedia de imágenes y voces que dignifican la memoria popular.</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-museum-gold font-bold mb-3 uppercase">Participación</h4>
+                                    <p>Metodologías horizontales para procesos de co-creación digital comunitaria.</p>
+                                </div>
+                            </div>
+
+                            <div class="mt-12 flex gap-4 opacity-50">
+                                <span class="bg-white/10 px-3 py-1 rounded-full text-[10px] uppercase">ODS 4</span>
+                                <span class="bg-white/10 px-3 py-1 rounded-full text-[10px] uppercase">ODS 10</span>
+                                <span class="bg-white/10 px-3 py-1 rounded-full text-[10px] uppercase">ODS 17</span>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2 aspect-video bg-white/5 rounded-3xl overflow-hidden border border-white/10 flex items-center justify-center relative shadow-black shadow-2xl">
+                             <div class="absolute inset-0 bg-gradient-to-br from-museum-gold/20 to-transparent"></div>
+                             <span class="relative z-10 text-white/20 font-display text-2xl tracking-widest uppercase">Ecosistema Digital</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Laboratorio Creativo -->
+            <section id="laboratorio" class="py-32 px-8 md:px-16 lg:px-24">
+                <div class="max-w-7xl mx-auto flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-museum-gold/10 rounded-full flex items-center justify-center text-4xl mb-8">🎨</div>
+                    <h2 class="text-4xl md:text-5xl font-display text-museum-dark mb-4">Laboratorio Creativo Pozonero</h2>
+                    <p class="text-museum-gold font-bold text-sm tracking-widest uppercase mb-10">Nodo Expresivo de Imaginarios</p>
+                    
+                    <p class="max-w-3xl text-museum-dark/60 text-lg font-light leading-relaxed mb-20">
+                        Dispositivo de gestión patrimonial participativa que transforma la memoria en experiencias: murales, juegos, cápsulas y activaciones sensoriales a través de lenguajes no convencionales.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left w-full">
+                        <div class="p-8 rounded-3xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/30 transition-all group">
+                             <h4 class="font-display text-xl mb-4 group-hover:text-museum-gold">Arte Comunitario</h4>
+                             <p class="text-xs font-light text-museum-dark/50 leading-relaxed">Producción de murales, poesías e instalaciones con estética pozonera cotidiana.</p>
+                        </div>
+                        <div class="p-8 rounded-3xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/30 transition-all group">
+                             <h4 class="font-display text-xl mb-4 group-hover:text-museum-gold">Turismo Vivo</h4>
+                             <p class="text-xs font-light text-museum-dark/50 leading-relaxed">Activaciones sensoriales y diseño de rutas que conectan prácticas culturales.</p>
+                        </div>
+                        <div class="p-8 rounded-3xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/30 transition-all group">
+                             <h4 class="font-display text-xl mb-4 group-hover:text-museum-gold">Tienda Turística</h4>
+                             <p class="text-xs font-light text-museum-dark/50 leading-relaxed">Emprendimientos simbólicos y circuitos de valor para la sostenibilidad local.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Nodo Sensorial - Huerta -->
+            <section id="huerta" class="py-32 px-8 md:px-16 lg:px-24 bg-museum-cream/30 relative">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div class="order-2 lg:order-1 relative rounded-[3rem] overflow-hidden aspect-square shadow-2xl">
+                        <div class="absolute inset-0 bg-gradient-to-t from-green-900/40 to-transparent z-10"></div>
+                        <div class="w-full h-full bg-zinc-200 flex items-center justify-center">
+                            <span class="font-display text-4xl text-green-900/20 uppercase tracking-[0.2em]">Huerta de Memoria</span>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <div class="flex items-center gap-4 mb-8">
+                             <div class="w-12 h-12 bg-green-900/10 rounded-xl flex items-center justify-center text-2xl">🌿</div>
+                             <h2 class="text-3xl md:text-4xl font-display text-museum-dark">La Huerta de la Memoria</h2>
+                        </div>
+                        <h3 class="text-green-900/60 font-bold text-sm tracking-widest uppercase mb-6">Nodo Sensorial de Sanación Colectiva</h3>
+                        
+                        <p class="text-museum-dark/70 text-lg font-light leading-relaxed mb-8">
+                            Un espacio agro-medicinal y museológico que integra saberes ancestrales y espiritualidad popular. Convierte el paisaje en un museo vivo de resistencia con la metáfora central de la oruga de transformación.
+                        </p>
+
+                        <div class="bg-white/60 p-8 rounded-[2rem] border border-green-900/5 backdrop-blur-sm">
+                            <h4 class="text-xs font-bold uppercase tracking-widest mb-6 opacity-30 italic">Botica Pozonera</h4>
+                            <div class="flex flex-wrap gap-3">
+                                {["Toronjil", "Ruda", "Sábila", "Romero", "Hierbabuena", "Caléndula", "Anamú", "Jengibre"].map(plant => (
+                                    <span class="bg-white px-4 py-2 rounded-full text-[10px] font-medium text-green-900/60 border border-green-900/5 shadow-sm">{plant}</span>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div class="mt-12 space-y-4">
+                            <p class="text-xs text-museum-dark/50 flex gap-4 items-center">
+                                <span class="w-2 h-2 rounded-full bg-green-600"></span> Proyectos agroecológicos y etnobotánica.
+                            </p>
+                            <p class="text-xs text-museum-dark/50 flex gap-4 items-center">
+                                <span class="w-2 h-2 rounded-full bg-green-600"></span> Producción ética de infusiones y esencias.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer Return -->
+            <section class="py-24 text-center">
+                <a href="/" class="group inline-flex items-center gap-6 px-12 py-6 border border-museum-dark/20 rounded-full hover:bg-museum-dark hover:text-white transition-all duration-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:-translate-x-2 transition-transform"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"/></svg>
+                    <span class="text-xs font-bold uppercase tracking-[0.3em]">Volver al Inicio</span>
+                </a>
+            </section>
+        </main>
+	</body>
+</html>

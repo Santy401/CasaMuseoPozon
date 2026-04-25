@@ -7,10 +7,10 @@ import Navbar from "../components/navbar.astro";
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Modelo Museal | Casa Museo Pozón</title>
+		<title>Modelo Museal Turístico Territorial | Casa Museo Pozón</title>
         <ClientRouter />
 	</head>
 	<body class="bg-white font-sans overflow-x-hidden">
@@ -18,141 +18,197 @@ import Navbar from "../components/navbar.astro";
         
         <main>
             <!-- Hero Header -->
-            <section class="relative min-h-[70vh] flex items-center justify-center bg-museum-cream pt-20">
-                <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#c3a165_1px,transparent_1px)] [background-size:32px_32px]"></div>
+            <section class="relative min-h-[80vh] flex items-center justify-center bg-museum-dark pt-20 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/60 via-museum-dark to-museum-dark z-10"></div>
+                <!-- Background image with heavy overlay -->
+                <div class="absolute inset-0 opacity-20 bg-[url('/Secsion1.png')] bg-cover bg-center mix-blend-luminosity"></div>
                 
-                <div class="relative z-20 text-center px-8" transition:animate="fade">
-                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Marco de Acción Institucional</span>
-                    <h1 class="text-6xl md:text-8xl lg:text-9xl font-display text-museum-dark mb-10 leading-[0.9]">
-                        Modelo <br/> <span class="text-museum-gold">Museal</span>
+                <div class="relative z-20 text-center px-8 max-w-5xl" transition:animate="fade">
+                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Cartagena Popular: El Pozón como Museo Vivo</span>
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-display text-white mb-10 leading-tight">
+                        Modelo Museal <br/> <span class="text-museum-gold">Turístico Territorial</span>
                     </h1>
-                    <p class="max-w-2xl mx-auto text-museum-dark/60 text-lg md:text-xl font-light leading-relaxed">
-                        Nuestra estructura de gestión integral para la revitalización, preservación y promoción del patrimonio del territorio pozonero.
+                    <div class="w-24 h-1 bg-museum-gold mx-auto mb-10"></div>
+                    <p class="max-w-3xl mx-auto text-museum-cream/70 text-lg md:text-xl font-light leading-relaxed">
+                        Una estrategia integral de innovación social, cultural y educativa que posiciona al barrio El Pozón como un ecosistema de memoria viva.
                     </p>
                 </div>
 
-                <!-- Abstract shape -->
-                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150%] h-32 bg-white rounded-[100%] translate-y-1/2"></div>
+                <!-- Scroll indicator decorative -->
+                <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-white/30 animate-bounce">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+                </div>
             </section>
 
-            <!-- Pilares del Modelo (Alternating Layout) -->
-            <section class="py-32 px-8 md:px-16 lg:px-24 max-w-7xl mx-auto">
-                
-                <!-- 1. Preservación -->
-                <div class="flex flex-col lg:flex-row gap-20 items-center mb-40 group">
-                    <div class="w-full lg:w-1/2">
-                        <span class="text-museum-gold font-bold text-5xl font-display opacity-20 block mb-4 group-hover:opacity-100 transition-opacity duration-700">01</span>
-                        <h2 class="text-3xl md:text-4xl font-display text-museum-dark mb-6">Preservación del Patrimonio</h2>
-                        <p class="text-museum-dark/70 text-lg font-light leading-relaxed mb-6">
-                            Revitalizamos, protegemos y difundimos el patrimonio cultural material e inmaterial del barrio El Pozón, fortaleciendo la identidad cultural y promoviendo la cohesión social.
+            <!-- Enfoque Estratégico (Componentes) -->
+            <section class="py-32 px-8 md:px-16 lg:px-24 bg-white relative">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-24">
+                        <h2 class="text-3xl md:text-5xl font-display text-museum-dark mb-6">Enfoque Estratégico</h2>
+                        <p class="text-museum-dark/60 max-w-2xl mx-auto font-light leading-relaxed">
+                            El modelo se fundamenta en cinco componentes que operan de manera articulada para fortalecer capacidades locales.
                         </p>
-                        <div class="bg-museum-cream/40 p-6 rounded-xl border-l-4 border-museum-gold">
-                            <p class="text-sm text-museum-dark/80 italic font-medium leading-relaxed">
-                                Garantizamos la conservación de bienes arqueológicos, artísticos y documentales mediante procesos rigurosos de catalogación y registro.
-                            </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                        <!-- 1. Memoria Viva -->
+                        <div class="group border-b border-zinc-100 pb-12 transition-all">
+                             <span class="text-museum-gold font-display text-6xl opacity-10 mb-6 block group-hover:opacity-100 transition-opacity">01</span>
+                             <h3 class="text-2xl font-display text-museum-dark mb-4">Memoria Viva</h3>
+                             <p class="text-museum-dark/60 font-light leading-relaxed">
+                                Sistematización de relatos, archivos comunitarios, cartografías simbólicas y dispositivos de resignificación territorial.
+                             </p>
+                        </div>
+                        <!-- 2. Educación Territorial -->
+                        <div class="group border-b border-zinc-100 pb-12 transition-all">
+                             <span class="text-museum-gold font-display text-6xl opacity-10 mb-6 block group-hover:opacity-100 transition-opacity">02</span>
+                             <h3 class="text-2xl font-display text-museum-dark mb-4">Educación Territorial</h3>
+                             <p class="text-museum-dark/60 font-light leading-relaxed">
+                                Cátedra de Identidad Barrial, metodologías sentipensantes, aulas vivas y formación de facilitadores comunitarios.
+                             </p>
+                        </div>
+                        <!-- 3. Turismo Cultural Popular -->
+                        <div class="group border-b border-zinc-100 pb-12 transition-all">
+                             <span class="text-museum-gold font-display text-6xl opacity-10 mb-6 block group-hover:opacity-100 transition-opacity">03</span>
+                             <h3 class="text-2xl font-display text-museum-dark mb-4">Turismo Cultural</h3>
+                             <p class="text-museum-dark/60 font-light leading-relaxed">
+                                Rutas simbólicas, mediadores turísticos comunitarios y experiencias inmersivas con enfoque ético y de dignidad.
+                             </p>
+                        </div>
+                        <!-- 4. Economía Solidaria -->
+                        <div class="group border-b border-zinc-100 pb-12 transition-all">
+                             <span class="text-museum-gold font-display text-6xl opacity-10 mb-6 block group-hover:opacity-100 transition-opacity">04</span>
+                             <h3 class="text-2xl font-display text-museum-dark mb-4">Economía Solidaria</h3>
+                             <p class="text-museum-dark/60 font-light leading-relaxed">
+                                Emprendimientos creativos, productos identitarios y circuitos de comercialización cultural para el barrio.
+                             </p>
+                        </div>
+                        <!-- 5. Articulación Institucional -->
+                        <div class="group border-b border-zinc-100 pb-12 transition-all">
+                             <span class="text-museum-gold font-display text-6xl opacity-10 mb-6 block group-hover:opacity-100 transition-opacity">05</span>
+                             <h3 class="text-2xl font-display text-museum-dark mb-4">Articulación</h3>
+                             <p class="text-museum-dark/60 font-light leading-relaxed">
+                                Alianzas intersectoriales, incidencia en políticas públicas y alineación con marcos legales y agendas de cooperación.
+                             </p>
                         </div>
                     </div>
-                    <div class="w-full lg:w-1/2 relative h-[450px] rounded-3xl overflow-hidden shadow-2xl">
-                        <img src="/Secsion1.png" alt="Preservación" class="w-full h-full object-cover transform scale-105 group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0" />
-                        <div class="absolute inset-0 bg-museum-gold/10 mix-blend-multiply group-hover:bg-transparent transition-colors duration-700"></div>
-                    </div>
                 </div>
+            </section>
 
-                <!-- 2. Difusión y Comunicación -->
-                <div class="flex flex-col lg:flex-row-reverse gap-20 items-center mb-40 group">
-                    <div class="w-full lg:w-1/2">
-                        <span class="text-museum-gold font-bold text-5xl font-display opacity-20 block mb-4 group-hover:opacity-100 transition-opacity duration-700">02</span>
-                        <h2 class="text-3xl md:text-4xl font-display text-museum-dark mb-6">Difusión y Divulgación</h2>
-                        <p class="text-museum-dark/70 text-lg font-light leading-relaxed mb-6">
-                            Diseñamos implementamos programas culturales orientados a la promoción del conocimiento y la apreciación del patrimonio mediante visitas guiadas, talleres y exposiciones.
-                        </p>
-                        <ul class="space-y-3">
-                            <li class="flex items-center gap-3 text-sm text-museum-dark/80"><span class="w-1.5 h-1.5 rounded-full bg-museum-gold"></span> Talleres y charlas magistrales</li>
-                            <li class="flex items-center gap-3 text-sm text-museum-dark/80"><span class="w-1.5 h-1.5 rounded-full bg-museum-gold"></span> Exposiciones itinerantes</li>
-                            <li class="flex items-center gap-3 text-sm text-museum-dark/80"><span class="w-1.5 h-1.5 rounded-full bg-museum-gold"></span> Recursos digitales e impresos</li>
+            <!-- Programa Operativo -->
+            <section class="py-32 bg-museum-cream px-8 md:px-16 lg:px-24 relative overflow-hidden">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div>
+                        <span class="text-museum-gold font-bold tracking-widest text-[10px] uppercase mb-4 block">Programa Operativo</span>
+                        <h2 class="text-3xl md:text-5xl font-display text-museum-dark mb-8">Activación del Museo Vivo</h2>
+                        <ul class="space-y-6">
+                            <li class="flex gap-6 items-start">
+                                <div class="w-10 h-10 rounded-lg bg-museum-gold/10 flex items-center justify-center flex-shrink-0 text-museum-gold">1</div>
+                                <p class="text-museum-dark/70 font-light">Diseño y ejecución de recorridos museales barriales.</p>
+                            </li>
+                            <li class="flex gap-6 items-start">
+                                <div class="w-10 h-10 rounded-lg bg-museum-gold/10 flex items-center justify-center flex-shrink-0 text-museum-gold">2</div>
+                                <p class="text-museum-dark/70 font-light">Producción de contenidos digitales y narrativas comunitarias.</p>
+                            </li>
+                            <li class="flex gap-6 items-start">
+                                <div class="w-10 h-10 rounded-lg bg-museum-gold/10 flex items-center justify-center flex-shrink-0 text-museum-gold">3</div>
+                                <p class="text-museum-dark/70 font-light">Formación de líderes como mediadores culturales y turísticos.</p>
+                            </li>
+                            <li class="flex gap-6 items-start">
+                                <div class="w-10 h-10 rounded-lg bg-museum-gold/10 flex items-center justify-center flex-shrink-0 text-museum-gold">4</div>
+                                <p class="text-museum-dark/70 font-light">Activación de espacios públicos como aulas vivas.</p>
+                            </li>
+                            <li class="flex gap-6 items-start">
+                                <div class="w-10 h-10 rounded-lg bg-museum-gold/10 flex items-center justify-center flex-shrink-0 text-museum-gold">5</div>
+                                <p class="text-museum-dark/70 font-light">Gestión de alianzas, convocatorias y cooperación técnica.</p>
+                            </li>
                         </ul>
                     </div>
-                    <div class="w-full lg:w-1/2 relative h-[450px] rounded-3xl overflow-hidden shadow-2xl">
-                        <div class="w-full h-full bg-museum-dark flex items-center justify-center overflow-hidden">
-                             <div class="absolute inset-0 opacity-30 bg-[url('/Secsion1.png')] bg-cover bg-center"></div>
-                             <span class="relative z-10 text-white font-display text-4xl opacity-50">COMUNICACIÓN</span>
+                    <div class="aspect-square bg-museum-dark rounded-[3rem] p-12 flex flex-col justify-center relative overflow-hidden group shadow-2xl">
+                         <div class="absolute inset-0 opacity-20 bg-[url('/Secsion1.png')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"></div>
+                         <div class="relative z-10">
+                            <h3 class="text-white text-3xl font-display mb-6">Laboratorio de Innovación Cultural</h3>
+                            <p class="text-white/60 font-light leading-relaxed mb-8">Convertimos el territorio en un espacio dinámico de aprendizaje y resignificación simbólica.</p>
+                            <div class="h-1 w-20 bg-museum-gold group-hover:w-full transition-all duration-700"></div>
+                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Objetivos Institucionales -->
+            <section class="py-32 px-8 md:px-16 lg:px-24 bg-white">
+                <div class="max-w-7xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-display text-center text-museum-dark mb-20 leading-tight">
+                        Objetivos del <span class="text-museum-gold italic">Impacto Institucional</span>
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div class="flex items-start gap-4 p-6 rounded-2xl hover:bg-museum-cream/30 transition-colors">
+                            <span class="text-museum-gold text-2xl">🎯</span>
+                            <p class="text-museum-dark/80 font-light">Resignificar el territorio como archivo vivo y sujeto pedagógico.</p>
+                        </div>
+                        <div class="flex items-start gap-4 p-6 rounded-2xl hover:bg-museum-cream/30 transition-colors">
+                            <span class="text-museum-gold text-2xl">🎯</span>
+                            <p class="text-museum-dark/80 font-light">Consolidar una pedagogía comunitaria crítica e intergeneracional.</p>
+                        </div>
+                        <div class="flex items-start gap-4 p-6 rounded-2xl hover:bg-museum-cream/30 transition-colors">
+                            <span class="text-museum-gold text-2xl">🎯</span>
+                            <p class="text-museum-dark/80 font-light">Impulsar un turismo cultural ético, participativo y transformador.</p>
+                        </div>
+                        <div class="flex items-start gap-4 p-6 rounded-2xl hover:bg-museum-cream/30 transition-colors">
+                            <span class="text-museum-gold text-2xl">🎯</span>
+                            <p class="text-museum-dark/80 font-light">Fortalecer la economía simbólica y creativa del barrio.</p>
+                        </div>
+                        <div class="flex items-start gap-4 p-6 rounded-2xl hover:bg-museum-cream/30 transition-colors">
+                            <span class="text-museum-gold text-2xl">🎯</span>
+                            <p class="text-museum-dark/80 font-light">Institucionalizar la Cátedra de Identidad Barrial como herramienta curricular.</p>
+                        </div>
+                        <div class="flex items-start gap-4 p-6 rounded-2xl hover:bg-museum-cream/30 transition-colors">
+                            <span class="text-museum-gold text-2xl">🎯</span>
+                            <p class="text-museum-dark/80 font-light">Escalar el modelo a nivel nacional mediante transferencia metodológica.</p>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- 3. Participación y Responsabilidad -->
-                <div class="flex flex-col lg:flex-row gap-20 items-center mb-40 group">
-                    <div class="w-full lg:w-1/2">
-                        <span class="text-museum-gold font-bold text-5xl font-display opacity-20 block mb-4 group-hover:opacity-100 transition-opacity duration-700">03</span>
-                        <h2 class="text-3xl md:text-4xl font-display text-museum-dark mb-6">Responsabilidad Social</h2>
-                        <p class="text-museum-dark/70 text-lg font-light leading-relaxed mb-6">
-                            Promovemos la inclusión activa mediante programas de voluntariado y actividades culturales destinadas a fortalecer la cohesión social y fomentar el emprendimiento local.
-                        </p>
-                    </div>
-                    <div class="w-full lg:w-1/2 grid grid-cols-2 gap-4">
-                        <div class="h-64 bg-museum-cream rounded-2xl"></div>
-                        <div class="h-64 bg-zinc-100 rounded-2xl mt-8"></div>
-                    </div>
-                </div>
-
-                <!-- Grid de Complementos (Tecnología, Ambiente, Alianzas) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-40">
-                    <!-- Tecnología -->
-                    <div class="p-12 bg-white border border-zinc-100 rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 hover:border-museum-gold/30 group">
-                        <div class="w-16 h-16 bg-museum-cream rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">📱</div>
-                        <h3 class="text-2xl font-display text-museum-dark mb-4">Accesibilidad Digital</h3>
-                        <p class="text-sm font-light leading-relaxed text-museum-dark/60">
-                            Implementamos tecnologías digitales para garantizar el acceso equitativo a recursos culturales, priorizando herramientas inclusivas y plataformas virtuales interactivas.
-                        </p>
-                    </div>
-
-                    <!-- Ambiente -->
-                    <div class="p-12 bg-museum-dark rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
-                        <div class="absolute top-0 right-0 p-8 opacity-10 text-6xl group-hover:rotate-12 transition-transform">🌿</div>
-                        <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-3xl mb-8"></div>
-                        <h3 class="text-2xl font-display text-white mb-4">Sostenibilidad</h3>
-                        <p class="text-sm font-light leading-relaxed text-white/60">
-                            Proyectos orientados a sensibilizar sobre la conservación ambiental, implementación de reciclaje y energías renovables en el territorio de El Pozón.
-                        </p>
-                    </div>
-
-                    <!-- Seguimiento -->
-                    <div class="p-12 bg-white border border-zinc-100 rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 hover:border-museum-gold/30 group">
-                         <div class="w-16 h-16 bg-museum-cream rounded-2xl flex items-center justify-center text-3xl mb-8">📊</div>
-                        <h3 class="text-2xl font-display text-museum-dark mb-4">Monitoreo y Evaluación</h3>
-                        <p class="text-sm font-light leading-relaxed text-museum-dark/60">
-                            Garantizamos la transparencia y eficacia mediante sistemas en tiempo real y alianzas estratégicas con universidades y ONGs para medir nuestro impacto.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Alianzas Final -->
-                <div class="text-center py-20 bg-museum-cream rounded-[3rem] px-8 relative overflow-hidden">
-                    <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                    <div class="relative z-10">
-                        <h2 class="text-3xl md:text-5xl font-display text-museum-dark mb-8">Cooperación y Alianzas</h2>
-                        <p class="max-w-3xl mx-auto text-museum-dark/70 font-light leading-relaxed mb-12">
-                            Establecemos vínculos con instituciones culturales, museos y redes internacionales para robustecer nuestra metodología de evaluación y alcance social.
-                        </p>
-                        <div class="flex flex-wrap justify-center gap-8 opacity-30 grayscale items-center">
-                            <span class="font-bold tracking-widest uppercase text-xs">Universidad</span>
-                            <span class="font-bold tracking-widest uppercase text-xs">ONG Nacional</span>
-                            <span class="font-bold tracking-widest uppercase text-xs">Ministerio Cultura</span>
-                            <span class="font-bold tracking-widest uppercase text-xs">Red Museal</span>
+            <!-- Indicadores de Impacto (Stats) -->
+            <section class="py-24 bg-museum-dark text-white relative overflow-hidden">
+                <!-- Particle background abstraction -->
+                <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+                <div class="max-w-7xl mx-auto px-8 relative z-10">
+                    <h2 class="text-center text-2xl md:text-4xl font-display mb-20 tracking-wide text-museum-gold/80 uppercase">Indicadores de Impacto</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+                        <div>
+                            <p class="text-5xl md:text-6xl font-display text-museum-gold mb-2 transition-all hover:scale-110 duration-500">+150</p>
+                            <p class="text-xs tracking-[0.2em] font-bold uppercase opacity-50">Relatos Sistematizados</p>
+                        </div>
+                        <div>
+                            <p class="text-5xl md:text-6xl font-display text-museum-gold mb-2 transition-all hover:scale-110 duration-500">15</p>
+                            <p class="text-xs tracking-[0.2em] font-bold uppercase opacity-50">I. Educativas Vinculadas</p>
+                        </div>
+                        <div>
+                            <p class="text-5xl md:text-6xl font-display text-museum-gold mb-2 transition-all hover:scale-110 duration-500">800</p>
+                            <p class="text-xs tracking-[0.2em] font-bold uppercase opacity-50">Visitantes Anuales</p>
+                        </div>
+                        <div>
+                            <p class="text-5xl md:text-6xl font-display text-museum-gold mb-2 transition-all hover:scale-110 duration-500">250K</p>
+                            <p class="text-xs tracking-[0.2em] font-bold uppercase opacity-50">Visualizaciones Digitales</p>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- Volver -->
-                <div class="text-center mt-32">
-                    <a href="/" class="inline-block border border-museum-dark/30 text-museum-dark px-12 py-6 rounded-full text-xs font-bold tracking-[0.3em] uppercase hover:bg-museum-dark hover:text-white transition-all duration-500 group">
-                        <span class="flex items-center gap-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:-translate-x-2 transition-transform"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                            Volver al Inicio
-                        </span>
+            <!-- Proyección Final -->
+            <section class="py-32 px-8 bg-museum-cream">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-display text-museum-dark mb-10 tracking-tight">Proyección y Escalabilidad</h2>
+                    <p class="text-lg font-light leading-relaxed text-museum-dark/70 mb-16 italic">
+                        "El modelo se consolida como una metodología replicable para territorios populares de Colombia y América Latina, fortaleciendo la participación ciudadana y la justicia cultural."
+                    </p>
+                    <a href="/" class="inline-block border border-museum-dark/30 text-museum-dark px-12 py-5 rounded-sm text-xs font-bold tracking-[0.3em] uppercase hover:bg-museum-dark hover:text-white transition-all duration-700 shadow-sm">
+                        Volver a la Página Principal
                     </a>
                 </div>
-
             </section>
         </main>
 	</body>

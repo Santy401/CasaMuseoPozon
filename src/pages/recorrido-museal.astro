@@ -1,0 +1,195 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import Navbar from "../components/navbar.astro";
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Recorrido Museal | Casa Museo Pozón</title>
+        <ClientRouter />
+	</head>
+	<body class="bg-white font-sans overflow-x-hidden">
+		<Navbar />
+        
+        <main>
+            <!-- Hero Header -->
+            <section class="relative h-[80vh] flex items-center justify-center bg-museum-dark overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/40 via-museum-dark/80 to-museum-dark z-10"></div>
+                <div class="absolute inset-0 opacity-40 bg-[url('/Secsion1.png')] bg-cover bg-center grayscale mix-blend-overlay"></div>
+                
+                <div class="relative z-20 text-center px-8" transition:animate="fade">
+                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Experiencia de Memoria Ascendente</span>
+                    <h1 class="text-5xl md:text-7xl lg:text-[7rem] font-display text-white mb-10 leading-[0.9]">
+                        Recorrido <br/> <span class="text-museum-gold">Museal</span>
+                    </h1>
+                    <p class="max-w-2xl mx-auto text-white/50 text-lg font-light leading-relaxed">
+                        Un viaje que nace en la profundidad de la tierra y florece en la identidad viva de nuestro territorio.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Introducción Territorial -->
+            <section class="py-32 px-8 md:px-16 lg:px-24 max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-display text-museum-dark mb-8">El Pozón como Archivo Vivo</h2>
+                        <p class="text-museum-dark/70 text-lg font-light leading-relaxed mb-8">
+                            Nuestra exposición se fundamenta en los hallazgos del sector <strong class="text-museum-gold">La Islita</strong>, un laboratorio vivo donde la tierra conserva las huellas de más de cinco mil años de ocupación humana.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="p-6 bg-museum-cream/30 rounded-2xl border border-museum-gold/5">
+                                <span class="text-2xl block mb-3">🐚</span>
+                                <p class="text-xs font-bold uppercase tracking-widest mb-1">Concheros</p>
+                                <p class="text-[10px] opacity-60 uppercase tracking-widest">Prácticas de recolección</p>
+                            </div>
+                            <div class="p-6 bg-museum-cream/30 rounded-2xl border border-museum-gold/5">
+                                <span class="text-2xl block mb-3">🏺</span>
+                                <p class="text-xs font-bold uppercase tracking-widest mb-1">Cerámica</p>
+                                <p class="text-[10px] opacity-60 uppercase tracking-widest">Fragmentos domésticos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                         <div class="bg-zinc-200 aspect-video rounded-[2rem] overflow-hidden shadow-2xl relative group">
+                            <div class="absolute inset-0 bg-museum-dark/20 group-hover:bg-transparent transition-all duration-700"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-white/40 font-display text-xl uppercase tracking-widest">Territorio Islita</span>
+                            </div>
+                         </div>
+                         <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-museum-gold rounded-full flex items-center justify-center -z-10 animate-pulse opacity-50"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Las 3 Salas -->
+            <section class="py-32 bg-museum-dark text-white relative">
+                 <div class="max-w-7xl mx-auto px-8">
+                     
+                     <!-- Sala 1 -->
+                     <div class="mb-48 relative flex flex-col lg:flex-row gap-20 items-center">
+                         <div class="text-6xl md:text-[10rem] font-display text-museum-gold/10 absolute -top-20 -left-10 select-none">SALA 1</div>
+                         <div class="relative z-10 w-full lg:w-1/2">
+                             <span class="text-museum-gold font-bold text-xs tracking-widest uppercase mb-4 block">¿De dónde venimos?</span>
+                             <h2 class="text-4xl md:text-5xl font-display mb-8">Orígenes Arqueológicos</h2>
+                             <p class="text-white/50 text-lg font-light leading-relaxed mb-6">
+                                Un archivo silencioso de restos marinos y herramientas líticas que narran tecnologías iniciales y relaciones primigenias con el entorno.
+                             </p>
+                             <div class="h-1 w-20 bg-museum-gold"></div>
+                         </div>
+                         <div class="w-full lg:w-1/2 h-[400px] bg-white/5 rounded-3xl overflow-hidden border border-white/10 relative">
+                              <div class="absolute inset-0 flex items-center justify-center text-white/10 uppercase tracking-[0.5em] font-display">Hallazgos</div>
+                         </div>
+                     </div>
+
+                     <!-- Sala 2 -->
+                     <div class="mb-48 relative flex flex-col lg:flex-row-reverse gap-20 items-center">
+                         <div class="text-6xl md:text-[10rem] font-display text-museum-gold/10 absolute -top-20 -right-10 select-none">SALA 2</div>
+                         <div class="relative z-10 w-full lg:w-1/2">
+                             <span class="text-museum-gold font-bold text-xs tracking-widest uppercase mb-4 block">¿Quiénes somos?</span>
+                             <h2 class="text-4xl md:text-5xl font-display mb-8">Cultura Zenú y Memoria</h2>
+                             <p class="text-white/50 text-lg font-light leading-relaxed mb-6">
+                                Revelamos la fuerza estética y tecnológica Zenú, un legado vivo que modela nuestra identidad actual a través de la ingeniería hidráulica y los tejidos.
+                             </p>
+                             <div class="h-1 w-20 bg-museum-gold"></div>
+                         </div>
+                         <div class="w-full lg:w-1/2 h-[400px] bg-white/5 rounded-3xl overflow-hidden border border-white/10 relative">
+                              <div class="absolute inset-0 flex items-center justify-center text-white/10 uppercase tracking-[0.5em] font-display">Ancestralidad</div>
+                         </div>
+                     </div>
+
+                     <!-- Sala 3 -->
+                     <div class="mb-24 relative flex flex-col lg:flex-row gap-20 items-center">
+                         <div class="text-6xl md:text-[10rem] font-display text-museum-gold/10 absolute -top-20 -left-10 select-none">SALA 3</div>
+                         <div class="relative z-10 w-full lg:w-1/2">
+                             <span class="text-museum-gold font-bold text-xs tracking-widest uppercase mb-4 block">¿Cómo vivimos?</span>
+                             <h2 class="text-4xl md:text-5xl font-display mb-8">Vida Cotidiana y Resistencia</h2>
+                             <p class="text-white/50 text-lg font-light leading-relaxed mb-6">
+                                Dignificamos lo doméstico: el taburete, el fogón y la batea como testigos de creatividad, trabajo colectivo y construcción histórica entre los siglos XIX y XX.
+                             </p>
+                             <div class="h-1 w-20 bg-museum-gold"></div>
+                         </div>
+                         <div class="w-full lg:w-1/2 h-[400px] bg-white/5 rounded-3xl overflow-hidden border border-white/10 relative">
+                              <div class="absolute inset-0 flex items-center justify-center text-white/10 uppercase tracking-[0.5em] font-display">Resistencia</div>
+                         </div>
+                     </div>
+
+                 </div>
+            </section>
+
+            <!-- Galería de Vídeos -->
+            <section class="py-32 px-8 md:px-16 lg:px-24 bg-museum-cream">
+                 <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-20">
+                        <h2 class="text-4xl font-display text-museum-dark mb-4">Cápsulas de Memoria</h2>
+                        <div class="w-20 h-1 bg-museum-gold mx-auto"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Video 1 -->
+                        <div class="aspect-video bg-museum-dark rounded-2xl overflow-hidden shadow-2xl relative group">
+                            <!-- Placeholder for YT Embed -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-white/20 uppercase tracking-widest font-bold text-xs">Video 1: Historia Arqueológica</span>
+                                <div class="w-16 h-16 rounded-full bg-museum-gold/80 flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform shadow-xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Video 2 -->
+                        <div class="aspect-video bg-museum-dark rounded-2xl overflow-hidden shadow-2xl relative group">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-white/20 uppercase tracking-widest font-bold text-xs">Video 2: El Legado Zenú</span>
+                                <div class="w-16 h-16 rounded-full bg-museum-gold/80 flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform shadow-xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Video 3 -->
+                        <div class="aspect-video bg-museum-dark rounded-2xl overflow-hidden shadow-2xl relative group">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-white/20 uppercase tracking-widest font-bold text-xs">Video 3: Rostros del Pozón</span>
+                                <div class="w-16 h-16 rounded-full bg-museum-gold/80 flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform shadow-xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Video 4 -->
+                        <div class="aspect-video bg-museum-dark rounded-2xl overflow-hidden shadow-2xl relative group">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-white/20 uppercase tracking-widest font-bold text-xs">Video 4: El Pozón Vivo</span>
+                                <div class="w-16 h-16 rounded-full bg-museum-gold/80 flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform shadow-xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </section>
+
+            <!-- PDF Download & Final Footer -->
+            <section class="py-32 px-8 bg-white text-center">
+                <div class="max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-display text-museum-dark mb-6">Dignificamos y Proyectamos la Memoria</h3>
+                    <p class="text-museum-dark/60 font-light mb-12">Descarga nuestra guía pedagógica completa y profundiza en la historia ascendente del Pozón.</p>
+                    
+                    <a href="/guia-museal.pdf" download class="group inline-flex items-center gap-4 bg-museum-dark text-white px-10 py-5 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-museum-gold transition-all duration-500 shadow-2xl shadow-museum-dark/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-y-1 transition-transform"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Descargar Guía PDF
+                    </a>
+
+                    <div class="mt-20">
+                        <a href="/" class="text-[10px] uppercase tracking-[0.4em] font-bold text-museum-dark/30 hover:text-museum-gold transition-colors">← Volver al Inicio</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+	</body>
+</html>

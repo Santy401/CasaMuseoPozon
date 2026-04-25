@@ -5,6 +5,9 @@ import Navbar from "../components/navbar.astro";
 import Inicio from "../views/Inicio.astro";
 import QuienesSomos from "../views/QuienesSomos.astro";
 import ModeloMuseal from "../views/ModeloMuseal.astro";
+import NodosMuseales from "../views/NodosMuseales.astro";
+import RecorridoMuseal from "../views/RecorridoMuseal.astro";
+import ProyectosSociales from "../views/ProyectosSociales.astro";
 ---
 
 <html lang="en">
@@ -26,17 +29,11 @@ import ModeloMuseal from "../views/ModeloMuseal.astro";
 
             <ModeloMuseal />
 
-            <section id="nodos-museales" class="py-32 px-10 bg-white">
-                <h2 class="text-4xl font-display mb-8">Nodos Museales</h2>
-            </section>
-
-            <section id="recorrido-museal" class="py-32 px-10 bg-museum-cream">
-                <h2 class="text-4xl font-display mb-8">Recorrido Museal</h2>
-            </section>
-
-            <section id="proyectos-sociales" class="py-32 px-10 bg-white">
-                <h2 class="text-4xl font-display mb-8">Proyectos Sociales</h2>
-            </section>
+            <NodosMuseales />
+            
+            <RecorridoMuseal />
+            
+            <ProyectosSociales />
 
             <section id="portafolio" class="py-32 px-10 bg-museum-cream">
                 <h2 class="text-4xl font-display mb-8">Portafolio Institucional</h2>

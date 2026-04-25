@@ -1,0 +1,174 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import Navbar from "../components/navbar.astro";
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Proyectos Sociales | Casa Museo Pozón</title>
+        <ClientRouter />
+	</head>
+	<body class="bg-white font-sans overflow-x-hidden">
+		<Navbar />
+        
+        <main>
+            <!-- Hero Header -->
+            <section class="relative min-h-[60vh] flex items-center justify-center bg-museum-cream pt-20">
+                <div class="relative z-20 text-center px-8" transition:animate="fade">
+                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Misión y Transformación Social</span>
+                    <h1 class="text-6xl md:text-[6rem] lg:text-[8rem] font-display text-museum-dark mb-10 leading-none">
+                        Proyectos <br/> <span class="text-museum-gold italic">Sociales</span>
+                    </h1>
+                    <div class="w-24 h-1 bg-museum-gold mx-auto"></div>
+                </div>
+            </section>
+
+            <!-- 1. Semanario El Pozonero -->
+            <section class="py-32 px-8 md:px-16 lg:px-24">
+                <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-start">
+                    <div class="w-full lg:w-1/2">
+                         <div class="flex items-center gap-4 mb-8">
+                             <div class="w-12 h-12 bg-museum-gold/10 rounded-xl flex items-center justify-center text-2xl">📰</div>
+                             <h2 class="text-4xl font-display text-museum-dark">Semanario El Pozonero</h2>
+                         </div>
+                         <h3 class="text-museum-gold font-bold text-sm tracking-widest uppercase mb-8">Plataforma Comunitaria de Difusión e Identidad</h3>
+                         
+                         <p class="text-museum-dark/70 text-lg font-light leading-relaxed mb-10">
+                            Un medio comunitario de comunicación cultural que fortalece la identidad, dinamiza la participación ciudadana y promueve el desarrollo económico del territorio pozonero.
+                         </p>
+
+                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                             <div class="border-l-2 border-museum-gold/20 pl-6">
+                                 <h4 class="font-bold text-xs uppercase tracking-widest mb-3 opacity-60">Impacto</h4>
+                                 <ul class="text-sm font-light text-museum-dark/60 space-y-2">
+                                     <li>• Democratización de la información</li>
+                                     <li>• Visibilización de talentos locales</li>
+                                     <li>• Atractivo turístico cultural</li>
+                                 </ul>
+                             </div>
+                             <div class="border-l-2 border-museum-gold/20 pl-6">
+                                 <h4 class="font-bold text-xs uppercase tracking-widest mb-3 opacity-60">ODS Vinculados</h4>
+                                 <div class="flex gap-4 opacity-40">
+                                     <span class="font-bold text-[10px]">ODS 4</span>
+                                     <span class="font-bold text-[10px]">ODS 11</span>
+                                     <span class="font-bold text-[10px]">ODS 16</span>
+                                 </div>
+                             </div>
+                         </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 aspect-square bg-museum-dark rounded-[3rem] p-12 flex items-center justify-center relative overflow-hidden group">
+                        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]"></div>
+                        <div class="text-center relative z-10">
+                            <span class="text-white/20 font-display text-6xl block mb-6">EDICIÓN</span>
+                            <div class="w-24 h-1 bg-museum-gold mx-auto group-hover:w-full transition-all duration-700"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Cátedra de Identidad -->
+            <section class="py-32 px-8 bg-museum-dark text-white relative">
+                 <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-24">
+                        <span class="text-museum-gold font-bold tracking-[0.3em] text-[10px] uppercase mb-4 block">Formación Ciudadana</span>
+                        <h2 class="text-4xl md:text-5xl font-display text-white mb-6">Cátedra de la Identidad Barrial Pozonera</h2>
+                        <div class="w-20 h-1 bg-museum-gold mx-auto"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        <div class="bg-white/5 p-10 rounded-3xl border border-white/10 hover:bg-white/10 transition-all group">
+                            <h4 class="font-display text-xl text-museum-gold mb-6">Cultura de Paz</h4>
+                            <p class="text-sm font-light text-white/50 leading-relaxed">Impulso al diálogo, la resolución pacífica de conflictos y la educación emocional para una convivencia armónica.</p>
+                        </div>
+                        <div class="bg-white/5 p-10 rounded-3xl border border-white/10 hover:bg-white/10 transition-all group">
+                             <h4 class="font-display text-xl text-museum-gold mb-6">Memoria Viva</h4>
+                             <p class="text-sm font-light text-white/50 leading-relaxed">Promoción del sentido de pertenencia mediante la valorización de la historia y los saberes locales en la escuela.</p>
+                        </div>
+                        <div class="bg-white/5 p-10 rounded-3xl border border-white/10 hover:bg-white/10 transition-all group lg:col-span-1">
+                             <h4 class="font-display text-xl text-museum-gold mb-6">Educación Sentipensante</h4>
+                             <p class="text-sm font-light text-white/50 leading-relaxed">Metodologías pedagógicas innovadoras que estimulan la creatividad y conectan escuela, familia y territorio.</p>
+                        </div>
+                    </div>
+                 </div>
+            </section>
+
+            <!-- 3. Ruta Turística Comunitaria -->
+            <section class="py-32 px-8 md:px-16 lg:px-24">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                    <div class="relative order-2 lg:order-1">
+                         <div class="aspect-[4/5] bg-zinc-100 rounded-[3rem] overflow-hidden shadow-2xl relative">
+                              <div class="absolute inset-0 bg-[url('/Secsion1.png')] bg-cover bg-center grayscale opacity-30"></div>
+                              <div class="absolute inset-0 bg-gradient-to-t from-museum-dark flex flex-col justify-end p-12">
+                                  <p class="text-museum-gold font-display text-2xl uppercase tracking-widest">Ruta Barrial</p>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <div class="flex items-center gap-4 mb-8">
+                             <div class="w-12 h-12 bg-museum-gold/10 rounded-xl flex items-center justify-center text-2xl">🎒</div>
+                             <h2 class="text-4xl font-display text-museum-dark">Ruta Turística Comunitaria</h2>
+                        </div>
+                        <p class="text-museum-dark/70 text-lg font-light leading-relaxed mb-8 italic">"Territorio, memoria y turismo con raíz popular."</p>
+                        <p class="text-museum-dark/60 font-light leading-relaxed mb-10">
+                            Una estrategia que dignifica el patrimonio biocultural y arqueológico mediante un recorrido experiencial inclusivo para grupos vulnerables y visitantes internacionales.
+                        </p>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <li class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-museum-dark/40"><span class="w-2 h-2 rounded-full bg-museum-gold"></span> Inclusión Social</li>
+                            <li class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-museum-dark/40"><span class="w-2 h-2 rounded-full bg-museum-gold"></span> Arte Mural</li>
+                            <li class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-museum-dark/40"><span class="w-2 h-2 rounded-full bg-museum-gold"></span> Cocina Tradicional</li>
+                            <li class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-museum-dark/40"><span class="w-2 h-2 rounded-full bg-museum-gold"></span> Señalética Interactiva</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Salas de Memoria (Híbridas) -->
+            <section class="py-32 px-8 bg-museum-cream/30">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                        <!-- Sala Popular: El Pozón en Objetos -->
+                        <div class="p-12 bg-white rounded-[3rem] shadow-xl hover:-translate-y-2 transition-all duration-500 group">
+                            <div class="w-16 h-16 bg-museum-cream rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">🏺</div>
+                            <h3 class="text-2xl font-display text-museum-dark mb-4">El Pozón en Objetos</h3>
+                            <p class="text-xs font-bold uppercase tracking-widest text-museum-gold mb-6">Museografía Doméstica</p>
+                            <p class="text-sm font-light text-museum-dark/60 leading-relaxed mb-8">
+                                Recreación de una sala barrial con objetos de familias fundadoras, convirtiendo lo cotidiano en patrimonio vivo y el afecto en pedagogía.
+                            </p>
+                            <div class="flex gap-4 opacity-30">
+                                 <span class="text-[9px] font-bold uppercase border border-museum-dark px-2 py-1 rounded">Dignidad</span>
+                                 <span class="text-[9px] font-bold uppercase border border-museum-dark px-2 py-1 rounded">Justicia Simbólica</span>
+                            </div>
+                        </div>
+
+                        <!-- Sala del Aliento Ancestral -->
+                        <div class="p-12 bg-white rounded-[3rem] shadow-xl hover:-translate-y-2 transition-all duration-500 group">
+                            <div class="w-16 h-16 bg-museum-cream rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">✨</div>
+                            <h3 class="text-2xl font-display text-museum-dark mb-4">Sala del Aliento Ancestral</h3>
+                            <p class="text-xs font-bold uppercase tracking-widest text-museum-gold mb-6">Santuario Sensorial</p>
+                            <p class="text-sm font-light text-museum-dark/60 leading-relaxed mb-8">
+                                Espacio terapéutico que integra cuerpo y territorio para la sanación comunitaria mediante el santiguado, aromas y rituales de bienestar.
+                            </p>
+                            <div class="flex gap-4 opacity-30">
+                                 <span class="text-[9px] font-bold uppercase border border-museum-dark px-2 py-1 rounded">Sanación</span>
+                                 <span class="text-[9px] font-bold uppercase border border-museum-dark px-2 py-1 rounded">Espiritualidad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer Volver -->
+            <section class="py-24 text-center">
+                 <a href="/" class="group inline-flex items-center gap-6 px-12 py-6 border border-museum-dark/20 rounded-full hover:bg-museum-dark hover:text-white transition-all duration-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:-translate-x-2 transition-transform"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"/></svg>
+                    <span class="text-xs font-bold uppercase tracking-[0.3em]">Volver al Inicio</span>
+                </a>
+            </section>
+        </main>
+	</body>
+</html>
