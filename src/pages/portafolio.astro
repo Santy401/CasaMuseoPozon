@@ -1,0 +1,164 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import Navbar from "../components/navbar.astro";
+
+const documents = [
+    {
+        title: "MODELO DE APRENDIZAJE COMUNITARIO ORGANICO A.C.O.",
+        subtitle: "Pedagogía Decolonial como Arte Vivo",
+        date: "11.09.2025",
+        slug: "modelo-aco",
+        category: "Pedagogía"
+    },
+    {
+        title: "CARACTERIZACIÓN INSTITUCIONAL 2025",
+        subtitle: "Marco Estratégico y Territorial",
+        date: "11.08.2025",
+        slug: "caracterizacion",
+        category: "Institucional"
+    },
+    {
+        title: "MANUAL DE BUENAS PRÁCTICAS CULTURALES",
+        subtitle: "Gestión y Ética Comunitaria",
+        date: "10.08.2025",
+        slug: "manual-practicas",
+        category: "Gestión"
+    },
+    {
+        title: "HIMNO DEL BARRIO EL POZÓN",
+        subtitle: "Tierra de esperanza y sueños",
+        date: "10.08.2025",
+        slug: "himno-pozon",
+        category: "Símbolos"
+    },
+    {
+        title: "IDENTIDAD INSTITUCIONAL Y NARRATIVA TERRITORIAL",
+        subtitle: "La historia detrás de la Fundación",
+        date: "10.08.2025",
+        slug: "identidad-narrativa",
+        category: "Identidad"
+    },
+    {
+        title: "EL POZÓN EN MEMORIA VIVA",
+        subtitle: "Pedagogía Comunitaria y Cátedra de Identidad",
+        date: "10.08.2025",
+        slug: "memoria-viva",
+        category: "Educación"
+    },
+    {
+        title: "DESARROLLO DE COMPETENCIAS CIUDADANAS",
+        subtitle: "Cohesión Social y Orgullo Comunitario",
+        date: "10.08.2025",
+        slug: "competencias-ciudadanas",
+        category: "Social"
+    },
+    {
+        title: "PLAN ESTRATÉGICO INSTITUCIONAL",
+        subtitle: "Visión, Misión y Objetivos 2025",
+        date: "10.08.2025",
+        slug: "plan-estrategico",
+        category: "Institucional"
+    },
+    {
+        title: "DIAGNÓSTICO PARTICIPATIVO TERRITORIAL",
+        subtitle: "Justicia Cultural y Desarrollo Humano",
+        date: "10.08.2025",
+        slug: "diagnostico-pozon",
+        category: "Investigación"
+    }
+];
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Portafolio Institucional | Casa Museo Pozón</title>
+        <ClientRouter />
+	</head>
+	<body class="bg-zinc-50 font-sans overflow-x-hidden">
+		<Navbar />
+        
+        <main>
+            <!-- Hero Header -->
+            <section class="relative min-h-[50vh] flex items-center justify-center bg-museum-dark pt-20">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+                <div class="relative z-20 text-center px-8" transition:animate="fade">
+                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Documentación Estratégica</span>
+                    <h1 class="text-5xl md:text-7xl font-display text-white mb-10 leading-none">
+                        Portafolio <br/> <span class="text-museum-gold">Digital</span>
+                    </h1>
+                    <div class="w-24 h-1 bg-museum-gold mx-auto"></div>
+                </div>
+            </section>
+
+            <!-- PDF Highlights -->
+            <section class="py-20 px-8 bg-museum-gold -mt-10 relative z-30 max-w-5xl mx-auto rounded-3xl shadow-2xl">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <a href="#" class="flex flex-col items-center text-center p-6 bg-museum-dark rounded-2xl hover:-translate-y-2 transition-transform duration-500">
+                        <span class="text-3xl mb-4">📄</span>
+                        <p class="text-[10px] font-bold text-museum-gold uppercase tracking-[0.2em] mb-2">Descargar</p>
+                        <p class="text-white text-xs font-bold leading-tight">Portafolio Pozón</p>
+                    </a>
+                    <a href="#" class="flex flex-col items-center text-center p-6 bg-museum-dark rounded-2xl hover:-translate-y-2 transition-transform duration-500">
+                        <span class="text-3xl mb-4">📄</span>
+                        <p class="text-[10px] font-bold text-museum-gold uppercase tracking-[0.2em] mb-2">Descargar</p>
+                        <p class="text-white text-xs font-bold leading-tight">Plan Operativo</p>
+                    </a>
+                    <a href="#" class="flex flex-col items-center text-center p-6 bg-museum-dark rounded-2xl hover:-translate-y-2 transition-transform duration-500">
+                        <span class="text-3xl mb-4">📄</span>
+                        <p class="text-[10px] font-bold text-museum-gold uppercase tracking-[0.2em] mb-2">Descargar</p>
+                        <p class="text-white text-xs font-bold leading-tight">Diagnóstico Pozón</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Grid de Publicaciones y Sub-secciones -->
+            <section class="py-32 px-8 max-w-7xl mx-auto">
+                <div class="text-center mb-20">
+                    <p class="text-museum-dark/40 text-[10px] uppercase tracking-widest font-bold mb-4 font-display">Archivos y Publicaciones</p>
+                    <h2 class="text-4xl font-display text-museum-dark">Explorar Contenidos</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {documents.map(doc => (
+                        <div class="bg-white border border-zinc-100 rounded-[2.5rem] p-10 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col group h-full">
+                            <div class="flex justify-between items-start mb-8">
+                                <span class="bg-museum-cream text-museum-gold px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest">{doc.category}</span>
+                                <span class="text-museum-dark/20 text-[10px] font-bold">{doc.date}</span>
+                            </div>
+                            <h3 class="text-xl font-display text-museum-dark mb-4 group-hover:text-museum-gold transition-colors flex-grow">{doc.title}</h3>
+                            <p class="text-sm font-light text-museum-dark/50 leading-relaxed mb-8">{doc.subtitle}</p>
+                            <a href={`/portafolio/${doc.slug}`} class="inline-flex items-center gap-4 text-[10px] font-bold tracking-widest uppercase text-museum-dark/40 group-hover:text-museum-gold transition-colors group-hover:gap-6">
+                                Leer Mas
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                        </div>
+                    ))}
+                </div>
+
+                <!-- Blog Section Dummy -->
+                <div class="mt-40 border-t border-zinc-200 pt-32 text-center">
+                    <h3 class="text-2xl font-display text-museum-dark mb-10 italic">Últimas publicaciones en nuestro blog corporativo</h3>
+                    <div class="max-w-4xl mx-auto bg-museum-dark rounded-[3rem] p-20 text-white relative overflow-hidden">
+                        <div class="absolute inset-0 bg-museum-gold/5 blur-3xl rounded-full translate-x-1/2 translate-y-1/2"></div>
+                        <div class="relative z-10">
+                             <p class="text-museum-gold font-bold text-[10px] uppercase tracking-[0.4em] mb-6">Lectura Destacada</p>
+                             <h4 class="text-3xl md:text-4xl font-display mb-8">Pedagogía Decolonial como Arte Vivo y Memoria Encarnada</h4>
+                             <p class="text-white/60 font-light mb-12">Un análisis profundo desde los Saberes Afrocaribeños y Afroindígenas del barrio El Pozón.</p>
+                             <a href="#" class="bg-white text-museum-dark px-10 py-5 rounded-full text-[10px] font-bold tracking-widest uppercase hover:bg-museum-gold transition-colors">Continuar Leyendo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Volver -->
+                <div class="text-center mt-32">
+                    <a href="/" class="text-[10px] uppercase tracking-[0.4em] font-bold text-museum-dark/20 hover:text-museum-gold transition-colors">← Volver a la Página Principal</a>
+                </div>
+            </section>
+        </main>
+	</body>
+</html>

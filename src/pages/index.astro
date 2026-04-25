@@ -8,6 +8,11 @@ import ModeloMuseal from "../views/ModeloMuseal.astro";
 import NodosMuseales from "../views/NodosMuseales.astro";
 import RecorridoMuseal from "../views/RecorridoMuseal.astro";
 import ProyectosSociales from "../views/ProyectosSociales.astro";
+import Portafolio from "../views/Portafolio.astro";
+import Eventos from "../views/Eventos.astro";
+import RepresentanteLegal from "../views/RepresentanteLegal.astro";
+import Contacto from "../views/Contacto.astro";
+import Footer from "../components/footer.astro";
 ---
 
 <html lang="en">
@@ -34,22 +39,16 @@ import ProyectosSociales from "../views/ProyectosSociales.astro";
             <RecorridoMuseal />
             
             <ProyectosSociales />
-
-            <section id="portafolio" class="py-32 px-10 bg-museum-cream">
-                <h2 class="text-4xl font-display mb-8">Portafolio Institucional</h2>
-            </section>
-
-            <section id="eventos" class="py-32 px-10 bg-white">
-                <h2 class="text-4xl font-display mb-8">Eventos</h2>
-            </section>
-
-            <section id="representante" class="py-32 px-10 bg-museum-cream">
-                <h2 class="text-4xl font-display mb-8">Representante Legal</h2>
-            </section>
-
-            <section id="contacto" class="py-32 px-10 bg-museum-dark text-museum-cream">
-                <h2 class="text-4xl font-display mb-8">Contacto</h2>
-            </section>
+            
+            <Portafolio />
+            
+            <Eventos />
+            
+            <RepresentanteLegal />
+            
+            <Contacto />
         </main>
+
+        <Footer />
 	</body>
 </html>

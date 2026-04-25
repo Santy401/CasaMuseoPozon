@@ -1,0 +1,230 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import Navbar from "../components/navbar.astro";
+
+const initialEvents = [
+    {
+        title: "Participación en “El Caribe Llega”",
+        tag: "Institucional",
+        date: "Septiembre 2025",
+        text: "La Fundación participó activamente compartiendo su experiencia en gobernanza cultural para la paz y la vida digna, posicionando al Pozón como referente vivo de resistencia.",
+        image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        title: "Presente en Aniversario No. 57 El Pozón",
+        tag: "Comunidad",
+        date: "Agosto 2025",
+        text: "Fiesta de identidad, tradición y alegría comunitaria donde la Fundación reafirma su compromiso con el desarrollo del territorio.",
+        video: "https://www.youtube.com/watch?v=jrperNvuNVA"
+    },
+    {
+        title: "EL POZÓN: Un Museo Vivo",
+        tag: "Encuentro Cultural",
+        date: "06 Septiembre 2025",
+        text: "Encuentro con el Programa Escuelas Populares Sociopolíticas – Trenzando Territorio. Una jornada de sancocho ancestral, caminatas históricas y diálogos sobre liderazgo comunitario.",
+        image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        title: "Mentoría sobre Asociatividad y Gobernanza",
+        tag: "Formación",
+        date: "08 Mayo 2025",
+        text: "Fortalecimiento de la legitimidad institucional en el taller convocado por la Cámara de Comercio de Cartagena. Liderado por el maestro Jairo Chaparro Valderrama.",
+        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        title: "Cuando el Museo llega a tu casa",
+        tag: "Patrimonio",
+        date: "Abril 2025",
+        text: "Visita técnica de la doctora Lucy Gómez (Museo del Oro Zenú) al Conchero de la Islita del Pozón. Puentes entre la memoria profunda y la dignidad cotidiana.",
+        image: "https://images.unsplash.com/photo-1447069387593-a5de0862081d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        title: "1° Encuentro de Turismo Cultural Comunitario",
+        tag: "Turismo",
+        date: "26 Julio 2025",
+        text: "Hito en la articulación de saberes que apuestan por un turismo con enfoque pedagógico. Presentación del modelo 'Cartagena Popular: El Pozón como Museo Vivo'.",
+        image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        title: "El Mural como puente entre ciencia y comunidad",
+        tag: "Cultura & Ciencia",
+        date: "Julio 2025",
+        text: "Elaboración de un mural científico con el apoyo del Museo del Oro Zenú, sensibilizando sobre la preservación de especies nativas.",
+        image: "https://images.unsplash.com/photo-1541462608141-ad60397d446f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        title: "Diseño hacia la Justicia Social (Bellas Artes)",
+        tag: "Academia",
+        date: "Junio 2025",
+        text: "Estudiantes de Diseño Industrial de Bellas Artes descubren el alma de El Pozón en una experiencia transformadora.",
+        image: "https://images.unsplash.com/photo-1513364230712-be29210c1d2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    }
+];
+
+const secondaryEvents = [
+    { title: "Encuentro Escuelas Populares Sociopolíticas", date: "06 Sept 2025" },
+    { title: "Taller de Asociatividad - Cámara de Comercio", date: "08 Mayo 2025" },
+    { title: "Visita Técnica Museo del Oro Zenú", date: "Abril 2025" },
+    { title: "1° Encuentro de Turismo Cultural Comunitario", date: "26 Julio 2025" },
+    { title: "3° Encuentro Industrias Creativas", date: "24 Junio 2025" }
+];
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Eventos y Noticias | Casa Museo Pozón</title>
+        <ClientRouter />
+	</head>
+	<body class="bg-zinc-50 font-sans overflow-x-hidden">
+		<Navbar />
+        
+        <main>
+            <!-- Hero Header -->
+            <section class="relative min-h-[40vh] flex items-center justify-center bg-museum-dark pt-20">
+                <div class="relative z-20 text-center px-8" transition:animate="fade">
+                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Crónicas del Territorio</span>
+                    <h1 class="text-6xl md:text-8xl font-display text-white mb-10 leading-none">
+                        Eventos <br/> <span class="text-museum-gold italic">& Noticias</span>
+                    </h1>
+                </div>
+            </section>
+
+            <div class="max-w-7xl mx-auto px-8 py-20">
+                <div class="flex flex-col lg:flex-row gap-20">
+                    
+                    <!-- Left Column: Featured Events -->
+                    <div class="flex-grow space-y-32">
+                        {initialEvents.map(event => (
+                            <article class="group">
+                                <div class="flex flex-col md:flex-row gap-12 items-start">
+                                    <div class="w-full md:w-1/2 aspect-video bg-zinc-200 rounded-[2rem] overflow-hidden shadow-2xl relative">
+                                        <img src={event.image || "https://images.unsplash.com/photo-1540575467063-178a50c2df87"} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
+                                        {event.video && (
+                                            <div class="absolute inset-0 flex items-center justify-center bg-black/20">
+                                                <div class="w-16 h-16 rounded-full bg-museum-gold flex items-center justify-center text-white shadow-xl hover:scale-110 transition-transform">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div class="w-full md:w-1/2">
+                                        <div class="flex items-center gap-6 mb-6">
+                                            <span class="text-museum-gold font-bold text-[10px] uppercase tracking-widest">{event.tag}</span>
+                                            <span class="text-zinc-400 text-[10px] uppercase tracking-widest">{event.date}</span>
+                                        </div>
+                                        <h2 class="text-3xl font-display text-museum-dark mb-6 group-hover:text-museum-gold transition-colors">{event.title}</h2>
+                                        <p class="text-sm font-light text-museum-dark/60 leading-relaxed mb-8">{event.text}</p>
+                                        <a href="#" class="text-[10px] font-bold uppercase tracking-widest border-b border-museum-gold pb-1 hover:border-museum-dark transition-all">Leer Crónica Completa</a>
+                                    </div>
+                                </div>
+                            </article>
+                        ))}
+
+                        <!-- PDF Download -->
+                        <div class="bg-museum-cream/50 p-12 rounded-[3rem] border border-museum-gold/10 flex flex-col md:flex-row justify-between items-center gap-8">
+                             <div>
+                                 <h3 class="text-2xl font-display text-museum-dark mb-2">Información Institucional 2025</h3>
+                                 <p class="text-xs text-museum-dark/50 uppercase tracking-widest">Descargar dossier de eventos y prensa</p>
+                             </div>
+                             <a href="#" class="bg-museum-dark text-white px-10 py-5 rounded-sm text-[10px] font-bold tracking-widest uppercase hover:bg-museum-gold transition-all">Descargar PDF</a>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Sidebar (Links / Sub-sections) -->
+                    <aside class="w-full lg:w-80">
+                        <div class="sticky top-32 space-y-12">
+                            <div>
+                                <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-museum-dark/30 mb-8 border-b border-zinc-200 pb-4">Sub-secciones</h4>
+                                <nav class="flex flex-col gap-6">
+                                    <a href="#encuentros" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold hover:translate-x-2 transition-all">01. Encuentros Regionales</a>
+                                    <a href="#murales" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold hover:translate-x-2 transition-all">02. Muralismo Científico</a>
+                                    <a href="#academia" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold hover:translate-x-2 transition-all">03. Visitas Académicas</a>
+                                    <a href="#aniversarios" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold hover:translate-x-2 transition-all">04. Vida Comunitaria</a>
+                                    <a href="#" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold hover:translate-x-2 transition-all">05. Paseos Museales</a>
+                                </nav>
+                            </div>
+
+        </main>
+        
+        <!-- Descriptive Footer Links Section (13 pieces) -->
+        <section class="py-32 px-8 bg-zinc-50 border-t border-zinc-200">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl font-display text-center mb-24 uppercase tracking-widest text-museum-dark">Otras Secciones y <span class="text-museum-gold">Publicaciones</span></h2>
+                
+                <div class="space-y-20">
+                    {[
+                        { 
+                            t: "MODELO DE APRENDIZAJE COMUNITARIO ORGANICO A.C.O.", 
+                            d: "11.09.2025", 
+                            s: "Pedagogía Decolonial como Arte Vivo, Memoria Encarnada y Dignidad Educativa desde los Saberes Afrocaribeños y Afroindígenas. Memoria Viva, 9 Principios e Impacto." 
+                        },
+                        { 
+                            t: "CARACTERIZACIÓN INSTITUCIONAL", 
+                            d: "12.08.2025", 
+                            s: "Diagnóstico profundo del Barrio El Pozón, Cartagena de Indias. Localización, demografía y marco estratégico institucional." 
+                        },
+                        { 
+                            t: "POLÍTICAS PATRIMONIALES Y MUSEOLÓGICAS", 
+                            d: "10.08.2025", 
+                            s: "Retos y proyección cultural de una entidad que surge de un proceso comunitario de más de dos décadas orientado a la revitalización biocultural." 
+                        },
+                        { 
+                            t: "RECONOCIMIENTO DEL CONCHERO POR ENTIDADES GUBERNAMENTALES", 
+                            d: "06.08.2025", 
+                            s: "El IPCC y la Alcaldía Mayor impulsan el reconocimiento oficial del Conchero del sector Islita como sitio arqueológico de valor patrimonial nacional." 
+                        },
+                        { 
+                            t: "3° ENCUENTRO DE INDUSTRIAS CREATIVAS Y CULTURALES", 
+                            d: "24.06.2025", 
+                            s: "Participación estratégica de la Fundación en el Encuentro de Cartagena y Bolívar, promoviendo la economía naranja desde el territorio." 
+                        },
+                        { 
+                            t: "CARTAGENA POPULAR: EL POZÓN COMO MUSEO VIVO", 
+                            d: "22.04.2025", 
+                            s: "Iniciativa que convierte el barrio en un escenario de dignificación patrimonial, pedagogía territorial y turismo simbólico para líderes de la zona." 
+                        },
+                        { 
+                            t: "PEDAGOGÍA DECOLONIAL: ARTE VIVO Y MEMORIA", 
+                            d: "10.09.2025", 
+                            s: "Un estudio sobre la dignidad educativa desde los saberes ancestrales y la herencia afroindígena del Caribe." 
+                        },
+                        { 
+                            t: "MEMORIA VIVA - 9 PRINCIPIOS DE ACCIÓN", 
+                            d: "24.08.2025", 
+                            s: "Documento detallado sobre los pilares del Modelo A.C.O. y su impacto en la construcción de ciudadanía." 
+                        },
+                        { 
+                            t: "PASEOS Y RECORRIDOS MUSEALES", 
+                            d: "Actual", 
+                            s: "Navegación por los diferentes nodos del museo vivo y la experiencia sensorial de la memoria barrial." 
+                        }
+                    ].map(item => (
+                        <div class="group border-l-4 border-transparent hover:border-museum-gold pl-8 transition-all duration-500">
+                            <p class="text-[9px] text-zinc-400 font-bold uppercase tracking-[0.2em] mb-4">{item.d}</p>
+                            <h3 class="text-2xl font-display text-museum-dark mb-6 group-hover:text-museum-gold transition-colors leading-tight uppercase">{item.t}</h3>
+                            <p class="text-md font-light text-museum-dark/60 leading-relaxed mb-8 max-w-3xl">
+                                {item.s}
+                            </p>
+                            <a href="#" class="text-[10px] font-bold uppercase tracking-[0.3em] text-museum-gold hover:text-museum-dark transition-colors inline-flex items-center gap-4">
+                                Explorar Documento
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                        </div>
+                    ))}
+                    
+                    <div class="pt-20 text-center">
+                         <a href="/" class="group inline-flex items-center gap-6 px-12 py-6 border border-museum-dark/20 rounded-full hover:bg-museum-dark hover:text-white transition-all duration-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:-translate-x-2 transition-transform"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"/></svg>
+                            <span class="text-xs font-bold uppercase tracking-[0.3em]">Volver al Inicio</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+	</body>
+</html>

@@ -1,0 +1,152 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import Navbar from "../components/navbar.astro";
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Representante Legal | Casa Museo Pozón</title>
+        <ClientRouter />
+	</head>
+	<body class="bg-white font-sans overflow-x-hidden">
+		<Navbar />
+        
+        <main>
+            <!-- Hero Header con Perfil -->
+            <section class="relative min-h-[90vh] flex items-center justify-center bg-museum-dark pt-32 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-t from-museum-dark via-museum-dark/80 to-transparent z-10"></div>
+                <div class="absolute inset-x-0 top-0 h-full opacity-30 bg-[url('/creator.png')] bg-cover bg-center grayscale mix-blend-overlay"></div>
+                
+                <div class="relative z-20 max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div transition:animate="slide">
+                        <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Liderazgo y Visión</span>
+                        <h1 class="text-6xl md:text-8xl font-display text-white mb-6 leading-none">
+                            Rigoberto <br/> <span class="text-museum-gold">Castro Pérez</span>
+                        </h1>
+                        <p class="text-white/60 text-xl font-light leading-relaxed mb-10 max-w-xl">
+                            Historiador, investigador territorial y arquitecto del Modelo Museal Turístico Territorial de El Pozón.
+                        </p>
+                        <div class="w-24 h-1 bg-museum-gold mb-10"></div>
+                        
+                        <div class="flex gap-10">
+                            <div>
+                                <p class="text-museum-gold font-display text-3xl mb-2">25+</p>
+                                <p class="text-[9px] uppercase tracking-widest text-white/40">Años de Gestión</p>
+                            </div>
+                            <div>
+                                <p class="text-museum-gold font-display text-3xl mb-2">4</p>
+                                <p class="text-[9px] uppercase tracking-widest text-white/40">Nodos Museales</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-12 rounded-[3rem]">
+                        <p class="text-2xl font-display text-museum-gold mb-8 italic">"La memoria no está en los objetos, está en las manos que los crean, en las voces que los narran, en los territorios que resisten."</p>
+                        <p class="text-white/50 font-light text-sm leading-relaxed">
+                            Como fundador y Director Ejecutivo, Rigoberto ha liderado la creación de un modelo único que resignifica el territorio como archivo vivo y destino cultural.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bio Extendida -->
+            <section class="py-32 px-8 md:px-16 lg:px-24 bg-white">
+                <div class="max-w-4xl mx-auto">
+                    <div class="prose prose-zinc prose-lg max-w-none">
+                        <p class="text-museum-dark/70 text-lg font-light leading-[1.8] mb-12">
+                            Su formación académica se consolidó con investigaciones que marcaron hitos en la comprensión de Cartagena. Su estudio <strong class="text-museum-dark border-b border-museum-gold">Entre fango y pavimento</strong> analizó las tensiones entre urbanismo oficial y territorialidades populares, mientras que su investigación de maestría amplió esta mirada hacia el patrimonio y el desarrollo territorial.
+                        </p>
+                        
+                        <h2 class="text-3xl font-display text-museum-dark mt-20 mb-10">Aportes Estratégicos</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 not-prose">
+                            <div class="p-8 bg-museum-cream/30 rounded-3xl border border-museum-gold/5">
+                                <h4 class="font-bold text-xs uppercase tracking-widest text-museum-gold mb-4">Investigación</h4>
+                                <p class="text-sm text-museum-dark/60 font-light">Descubrimiento del conchero arqueológico Islita del Pozón, vinculando el territorio con prácticas ancestrales Zenú.</p>
+                            </div>
+                            <div class="p-8 bg-museum-cream/30 rounded-3xl border border-museum-gold/5">
+                                <h4 class="font-bold text-xs uppercase tracking-widest text-museum-gold mb-4">Pedagogía</h4>
+                                <p class="text-sm text-museum-dark/60 font-light">Creador del Modelo de Aprendizaje Comunitario Orgánico (A.C.O.), reconociendo saberes locales como base educativa.</p>
+                            </div>
+                            <div class="p-8 bg-museum-cream/30 rounded-3xl border border-museum-gold/5">
+                                <h4 class="font-bold text-xs uppercase tracking-widest text-museum-gold mb-4">Simbología</h4>
+                                <p class="text-sm text-museum-dark/60 font-light">Composición del Himno de El Pozón, adoptado por instituciones como símbolo de identidad y orgullo barrial.</p>
+                            </div>
+                            <div class="p-8 bg-museum-cream/30 rounded-3xl border border-museum-gold/5">
+                                <h4 class="font-bold text-xs uppercase tracking-widest text-museum-gold mb-4">Gestión</h4>
+                                <p class="text-sm text-museum-dark/60 font-light">Integración de la Fundación a la Red de Museos de Cartagena y Bolívar en 2025.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Video Presentación -->
+            <section class="py-32 px-8 bg-museum-cream">
+                 <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl font-display text-museum-dark uppercase tracking-widest">Vídeo de Gestión</h2>
+                        <div class="w-20 h-1 bg-museum-gold mx-auto mt-4"></div>
+                    </div>
+                    <div class="aspect-video bg-museum-dark rounded-[3rem] overflow-hidden shadow-2xl relative group">
+                        <!-- Botón Play decorativo -->
+                        <div class="absolute inset-0 flex items-center justify-center z-10">
+                            <div class="w-24 h-24 rounded-full bg-museum-gold text-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-museum-dark/40 group-hover:bg-museum-dark/20 transition-all"></div>
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32" class="w-full h-full object-cover grayscale" />
+                    </div>
+                 </div>
+            </section>
+
+            <!-- Información Legal y Transparencia -->
+            <section class="py-32 px-8 md:px-16 lg:px-24 bg-white relative overflow-hidden">
+                <div class="max-w-7xl mx-auto">
+                    <div class="flex flex-col lg:flex-row gap-20 items-start">
+                        <div class="w-full lg:w-1/3">
+                            <span class="text-museum-gold font-bold tracking-widest text-[10px] uppercase mb-4 block">Entidad ESAL</span>
+                            <h2 class="text-4xl font-display text-museum-dark mb-8">Información <br/> <span class="text-museum-gold italic">Legal</span></h2>
+                            <p class="text-museum-dark/60 font-light leading-relaxed mb-10">
+                                Nuestra gestión transparente respalda nuestra labor meritoria y el uso responsable de los recursos para la transformación social.
+                            </p>
+                            <div class="w-20 h-1 bg-museum-gold"></div>
+                        </div>
+
+                        <div class="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {[
+                                { n: "Certificado de Existencia y Representación", f: "CERT...EGAL.pdf" },
+                                { n: "RUT Institucional Actualizado", f: "RUT...OZON.pdf" },
+                                { n: "Informe de Gestión y Actividades", f: "Info...2019.pdf" },
+                                { n: "Registro de Marca y Símbolos", f: "Sin título.png" },
+                                { n: "Certificación de Cumplimiento", f: "CE 3...AJAL.pdf" }
+                            ].map(doc => (
+                                <a href="#" class="flex items-center gap-6 p-8 bg-zinc-50 rounded-3xl border border-zinc-100 hover:border-museum-gold hover:bg-white transition-all group shadow-sm">
+                                    <div class="w-12 h-12 bg-museum-dark rounded-xl flex items-center justify-center text-white group-hover:bg-museum-gold transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-museum-dark mb-1 leading-snug">{doc.n}</p>
+                                        <p class="text-[9px] text-zinc-400 uppercase tracking-tighter">{doc.f}</p>
+                                    </div>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer Volver -->
+            <section class="py-24 text-center">
+                 <a href="/" class="group inline-flex items-center gap-6 px-12 py-6 border border-museum-dark/20 rounded-full hover:bg-museum-dark hover:text-white transition-all duration-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:-translate-x-2 transition-transform"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"/></svg>
+                    <span class="text-xs font-bold uppercase tracking-[0.3em]">Volver al Inicio</span>
+                </a>
+            </section>
+        </main>
+	</body>
+</html>
