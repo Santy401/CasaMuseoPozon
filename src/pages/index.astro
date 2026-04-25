@@ -1,17 +1,20 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import "../styles/global.css";
 import Navbar from "../components/navbar.astro";
 import Inicio from "../views/Inicio.astro";
+import QuienesSomos from "../views/QuienesSomos.astro";
+import ModeloMuseal from "../views/ModeloMuseal.astro";
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Casa Museo Pozón</title>
+        <ClientRouter />
 	</head>
 	<body>
 		<Navbar />
@@ -19,15 +22,9 @@ import Inicio from "../views/Inicio.astro";
         <main>
             <Inicio />
 
-            <section id="quienes-somos" class="py-32 px-10 bg-white">
-                <h2 class="text-4xl font-display mb-8">Quiénes Somos</h2>
-                <div class="h-64 bg-museum-gold/5 rounded-xl border border-dashed border-museum-gold/20 flex items-center justify-center text-museum-gold/40">Contenido: Quiénes Somos</div>
-            </section>
+            <QuienesSomos />
 
-            <section id="modelo-museal" class="py-32 px-10 bg-museum-cream">
-                <h2 class="text-4xl font-display mb-8">Modelo Museal</h2>
-                <div class="h-64 bg-museum-dark/5 rounded-xl border border-dashed border-museum-dark/20 flex items-center justify-center text-museum-dark/40">Contenido: Modelo Museal</div>
-            </section>
+            <ModeloMuseal />
 
             <section id="nodos-museales" class="py-32 px-10 bg-white">
                 <h2 class="text-4xl font-display mb-8">Nodos Museales</h2>

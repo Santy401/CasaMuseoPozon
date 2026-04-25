@@ -1,0 +1,159 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import Navbar from "../components/navbar.astro";
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Quiénes Somos | Casa Museo Pozón</title>
+        <ClientRouter />
+	</head>
+	<body class="bg-museum-cream font-sans">
+		<Navbar />
+        
+        <main>
+            <!-- Hero Secction para Quiénes Somos -->
+            <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-museum-dark pt-20">
+                <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/80 to-museum-dark z-10"></div>
+                <!-- Abstract pattern background -->
+                <div class="absolute inset-0 opacity-10 bg-[url('/Secsion1.png')] bg-cover bg-center mix-blend-overlay"></div>
+                
+                <div class="relative z-20 text-center px-8" transition:animate="slide">
+                    <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-6 uppercase block">Conoce Nuestra Historia</span>
+                    <h1 class="text-6xl md:text-8xl font-display text-museum-cream mb-6">
+                        Quiénes Somos
+                    </h1>
+                    <div class="w-24 h-1 bg-museum-gold mx-auto"></div>
+                </div>
+            </section>
+
+            <!-- Contenido Principal -->
+            <section class="py-24 max-w-5xl mx-auto px-8 lg:px-0">
+                <!-- Misión -->
+                <div class="mb-32 flex flex-col md:flex-row gap-16 items-center">
+                    <div class="w-full md:w-1/2">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="w-12 h-[2px] bg-museum-gold"></span>
+                            <h2 class="text-3xl font-display text-museum-dark uppercase tracking-widest">Nuestra Misión</h2>
+                        </div>
+                        <div class="space-y-6 text-museum-dark/80 font-light leading-relaxed text-lg">
+                            <p>La <strong>FUNDACIÓN CASA MUSEO POZÓN</strong> tiene como misión revitalizar y preservar los entornos bioculturales, arqueológicos, creativos y de saberes ancestrales del barrio El Pozón, consolidándolo como un espacio emblemático de encuentro histórico, cultural, social y humano.</p>
+                            <p>Con estrategias integrales, promovemos la salvaguardia del patrimonio cultural, histórico y natural, beneficiando generaciones presentes y futuras mientras fomentamos una cultura de paz, inclusión, respeto mutuo y diálogo entre comunidades.</p>
+                            <p>Mediante tecnologías accesibles y dinámicas, impulsamos la divulgación de nuestra herencia cultural, priorizando la autogestión comunitaria, el desarrollo sostenible y la convivencia pacífica con la naturaleza.</p>
+                        </div>
+                    </div>
+                    <!-- Imagen de la misión -->
+                    <div class="w-full md:w-1/2 h-96 relative rounded-2xl overflow-hidden shadow-2xl group">
+                        <div class="absolute inset-0 border-2 border-museum-gold/30 m-6 rounded-xl z-20 transition-transform duration-700 group-hover:scale-95 pointer-events-none"></div>
+                        <div class="w-full h-full bg-zinc-200 flex flex-col items-center justify-center text-museum-dark/30 bg-cover bg-center">
+                            <span class="text-5xl mb-4">📷</span>
+                            <span class="text-xs uppercase tracking-widest font-bold">Foto Comunidad</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visión -->
+                <div class="mb-32 flex flex-col md:flex-row-reverse gap-16 items-center">
+                    <div class="w-full md:w-1/2">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="w-12 h-[2px] bg-museum-gold"></span>
+                            <h2 class="text-3xl font-display text-museum-dark uppercase tracking-widest">Visión 2028</h2>
+                        </div>
+                        <div class="space-y-6 text-museum-dark/80 font-light leading-relaxed text-lg relative z-10">
+                            <p>Aspiramos a consolidarnos para el año 2028 como una organización líder y referente a nivel local, regional, nacional e internacional en la preservación y revitalización de los entornos bioculturales, arqueológicos, creativos y de saberes ancestrales del barrio El Pozón.</p>
+                            <p>Buscamos fortalecer la diversidad cultural, promover el diálogo intercultural y fomentar la cohesión social como ejes centrales para el desarrollo humano y el bienestar colectivo, posicionando a la Fundación como un modelo inspirador de gestión cultural.</p>
+                        </div>
+                        <!-- Marca de agua de la visión -->
+                        <span class="absolute top-10 right-0 text-[12rem] font-display text-museum-gold/5 leading-none select-none pointer-events-none transform translate-x-10">28</span>
+                    </div>
+                    <!-- Imagen de la visión -->
+                    <div class="w-full md:w-1/2 h-96 relative rounded-2xl overflow-hidden shadow-2xl group">
+                        <div class="absolute inset-0 border-2 border-museum-gold/30 m-6 rounded-xl z-20 transition-transform duration-700 group-hover:scale-95 pointer-events-none"></div>
+                        <div class="w-full h-full bg-zinc-200 flex flex-col items-center justify-center text-museum-dark/30 bg-cover bg-center">
+                            <span class="text-5xl mb-4">📷</span>
+                            <span class="text-xs uppercase tracking-widest font-bold">Foto Histórica</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Valores -->
+                <div class="mb-16">
+                    <div class="text-center mb-16 relative">
+                        <h2 class="text-4xl font-display text-museum-dark mb-6 relative z-10">Valores Corporativos</h2>
+                        <div class="w-24 h-1 bg-museum-gold mx-auto relative z-10"></div>
+                        <!-- Decorative text behind -->
+                        <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-8 text-[6rem] font-display text-zinc-100 whitespace-nowrap -z-10 select-none">PRINCIPIOS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Valor 1 -->
+                        <div class="bg-white p-8 rounded-2xl shadow-xl border border-zinc-100 hover:border-museum-gold/50 transition-all duration-300 hover:-translate-y-2 group">
+                            <div class="w-12 h-12 rounded-full bg-museum-cream flex items-center justify-center text-museum-gold mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                                <span class="text-2xl">🏛️</span>
+                            </div>
+                            <h3 class="font-display text-xl text-museum-dark mb-4 group-hover:text-museum-gold transition-colors">Preservación</h3>
+                            <p class="text-museum-dark/70 font-light text-sm">Compromiso activo con la conservación y protección del patrimonio cultural, histórico y artístico de El Pozón y sus tradiciones.</p>
+                        </div>
+
+                        <!-- Valor 2 -->
+                        <div class="bg-white p-8 rounded-2xl shadow-xl border border-zinc-100 hover:border-museum-gold/50 transition-all duration-300 hover:-translate-y-2 group">
+                            <div class="w-12 h-12 rounded-full bg-museum-cream flex items-center justify-center text-museum-gold mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                                <span class="text-2xl">🤝</span>
+                            </div>
+                            <h3 class="font-display text-xl text-museum-dark mb-4 group-hover:text-museum-gold transition-colors">Inclusión</h3>
+                            <p class="text-museum-dark/70 font-light text-sm">Fomentar un entorno equitativo y de diversidad. Promoviendo la interacción y el entendimiento mutuo entre culturas.</p>
+                        </div>
+
+                        <!-- Valor 3 -->
+                        <div class="bg-white p-8 rounded-2xl shadow-xl border border-zinc-100 hover:border-museum-gold/50 transition-all duration-300 hover:-translate-y-2 group">
+                            <div class="w-12 h-12 rounded-full bg-museum-cream flex items-center justify-center text-museum-gold mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                                <span class="text-2xl">💡</span>
+                            </div>
+                            <h3 class="font-display text-xl text-museum-dark mb-4 group-hover:text-museum-gold transition-colors">Innovación</h3>
+                            <p class="text-museum-dark/70 font-light text-sm">Integrar herramientas tecnológicas para potenciar nuevas formas accesibles de divulgar el patrimonio ancestral.</p>
+                        </div>
+
+                        <!-- Valor 4 -->
+                        <div class="bg-white p-8 rounded-2xl shadow-xl border border-zinc-100 hover:border-museum-gold/50 transition-all duration-300 hover:-translate-y-2 group">
+                            <div class="w-12 h-12 rounded-full bg-museum-cream flex items-center justify-center text-museum-gold mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                                <span class="text-2xl">🌱</span>
+                            </div>
+                            <h3 class="font-display text-xl text-museum-dark mb-4 group-hover:text-museum-gold transition-colors">Sostenibilidad</h3>
+                            <p class="text-museum-dark/70 font-light text-sm">Prácticas responsables que equilibren el desarrollo con la protección del entorno natural y el legado cultural.</p>
+                        </div>
+
+                        <!-- Valor 5 -->
+                        <div class="bg-white p-8 rounded-2xl shadow-xl border border-zinc-100 hover:border-museum-gold/50 transition-all duration-300 hover:-translate-y-2 group">
+                            <div class="w-12 h-12 rounded-full bg-museum-cream flex items-center justify-center text-museum-gold mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                                <span class="text-2xl">✊</span>
+                            </div>
+                            <h3 class="font-display text-xl text-museum-dark mb-4 group-hover:text-museum-gold transition-colors">Empoderamiento</h3>
+                            <p class="text-museum-dark/70 font-light text-sm">Involucrar activamente a la comunidad en el diseño y ejecución de todos los proyectos institucionales.</p>
+                        </div>
+
+                        <!-- Valor 6 -->
+                        <div class="bg-white p-8 rounded-2xl shadow-xl border border-zinc-100 hover:border-museum-gold/50 transition-all duration-300 hover:-translate-y-2 group">
+                            <div class="w-12 h-12 rounded-full bg-museum-cream flex items-center justify-center text-museum-gold mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                                <span class="text-2xl">⚖️</span>
+                            </div>
+                            <h3 class="font-display text-xl text-museum-dark mb-4 group-hover:text-museum-gold transition-colors">Transparencia</h3>
+                            <p class="text-museum-dark/70 font-light text-sm">Gestión ética, abierta, confiable y responsable, asegurando así el impacto positivo a largo plazo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to action para volver -->
+                <div class="text-center mt-20 mb-10 border-t border-museum-gold/20 pt-16">
+                    <a href="/" class="inline-block border border-museum-dark/30 text-museum-dark bg-transparent px-10 py-5 rounded-sm text-xs font-bold tracking-[0.2em] uppercase hover:bg-museum-dark hover:text-white transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-museum-dark/10 ring-1 ring-transparent hover:ring-museum-dark">
+                        Volver a Inicio
+                    </a>
+                </div>
+            </section>
+        </main>
+	</body>
+</html>

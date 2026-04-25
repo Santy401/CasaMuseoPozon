@@ -1,30 +1,30 @@
 ---
 const navItems = [
-    { name: "Inicio", href: "#inicio" },
+    { name: "Inicio", href: "/" },
     { 
         name: "Institucional", 
         children: [
-            { name: "Quiénes Somos", href: "#quienes-somos" },
-            { name: "Representante Legal", href: "#representante" },
-            { name: "Portafolio", href: "#portafolio" },
+            { name: "Quiénes Somos", href: "/quienes-somos" },
+            { name: "Representante Legal", href: "/#representante" },
+            { name: "Portafolio", href: "/#portafolio" },
         ]
     },
     { 
         name: "Experiencia", 
         children: [
-            { name: "Modelo Museal", href: "#modelo-museal" },
-            { name: "Nodos Museales", href: "#nodos-museales" },
-            { name: "Recorrido Museal", href: "#recorrido-museal" },
+            { name: "Modelo Museal", href: "/modelo-museal" },
+            { name: "Nodos Museales", href: "/#nodos-museales" },
+            { name: "Recorrido Museal", href: "/#recorrido-museal" },
         ]
     },
     { 
         name: "Comunidad", 
         children: [
-            { name: "Proyectos Sociales", href: "#proyectos-sociales" },
-            { name: "Eventos", href: "#eventos" },
+            { name: "Proyectos Sociales", href: "/#proyectos-sociales" },
+            { name: "Eventos", href: "/#eventos" },
         ]
     },
-    { name: "Contacto", href: "#contacto" },
+    { name: "Contacto", href: "/#contacto" },
 ];
 ---
 
@@ -77,7 +77,7 @@ const navItems = [
         ))}
     </ul>
     
-    <a href="#contacto" class="bg-museum-gold text-museum-cream px-5 md:px-8 py-2 md:py-3 rounded-sm text-[10px] md:text-[11px] font-bold tracking-[0.15em] md:tracking-[0.2em] uppercase hover:bg-museum-dark transition-all duration-300 shadow-lg shadow-museum-gold/10">
+    <a href="/#contacto" class="bg-museum-gold text-museum-cream px-5 md:px-8 py-2 md:py-3 rounded-sm text-[10px] md:text-[11px] font-bold tracking-[0.15em] md:tracking-[0.2em] uppercase hover:bg-museum-dark transition-all duration-500 shadow-lg shadow-museum-gold/10">
         Visítanos
     </a>
 </nav>
@@ -119,31 +119,39 @@ const navItems = [
 </div>
 
 <script>
-    const menuOpen = document.getElementById('menu-open');
-    const menuClose = document.getElementById('menu-close');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileDrawer = document.getElementById('mobile-drawer');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
+    function initNavbar() {
+        const menuOpen = document.getElementById('menu-open');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    function toggleMenu(isOpen: boolean) {
-        if (isOpen) {
-            mobileMenu?.classList.remove('invisible', 'opacity-0');
-            mobileDrawer?.classList.remove('-translate-x-full');
-            document.body.style.overflow = 'hidden';
-        } else {
-            mobileMenu?.classList.add('invisible', 'opacity-0');
-            mobileDrawer?.classList.add('-translate-x-full');
-            document.body.style.overflow = '';
+        function toggleMenu(isOpen: boolean) {
+            if (isOpen) {
+                mobileMenu?.classList.remove('invisible', 'opacity-0');
+                mobileDrawer?.classList.remove('-translate-x-full');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu?.classList.add('invisible', 'opacity-0');
+                mobileDrawer?.classList.add('-translate-x-full');
+                document.body.style.overflow = '';
+            }
         }
+
+        menuOpen?.addEventListener('click', () => toggleMenu(true));
+        menuClose?.addEventListener('click', () => toggleMenu(false));
+        mobileMenu?.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) toggleMenu(false);
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
     }
 
-    menuOpen?.addEventListener('click', () => toggleMenu(true));
-    menuClose?.addEventListener('click', () => toggleMenu(false));
-    mobileMenu?.addEventListener('click', (e) => {
-        if (e.target === mobileMenu) toggleMenu(false);
-    });
+    // Inicializar en la carga inicial
+    initNavbar();
 
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => toggleMenu(false));
-    });
+    // Reinicializar después de transiciones de página ( ViewTransitions )
+    document.addEventListener('astro:after-swap', initNavbar);
 </script>
