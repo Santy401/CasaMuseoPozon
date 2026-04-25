@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Navbar from "../components/navbar.astro";
+import Inicio from "../views/Inicio.astro";
 ---
 
 <html lang="en">
@@ -16,9 +17,7 @@ import Navbar from "../components/navbar.astro";
 		<Navbar />
         
         <main>
-            <section id="inicio" class="min-h-screen flex items-center justify-center bg-museum-cream border-b border-museum-gold/10">
-                <h1 class="text-6xl font-display text-museum-dark italic">Museo Pozón</h1>
-            </section>
+            <Inicio />
 
             <section id="quienes-somos" class="py-32 px-10 bg-white">
                 <h2 class="text-4xl font-display mb-8">Quiénes Somos</h2>
