@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import "../styles/global.css";
+import SocialSidebar from "../components/SocialSidebar.astro";
 import Navbar from "../components/navbar.astro";
 ---
 
@@ -14,6 +15,7 @@ import Navbar from "../components/navbar.astro";
         <ClientRouter />
 	</head>
 	<body class="bg-white font-sans overflow-x-hidden">
+        <SocialSidebar />
 		<Navbar />
         
         <main>

@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import "../styles/global.css";
+import SocialSidebar from "../components/SocialSidebar.astro";
 import Navbar from "../components/navbar.astro";
 
 const documents = [
@@ -80,6 +81,7 @@ const documents = [
         <ClientRouter />
 	</head>
 	<body class="bg-zinc-50 font-sans overflow-x-hidden">
+        <SocialSidebar />
 		<Navbar />
         
         <main>

@@ -2,6 +2,7 @@
 import { ClientRouter } from 'astro:transitions';
 import "../styles/global.css";
 import Navbar from "../components/navbar.astro";
+import SocialSidebar from "../components/SocialSidebar.astro";
 import Inicio from "../views/Inicio.astro";
 import QuienesSomos from "../views/QuienesSomos.astro";
 import ModeloMuseal from "../views/ModeloMuseal.astro";
@@ -25,6 +26,7 @@ import Footer from "../components/footer.astro";
         <ClientRouter />
 	</head>
 	<body>
+        <SocialSidebar />
 		<Navbar />
         
         <main>
