@@ -121,13 +121,13 @@ import Navbar from "../components/navbar.astro";
 
                         <div class="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
                             {[
-                                { n: "Certificado de Existencia y Representación", f: "CERT...EGAL.pdf" },
-                                { n: "RUT Institucional Actualizado", f: "RUT...OZON.pdf" },
-                                { n: "Informe de Gestión y Actividades", f: "Info...2019.pdf" },
-                                { n: "Registro de Marca y Símbolos", f: "Sin título.png" },
-                                { n: "Certificación de Cumplimiento", f: "CE 3...AJAL.pdf" }
+                                { n: "Certificado de Existencia y Representación", f: "CERTIFICADO...D.pdf", path: "/pdfs/CERTIFICADO DE EXISTENCIA Y REPRESENTATIVIDAD.pdf" },
+                                { n: "RUT Institucional Actualizado", f: "RUT 2026.pdf", path: "/pdfs/RUT 2026.pdf" },
+                                { n: "Informe de Gestión y Actividades", f: "InformeCarvajal2019.pdf", path: "/pdfs/InformeCarvajal2019.pdf" },
+                                { n: "Estatutos Legales de la Fundación", f: "ESTATUTOS...OZON.pdf", path: "/pdfs/ESTATUTOS LEGALES FUNDACION CASA MUSEO POZON.pdf" },
+                                { n: "Certificación de Cumplimiento", f: "CE 3595...VAJAL.pdf", path: "/pdfs/CE 3595 CR 2636 DIANA ROCIO CARVAJAL.pdf" }
                             ].map(doc => (
-                                <a href="#" class="flex items-center gap-6 p-8 bg-zinc-50 rounded-3xl border border-zinc-100 hover:border-museum-gold hover:bg-white transition-all group shadow-sm">
+                                <a href={doc.path} target="_blank" class="flex items-center gap-6 p-8 bg-zinc-50 rounded-3xl border border-zinc-100 hover:border-museum-gold hover:bg-white transition-all group shadow-sm">
                                     <div class="w-12 h-12 bg-museum-dark rounded-xl flex items-center justify-center text-white group-hover:bg-museum-gold transition-colors">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                                     </div>

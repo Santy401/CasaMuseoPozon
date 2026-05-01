@@ -130,10 +130,10 @@ const secondaryEvents = [
                         <!-- PDF Download -->
                         <div class="bg-museum-cream/50 p-12 rounded-[3rem] border border-museum-gold/10 flex flex-col md:flex-row justify-between items-center gap-8">
                              <div>
-                                 <h3 class="text-2xl font-display text-museum-dark mb-2">Información Institucional 2025</h3>
+                                 <h3 class="text-2xl font-display text-museum-dark mb-2">Información Institucional 2026</h3>
                                  <p class="text-xs text-museum-dark/50 uppercase tracking-widest">Descargar dossier de eventos y prensa</p>
                              </div>
-                             <a href="#" class="bg-museum-dark text-white px-10 py-5 rounded-sm text-[10px] font-bold tracking-widest uppercase hover:bg-museum-gold transition-all">Descargar PDF</a>
+                             <a href="/pdfs/PORTAFOLIO INSTITUCIONAL.pdf" target="_blank" class="bg-museum-dark text-white px-10 py-5 rounded-sm text-[10px] font-bold tracking-widest uppercase hover:bg-museum-gold transition-all">Descargar Portafolio</a>
                         </div>
                     </div>
 
@@ -163,47 +163,44 @@ const secondaryEvents = [
                         { 
                             t: "MODELO DE APRENDIZAJE COMUNITARIO ORGANICO A.C.O.", 
                             d: "11.09.2025", 
-                            s: "Pedagogía Decolonial como Arte Vivo, Memoria Encarnada y Dignidad Educativa desde los Saberes Afrocaribeños y Afroindígenas. Memoria Viva, 9 Principios e Impacto." 
+                            s: "Pedagogía Decolonial como Arte Vivo, Memoria Encarnada y Dignidad Educativa desde los Saberes Afrocaribeños y Afroindígenas.",
+                            path: "/pdfs/MODELO DE APRENDIZAJE COMUNITARIO ORGÁNICO.pdf"
                         },
                         { 
-                            t: "CARACTERIZACIÓN INSTITUCIONAL", 
+                            t: "PLAN ESTRATÉGICO INSTITUCIONAL", 
                             d: "12.08.2025", 
-                            s: "Diagnóstico profundo del Barrio El Pozón, Cartagena de Indias. Localización, demografía y marco estratégico institucional." 
+                            s: "Diagnóstico profundo del Barrio El Pozón, Cartagena de Indias. Localización, demografía y marco estratégico institucional.",
+                            path: "/pdfs/PLAN ESTRATÉGICO 2026.pdf"
                         },
                         { 
                             t: "POLÍTICAS PATRIMONIALES Y MUSEOLÓGICAS", 
                             d: "10.08.2025", 
-                            s: "Retos y proyección cultural de una entidad que surge de un proceso comunitario de más de dos décadas orientado a la revitalización biocultural." 
+                            s: "Retos y proyección cultural de una entidad que surge de un proceso comunitario de más de dos décadas.",
+                            path: "/pdfs/POLITICA PATRIMONIAL.pdf"
                         },
                         { 
-                            t: "RECONOCIMIENTO DEL CONCHERO POR ENTIDADES GUBERNAMENTALES", 
+                            t: "RECONOCIMIENTO DEL CONCHERO", 
                             d: "06.08.2025", 
-                            s: "El IPCC y la Alcaldía Mayor impulsan el reconocimiento oficial del Conchero del sector Islita como sitio arqueológico de valor patrimonial nacional." 
+                            s: "El IPCC y la Alcaldía Mayor impulsan el reconocimiento oficial del Conchero del sector Islita.",
+                            path: "/pdfs/Mariscadores_en_las_costas_del_Caribe_co.pdf"
                         },
                         { 
-                            t: "3° ENCUENTRO DE INDUSTRIAS CREATIVAS Y CULTURALES", 
+                            t: "PORTAFOLIO INSTITUCIONAL", 
                             d: "24.06.2025", 
-                            s: "Participación estratégica de la Fundación en el Encuentro de Cartagena y Bolívar, promoviendo la economía naranja desde el territorio." 
+                            s: "Participación estratégica de la Fundación en el Encuentro de Cartagena y Bolívar.",
+                            path: "/pdfs/PORTAFOLIO INSTITUCIONAL.pdf"
                         },
                         { 
-                            t: "CARTAGENA POPULAR: EL POZÓN COMO MUSEO VIVO", 
+                            t: "GUÍA PEDAGÓGICA INTEGRAL", 
                             d: "22.04.2025", 
-                            s: "Iniciativa que convierte el barrio en un escenario de dignificación patrimonial, pedagogía territorial y turismo simbólico para líderes de la zona." 
+                            s: "Iniciativa que convierte el barrio en un escenario de dignificación patrimonial.",
+                            path: "/pdfs/GUÍA PEDAGÓGICA INTEGRAL.pdf"
                         },
                         { 
-                            t: "PEDAGOGÍA DECOLONIAL: ARTE VIVO Y MEMORIA", 
+                            t: "MUSEO COMUNITARIO QUE ASCIENDE", 
                             d: "10.09.2025", 
-                            s: "Un estudio sobre la dignidad educativa desde los saberes ancestrales y la herencia afroindígena del Caribe." 
-                        },
-                        { 
-                            t: "MEMORIA VIVA - 9 PRINCIPIOS DE ACCIÓN", 
-                            d: "24.08.2025", 
-                            s: "Documento detallado sobre los pilares del Modelo A.C.O. y su impacto en la construcción de ciudadanía." 
-                        },
-                        { 
-                            t: "PASEOS Y RECORRIDOS MUSEALES", 
-                            d: "Actual", 
-                            s: "Navegación por los diferentes nodos del museo vivo y la experiencia sensorial de la memoria barrial." 
+                            s: "Un estudio sobre la dignidad educativa desde los saberes ancestrales y la herencia afroindígena del Caribe.",
+                            path: "/pdfs/MUSEO COMUNITARIO QUE ASCIENDE.pdf"
                         }
                     ].map(item => (
                         <div class="group border-l-4 border-transparent hover:border-museum-gold pl-8 transition-all duration-500">
@@ -212,8 +209,8 @@ const secondaryEvents = [
                             <p class="text-md font-light text-museum-dark/60 leading-relaxed mb-8 max-w-3xl">
                                 {item.s}
                             </p>
-                            <a href="#" class="text-[10px] font-bold uppercase tracking-[0.3em] text-museum-gold hover:text-museum-dark transition-colors inline-flex items-center gap-4">
-                                Explorar Documento
+                            <a href={item.path} target="_blank" class="text-[10px] font-bold uppercase tracking-[0.3em] text-museum-gold hover:text-museum-dark transition-colors inline-flex items-center gap-4">
+                                Descargar PDF
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                             </a>
                         </div>
