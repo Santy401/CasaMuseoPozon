@@ -1,0 +1,144 @@
+---
+import type { ProyectoMapa } from '../data/impactos';
+interface Props {
+  proyectos: ProyectoMapa[];
+}
+const { proyectos } = Astro.props;
+
+const coloresTipo = {
+  arqueologico: '#8B4513',
+  social: '#4CAF50',
+  ambiental: '#2196F3',
+  cultural: '#FF9800'
+};
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="text-center mb-16">
+      <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] uppercase block mb-4">Presencia Territorial</span>
+      <h2 class="text-4xl md:text-5xl font-display text-museum-dark mb-6">Mapa de Impacto</h2>
+      <div class="w-24 h-1 bg-museum-gold mx-auto"></div>
+      <p class="max-w-2xl mx-auto mt-8 text-museum-dark/60 font-light leading-relaxed">
+        Visualización interactiva de nuestros nodos de intervención y sitios de interés patrimonial en el territorio del Pozón.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Mapa -->
+      <div class="lg:col-span-2">
+        <div id="mapa-impacto" class="w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-zinc-100"></div>
+      </div>
+
+      <!-- Leyenda y Proyectos -->
+      <div class="space-y-6">
+        <div class="bg-museum-cream/30 rounded-2xl p-6">
+          <h3 class="font-display text-lg mb-4 text-museum-dark">Leyenda</h3>
+          <div class="space-y-3">
+            {Object.entries(coloresTipo).map(([tipo, color]) => (
+              <div class="flex items-center gap-3">
+                <div class="w-4 h-4 rounded-full" style={`background-color: ${color}`}></div>
+                <span class="text-xs uppercase tracking-wider text-museum-dark/70">
+                  {tipo === 'arqueologico' ? 'Sitios Arqueológicos' :
+                   tipo === 'social' ? 'Proyectos Sociales' :
+                   tipo === 'ambiental' ? 'Iniciativas Ambientales' :
+                   'Espacios Culturales'}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-zinc-100">
+          <h3 class="font-display text-lg mb-4 text-museum-dark">Proyectos Activos</h3>
+          <div class="space-y-4">
+            {proyectos.map((proyecto) => (
+              <div class="p-4 bg-zinc-50 rounded-xl hover:bg-museum-gold/5 transition-colors cursor-pointer group" data-mapa-id={proyecto.id}>
+                <div class="flex items-start gap-3">
+                  <div 
+                    class="w-3 h-3 rounded-full mt-1 flex-shrink-0" 
+                    style={`background-color: ${coloresTipo[proyecto.tipo]}`}
+                  ></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-museum-dark group-hover:text-museum-gold transition-colors">{proyecto.nombre}</h4>
+                    <p class="text-[10px] text-museum-dark/50 mt-1 leading-relaxed">{proyecto.descripcion}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="bg-museum-dark rounded-2xl p-6 text-white">
+          <h3 class="font-display text-lg mb-3">Datos del Territorio</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="text-center">
+              <div class="text-2xl font-display text-museum-gold">4</div>
+              <div class="text-[10px] uppercase tracking-widest opacity-50">Nodos Activos</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-display text-museum-gold">5k+</div>
+              <div class="text-[10px] uppercase tracking-widest opacity-50">m² Impactados</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script define:vars={{ proyectos: JSON.stringify(proyectos), coloresTipo: JSON.stringify(coloresTipo) }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const proyectosData = JSON.parse(proyectos);
+    const coloresData = JSON.parse(coloresTipo);
+    
+    const map = L.map('mapa-impacto').setView([10.3925, -75.4780], 15);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 19
+    }).addTo(map);
+    
+    proyectosData.forEach(proyecto => {
+      const marker = L.circleMarker([proyecto.lat, proyecto.lng], {
+        radius: 12,
+        fillColor: coloresData[proyecto.tipo],
+        color: '#fff',
+        weight: 2,
+        opacity: 1,
+        fillOpacity: 0.8
+      }).addTo(map);
+      
+      marker.bindPopup(`
+        <div style="min-width: 200px;">
+          <h3 style="font-weight: bold; margin-bottom: 8px;">${proyecto.nombre}</h3>
+          <p style="font-size: 12px; color: #666;">${proyecto.descripcion}</p>
+          <span style="display: inline-block; padding: 2px 8px; background: ${coloresData[proyecto.tipo]}; color: white; border-radius: 4px; font-size: 10px; margin-top: 8px;">
+            ${proyecto.tipo}
+          </span>
+        </div>
+      `);
+      
+      marker.on('click', () => {
+        document.querySelectorAll('[data-mapa-id]').forEach(el => {
+          el.classList.remove('ring-2', 'ring-museum-gold');
+        });
+        const el = document.querySelector(`[data-mapa-id="${proyecto.id}"]`);
+        if (el) el.classList.add('ring-2', 'ring-museum-gold');
+      });
+    });
+    
+    document.querySelectorAll('[data-mapa-id]').forEach(el => {
+      el.addEventListener('click', () => {
+        const id = el.dataset.mapaId;
+        const proyecto = proyectosData.find(p => p.id === id);
+        if (proyecto) {
+          map.setView([proyecto.lat, proyecto.lng], 17);
+        }
+      });
+    });
+  });
+</script>

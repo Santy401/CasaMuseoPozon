@@ -1,0 +1,69 @@
+---
+import type { ImpactoNumero } from '../data/impactos';
+interface Props {
+  impactos: ImpactoNumero[];
+}
+const { impactos } = Astro.props;
+---
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 my-16">
+  {impactos.map((item) => (
+    <div class="bg-white rounded-2xl p-6 shadow-lg border border-zinc-100 text-center hover:border-museum-gold/30 transition-all group">
+      <div class="w-12 h-12 bg-museum-gold/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-museum-gold/20 transition-colors">
+        {item.icono === 'users' && (
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        )}
+        {item.icono === 'graduation-cap' && (
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 4 3h4c1 0 4-1 4-3v-5"/></svg>
+        )}
+        {item.icono === 'leaf' && (
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        )}
+        {item.icono === 'map-pin' && (
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        )}
+      </div>
+      <div class="counter text-4xl md:text-5xl font-display text-museum-dark mb-2" data-target={item.valor} data-suffix={item.sufijo}>0</div>
+      <p class="text-[10px] font-bold uppercase tracking-widest text-museum-dark/50">{item.label}</p>
+    </div>
+  ))}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.counter');
+    
+    const animateCounter = (element: HTMLElement) => {
+      const target = parseInt(element.dataset.target || '0');
+      const suffix = element.dataset.suffix || '';
+      const duration = 2000;
+      const start = performance.now();
+      
+      const updateCounter = (currentTime: number) => {
+        const elapsed = currentTime - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(eased * target);
+        
+        element.textContent = current.toLocaleString() + suffix;
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        }
+      };
+      
+      requestAnimationFrame(updateCounter);
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target as HTMLElement);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(counter => observer.observe(counter));
+  });
+</script>

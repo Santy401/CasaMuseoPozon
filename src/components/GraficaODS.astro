@@ -1,0 +1,104 @@
+---
+import type { ODSMeta } from '../data/impactos';
+interface Props {
+  metas: ODSMeta[];
+}
+const { metas } = Astro.props;
+---
+
+<section class="py-20 bg-museum-cream/30">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="text-center mb-16">
+      <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] uppercase block mb-4">Alineación Internacional</span>
+      <h2 class="text-4xl md:text-5xl font-display text-museum-dark mb-6">Objetivos de Desarrollo Sostenible</h2>
+      <div class="w-24 h-1 bg-museum-gold mx-auto"></div>
+      <p class="max-w-2xl mx-auto mt-8 text-museum-dark/60 font-light leading-relaxed">
+        Nuestro proyecto articula acciones concretas alineadas con la agenda 2030 de la ONU, demostrando compromiso con el desarrollo territorial sostenible.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {metas.map((meta) => (
+        <div class="bg-white rounded-2xl p-8 shadow-lg border border-zinc-100 hover:border-museum-gold/20 transition-all group">
+          <div class="flex items-center gap-4 mb-6">
+            <div 
+              class="w-16 h-16 rounded-xl flex items-center justify-center text-white font-bold text-xl"
+              style={`background-color: ${meta.color}`}
+            >
+              ODS {meta.numero}
+            </div>
+            <div class="flex-1">
+              <h3 class="font-display text-xl text-museum-dark group-hover:text-museum-gold transition-colors">{meta.titulo}</h3>
+              <p class="text-xs text-museum-dark/50 mt-1">{meta.descripcion}</p>
+            </div>
+          </div>
+          
+          <div class="relative">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-museum-dark/40">Progreso</span>
+              <span class="text-2xl font-display text-museum-dark progress-value" data-progress={meta.progreso}>0%</span>
+            </div>
+            <div class="w-full h-3 bg-zinc-100 rounded-full overflow-hidden">
+              <div 
+                class="h-full rounded-full progress-bar transition-all duration-2000 ease-out"
+                style={`background-color: ${meta.color}; width: 0%`}
+                data-width={`${meta.progreso}%`}
+              ></div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="mt-12 text-center">
+      <div class="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full shadow-sm border border-zinc-100">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        <span class="text-[10px] font-bold uppercase tracking-widest text-museum-dark/60">Certificación en proceso con ONU Colombia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const progressBars = document.querySelectorAll('.progress-bar');
+    const progressValues = document.querySelectorAll('.progress-value');
+    
+    const animateProgress = (bar: HTMLElement, valueEl: HTMLElement) => {
+      const targetWidth = bar.dataset.width || '0%';
+      const targetProgress = parseInt(targetWidth);
+      
+      const duration = 2000;
+      const start = performance.now();
+      
+      const updateProgress = (currentTime: number) => {
+        const elapsed = currentTime - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(eased * targetProgress);
+        
+        bar.style.width = `${current}%`;
+        valueEl.textContent = `${current}%`;
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateProgress);
+        }
+      };
+      
+      requestAnimationFrame(updateProgress);
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bar = entry.target as HTMLElement;
+          const valueEl = bar.parentElement?.parentElement?.querySelector('.progress-value') as HTMLElement;
+          if (valueEl) animateProgress(bar, valueEl);
+          observer.unobserve(bar);
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    progressBars.forEach(bar => observer.observe(bar));
+  });
+</script>

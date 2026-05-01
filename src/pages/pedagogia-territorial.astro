@@ -1,0 +1,206 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import SocialSidebar from "../components/SocialSidebar.astro";
+import Navbar from "../components/navbar.astro";
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Pedagogía Territorial | Saberes del Pozón</title>
+        <ClientRouter />
+	</head>
+	<body class="bg-white font-sans overflow-x-hidden">
+        <SocialSidebar />
+		<Navbar />
+        
+        <main>
+            <!-- Hero Section -->
+            <section class="relative min-h-[70vh] flex items-center justify-center bg-museum-dark pt-20 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/40 to-museum-dark z-10"></div>
+                <div class="absolute inset-0 opacity-20 bg-[url('/Secsion1.png')] bg-cover bg-center mix-blend-luminosity"></div>
+                
+                <div class="relative z-20 text-center px-8 max-w-5xl" transition:animate="fade">
+                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Ecosistema de Saberes Colectivos</span>
+                    <h1 class="text-5xl md:text-8xl font-display text-white mb-10 leading-none">
+                        Pedagogía <br/> <span class="text-museum-gold">Territorial</span>
+                    </h1>
+                    <div class="w-24 h-1 bg-museum-gold mx-auto mb-10"></div>
+                    <p class="max-w-3xl mx-auto text-museum-cream/70 text-lg md:text-xl font-light leading-relaxed italic">
+                        "Donde el territorio se convierte en aula y la memoria en la principal herramienta de aprendizaje."
+                    </p>
+                </div>
+            </section>
+
+            <!-- Modelo A.C.O. Section -->
+            <section id="modelo-aco" class="py-32 px-8 md:px-16 lg:px-24 bg-white relative overflow-hidden">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                    <div>
+                        <div class="inline-block px-4 py-1 bg-museum-gold/10 text-museum-gold text-[10px] font-bold tracking-widest uppercase rounded-full mb-8">Fundamentación Ética</div>
+                        <h2 class="text-4xl md:text-6xl font-display text-museum-dark mb-8">Modelo de Aprendizaje <br/><span class="text-museum-gold">Comunitario Orgánico (A.C.O.)</span></h2>
+                        <p class="text-museum-dark/70 text-lg font-light leading-relaxed mb-10">
+                            El Modelo A.C.O. es el corazón pedagógico de nuestra fundación. Propone una educación que nace de la tierra, se nutre de la memoria oral y se organiza de forma horizontal para transformar la realidad local.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="p-8 rounded-3xl bg-zinc-50 border-l-4 border-museum-gold">
+                                <h4 class="font-bold text-sm uppercase mb-3">Saber Orgánico</h4>
+                                <p class="text-xs text-museum-dark/60">Conocimiento que crece desde las raíces culturales del barrio y sus prácticas cotidianas.</p>
+                            </div>
+                            <div class="p-8 rounded-3xl bg-zinc-50 border-l-4 border-museum-gold">
+                                <h4 class="font-bold text-sm uppercase mb-3">Vínculo Comunitario</h4>
+                                <p class="text-xs text-museum-dark/60">El aprendizaje como un acto de co-creación donde todos somos maestros y aprendices.</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-12">
+                            <a href="/pdfs/MODELO DE APRENDIZAJE COMUNITARIO ORGÁNICO.pdf" target="_blank" class="inline-flex items-center gap-4 bg-museum-dark text-white px-8 py-4 rounded-xl text-[10px] font-bold tracking-widest uppercase hover:bg-museum-gold transition-all">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                Descargar Modelo A.C.O.
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="aspect-square bg-museum-cream rounded-[4rem] overflow-hidden shadow-2xl relative z-10">
+                             <div class="absolute inset-0 bg-gradient-to-tr from-museum-gold/20 to-transparent"></div>
+                             <div class="w-full h-full flex items-center justify-center p-20">
+                                 <img src="/Logo.webp" class="w-full opacity-20 grayscale" alt="Fondo" />
+                             </div>
+                        </div>
+                        <div class="absolute -top-10 -right-10 w-40 h-40 bg-museum-gold/10 rounded-full blur-3xl"></div>
+                        <div class="absolute -bottom-10 -left-10 w-60 h-60 bg-museum-gold/5 rounded-full blur-3xl"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experiencias Museales Grid -->
+            <section id="experiencias" class="py-32 px-8 md:px-16 lg:px-24 bg-museum-dark text-white">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-24">
+                        <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Inmersión y Vivencia</span>
+                        <h2 class="text-4xl md:text-6xl font-display mb-8">Experiencias <span class="text-museum-gold italic">Museales</span></h2>
+                        <div class="w-20 h-1 bg-museum-gold mx-auto"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Recorridos -->
+                        <div class="group p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-museum-gold/10 hover:border-museum-gold/30 transition-all duration-500 text-center">
+                            <div class="w-16 h-16 bg-museum-gold/20 rounded-2xl flex items-center justify-center text-museum-gold mx-auto mb-8 group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <h4 class="font-display text-xl mb-4 uppercase tracking-tighter">Recorridos</h4>
+                            <p class="text-xs font-light text-white/40 leading-relaxed">Caminatas históricas por las calles del barrio, reconociendo hitos de resistencia y vida.</p>
+                        </div>
+
+                        <!-- Juegos -->
+                        <div class="group p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-museum-gold/10 hover:border-museum-gold/30 transition-all duration-500 text-center">
+                            <div class="w-16 h-16 bg-museum-gold/20 rounded-2xl flex items-center justify-center text-museum-gold mx-auto mb-8 group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><path d="m9 8 6 4-6 4Z"/></svg>
+                            </div>
+                            <h4 class="font-display text-xl mb-4 uppercase tracking-tighter">Juegos</h4>
+                            <p class="text-xs font-light text-white/40 leading-relaxed">Dinámicas lúdicas que enseñan la historia de forma participativa para niños y jóvenes.</p>
+                        </div>
+
+                        <!-- Inmersión -->
+                        <div class="group p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-museum-gold/10 hover:border-museum-gold/30 transition-all duration-500 text-center">
+                            <div class="w-16 h-16 bg-museum-gold/20 rounded-2xl flex items-center justify-center text-museum-gold mx-auto mb-8 group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                            </div>
+                            <h4 class="font-display text-xl mb-4 uppercase tracking-tighter">Inmersión</h4>
+                            <p class="text-xs font-light text-white/40 leading-relaxed">Experiencias sensoriales dentro del territorio para conectar con su alma biocultural.</p>
+                        </div>
+
+                        <!-- Murales -->
+                        <div class="group p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-museum-gold/10 hover:border-museum-gold/30 transition-all duration-500 text-center">
+                            <div class="w-16 h-16 bg-museum-gold/20 rounded-2xl flex items-center justify-center text-museum-gold mx-auto mb-8 group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M3 12h18"/><path d="m18 15 3-3-3-3"/><path d="m6 9-3 3 3 3"/></svg>
+                            </div>
+                            <h4 class="font-display text-xl mb-4 uppercase tracking-tighter">Muralismo</h4>
+                            <p class="text-xs font-light text-white/40 leading-relaxed">El arte como lenguaje público que narra nuestras luchas y esperanzas en las paredes.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cátedra de Identidad Section -->
+            <section id="catedra" class="py-32 px-8 md:px-16 lg:px-24 bg-museum-cream/30">
+                <div class="max-w-7xl mx-auto">
+                    <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                        <div class="max-w-2xl">
+                            <span class="text-museum-gold font-bold tracking-widest text-[10px] uppercase mb-4 block">Formación Ciudadana</span>
+                            <h2 class="text-4xl md:text-6xl font-display text-museum-dark">Cátedra de la <br/><span class="text-museum-gold italic">Identidad Barrial Pozonera</span></h2>
+                        </div>
+                        <div class="pb-4">
+                            <p class="text-museum-dark/50 text-sm font-light max-w-xs leading-relaxed italic">
+                                "Un viaje de cuatro etapas hacia el reconocimiento del ser pozonero."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <!-- Module 1 -->
+                        <div class="bg-white p-12 rounded-[3rem] shadow-xl border border-zinc-100 flex gap-8 items-start hover:shadow-2xl transition-all group">
+                            <span class="text-5xl font-display text-museum-gold/20 group-hover:text-museum-gold transition-colors">01</span>
+                            <div>
+                                <h4 class="text-xl font-display text-museum-dark mb-4">Raíces y Arqueología Profunda</h4>
+                                <p class="text-sm text-museum-dark/60 font-light leading-relaxed">Exploración del origen del territorio, desde el Conchero hasta los primeros asentamientos populares.</p>
+                            </div>
+                        </div>
+
+                        <!-- Module 2 -->
+                        <div class="bg-white p-12 rounded-[3rem] shadow-xl border border-zinc-100 flex gap-8 items-start hover:shadow-2xl transition-all group">
+                            <span class="text-5xl font-display text-museum-gold/20 group-hover:text-museum-gold transition-colors">02</span>
+                            <div>
+                                <h4 class="text-xl font-display text-museum-dark mb-4">Cartografía de las Memorias</h4>
+                                <p class="text-sm text-museum-dark/60 font-light leading-relaxed">Mapeo colectivo de los hitos simbólicos, personajes y relatos que configuran nuestra identidad.</p>
+                            </div>
+                        </div>
+
+                        <!-- Module 3 -->
+                        <div class="bg-white p-12 rounded-[3rem] shadow-xl border border-zinc-100 flex gap-8 items-start hover:shadow-2xl transition-all group">
+                            <span class="text-5xl font-display text-museum-gold/20 group-hover:text-museum-gold transition-colors">03</span>
+                            <div>
+                                <h4 class="text-xl font-display text-museum-dark mb-4">Gobernanza y Paz Territorial</h4>
+                                <p class="text-sm text-museum-dark/60 font-light leading-relaxed">Construcción de liderazgos éticos y herramientas para la convivencia pacífica y el desarrollo social.</p>
+                            </div>
+                        </div>
+
+                        <!-- Module 4 -->
+                        <div class="bg-white p-12 rounded-[3rem] shadow-xl border border-zinc-100 flex gap-8 items-start hover:shadow-2xl transition-all group">
+                            <span class="text-5xl font-display text-museum-gold/20 group-hover:text-museum-gold transition-colors">04</span>
+                            <div>
+                                <h4 class="text-xl font-display text-museum-dark mb-4">Futuros y Proyección Biocultural</h4>
+                                <p class="text-sm text-museum-dark/60 font-light leading-relaxed">Visión de sostenibilidad y escalabilidad de los saberes locales hacia el mundo.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-20 text-center">
+                         <div class="inline-flex flex-col items-center gap-6">
+                             <p class="text-xs font-bold uppercase tracking-[0.3em] text-museum-dark/30">¿Interesado en participar?</p>
+                             <a href="/#contacto" class="bg-museum-gold text-white px-12 py-5 rounded-full text-xs font-bold tracking-widest uppercase hover:bg-museum-dark transition-all shadow-xl">Inscribirse en la Cátedra</a>
+                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Projection -->
+            <section class="py-32 px-8 bg-zinc-50">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-5xl font-display text-museum-dark mb-10">Transformando Realidades <br/> <span class="text-museum-gold italic">desde el Aula Viva</span></h2>
+                    <p class="text-lg font-light leading-relaxed text-museum-dark/60 mb-16 italic">
+                        "La pedagogía territorial es el puente que une nuestro pasado ancestral con las aspiraciones de justicia social y dignidad de nuestro presente."
+                    </p>
+                    <a href="/" class="inline-flex items-center gap-6 group">
+                        <span class="w-12 h-[1px] bg-museum-gold group-hover:w-20 transition-all"></span>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-museum-dark">Volver al Inicio</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+	</body>
+</html>
