@@ -1,24 +1,11 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import "../styles/global.css";
-import SocialSidebar from "../components/SocialSidebar.astro";
-import Navbar from "../components/navbar.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Pedagogía Territorial | Saberes del Pozón</title>
-        <ClientRouter />
-	</head>
-	<body class="bg-white font-sans overflow-x-hidden">
-        <SocialSidebar />
-		<Navbar />
-        
-        <main>
+<Layout 
+  title="Pedagogía Territorial | Saberes del Pozón"
+  description="Donde el territorio se convierte en aula y la memoria en la principal herramienta de aprendizaje en Casa Museo El Pozón."
+>
             <!-- Hero Section -->
             <section class="relative min-h-[70vh] flex items-center justify-center bg-museum-dark pt-20 overflow-hidden">
                 <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/40 to-museum-dark z-10"></div>
@@ -201,6 +188,4 @@ import Navbar from "../components/navbar.astro";
                     </a>
                 </div>
             </section>
-        </main>
-	</body>
-</html>
+</Layout>
