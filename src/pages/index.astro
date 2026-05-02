@@ -1,8 +1,5 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import "../styles/global.css";
-import Navbar from "../components/navbar.astro";
-import SocialSidebar from "../components/SocialSidebar.astro";
+import Layout from "../layouts/Layout.astro";
 import Inicio from "../views/Inicio.astro";
 import QuienesSomos from "../views/QuienesSomos.astro";
 import ModeloMuseal from "../views/ModeloMuseal.astro";
@@ -13,44 +10,20 @@ import Portafolio from "../views/Portafolio.astro";
 import Eventos from "../views/Eventos.astro";
 import RepresentanteLegal from "../views/RepresentanteLegal.astro";
 import Contacto from "../views/Contacto.astro";
-import Footer from "../components/footer.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Casa Museo Pozón</title>
-        <ClientRouter />
-	</head>
-	<body>
-        <SocialSidebar />
-		<Navbar />
-        
-        <main>
-            <Inicio />
-
-            <QuienesSomos />
-
-            <ModeloMuseal />
-
-            <NodosMuseales />
-            
-            <RecorridoMuseal />
-            
-            <ProyectosSociales />
-            
-            <Portafolio />
-            
-            <Eventos />
-            
-            <RepresentanteLegal />
-            
-            <Contacto />
-        </main>
-
-        <Footer />
-	</body>
-</html>
+<Layout 
+  title="Casa Museo El Pozón | Memoria y Cultura en Cartagena"
+  description="La Casa Museo El Pozón es un espacio dedicado a la preservación de la memoria histórica, cultural y social de nuestra comunidad en Cartagena. Descubre nuestros nodos museales y proyectos."
+>
+  <Inicio />
+  <QuienesSomos />
+  <ModeloMuseal />
+  <NodosMuseales />
+  <RecorridoMuseal />
+  <ProyectosSociales />
+  <Portafolio />
+  <Eventos />
+  <RepresentanteLegal />
+  <Contacto />
+</Layout>

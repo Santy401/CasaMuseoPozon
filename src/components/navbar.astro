@@ -19,6 +19,21 @@ const navItems = [
         ]
     },
     { 
+        name: "Nave Central", 
+        children: [
+            { name: "Distribución de Nodos", href: "/distribucion-nodos" },
+            { name: "Experiencias", href: "/experiencias" },
+            { name: "Oficinas", href: "/oficinas" },
+            { name: "Planos", href: "/planos" },
+            { 
+                name: "Proyecciones", 
+                children: [
+                    { name: "Espacios Claros", href: "/proyecciones/espacios-claros" },
+                ]
+            },
+        ]
+    },
+    { 
         name: "Saberes", 
         children: [
             { name: "Pedagogía Territorial", href: "/pedagogia-territorial" },
@@ -63,13 +78,38 @@ const navItems = [
                     <ul class="absolute top-full left-0 pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 min-w-[220px]">
                         <div class="bg-white shadow-xl border border-museum-gold/5 p-4 rounded-sm flex flex-col gap-3">
                             {item.children.map(child => (
-                                <li>
-                                    <a 
-                                        href={child.href} 
-                                        class="text-[10px] font-semibold tracking-wider uppercase text-museum-dark/60 hover:text-museum-gold transition-colors block py-1"
-                                    >
-                                        {child.name}
-                                    </a>
+                                <li class="relative">
+                                    {child.children ? (
+                                        <div class="group/nested">
+                                            <button class="flex items-center justify-between w-full text-[10px] font-semibold tracking-wider uppercase text-museum-dark/60 hover:text-museum-gold transition-colors py-1">
+                                                {child.name}
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-2 h-2 transition-transform group-hover/nested:rotate-90" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                            <ul class="absolute left-full top-0 ml-2 opacity-0 invisible translate-x-2 group-hover/nested:opacity-100 group-hover/nested:visible group-hover/nested:translate-x-0 transition-all duration-300 min-w-[200px]">
+                                                <div class="bg-white shadow-xl border border-museum-gold/5 p-4 rounded-sm flex flex-col gap-3">
+                                                    {child.children.map(subchild => (
+                                                        <li>
+                                                            <a 
+                                                                href={subchild.href} 
+                                                                class="text-[10px] font-semibold tracking-wider uppercase text-museum-dark/60 hover:text-museum-gold transition-colors block py-1"
+                                                            >
+                                                                {subchild.name}
+                                                            </a>
+                                                        </li>
+                                                    ))}
+                                                </div>
+                                            </ul>
+                                        </div>
+                                    ) : (
+                                        <a 
+                                            href={child.href} 
+                                            class="text-[10px] font-semibold tracking-wider uppercase text-museum-dark/60 hover:text-museum-gold transition-colors block py-1"
+                                        >
+                                            {child.name}
+                                        </a>
+                                    )}
                                 </li>
                             ))}
                         </div>
@@ -110,7 +150,20 @@ const navItems = [
                             <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-museum-gold/60">{item.name}</span>
                             <div class="flex flex-col gap-3 pl-4">
                                 {item.children.map(child => (
-                                    <a href={child.href} class="text-sm font-medium text-museum-dark mobile-link">{child.name}</a>
+                                    <div class="flex flex-col gap-2">
+                                        {child.children ? (
+                                            <>
+                                                <span class="text-xs font-semibold text-museum-dark/80">{child.name}</span>
+                                                <div class="flex flex-col gap-2 pl-3">
+                                                    {child.children.map(subchild => (
+                                                        <a href={subchild.href} class="text-sm font-medium text-museum-dark/70 mobile-link">{subchild.name}</a>
+                                                    ))}
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <a href={child.href} class="text-sm font-medium text-museum-dark mobile-link">{child.name}</a>
+                                        )}
+                                    </div>
                                 ))}
                             </div>
                         </div>
