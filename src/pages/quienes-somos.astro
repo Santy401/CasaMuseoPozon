@@ -14,7 +14,7 @@ import Navbar from "../components/navbar.astro";
         <title>Quiénes Somos | Casa Museo Pozón</title>
         <ClientRouter />
     </head>
-    <body class="bg-museum-cream font-sans">
+    <body class="bg-museum-cream font-sans overflow-x-hidden">
         <SocialSidebar />
         <Navbar />
 
@@ -144,7 +144,7 @@ import Navbar from "../components/navbar.astro";
                         </div>
                         <!-- Marca de agua de la visión -->
                         <span
-                            class="absolute top-10 right-0 text-[12rem] font-display text-museum-gold/5 leading-none select-none pointer-events-none transform translate-x-10"
+                            class="hidden md:block absolute top-10 right-0 text-[12rem] font-display text-museum-gold/5 leading-none select-none pointer-events-none transform translate-x-10"
                             >28</span
                         >
                     </div>
@@ -178,7 +178,7 @@ import Navbar from "../components/navbar.astro";
                         </div>
                         <!-- Decorative text behind -->
                         <span
-                            class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-8 text-[6rem] font-display text-zinc-100 whitespace-nowrap -z-10 select-none"
+                            class="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 -translate-y-8 text-[6rem] md:text-[6rem] font-display text-zinc-100 whitespace-nowrap -z-10 select-none"
                             >PRINCIPIOS</span
                         >
                     </div>

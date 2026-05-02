@@ -1,175 +1,342 @@
 ---
-import { ClientRouter } from 'astro:transitions';
+import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 import SocialSidebar from "../components/SocialSidebar.astro";
 import Navbar from "../components/navbar.astro";
 
 const documents = [
-    {
-        title: "MODELO DE APRENDIZAJE COMUNITARIO ORGANICO A.C.O.",
-        subtitle: "Pedagogía Decolonial como Arte Vivo",
-        date: "11.09.2025",
-        slug: "MODELO DE APRENDIZAJE COMUNITARIO ORGÁNICO.pdf",
-        category: "Pedagogía"
-    },
-    {
-        title: "CARACTERIZACIÓN INSTITUCIONAL 2025",
-        subtitle: "Marco Estratégico y Territorial",
-        date: "11.08.2025",
-        slug: "PLAN ESTRATÉGICO 2026.pdf",
-        category: "Institucional"
-    },
-    {
-        title: "GUÍA PEDAGÓGICA INTEGRAL",
-        subtitle: "Gestión y Ética Comunitaria",
-        date: "10.08.2025",
-        slug: "GUÍA PEDAGÓGICA INTEGRAL.pdf",
-        category: "Gestión"
-    },
-    {
-        title: "HIMNO DEL BARRIO EL POZÓN",
-        subtitle: "Tierra de esperanza y sueños",
-        date: "10.08.2025",
-        slug: "HIMNO DEL POZÓN.pdf",
-        category: "Símbolos"
-    },
-    {
-        title: "POLITICA PATRIMONIAL",
-        subtitle: "La historia detrás de la Fundación",
-        date: "10.08.2025",
-        slug: "POLITICA PATRIMONIAL.pdf",
-        category: "Identidad"
-    },
-    {
-        title: "MUSEO COMUNITARIO QUE ASCIENDE",
-        subtitle: "Pedagogía Comunitaria y Cátedra de Identidad",
-        date: "10.08.2025",
-        slug: "MUSEO COMUNITARIO QUE ASCIENDE.pdf",
-        category: "Educación"
-    },
-    {
-        title: "DESARROLLO DE COMPETENCIAS CIUDADANAS",
-        subtitle: "Cohesión Social y Orgullo Comunitario",
-        date: "10.08.2025",
-        slug: "La_Region_Del_Caribe_Colombiano_Como_Esc.pdf",
-        category: "Social"
-    },
-    {
-        title: "PLAN ESTRATÉGICO INSTITUCIONAL",
-        subtitle: "Visión, Misión y Objetivos 2026",
-        date: "10.08.2025",
-        slug: "PLAN ESTRATÉGICO 2026.pdf",
-        category: "Institucional"
-    },
-    {
-        title: "DIAGNÓSTICO PARTICIPATIVO TERRITORIAL",
-        subtitle: "Justicia Cultural y Desarrollo Humano",
-        date: "10.08.2025",
-        slug: "Mariscadores_en_las_costas_del_Caribe_co.pdf",
-        category: "Investigación"
-    }
+  {
+    title: "MODELO DE APRENDIZAJE COMUNITARIO ORGANICO A.C.O.",
+    subtitle: "Pedagogía Decolonial como Arte Vivo",
+    date: "11.09.2025",
+    slug: "MODELO DE APRENDIZAJE COMUNITARIO ORGÁNICO.pdf",
+    category: "Pedagogía",
+  },
+  {
+    title: "CARACTERIZACIÓN INSTITUCIONAL 2025",
+    subtitle: "Marco Estratégico y Territorial",
+    date: "11.08.2025",
+    slug: "PLAN ESTRATÉGICO 2026.pdf",
+    category: "Institucional",
+  },
+  {
+    title: "GUÍA PEDAGÓGICA INTEGRAL",
+    subtitle: "Gestión y Ética Comunitaria",
+    date: "10.08.2025",
+    slug: "GUÍA PEDAGÓGICA INTEGRAL.pdf",
+    category: "Gestión",
+  },
+  {
+    title: "HIMNO DEL BARRIO EL POZÓN",
+    subtitle: "Tierra de esperanza y sueños",
+    date: "10.08.2025",
+    slug: "HIMNO DEL POZÓN.pdf",
+    category: "Símbolos",
+  },
+  {
+    title: "POLITICA PATRIMONIAL",
+    subtitle: "La historia detrás de la Fundación",
+    date: "10.08.2025",
+    slug: "POLITICA PATRIMONIAL.pdf",
+    category: "Identidad",
+  },
+  {
+    title: "MUSEO COMUNITARIO QUE ASCIENDE",
+    subtitle: "Pedagogía Comunitaria y Cátedra de Identidad",
+    date: "10.08.2025",
+    slug: "MUSEO COMUNITARIO QUE ASCIENDE.pdf",
+    category: "Educación",
+  },
+  {
+    title: "DESARROLLO DE COMPETENCIAS CIUDADANAS",
+    subtitle: "Cohesión Social y Orgullo Comunitario",
+    date: "10.08.2025",
+    slug: "La_Region_Del_Caribe_Colombiano_Como_Esc.pdf",
+    category: "Social",
+  },
+  {
+    title: "PLAN ESTRATÉGICO INSTITUCIONAL",
+    subtitle: "Visión, Misión y Objetivos 2026",
+    date: "10.08.2025",
+    slug: "PLAN ESTRATÉGICO 2026.pdf",
+    category: "Institucional",
+  },
+  {
+    title: "DIAGNÓSTICO PARTICIPATIVO TERRITORIAL",
+    subtitle: "Justicia Cultural y Desarrollo Humano",
+    date: "10.08.2025",
+    slug: "Mariscadores_en_las_costas_del_Caribe_co.pdf",
+    category: "Investigación",
+  },
 ];
 ---
 
 <html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Portafolio Institucional | Casa Museo Pozón</title>
-        <ClientRouter />
-	</head>
-	<body class="bg-zinc-50 font-sans overflow-x-hidden">
-        <SocialSidebar />
-		<Navbar />
-        
-        <main>
-            <!-- Hero Header -->
-            <section class="relative min-h-[50vh] flex items-center justify-center bg-museum-dark pt-20">
-                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-                <div class="relative z-20 text-center px-8" transition:animate="fade">
-                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Documentación Estratégica</span>
-                    <h1 class="text-5xl md:text-7xl font-display text-white mb-10 leading-none">
-                        Portafolio <br/> <span class="text-museum-gold">Digital</span>
-                    </h1>
-                    <div class="w-24 h-1 bg-museum-gold mx-auto"></div>
-                </div>
-            </section>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Portafolio Institucional | Casa Museo Pozón</title>
+    <ClientRouter />
+  </head>
+  <body class="bg-zinc-50 font-sans overflow-x-hidden">
+    <SocialSidebar />
+    <Navbar />
 
-            <!-- PDF Highlights -->
-            <section class="py-20 px-8 bg-museum-gold -mt-10 relative z-30 max-w-5xl mx-auto rounded-3xl shadow-2xl">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <a href="/pdfs/PORTAFOLIO INSTITUCIONAL.pdf" target="_blank" class="flex flex-col items-center text-center p-6 bg-museum-dark rounded-2xl hover:-translate-y-2 transition-transform duration-500 group/item">
-                        <span class="text-museum-gold mb-4 group-hover/item:scale-110 transition-transform">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
-                        </span>
-                        <p class="text-[10px] font-bold text-museum-gold uppercase tracking-[0.2em] mb-2">Descargar</p>
-                        <p class="text-white text-xs font-bold leading-tight">Portafolio Pozón</p>
-                    </a>
-                    <a href="/pdfs/PLAN ESTRATÉGICO 2026.pdf" target="_blank" class="flex flex-col items-center text-center p-6 bg-museum-dark rounded-2xl hover:-translate-y-2 transition-transform duration-500 group/item">
-                        <span class="text-museum-gold mb-4 group-hover/item:scale-110 transition-transform">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
-                        </span>
-                        <p class="text-[10px] font-bold text-museum-gold uppercase tracking-[0.2em] mb-2">Descargar</p>
-                        <p class="text-white text-xs font-bold leading-tight">Plan Operativo</p>
-                    </a>
-                    <a href="/pdfs/Mariscadores_en_las_costas_del_Caribe_co.pdf" target="_blank" class="flex flex-col items-center text-center p-6 bg-museum-dark rounded-2xl hover:-translate-y-2 transition-transform duration-500 group/item">
-                        <span class="text-museum-gold mb-4 group-hover/item:scale-110 transition-transform">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
-                        </span>
-                        <p class="text-[10px] font-bold text-museum-gold uppercase tracking-[0.2em] mb-2">Descargar</p>
-                        <p class="text-white text-xs font-bold leading-tight">Diagnóstico Pozón</p>
-                    </a>
-                </div>
-            </section>
+    <main>
+      <!-- Hero Header -->
+      <section
+        class="relative min-h-[50vh] flex items-center justify-center bg-museum-dark pt-20"
+      >
+        <div
+          class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"
+        >
+        </div>
+        <div class="relative z-20 text-center px-8" transition:animate="fade">
+          <span
+            class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block"
+            >Documentación Estratégica</span
+          >
+          <h1
+            class="text-5xl md:text-7xl font-display text-white mb-10 leading-none"
+          >
+            Portafolio <br />
+            <span class="text-museum-gold">Digital</span>
+          </h1>
+          <div class="w-24 h-1 bg-museum-gold mx-auto"></div>
+        </div>
+      </section>
 
-            <!-- Grid de Publicaciones y Sub-secciones -->
-            <section class="py-32 px-8 max-w-7xl mx-auto">
-                <div class="text-center mb-20">
-                    <p class="text-museum-dark/40 text-[10px] uppercase tracking-widest font-bold mb-4 font-display">Archivos y Publicaciones</p>
-                    <h2 class="text-4xl font-display text-museum-dark">Explorar Contenidos</h2>
-                </div>
+      <!-- PDF Highlights -->
+      <section
+        class="py-20 px-8 bg-museum-gold -mt-10 relative z-30 max-w-5xl mx-auto rounded-3xl shadow-2xl"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <a
+            href="/pdfs/PORTAFOLIO INSTITUCIONAL.pdf"
+            target="_blank"
+            class="flex flex-col items-center text-center p-6 bg-museum-dark rounded-2xl hover:-translate-y-2 transition-transform duration-500 group/item"
+          >
+            <span
+              class="text-museum-gold mb-4 group-hover/item:scale-110 transition-transform"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-file-text"
+                ><path
+                  d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                ></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path
+                  d="M10 9H8"></path><path d="M16 13H8"></path><path
+                  d="M16 17H8"></path></svg
+              >
+            </span>
+            <p
+              class="text-[10px] font-bold text-museum-gold uppercase tracking-[0.2em] mb-2"
+            >
+              Descargar
+            </p>
+            <p class="text-white text-xs font-bold leading-tight">
+              Portafolio Pozón
+            </p>
+          </a>
+          <a
+            href="/pdfs/PLAN ESTRATÉGICO 2026.pdf"
+            target="_blank"
+            class="flex flex-col items-center text-center p-6 bg-museum-dark rounded-2xl hover:-translate-y-2 transition-transform duration-500 group/item"
+          >
+            <span
+              class="text-museum-gold mb-4 group-hover/item:scale-110 transition-transform"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-file-text"
+                ><path
+                  d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                ></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path
+                  d="M10 9H8"></path><path d="M16 13H8"></path><path
+                  d="M16 17H8"></path></svg
+              >
+            </span>
+            <p
+              class="text-[10px] font-bold text-museum-gold uppercase tracking-[0.2em] mb-2"
+            >
+              Descargar
+            </p>
+            <p class="text-white text-xs font-bold leading-tight">
+              Plan Operativo
+            </p>
+          </a>
+          <a
+            href="/pdfs/Mariscadores_en_las_costas_del_Caribe_co.pdf"
+            target="_blank"
+            class="flex flex-col items-center text-center p-6 bg-museum-dark rounded-2xl hover:-translate-y-2 transition-transform duration-500 group/item"
+          >
+            <span
+              class="text-museum-gold mb-4 group-hover/item:scale-110 transition-transform"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-file-text"
+                ><path
+                  d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                ></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path
+                  d="M10 9H8"></path><path d="M16 13H8"></path><path
+                  d="M16 17H8"></path></svg
+              >
+            </span>
+            <p
+              class="text-[10px] font-bold text-museum-gold uppercase tracking-[0.2em] mb-2"
+            >
+              Descargar
+            </p>
+            <p class="text-white text-xs font-bold leading-tight">
+              Diagnóstico Pozón
+            </p>
+          </a>
+        </div>
+      </section>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {documents.map(doc => (
-                        <div class="bg-white border border-zinc-100 rounded-[2.5rem] p-10 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col group h-full">
-                            <div class="flex justify-between items-start mb-8">
-                                <span class="bg-museum-cream text-museum-gold px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest">{doc.category}</span>
-                                <span class="text-museum-dark/20 text-[10px] font-bold">{doc.date}</span>
-                            </div>
-                            <h3 class="text-xl font-display text-museum-dark mb-4 group-hover:text-museum-gold transition-colors flex-grow">{doc.title}</h3>
-                            <p class="text-sm font-light text-museum-dark/50 leading-relaxed mb-8">{doc.subtitle}</p>
-                            <a href={`/pdfs/${doc.slug}`} target="_blank" class="inline-flex items-center gap-4 text-[10px] font-bold tracking-widest uppercase text-museum-dark/40 group-hover:text-museum-gold transition-colors group-hover:gap-6">
-                                Descargar PDF
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                            </a>
-                        </div>
-                    ))}
-                </div>
+      <!-- Grid de Publicaciones y Sub-secciones -->
+      <section class="py-32 px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+          <p
+            class="text-museum-dark/40 text-[10px] uppercase tracking-widest font-bold mb-4 font-display"
+          >
+            Archivos y Publicaciones
+          </p>
+          <h2 class="text-4xl font-display text-museum-dark">
+            Explorar Contenidos
+          </h2>
+        </div>
 
-                <!-- Blog Section Dummy -->
-                <div class="mt-40 border-t border-zinc-200 pt-32 text-center">
-                    <h3 class="text-2xl font-display text-museum-dark mb-10 italic">Últimas publicaciones en nuestro blog corporativo</h3>
-                    <div class="max-w-4xl mx-auto bg-museum-dark rounded-[3rem] p-20 text-white relative overflow-hidden">
-                        <div class="absolute inset-0 bg-museum-gold/5 blur-3xl rounded-full translate-x-1/2 translate-y-1/2"></div>
-                        <div class="relative z-10">
-                             <p class="text-museum-gold font-bold text-[10px] uppercase tracking-[0.4em] mb-6">Lectura Destacada</p>
-                             <h4 class="text-3xl md:text-4xl font-display mb-8">Pedagogía Decolonial como Arte Vivo y Memoria Encarnada</h4>
-                             <p class="text-white/60 font-light mb-12">Un análisis profundo desde los Saberes Afrocaribeños y Afroindígenas del barrio El Pozón.</p>
-                             <a href="#" class="bg-white text-museum-dark px-10 py-5 rounded-full text-[10px] font-bold tracking-widest uppercase hover:bg-museum-gold transition-colors">Continuar Leyendo</a>
-                        </div>
-                    </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {
+            documents.map((doc) => (
+              <div class="bg-white border border-zinc-100 rounded-[2.5rem] p-10 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col group h-full">
+                <div class="flex justify-between items-start mb-8">
+                  <span class="bg-museum-cream text-museum-gold px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest">
+                    {doc.category}
+                  </span>
+                  <span class="text-museum-dark/20 text-[10px] font-bold">
+                    {doc.date}
+                  </span>
                 </div>
+                <h3 class="text-xl font-display text-museum-dark mb-4 group-hover:text-museum-gold transition-colors flex-grow">
+                  {doc.title}
+                </h3>
+                <p class="text-sm font-light text-museum-dark/50 leading-relaxed mb-8">
+                  {doc.subtitle}
+                </p>
+                <a
+                  href={`/pdfs/${doc.slug}`}
+                  target="_blank"
+                  class="inline-flex items-center gap-4 text-[10px] font-bold tracking-widest uppercase text-museum-dark/40 group-hover:text-museum-gold transition-colors group-hover:gap-6"
+                >
+                  Descargar PDF
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <>
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </>
+                  </svg>
+                </a>
+              </div>
+            ))
+          }
+        </div>
 
-                <!-- Footer Volver -->
-                <div class="text-center mt-32">
-                    <a href="/" class="group text-[10px] uppercase tracking-[0.4em] font-bold text-museum-dark/20 hover:text-museum-gold transition-colors inline-flex items-center gap-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-                        Volver a la Página Principal
-                    </a>
-                </div>
-            </section>
-        </main>
-	</body>
+        <!-- Blog Section Dummy -->
+        <div class="mt-40 border-t border-zinc-200 pt-32 text-center">
+          <h3 class="text-2xl font-display text-museum-dark mb-10 italic">
+            Últimas publicaciones en nuestro blog corporativo
+          </h3>
+          <div
+            class="max-w-4xl mx-auto bg-museum-dark rounded-[3rem] p-20 text-white relative overflow-hidden"
+          >
+            <div
+              class="absolute inset-0 bg-museum-gold/5 blur-3xl rounded-full translate-x-1/2 translate-y-1/2"
+            >
+            </div>
+            <div class="relative z-10">
+              <p
+                class="text-museum-gold font-bold text-[10px] uppercase tracking-[0.4em] mb-6"
+              >
+                Lectura Destacada
+              </p>
+              <h4 class="text-3xl md:text-4xl font-display mb-8">
+                Pedagogía Decolonial como Arte Vivo y Memoria Encarnada
+              </h4>
+              <p class="text-white/60 font-light mb-12">
+                Un análisis profundo desde los Saberes Afrocaribeños y
+                Afroindígenas del barrio El Pozón.
+              </p>
+              <a
+                href="#"
+                class="inline-block bg-white text-museum-dark px-6 py-3 md:px-10 md:py-5 rounded-full text-[10px] font-bold tracking-widest uppercase hover:bg-museum-gold transition-colors"
+                >Continuar Leyendo</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Volver -->
+        <div class="text-center mt-32">
+          <a
+            href="/"
+            class="group text-[10px] uppercase tracking-[0.4em] font-bold text-museum-dark/20 hover:text-museum-gold transition-colors inline-flex items-center gap-3"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="group-hover:-translate-x-1 transition-transform"
+              ><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg
+            >
+            Volver a la Página Principal
+          </a>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
