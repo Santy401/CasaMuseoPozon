@@ -1,0 +1,131 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const galleryImages = [
+    { src: "/Galeria/1. ENCUENTRO DE INICIATIVAS DE TURISMO CULTURAL.webp", title: "Encuentro de Turismo Cultural" },
+    { src: "/Galeria/411164de-a96d-4cc9-aacc-317b66d21fbc.webp", title: "Actividad Comunitaria" },
+    { src: "/Galeria/61a7a181-6ce8-473f-ae36-51c755821812.webp", title: "Memoria Viva" },
+    { src: "/Galeria/67e9a4a5-7c33-467c-9baa-58dd8a510c3c.webp", title: "Taller de Cartografía" },
+    { src: "/Galeria/79b7841c-cc34-4ae9-ac18-87f3799ff3f0.webp", title: "Encuentro de Saberes" },
+    { src: "/Galeria/7dca5459-82bc-4695-9857-0b10d7d7fc55.webp", title: "Registro Histórico" },
+    { src: "/Galeria/8dc0cd3c-da8b-4cac-b508-c39215b53389.webp", title: "Muralismo y Comunidad" },
+    { src: "/Galeria/96d36ff3-c789-4a34-84e6-97f5fa053816.webp", title: "Diálogos Territoriales" },
+    { src: "/Galeria/ASOCIATIVIDAD Y GOBERNANZA1.webp", title: "Asociatividad y Gobernanza" },
+    { src: "/Galeria/CARTAGENA POPULAR Y LIDERES.webp", title: "Cartagena Popular" },
+    { src: "/Galeria/CARTOGRAFIA SOCIAL 4.webp", title: "Cartografía Social" },
+    { src: "/Galeria/COMUNICACIÓN - PARTICIPACIÓN COMO ESTRATEGIA DE LA FUNDACION CASA MUSEO POZÓN.webp", title: "Estrategia de Comunicación" },
+    { src: "/Galeria/ESTUDIANTES TRES-9.webp", title: "Visita de Estudiantes" },
+    { src: "/Galeria/GOBERNANZA CULTURAL.webp", title: "Gobernanza Cultural" },
+    { src: "/Galeria/IMAGEN UBICACIÓN.webp", title: "Ubicación Territorial" },
+    { src: "/Galeria/INDUSTRIAS CREATIVAS.webp", title: "Industrias Creativas" },
+    { src: "/Galeria/IPCC Y ALCALDIA.webp", title: "Gestión Institucional" },
+    { src: "/Galeria/JUEGOS GRETOS 2.webp", title: "Juegos Tradicionales" },
+    { src: "/Galeria/MODELO DE APROPIACION DE3L TERRITORIO DESDE LA FUNDACIÓN CASA MUSEO POZÓN.webp", title: "Modelo de Apropiación" },
+    { src: "/Galeria/PIEZAS 1.webp", title: "Piezas Arqueológicas 1" },
+    { src: "/Galeria/PIEZAS 2.webp", title: "Piezas Arqueológicas 2" },
+    { src: "/Galeria/PLAN DE DIVULGACION 3.webp", title: "Plan de Divulgación" },
+    { src: "/Galeria/PLN DE DIVULGACION 4.webp", title: "Divulgación Comunitaria" },
+    { src: "/Galeria/PRESENTACION METODOLOGIA MUSEAL-0.webp", title: "Metodología Museal" },
+    { src: "/Galeria/RECORRIDO TURISTICO DEL BARRIO EL POZÓN.webp", title: "Recorrido Turístico" },
+    { src: "/Galeria/SALA MUSEO.webp", title: "Interior Sala Museo" },
+    { src: "/Galeria/SEMINARIO ESCLAVIZACIONES 1-8.webp", title: "Seminario sobre Esclavizaciones" },
+    { src: "/Galeria/SEMINARIO ESCLAVIZACIONES-3.webp", title: "Diálogos de Historia" },
+    { src: "/Galeria/VISITA DEL ORO 3.webp", title: "Alianza Museo del Oro 3" },
+    { src: "/Galeria/VISITA DEL ORO DOS.webp", title: "Alianza Museo del Oro 2" },
+    { src: "/Galeria/VISITA MUSEO DEL ORO 1.webp", title: "Alianza Museo del Oro 1" },
+    { src: "/Galeria/ZONA ARQUEOLÓGICA 3.webp", title: "Zona Arqueológica" },
+    { src: "/Galeria/ccbed146-d670-402e-80f1-19cfb5a75026.webp", title: "Procesos Sociales" },
+    { src: "/Galeria/ddd1573f-81af-4f70-9e07-bb5dc4666bc8.webp", title: "Encuentro de Líderes" },
+    { src: "/Galeria/df86ca84-a306-4ad3-8228-797b99c5e109.webp", title: "Actividad Cultural" },
+    { src: "/Galeria/e562534b-ad6f-4655-ba6b-f58f468fe0fc.webp", title: "Saberes Compartidos" },
+    { src: "/Galeria/ef21350b-ff9f-445a-b060-f52e0e86a992.webp", title: "Identidad Pozonera" },
+    { src: "/Galeria/f48c4eeb-f362-45a7-a092-e82adcce2f3f.webp", title: "Gestión Territorial" }
+];
+---
+
+<Layout 
+    title="Galería de Memoria | Casa Museo Pozón"
+    description="Explora el archivo visual de la Casa Museo Pozón. Momentos de comunidad, cultura, arqueología y transformación social en el barrio El Pozón."
+>
+    <section class="pt-32 pb-24 px-8 md:px-16 lg:px-24 bg-museum-cream">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-4 uppercase block">Archivo Visual</span>
+                <h1 class="text-4xl md:text-6xl font-display text-museum-dark mb-6">Galería de Memoria</h1>
+                <div class="w-24 h-1 bg-museum-gold mx-auto mb-8"></div>
+                <p class="text-museum-dark/60 max-w-2xl mx-auto font-light leading-relaxed">
+                    Un testimonio gráfico de nuestra labor territorial, hallazgos arqueológicos y la fuerza de la organización comunitaria en El Pozón.
+                </p>
+            </div>
+
+            <div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+                {galleryImages.map(image => (
+                    <div class="break-inside-avoid group relative overflow-hidden rounded-xl cursor-pointer">
+                        <img 
+                            src={image.src} 
+                            alt={image.title} 
+                            loading="lazy"
+                            class="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-museum-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                            <span class="text-[10px] font-bold text-museum-gold uppercase tracking-widest mb-1">Archivo Museal</span>
+                            <h3 class="text-white text-sm font-display leading-snug">{image.title}</h3>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Placeholder (Could be enhanced with JS for full lightbox) -->
+    <div id="image-modal" class="fixed inset-0 z-[200] bg-museum-dark/95 backdrop-blur-md opacity-0 invisible transition-all duration-500 flex items-center justify-center p-8">
+        <button id="close-modal" class="absolute top-10 right-10 text-white/50 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <div class="max-w-5xl w-full h-full flex flex-col items-center justify-center gap-8">
+            <img id="modal-img" src="" alt="" class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl" />
+            <h2 id="modal-title" class="text-white text-2xl font-display text-center"></h2>
+        </div>
+    </div>
+
+    <script>
+        function initGallery() {
+            const items = document.querySelectorAll('.break-inside-avoid');
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-img') as HTMLImageElement;
+            const modalTitle = document.getElementById('modal-title');
+            const closeModal = document.getElementById('close-modal');
+
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    const img = item.querySelector('img');
+                    const title = item.querySelector('h3');
+                    
+                    if (img && modalImg && modalTitle) {
+                        modalImg.src = img.src;
+                        modalImg.alt = img.alt;
+                        modalTitle.textContent = title?.textContent || '';
+                        
+                        modal?.classList.remove('invisible', 'opacity-0');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            closeModal?.addEventListener('click', () => {
+                modal?.classList.add('invisible', 'opacity-0');
+                document.body.style.overflow = '';
+            });
+
+            modal?.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal?.classList.add('invisible', 'opacity-0');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        initGallery();
+        document.addEventListener('astro:after-swap', initGallery);
+    </script>
+</Layout>
