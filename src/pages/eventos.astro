@@ -3,6 +3,7 @@ import { ClientRouter } from 'astro:transitions';
 import "../styles/global.css";
 import SocialSidebar from "../components/SocialSidebar.astro";
 import Navbar from "../components/navbar.astro";
+import YouTube from "../components/YouTube.astro";
 
 const initialEvents = [
     {
@@ -10,56 +11,56 @@ const initialEvents = [
         tag: "Institucional",
         date: "Septiembre 2025",
         text: "La Fundación participó activamente compartiendo su experiencia en gobernanza cultural para la paz y la vida digna, posicionando al Pozón como referente vivo de resistencia.",
-        image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        image: "/ParticipacionCaribe1.webp"
     },
     {
         title: "Presente en Aniversario No. 57 El Pozón",
         tag: "Comunidad",
         date: "Agosto 2025",
         text: "Fiesta de identidad, tradición y alegría comunitaria donde la Fundación reafirma su compromiso con el desarrollo del territorio.",
-        video: "https://www.youtube.com/watch?v=jrperNvuNVA"
+        video: "https://youtu.be/6rW7Eq1epUA?si=T65yc7AXfTHV-TpY"
     },
     {
         title: "EL POZÓN: Un Museo Vivo",
         tag: "Encuentro Cultural",
         date: "06 Septiembre 2025",
         text: "Encuentro con el Programa Escuelas Populares Sociopolíticas – Trenzando Territorio. Una jornada de sancocho ancestral, caminatas históricas y diálogos sobre liderazgo comunitario.",
-        image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        video: "https://youtu.be/WYitZwv2XzA?si=Q7k7gCahqEyeTC8l"
     },
     {
         title: "Mentoría sobre Asociatividad y Gobernanza",
         tag: "Formación",
         date: "08 Mayo 2025",
         text: "Fortalecimiento de la legitimidad institucional en el taller convocado por la Cámara de Comercio de Cartagena. Liderado por el maestro Jairo Chaparro Valderrama.",
-        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        image: "/MENTORÍA SOBRE ASOCIATIVIDAD Y GOBERNANZA PARA LAS ENTIDADES SIN ÁNIMO DE LUCRO .webp"
     },
     {
         title: "Cuando el Museo llega a tu casa",
         tag: "Patrimonio",
         date: "Abril 2025",
         text: "Visita técnica de la doctora Lucy Gómez (Museo del Oro Zenú) al Conchero de la Islita del Pozón. Puentes entre la memoria profunda y la dignidad cotidiana.",
-        image: "https://images.unsplash.com/photo-1447069387593-a5de0862081d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        video: "https://youtu.be/M7NWv4rI_Ic?si=aqNZ63fXrznK4aX1"
     },
     {
         title: "1° Encuentro de Turismo Cultural Comunitario",
         tag: "Turismo",
         date: "26 Julio 2025",
         text: "Hito en la articulación de saberes que apuestan por un turismo con enfoque pedagógico. Presentación del modelo 'Cartagena Popular: El Pozón como Museo Vivo'.",
-        image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        video: "https://youtu.be/B__W-1FfCQc?si=GduzZKp3ptci07ms"
     },
     {
         title: "El Mural como puente entre ciencia y comunidad",
         tag: "Cultura & Ciencia",
         date: "Julio 2025",
         text: "Elaboración de un mural científico con el apoyo del Museo del Oro Zenú, sensibilizando sobre la preservación de especies nativas.",
-        image: "https://images.unsplash.com/photo-1541462608141-ad60397d446f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        image: "/MuralComoPuente.webp"
     },
     {
         title: "Diseño hacia la Justicia Social (Bellas Artes)",
         tag: "Academia",
         date: "Junio 2025",
         text: "Estudiantes de Diseño Industrial de Bellas Artes descubren el alma de El Pozón en una experiencia transformadora.",
-        image: "https://images.unsplash.com/photo-1513364230712-be29210c1d2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        video: "https://youtu.be/VexpAldtV-k?si=_Oc_WpPAwIpnvQxs"
     }
 ];
 
@@ -96,22 +97,29 @@ const secondaryEvents = [
                 </div>
             </section>
 
-            <div class="max-w-7xl mx-auto px-8 py-20">
-                <div class="flex flex-col lg:flex-row gap-20">
-                    
-                    <!-- Left Column: Featured Events -->
-                    <div class="flex-grow space-y-32">
+            <div class="max-w-4xl mx-auto px-8 py-20">
+                <!-- Filtros Horizontal -->
+                <div class="mb-20">
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-museum-dark/30 mb-8 border-b border-zinc-200 pb-4 text-center">Filtrar por Categoría</h4>
+                    <nav class="flex flex-wrap justify-center gap-x-10 gap-y-4 filter-nav">
+                        <button data-filter="all" class="text-xs font-bold text-museum-gold transition-all">00. Todos</button>
+                        <button data-filter="Institucional" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold transition-all">01. Institucional</button>
+                        <button data-filter="Comunidad" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold transition-all">02. Comunidad</button>
+                        <button data-filter="Turismo" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold transition-all">03. Turismo</button>
+                        <button data-filter="Patrimonio" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold transition-all">04. Patrimonio</button>
+                        <button data-filter="Academia" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold transition-all">05. Academia</button>
+                    </nav>
+                </div>
+
+                <div class="space-y-32">
                         {initialEvents.map(event => (
-                            <article class="group">
+                            <article class="group event-card" data-tag={event.tag}>
                                 <div class="flex flex-col md:flex-row gap-12 items-start">
-                                    <div class="w-full md:w-1/2 aspect-video bg-zinc-200 rounded-[2rem] overflow-hidden shadow-2xl relative">
-                                        <img src={event.image || "https://images.unsplash.com/photo-1540575467063-178a50c2df87"} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
-                                        {event.video && (
-                                            <div class="absolute inset-0 flex items-center justify-center bg-black/20">
-                                                <div class="w-16 h-16 rounded-full bg-museum-gold flex items-center justify-center text-white shadow-xl hover:scale-110 transition-transform">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                                                </div>
-                                            </div>
+                                    <div class="w-full md:w-1/2 aspect-video bg-zinc-200 rounded-[2rem] overflow-hidden shadow-2xl relative group">
+                                        {event.video ? (
+                                            <YouTube id={event.video} title={event.title} className="h-full w-full rounded-none shadow-none" />
+                                        ) : (
+                                            <img src={event.image || "https://images.unsplash.com/photo-1540575467063-178a50c2df87"} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
                                         )}
                                     </div>
                                     <div class="w-full md:w-1/2">
@@ -137,19 +145,42 @@ const secondaryEvents = [
                         </div>
                     </div>
 
-                    <!-- Right Column: Sidebar (Links / Sub-sections) -->
-                    <aside class="w-full lg:w-80">
-                        <div class="sticky top-32 space-y-12">
-                            <div>
-                                <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-museum-dark/30 mb-8 border-b border-zinc-200 pb-4">Sub-secciones</h4>
-                                <nav class="flex flex-col gap-6">
-                                    <a href="#encuentros" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold hover:translate-x-2 transition-all">01. Encuentros Regionales</a>
-                                    <a href="#murales" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold hover:translate-x-2 transition-all">02. Muralismo Científico</a>
-                                    <a href="#academia" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold hover:translate-x-2 transition-all">03. Visitas Académicas</a>
-                                    <a href="#aniversarios" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold hover:translate-x-2 transition-all">04. Vida Comunitaria</a>
-                                    <a href="#" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold hover:translate-x-2 transition-all">05. Paseos Museales</a>
-                                </nav>
-                            </div>
+                </div>
+            </div>
+
+            <script>
+                function initFilters() {
+                    const buttons = document.querySelectorAll('.filter-nav button');
+                    const cards = document.querySelectorAll('.event-card');
+
+                    buttons.forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const filter = btn.getAttribute('data-filter');
+                            
+                            // Update active state
+                            buttons.forEach(b => b.classList.replace('text-museum-gold', 'text-museum-dark/60'));
+                            btn.classList.replace('text-museum-dark/60', 'text-museum-gold');
+
+                            cards.forEach(card => {
+                                const tag = card.getAttribute('data-tag');
+                                if (filter === 'all' || tag.includes(filter)) {
+                                    card.style.display = 'block';
+                                    card.style.opacity = '0';
+                                    setTimeout(() => {
+                                        card.style.opacity = '1';
+                                        card.style.transition = 'opacity 0.5s ease-in-out';
+                                    }, 10);
+                                } else {
+                                    card.style.display = 'none';
+                                }
+                            });
+                        });
+                    });
+                }
+
+                initFilters();
+                document.addEventListener('astro:after-swap', initFilters);
+            </script>
 
         </main>
         

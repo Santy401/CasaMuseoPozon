@@ -3,6 +3,7 @@ import { ClientRouter } from 'astro:transitions';
 import "../styles/global.css";
 import SocialSidebar from "../components/SocialSidebar.astro";
 import Navbar from "../components/navbar.astro";
+import YouTube from "../components/YouTube.astro";
 ---
 
 <html lang="es">
@@ -130,14 +131,11 @@ import Navbar from "../components/navbar.astro";
                             </li>
                         </ul>
                     </div>
-                    <div class="aspect-square bg-museum-dark rounded-[3rem] p-12 flex flex-col justify-center relative overflow-hidden group shadow-2xl">
-                         <div class="absolute inset-0 opacity-20 bg-[url('/Secsion1.png')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"></div>
-                         <div class="relative z-10">
-                            <h3 class="text-white text-3xl font-display mb-6">Laboratorio de Innovación Cultural</h3>
-                            <p class="text-white/60 font-light leading-relaxed mb-8">Convertimos el territorio en un espacio dinámico de aprendizaje y resignificación simbólica.</p>
-                            <div class="h-1 w-20 bg-museum-gold group-hover:w-full transition-all duration-700"></div>
-                         </div>
-                    </div>
+                    <YouTube 
+                        id="https://youtu.be/WYitZwv2XzA?si=Q7k7gCahqEyeTC8l" 
+                        title="EL POZÓN: Un Museo Vivo"
+                        className="rounded-[3rem] shadow-2xl"
+                    />
                 </div>
             </section>
 

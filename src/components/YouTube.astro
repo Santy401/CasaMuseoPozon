@@ -1,0 +1,37 @@
+---
+interface Props {
+  id: string;
+  title?: string;
+  className?: string;
+}
+
+const { id, title = "Video de YouTube", className = "" } = Astro.props;
+
+// Function to extract YouTube ID from various URL formats
+function getYouTubeId(url: string) {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : url;
+}
+
+const videoId = getYouTubeId(id);
+const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+---
+
+<div class={`aspect-video bg-museum-dark overflow-hidden shadow-2xl relative ${className}`}>
+  <iframe
+    class="w-full h-full border-0"
+    src={embedUrl}
+    title={title}
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<style>
+    div {
+        /* Default rounded corners if not provided in className */
+        border-radius: 2rem;
+    }
+</style>

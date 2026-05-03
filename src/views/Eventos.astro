@@ -1,4 +1,5 @@
 ---
+import YouTube from "../components/YouTube.astro";
 ---
 <section id="eventos" class="py-24 md:py-32 px-8 md:px-16 lg:px-24 bg-white relative">
     <div class="max-w-7xl mx-auto">
@@ -20,7 +21,7 @@
             <!-- Evento 1: El Caribe Llega -->
             <article class="group cursor-pointer">
                 <div class="aspect-video bg-zinc-100 rounded-3xl overflow-hidden mb-6 relative">
-                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Evento Caribe" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    <img src="/ParticipacionCaribe1.webp" alt="Evento Caribe" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
                     <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest text-museum-dark">Institucional</div>
                 </div>
                 <h3 class="text-xl font-display text-museum-dark group-hover:text-museum-gold transition-colors mb-4 leading-snug">Participación en “El Caribe Llega”</h3>
@@ -31,15 +32,11 @@
 
             <!-- Evento 2: Aniversario 57 -->
             <article class="group cursor-pointer">
-                <div class="aspect-video bg-zinc-100 rounded-3xl overflow-hidden mb-6 relative">
-                    <div class="absolute inset-0 bg-museum-dark/20 flex items-center justify-center">
-                        <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-                        </div>
-                    </div>
-                     <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Aniversario Pozón" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
-                     <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest text-museum-dark">Comunidad</div>
-                </div>
+                <YouTube 
+                    id="https://youtu.be/6rW7Eq1epUA?si=T65yc7AXfTHV-TpY" 
+                    title="Aniversario No. 57 El Pozón"
+                    className="mb-6 rounded-3xl"
+                />
                 <h3 class="text-xl font-display text-museum-dark group-hover:text-museum-gold transition-colors mb-4 leading-snug">Aniversario No. 57 El Pozón</h3>
                 <p class="text-xs font-light text-museum-dark/50 leading-relaxed line-clamp-3">
                     Orgullosos de ser parte del comité organizador de esta fiesta de identidad, tradición y alegría comunitaria.
@@ -49,7 +46,7 @@
             <!-- Evento 3: Mural Científico -->
             <article class="group cursor-pointer">
                 <div class="aspect-video bg-zinc-100 rounded-3xl overflow-hidden mb-6 relative">
-                    <img src="https://images.unsplash.com/photo-1541462608141-ad60397d446f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Mural Científico" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    <img src="/MuralComoPuente.webp" alt="Mural Científico" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
                     <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest text-museum-dark">Arte & Ciencia</div>
                 </div>
                 <h3 class="text-xl font-display text-museum-dark group-hover:text-museum-gold transition-colors mb-4 leading-snug">El Mural como Puente Científico</h3>
