@@ -1,0 +1,81 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="Infraestructura Museal | Casa Museo Pozón" description="Conoce el diseño arquitectónico y proyección de nuestro Edificio en U, un ecosistema vivo de encuentro, memoria y pedagogía comunitaria.">
+    <!-- Hero Section -->
+    <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-museum-dark pt-20">
+        <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/80 to-museum-dark z-10"></div>
+        <div class="absolute inset-0 opacity-20 bg-[url('/Secsion1.png')] bg-cover bg-center mix-blend-overlay"></div>
+
+        <div class="relative z-20 text-center px-8" transition:animate="slide">
+            <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-6 uppercase block">Proyección Arquitectónica</span>
+            <h1 class="text-5xl md:text-7xl font-display text-museum-cream mb-6">
+                Infraestructura
+            </h1>
+            <p class="text-white/60 font-light max-w-2xl mx-auto">Más que una obra física: un ecosistema vivo, laboratorio de creación y símbolo de dignidad territorial diseñado en forma de "U".</p>
+        </div>
+    </section>
+
+    <!-- Visión Arquitectónica -->
+    <section class="py-24 max-w-7xl mx-auto px-8 lg:px-0">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-32">
+            <div>
+                <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Plan Maestro</span>
+                <h2 class="text-4xl md:text-5xl font-display text-museum-dark mb-8">Un Edificio en Forma de "U"</h2>
+                <div class="space-y-6 text-museum-dark/70 font-light leading-relaxed">
+                    <p>La Casa Museo de la Memoria del Pozón no es solo un repositorio de objetos, sino una plataforma dinámica. Su diseño arquitectónico en forma de "U" rodea y abraza el entorno, promoviendo el flujo constante entre el conocimiento ancestral y las nuevas generaciones, sirviendo como núcleo protector de la comunidad.</p>
+                    <p>Con capacidad para albergar nuestros nodos museales, la Memoteca Digital y laboratorios de saberes, la infraestructura está bioclimáticamente pensada para la región Caribe. Cuenta con diseño pasivo de ventilación, estándares de accesibilidad universal (Ley 1618), y espacios modulares para adaptarse a los talleres de formación.</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+                 <div class="bg-zinc-50 p-8 rounded-3xl border border-zinc-100 flex flex-col items-center text-center group hover:border-museum-gold/30 transition-colors">
+                     <span class="text-4xl font-display text-museum-gold mb-4 group-hover:scale-110 transition-transform">4</span>
+                     <span class="text-[10px] font-bold uppercase tracking-widest text-museum-dark">Nodos Integrados</span>
+                 </div>
+                 <div class="bg-zinc-50 p-8 rounded-3xl border border-zinc-100 flex flex-col items-center text-center group hover:border-museum-gold/30 transition-colors">
+                     <span class="text-4xl font-display text-museum-gold mb-4 group-hover:scale-110 transition-transform">U</span>
+                     <span class="text-[10px] font-bold uppercase tracking-widest text-museum-dark">Diseño Envolvente</span>
+                 </div>
+                 <div class="bg-zinc-50 p-8 rounded-3xl border border-zinc-100 flex flex-col items-center text-center group hover:border-museum-gold/30 transition-colors">
+                     <span class="text-4xl font-display text-museum-gold mb-4 group-hover:scale-110 transition-transform">100%</span>
+                     <span class="text-[10px] font-bold uppercase tracking-widest text-museum-dark">Accesibilidad (Ley 1618)</span>
+                 </div>
+                 <div class="bg-zinc-50 p-8 rounded-3xl border border-zinc-100 flex flex-col items-center text-center group hover:border-museum-gold/30 transition-colors">
+                     <span class="text-4xl font-display text-museum-gold mb-4 group-hover:scale-110 transition-transform">ECO</span>
+                     <span class="text-[10px] font-bold uppercase tracking-widest text-museum-dark">Bioclimático</span>
+                 </div>
+            </div>
+        </div>
+
+        <!-- Componentes Clave -->
+        <div class="mb-32">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-display text-museum-dark">Zonificación y Usos</h3>
+                <div class="w-16 h-1 bg-museum-gold mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 border border-zinc-200 rounded-3xl hover:shadow-xl transition-shadow bg-white">
+                    <h4 class="text-xl font-display text-museum-dark mb-4">Zona Educativa</h4>
+                    <p class="text-sm font-light text-museum-dark/60 leading-relaxed">Laboratorios de saberes, áreas de talleres múltiples y la Memoteca Digital (archivo vivo). Espacios flexibles que se adaptan a la Cátedra de Identidad Barrial.</p>
+                </div>
+                <div class="p-8 border border-zinc-200 rounded-3xl hover:shadow-xl transition-shadow bg-white">
+                    <h4 class="text-xl font-display text-museum-dark mb-4">Zona Expositiva</h4>
+                    <p class="text-sm font-light text-museum-dark/60 leading-relaxed">Salas diseñadas para el flujo continuo, donde se relatan los hallazgos del Conchero, la herencia Zenú y las tradiciones afrocaribeñas en un formato inmersivo.</p>
+                </div>
+                <div class="p-8 border border-zinc-200 rounded-3xl hover:shadow-xl transition-shadow bg-white">
+                    <h4 class="text-xl font-display text-museum-dark mb-4">Zona Comunitaria</h4>
+                    <p class="text-sm font-light text-museum-dark/60 leading-relaxed">Punto de encuentro barrial, cafetería y zonas de descanso al aire libre. La "U" abraza un patio central utilizado como foro y espacio lúdico.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center pb-24 border-b border-zinc-100">
+             <a href="/pdfs/INFRAESTRUCTURA.pdf" target="_blank" class="inline-flex items-center gap-4 bg-museum-dark text-white px-10 py-5 rounded-sm text-xs font-bold tracking-[0.2em] uppercase hover:bg-museum-gold transition-all duration-500 shadow-xl group">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-y-1 transition-transform"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                 Descargar Plan Maestro de Infraestructura
+             </a>
+             <p class="mt-6 text-[10px] uppercase tracking-widest text-museum-dark/40 font-bold">Documento Institucional - Proyecto de Edificio en U</p>
+        </div>
+    </section>
+</Layout>
