@@ -1,0 +1,40 @@
+---
+const testimonios = [
+    {
+        name: "María Pérez",
+        role: "Vecina de El Pozón",
+        quote: "La Casa Museo es el corazón vivo de nuestra historia. Aquí mis hijos aprenden lo que no les enseñan en el colegio sobre nuestras raíces y nuestra dignidad."
+    },
+    {
+        name: "Prof. Carlos Mendoza",
+        role: "Docente Institucional",
+        quote: "Un espacio pedagógico invaluable. El recorrido museal transforma la forma en que los estudiantes ven su propio territorio y construyen su identidad."
+    },
+    {
+        name: "Laura Gómez",
+        role: "Visitante e Investigadora",
+        quote: "No imaginé encontrar tanta riqueza cultural y arqueológica. El trabajo que hacen con el Conchero y la comunidad es una inspiración para toda Cartagena."
+    }
+];
+---
+<section id="testimonios" class="py-24 px-8 md:px-16 lg:px-24 bg-museum-cream border-t border-zinc-200">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Voces del Territorio</span>
+            <h2 class="text-3xl md:text-5xl font-display text-museum-dark mb-6">Testimonios de la Comunidad</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonios.map(t => (
+                <div class="bg-white p-10 rounded-[2rem] shadow-xl border border-zinc-100 relative group hover:-translate-y-2 transition-transform duration-500">
+                    <span class="text-6xl text-museum-gold/20 absolute top-6 left-6 font-display">"</span>
+                    <p class="text-sm font-light text-museum-dark/70 leading-relaxed mb-8 relative z-10 italic mt-6">"{t.quote}"</p>
+                    <div class="border-t border-zinc-100 pt-6">
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-museum-dark">{t.name}</h4>
+                        <span class="text-[10px] text-museum-gold uppercase tracking-widest block mt-1">{t.role}</span>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

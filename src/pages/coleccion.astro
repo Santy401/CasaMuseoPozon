@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/navbar.astro";
+import SocialSidebar from "../components/SocialSidebar.astro";
+import { ClientRouter } from "astro:transitions";
+
+const piezas = [
+    { name: "Fragmento Cerámico Doméstico", origin: "Conchero de La Islita", date: "Siglo XVIII - XIX", desc: "Evidencia de uso cotidiano en las primeras familias asentadas." },
+    { name: "Herramienta Lítica Menor", origin: "Capa profunda La Islita", date: "Periodo Formativo", desc: "Posible instrumento de raspado para recolección marina." },
+    { name: "Concha Tallada", origin: "Sector Central", date: "Precolombino", desc: "Muestra de tecnología adaptativa para recolección en cuerpos de agua." }
+];
+---
+
+<Layout title="Colección Arqueológica | Casa Museo Pozón" description="Explora el catálogo digital de la colección arqueológica encontrada en el sector de La Islita, El Pozón.">
+            <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-museum-dark pt-20">
+                <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/80 to-museum-dark z-10"></div>
+                <div class="relative z-20 text-center px-8">
+                    <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-6 uppercase block">Catálogo Digital</span>
+                    <h1 class="text-5xl md:text-7xl font-display text-museum-cream mb-6">Colección Arqueológica</h1>
+                    <p class="text-white/60 font-light max-w-2xl mx-auto">Vestigios del Conchero de La Islita, un archivo silencioso bajo nuestros pies.</p>
+                </div>
+            </section>
+
+            <section class="py-24 max-w-6xl mx-auto px-8 lg:px-0">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {piezas.map(p => (
+                        <div class="bg-white p-8 rounded-3xl shadow-xl border border-zinc-100 group">
+                            <div class="aspect-square bg-zinc-100 rounded-2xl mb-6 flex items-center justify-center relative overflow-hidden">
+                                <span class="text-zinc-300 font-display text-2xl uppercase tracking-widest absolute">Pieza</span>
+                            </div>
+                            <h3 class="text-xl font-display text-museum-dark mb-2 group-hover:text-museum-gold transition-colors">{p.name}</h3>
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="text-[9px] bg-museum-cream text-museum-dark px-2 py-1 uppercase tracking-widest font-bold rounded-sm">{p.origin}</span>
+                                <span class="text-[9px] border border-museum-gold text-museum-gold px-2 py-1 uppercase tracking-widest font-bold rounded-sm">{p.date}</span>
+                            </div>
+                            <p class="text-sm font-light text-museum-dark/60 leading-relaxed">{p.desc}</p>
+                        </div>
+                    ))}
+                </div>
+                
+                <div class="mt-24 text-center">
+                    <a href="/pdfs/SALA DE ORÍGENES ARQUEOLÓGICOS.pdf" target="_blank" class="inline-block bg-museum-dark text-white px-10 py-5 rounded-sm text-xs font-bold tracking-[0.2em] uppercase hover:bg-museum-gold transition-all duration-500 shadow-xl">
+                        Descargar Ficha Técnica Completa
+                    </a>
+                </div>
+            </section>
+</Layout>

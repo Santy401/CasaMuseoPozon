@@ -1,8 +1,8 @@
----
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 import SocialSidebar from "../components/SocialSidebar.astro";
 import Navbar from "../components/navbar.astro";
+import Historia from "../views/Historia.astro";
 ---
 
 <html lang="es">
@@ -109,6 +109,8 @@ import Navbar from "../components/navbar.astro";
                     </div>
                 </div>
 
+                <Historia />
+
                 <!-- Visión -->
                 <div
                     class="mb-32 flex flex-col md:flex-row-reverse gap-16 items-center"
@@ -161,6 +163,35 @@ import Navbar from "../components/navbar.astro";
                             alt="Visión 2028 - Casa Museo Pozón"
                             class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                         />
+                    </div>
+                </div>
+
+                <!-- Objetivos Estratégicos -->
+                <div class="mb-32">
+                    <div class="flex items-center gap-4 mb-12">
+                        <span class="w-12 h-[2px] bg-museum-gold"></span>
+                        <h2 class="text-3xl font-display text-museum-dark uppercase tracking-widest">
+                            Objetivos Estratégicos
+                        </h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {[
+                            { title: "Revitalización Biocultural y Arqueológica", desc: "Salvaguardar y visibilizar el patrimonio natural e histórico, incluyendo el Conchero de La Islita, integrándolo a las dinámicas vivas del territorio." },
+                            { title: "Fortalecimiento de la Memoria Colectiva", desc: "Reconstruir y difundir la historia oral y gráfica de El Pozón como herramienta para fomentar el sentido de pertenencia y una cultura de paz." },
+                            { title: "Educación y Formación Comunitaria", desc: "Implementar estrategias pedagógicas accesibles que permitan a niños y jóvenes comprender y apropiarse de sus raíces afrocaribeñas y ancestrales." },
+                            { title: "Articulación Institucional", desc: "Establecer alianzas estratégicas con universidades, entidades gubernamentales y redes de museos para potenciar los recursos y el alcance de la Fundación." },
+                            { title: "Promoción del Turismo Cultural Sustentable", desc: "Posicionar a El Pozón como un destino de turismo comunitario enfocado en la dignidad, el conocimiento y el intercambio cultural directo." },
+                            { title: "Sostenibilidad y Replicabilidad", desc: "Consolidar un modelo de gestión autónomo, generando ingresos propios mediante la comercialización de módulos pedagógicos e investigaciones." },
+                            { title: "Innovación y Empoderamiento Digital", desc: "Crear repositorios y recursos tecnológicos que permitan preservar el acervo documental para que sea accesible a futuras generaciones globalmente." }
+                        ].map((obj, i) => (
+                            <div class="flex gap-6 group items-start border-b border-zinc-100 pb-8 last:border-0 md:last:border-b md:[&:nth-last-child(-n+2)]:border-0">
+                                <span class="text-3xl font-display text-museum-gold/30 group-hover:text-museum-gold transition-colors pt-1">0{i+1}</span>
+                                <div>
+                                    <h3 class="text-lg font-bold text-museum-dark uppercase tracking-wide mb-3">{obj.title}</h3>
+                                    <p class="text-museum-dark/60 font-light text-sm leading-relaxed">{obj.desc}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
@@ -442,6 +473,13 @@ import Navbar from "../components/navbar.astro";
                         class="inline-block bg-museum-gold text-museum-dark px-10 py-5 rounded-sm text-xs font-bold tracking-[0.2em] uppercase hover:bg-white transition-all duration-500 shadow-xl"
                     >
                         Descargar Portafolio Institucional
+                    </a>
+                    <a
+                        href="/pdfs/PLAN ESTRATÉGICO 2026.pdf"
+                        target="_blank"
+                        class="inline-block bg-museum-dark text-white px-10 py-5 rounded-sm text-xs font-bold tracking-[0.2em] uppercase hover:bg-museum-gold transition-all duration-500 shadow-xl"
+                    >
+                        Transparencia / Gestión
                     </a>
                     <a
                         href="/"

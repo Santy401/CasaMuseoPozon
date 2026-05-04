@@ -4,6 +4,7 @@ import "../styles/global.css";
 import Navbar from "../components/navbar.astro";
 import SocialSidebar from "../components/SocialSidebar.astro";
 import Footer from "../components/footer.astro";
+import WhatsappButton from "../components/WhatsappButton.astro";
 
 export interface Props {
   title: string;
@@ -68,6 +69,14 @@ const canonicalURL = new URL(Astro.url.pathname, "https://www.casapozonmuseo.sit
     })} />
   </head>
   <body>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <div id="google_translate_element" class="absolute top-0 right-0 z-[200] p-2 opacity-50 hover:opacity-100 transition-opacity"></div>
     <SocialSidebar />
     <Navbar />
     
@@ -76,5 +85,6 @@ const canonicalURL = new URL(Astro.url.pathname, "https://www.casapozonmuseo.sit
     </main>
 
     <Footer />
+    <WhatsappButton />
   </body>
 </html>

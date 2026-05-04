@@ -1,0 +1,87 @@
+---
+const planes = [
+    {
+        name: "Experiencia Museo (Momento 2)",
+        price: "$35.000",
+        desc: "Un viaje de 1 hora y 30 minutos a la historia y cultura del barrio directamente en nuestras instalaciones.",
+        features: [
+            "Exposición fotográfica y documental",
+            "Inmersión en el sitio arqueológico",
+            "Contextualización histórica con guía",
+            "Conexión creativa y degustaciones",
+            "Espacio de reflexión barrial"
+        ],
+        highlight: false
+    },
+    {
+        name: "Plan Premium Integral",
+        price: "$295.000",
+        desc: "La experiencia comunitaria y cultural al máximo nivel con atenciones exclusivas durante toda la ruta turística.",
+        features: [
+            "Transporte panorámico (Chiva o Visicoche)",
+            "Guía turístico especializado",
+            "Fotógrafo profesional y material documental",
+            "Kit Turístico (Hidratación, escarapela, almuerzo)",
+            "Interacción inmersiva con actores culturales"
+        ],
+        highlight: true
+    },
+    {
+        name: "Plan Turístico (1 Día)",
+        price: "$282.000",
+        desc: "Experiencia completa de 9 momentos. Desde la bienvenida en 'Las Letras' hasta la fiesta afrocaribeña 'Makumba Night'. Grupo recomendado: 10-20 personas.",
+        features: [
+            "Bienvenida en Las Letras (Sesión fotográfica)",
+            "Recorrido Casa Museo Pozón",
+            "Reafirmación Afro y Experiencia Gastronómica",
+            "Centro Cultural Las Pilanderas",
+            "Eco-Parque Chamaría y Ciénaga de la Virgen"
+        ],
+        highlight: false
+    }
+];
+---
+<section id="precios" class="py-24 px-8 md:px-16 lg:px-24 bg-zinc-50 border-t border-zinc-100">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Cartagena Popular</span>
+            <h2 class="text-3xl md:text-5xl font-display text-museum-dark mb-6">Planes Turísticos</h2>
+            <p class="text-museum-dark/60 font-light text-sm md:text-base max-w-2xl mx-auto">
+                "Destapa la historia de un barrio con ritmo y sabor sin igual". Tu aporte garantiza la sostenibilidad de nuestra misión comunitaria.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+            {planes.map(plan => (
+                <div class={`relative bg-white rounded-3xl p-8 border transition-all duration-500 ${plan.highlight ? 'border-museum-gold shadow-2xl shadow-museum-gold/10 scale-100 lg:scale-105 z-10' : 'border-zinc-200 shadow-xl hover:border-museum-gold/40'}`}>
+                    {plan.highlight && (
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-museum-gold text-museum-dark text-[9px] font-bold uppercase tracking-widest px-4 py-1 rounded-full">
+                            Recomendado
+                        </div>
+                    )}
+                    <h3 class="text-xl font-display text-museum-dark mb-2">{plan.name}</h3>
+                    <div class="flex items-baseline gap-2 mb-4">
+                        <span class="text-4xl font-display text-museum-gold">{plan.price}</span>
+                        <span class="text-[10px] text-museum-dark/40 font-bold uppercase tracking-widest">COP / pers.</span>
+                    </div>
+                    <p class="text-sm font-light text-museum-dark/60 mb-8 pb-8 border-b border-zinc-100 min-h-[80px]">
+                        {plan.desc}
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        {plan.features.map(feature => (
+                            <li class="flex items-start gap-3">
+                                <span class="text-museum-gold mt-0.5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </span>
+                                <span class="text-xs text-museum-dark/70 font-light leading-relaxed">{feature}</span>
+                            </li>
+                        ))}
+                    </ul>
+                    <a href="/#contacto" class={`block w-full text-center py-4 rounded-full text-[10px] font-bold tracking-widest uppercase transition-colors ${plan.highlight ? 'bg-museum-dark text-white hover:bg-museum-gold' : 'bg-museum-cream text-museum-dark hover:bg-museum-dark hover:text-white'}`}>
+                        Reservar Ahora
+                    </a>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

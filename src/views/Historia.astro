@@ -1,0 +1,50 @@
+---
+const hitos = [
+    {
+        year: "1969",
+        title: "Nacimiento de El Pozón",
+        desc: "Fundación de la Junta de Acción Comunal. Llegada de los primeros pobladores al sector, organizando de forma comunitaria las calles y los servicios básicos."
+    },
+    {
+        year: "2004",
+        title: "Inicio del Proceso Comunitario",
+        desc: "Los jóvenes del barrio inician la recopilación oral y la investigación comunitaria sobre las raíces afro e indígenas del territorio."
+    },
+    {
+        year: "2015",
+        title: "Hallazgos Arqueológicos",
+        desc: "Se formaliza el estudio del Conchero de La Islita, revelando vestigios que conectan al barrio con prácticas ancestrales de las culturas originarias."
+    },
+    {
+        year: "2024",
+        title: "Apertura Oficial",
+        desc: "Constitución legal de la Fundación Casa Museo El Pozón, inaugurando sus cuatro nodos museales y su modelo pedagógico A.C.O."
+    },
+    {
+        year: "2026",
+        title: "Expansión Digital y Redes",
+        desc: "El museo consolida sus alianzas con la Red de Museos de Colombia y proyecta su cátedra de identidad a nivel nacional."
+    }
+];
+---
+<section class="mb-32">
+    <div class="flex items-center gap-4 mb-12">
+        <span class="w-12 h-[2px] bg-museum-gold"></span>
+        <h2 class="text-3xl font-display text-museum-dark uppercase tracking-widest">
+            Nuestra Historia
+        </h2>
+    </div>
+
+    <div class="relative border-l border-museum-gold/30 ml-3 md:ml-6 space-y-12">
+        {hitos.map((hito, i) => (
+            <div class="relative pl-8 md:pl-12 group">
+                <div class="absolute w-6 h-6 bg-museum-cream border-2 border-museum-gold rounded-full -left-[13px] top-1 group-hover:bg-museum-gold transition-colors duration-300 shadow-[0_0_15px_rgba(197,160,89,0.3)]"></div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl border border-zinc-100 group-hover:-translate-y-1 transition-transform duration-300">
+                    <span class="text-museum-gold font-bold text-xl md:text-3xl font-display mb-2 block">{hito.year}</span>
+                    <h3 class="text-lg font-bold text-museum-dark uppercase tracking-wide mb-3">{hito.title}</h3>
+                    <p class="text-museum-dark/60 font-light text-sm leading-relaxed">{hito.desc}</p>
+                </div>
+            </div>
+        ))}
+    </div>
+</section>

@@ -1,0 +1,48 @@
+---
+const faqs = [
+    {
+        q: "¿La entrada al museo tiene algún costo?",
+        a: "Sí, el ingreso a la Casa Museo y nuestras rutas turísticas comunitarias tienen un costo estructurado que permite la sostenibilidad del proyecto. Ofrecemos diferentes planes (como el Plan Premium de $295.000 COP) y experiencias individuales. Puedes consultar la sección de Planes Turísticos para más detalles."
+    },
+    {
+        q: "¿Tienen servicio de visitas guiadas para colegios y universidades?",
+        a: "Sí. Ofrecemos nuestro 'Recorrido Museal' estructurado con enfoque pedagógico. Debes agendar con al menos una semana de anticipación a través de nuestro formulario de contacto en la web o WhatsApp."
+    },
+    {
+        q: "¿En qué horarios están abiertos al público?",
+        a: "De lunes a viernes de 2:00 pm a 6:00 pm. Fines de semana de 9:00 am a 3:00 pm. Los días festivos operamos de 9:00 am a 12:00 pm."
+    },
+    {
+        q: "¿Cómo puedo donar material o piezas al museo?",
+        a: "Cualquier objeto con valor histórico para El Pozón es bienvenido. Contáctanos previamente para evaluar la pieza y realizar el proceso de catalogación adecuado."
+    },
+    {
+        q: "¿Es seguro visitar el sector?",
+        a: "¡Absolutamente! Nuestro proyecto se inserta en un esfuerzo de paz comunitaria. Hemos recibido múltiples instituciones nacionales e internacionales sin ningún inconveniente."
+    }
+];
+---
+<section class="py-24 px-8 md:px-16 lg:px-24 bg-white border-t border-zinc-100">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Información al Visitante</span>
+            <h2 class="text-3xl md:text-5xl font-display text-museum-dark mb-6">Preguntas Frecuentes</h2>
+        </div>
+
+        <div class="space-y-6">
+            {faqs.map(faq => (
+                <details class="group bg-zinc-50 border border-zinc-200 rounded-2xl p-6 cursor-pointer open:bg-white open:shadow-lg transition-all duration-300">
+                    <summary class="flex justify-between items-center font-bold text-museum-dark text-sm tracking-wide uppercase outline-none">
+                        {faq.q}
+                        <span class="text-museum-gold group-open:rotate-45 transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        </span>
+                    </summary>
+                    <p class="text-museum-dark/70 font-light mt-6 leading-relaxed text-sm border-t border-zinc-100 pt-6">
+                        {faq.a}
+                    </p>
+                </details>
+            ))}
+        </div>
+    </div>
+</section>
