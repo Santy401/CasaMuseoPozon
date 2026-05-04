@@ -14,35 +14,22 @@ const planes = [
         highlight: false
     },
     {
-        name: "Plan Premium Todo el Día",
+        name: "Plan Integral (Todo el Día)",
         price: "$290.000",
-        desc: "La experiencia inmersiva al máximo nivel, con transporte panorámico y atenciones exclusivas en toda la ruta.",
-        features: [
-            "Punto de encuentro: Las Letras",
-            "Transporte panorámico (Chiva o Bici-coches)",
-            "Fotógrafo profesional y material documental",
-            "Kit Turístico (Hidratación, escarapela, almuerzo)",
-            "Recorrido Casa Museo y Gastronomía"
-        ],
-        highlight: true
-    },
-    {
-        name: "Plan Sencillo Todo el Día",
-        price: "$290.000",
-        desc: "Experiencia completa recorriendo la memoria del territorio, iniciando desde el punto de encuentro principal.",
+        desc: "Experiencia completa e inmersiva recorriendo la memoria del territorio. Transporte, fotografía y atenciones incluidas.",
         features: [
             "Punto de encuentro: Las Letras (Sesión fotográfica)",
-            "Recorrido guiado Casa Museo Pozón",
-            "Experiencia Gastronómica tradicional",
-            "Intercambio de saberes con líderes",
-            "Acompañamiento de guías locales"
+            "Transporte panorámico (Chiva o Bici-coches)",
+            "Recorrido guiado Casa Museo Pozón y Gastronomía",
+            "Kit Turístico (Hidratación, escarapela, almuerzo)",
+            "Intercambio de saberes y acompañamiento local"
         ],
-        highlight: false
+        highlight: true
     }
 ];
 ---
 <section id="precios" class="py-24 px-8 md:px-16 lg:px-24 bg-zinc-50 border-t border-zinc-100">
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16">
             <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Cartagena Popular</span>
             <h2 class="text-3xl md:text-5xl font-display text-museum-dark mb-6">Planes Turísticos</h2>
@@ -51,7 +38,7 @@ const planes = [
             </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             {planes.map(plan => (
                 <div class={`relative bg-white rounded-3xl p-8 border transition-all duration-500 ${plan.highlight ? 'border-museum-gold shadow-2xl shadow-museum-gold/10 scale-100 lg:scale-105 z-10' : 'border-zinc-200 shadow-xl hover:border-museum-gold/40'}`}>
                     {plan.highlight && (
