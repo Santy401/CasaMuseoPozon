@@ -1,0 +1,87 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import SocialSidebar from "../components/SocialSidebar.astro";
+import Navbar from "../components/navbar.astro";
+
+const newsItems = [
+    {
+        title: "Dos nuevos espacios se integran a la Red de Museos de Cartagena y Bolívar",
+        tag: "Institucional",
+        date: "03 Septiembre 2025",
+        text: "La Fundación Casa Museo Pozón y Un Momento de Fantasía son los nuevos integrantes de la Red de Museos, fortaleciendo el ecosistema patrimonial de Cartagena y Bolívar con el respaldo del IPCC.",
+        url: "https://ipcc.gov.co/dos-nuevos-espacios-se-integran-a-la-red-de-museos-de-cartagena-y-bolivar/",
+        image: "https://ipcc.gov.co/wp-content/uploads/2025/09/5d93e020-3458-45df-bf27-93fe9af87197.jpeg.webp"
+    },
+    {
+        title: "Educación, deporte y cultura: avances y compromisos del Distrito en El Pozón",
+        tag: "Comunidad",
+        date: "27 Septiembre 2025",
+        text: "El alcalde Dumek Turbay presentó avances en educación, deporte, seguridad y cultura durante encuentro comunitario en El Pozón, destacando el reconocimiento a la Casa Museo como espacio de construcción de memoria histórica.",
+        url: "https://www.eluniversal.com.co/cartagena/2025/09/27/educacion-deporte-y-cultura-avances-y-compromisos-del-distrito-en-el-pozon/#goog_rewarded",
+        image: "https://www.eluniversal.com.co/resizer/v2/dumek-turbay-NMZAXUTG4ZAFXP3R6VEEKVM42I.jpeg?auth=af812eebc5a767d182e28ebb8a6748ce03190284ceb3456315cfd0b9bd41e301&smart=true&width=1200&height=800&quality=70"
+    }
+];
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Noticias | Casa Museo Pozón</title>
+        <ClientRouter />
+	</head>
+	<body class="bg-zinc-50 font-sans overflow-x-hidden">
+        <SocialSidebar />
+		<Navbar />
+        
+        <main>
+            <!-- Hero Header -->
+            <section class="relative min-h-[40vh] flex items-center justify-center bg-museum-dark pt-20">
+                <div class="relative z-20 text-center px-8" transition:animate="fade">
+                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Actualidad y Novedades</span>
+                    <h1 class="text-6xl md:text-8xl font-display text-white mb-10 leading-none">
+                        Noticias <br/> <span class="text-museum-gold italic">& Destacados</span>
+                    </h1>
+                </div>
+            </section>
+
+            <div class="max-w-4xl mx-auto px-8 py-20">
+                <div class="space-y-32">
+                        {newsItems.map(news => (
+                            <article class="group event-card" data-tag={news.tag}>
+                                <div class="flex flex-col md:flex-row gap-12 items-start">
+                                    <div class="w-full md:w-1/2 aspect-video bg-zinc-200 rounded-[2rem] overflow-hidden shadow-2xl relative group">
+                                        <img src={news.image} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
+                                    </div>
+                                    <div class="w-full md:w-1/2">
+                                        <div class="flex items-center gap-6 mb-6">
+                                            <span class="text-museum-gold font-bold text-[10px] uppercase tracking-widest">{news.tag}</span>
+                                            <span class="text-zinc-400 text-[10px] uppercase tracking-widest">{news.date}</span>
+                                        </div>
+                                        <h2 class="text-3xl font-display text-museum-dark mb-6 group-hover:text-museum-gold transition-colors">{news.title}</h2>
+                                        <p class="text-sm font-light text-museum-dark/60 leading-relaxed mb-8">{news.text}</p>
+                                        <a href={news.url} target="_blank" rel="noopener noreferrer" class="text-[10px] font-bold uppercase tracking-widest border-b border-museum-gold pb-1 hover:border-museum-dark transition-all">Leer Noticia Completa</a>
+                                    </div>
+                                </div>
+                            </article>
+                        ))}
+                </div>
+            </div>
+        </main>
+        
+        <!-- Descriptive Footer Links Section -->
+        <section class="py-32 px-8 bg-zinc-50 border-t border-zinc-200">
+            <div class="max-w-5xl mx-auto">
+                <div class="pt-20 text-center">
+                     <a href="/" class="group inline-flex items-center gap-6 px-12 py-6 border border-museum-dark/20 rounded-full hover:bg-museum-dark hover:text-white transition-all duration-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:-translate-x-2 transition-transform"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"/></svg>
+                        <span class="text-xs font-bold uppercase tracking-[0.3em]">Volver al Inicio</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+	</body>
+</html>
