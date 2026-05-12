@@ -19,7 +19,7 @@ const {
 } = Astro.props;
 
 // Construimos la URL completa dinámica según la página en la que estemos
-const canonicalURL = new URL(Astro.url.pathname, "https://www.casapozonmuseo.site");
+const canonicalURL = new URL(Astro.url.pathname, "https://www.casapozonmuseo.org");
 ---
 <html lang="es">
   <head>
@@ -58,14 +58,62 @@ const canonicalURL = new URL(Astro.url.pathname, "https://www.casapozonmuseo.sit
     <!-- Datos Estructurados (Schema.org) -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Museum",
-      "name": "Casa Museo El Pozón",
-      "url": canonicalURL,
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Cartagena",
-        "addressCountry": "CO"
-      }
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.casapozonmuseo.org/#organization",
+          "name": "Casa Museo El Pozón",
+          "url": "https://www.casapozonmuseo.org",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.casapozonmuseo.org/Logo.webp"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+57-312-615-3148",
+            "contactType": "customer service",
+            "areaServed": "CO",
+            "availableLanguage": "Spanish"
+          },
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=61573050221655",
+            "https://www.instagram.com/casamuseopozon/",
+            "https://www.youtube.com/@casamuseopozon"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.casapozonmuseo.org/#website",
+          "url": "https://www.casapozonmuseo.org",
+          "name": "Casa Museo El Pozón",
+          "publisher": {
+            "@id": "https://www.casapozonmuseo.org/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.casapozonmuseo.org/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Museum",
+          "name": "Casa Museo El Pozón",
+          "description": "Espacio de memoria viva, arqueología y pedagogía comunitaria en Cartagena.",
+          "url": "https://www.casapozonmuseo.site",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Sector La Islita, Calle Las Palmas",
+            "addressLocality": "Cartagena",
+            "addressRegion": "Bolívar",
+            "addressCountry": "CO"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "10.405364",
+            "longitude": "-75.459062"
+          }
+        }
+      ]
     })} />
   </head>
   <body>
