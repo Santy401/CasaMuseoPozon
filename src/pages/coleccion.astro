@@ -5,15 +5,15 @@ import SocialSidebar from "../components/SocialSidebar.astro";
 import { ClientRouter } from "astro:transitions";
 
 const piezas = [
-    { name: "Máscara Antropomorfa", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Máscara con rasgos humanos de 3.5 cm de alto × 5.5 cm de largo × 3 cm de espesor. Registrada en agosto de 2013 por Rigoberto Castro Pérez.", fig: "Fig. 05" },
-    { name: "Fragmento de Máscara Antropomorfa", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Fragmento parcial de máscara con rasgos humanos. Dimensiones: 4 cm de alto × 5.5 cm de largo × 2.5 cm de espesor.", fig: "Fig. 06" },
-    { name: "Fragmento de Recipiente — Líneas Curvas", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Alfarería tallada con motivos curvos decorativos. Dimensiones: 2 cm de alto × 3.5 cm de largo × 1.5 cm de espesor.", fig: "Fig. 07" },
-    { name: "Fragmento de Recipiente — Líneas Geométricas", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Alfarería con patrones geométricos de líneas verticales y horizontales. Dimensiones: 5.5 cm de alto × 8 cm de largo × 8 mm de espesor.", fig: "Fig. 08" },
-    { name: "Fragmento de Recipiente — Líneas Verticales", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Fragmento de alfarería tallada con líneas verticales. Dimensiones: 5.5 cm de alto × 5.5 cm de largo × 7 mm de espesor.", fig: "Fig. 09" },
-    { name: "Bala de Piedra Pulida", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Esfera de piedra pulida de 8.5 cm de alto × 8 cm de largo × 7 cm de espesor. Posible proyectil o instrumento ceremonial.", fig: "Fig. 12" },
-    { name: "Piedra con Hendiduras — Mortero", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Piedra con cavidades, posiblemente usada para triturar alimentos o pigmentos. Diversas dimensiones registradas.", fig: "Fig. 13-15" },
-    { name: "Piedra Alargada Pulida", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Herramienta lítica alargada y pulida de 13 cm de alto × 6.5 cm de largo × 2.5 cm de espesor.", fig: "Fig. 16" },
-    { name: "Fragmento de Alfarería con Imagen", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Pieza decorada con representación figurativa. Dimensiones: 6 cm de alto × 4 cm de largo × 7 mm de espesor.", fig: "Fig. 17" },
+    { name: "Máscara Antropomorfa", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Máscara con rasgos humanos de 3.5 cm de alto × 5.5 cm de largo × 3 cm de espesor. Registrada en agosto de 2013 por Rigoberto Castro Pérez.", fig: "Fig. 05", img: "/Colección Arqueológica/MascaraAntropomorfa.png" },
+    { name: "Fragmento de Máscara Antropomorfa", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Fragmento parcial de máscara con rasgos humanos. Dimensiones: 4 cm de alto × 5.5 cm de largo × 2.5 cm de espesor.", fig: "Fig. 06", img: "/Colección Arqueológica/FracmentoDeMascaraAntropomorfa.png" },
+    { name: "Fragmento de Recipiente — Líneas Curvas", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Alfarería tallada con motivos curvos decorativos. Dimensiones: 2 cm de alto × 3.5 cm de largo × 1.5 cm de espesor.", fig: "Fig. 07", img: "/Colección Arqueológica/RecipienteDelAlfareria.png" },
+    { name: "Fragmento de Recipiente — Líneas Geométricas", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Alfarería con patrones geométricos de líneas verticales y horizontales. Dimensiones: 5.5 cm de alto × 8 cm de largo × 8 mm de espesor.", fig: "Fig. 08", img: "/Colección Arqueológica/Fragmento de Recipiente — Líneas Geométricas.png" },
+    { name: "Fragmento de Recipiente — Líneas Verticales", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Fragmento de alfarería tallada con líneas verticales. Dimensiones: 5.5 cm de alto × 5.5 cm de largo × 7 mm de espesor.", fig: "Fig. 09", img: "/Colección Arqueológica/Fragmento de Recipiente — Líneas Verticales.png" },
+    { name: "Bala de Piedra Pulida", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Esfera de piedra pulida de 8.5 cm de alto × 8 cm de largo × 7 cm de espesor. Posible proyectil o instrumento ceremonial.", fig: "Fig. 12", img: "/Colección Arqueológica/Bala de Piedra Pulida.png" },
+    { name: "Piedra con Hendiduras — Mortero", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Piedra con cavidades, posiblemente usada para triturar alimentos o pigmentos. Diversas dimensiones registradas.", fig: "Fig. 13-15", img: "/Colección Arqueológica/Piedra con Hendiduras — Mortero.png" },
+    { name: "Piedra Alargada Pulida", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Herramienta lítica alargada y pulida de 13 cm de alto × 6.5 cm de largo × 2.5 cm de espesor.", fig: "Fig. 16", img: "/Colección Arqueológica/Piedra Alargada Pulida.png" },
+    { name: "Fragmento de Alfarería con Imagen", origin: "Calle Los Caracoles, El Pozón", date: "Precolombino", desc: "Pieza decorada con representación figurativa. Dimensiones: 6 cm de alto × 4 cm de largo × 7 mm de espesor.", fig: "Fig. 17", img: "/Colección Arqueológica/Fragmento de Alfarería con Imagen.png" },
 ];
 ---
 
@@ -38,10 +38,8 @@ const piezas = [
                     {piezas.map(p => (
                         <div class="bg-white p-8 rounded-3xl shadow-xl border border-zinc-100 group hover:shadow-2xl hover:-translate-y-1 transition-all duration-500">
                             <div class="aspect-square bg-gradient-to-br from-museum-cream to-zinc-100 rounded-2xl mb-6 flex items-center justify-center relative overflow-hidden">
-                                <div class="text-center">
-                                    <span class="text-museum-gold/40 font-display text-4xl uppercase tracking-widest block">{p.fig}</span>
-                                    <span class="text-zinc-300 text-[9px] uppercase tracking-widest mt-2 block">Registro Fotográfico</span>
-                                </div>
+                                <img src={p.img} alt={p.name} class="w-full h-full object-contain p-4" loading="lazy" />
+                                <span class="absolute top-3 right-3 bg-museum-dark/80 text-museum-gold text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full backdrop-blur-sm">{p.fig}</span>
                             </div>
                             <h3 class="text-lg font-display text-museum-dark mb-2 group-hover:text-museum-gold transition-colors leading-tight">{p.name}</h3>
                             <div class="flex flex-wrap items-center gap-2 mb-4">
