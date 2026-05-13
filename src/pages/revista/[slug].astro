@@ -1,0 +1,133 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../../styles/global.css";
+import SocialSidebar from "../../components/SocialSidebar.astro";
+import Navbar from "../../components/navbar.astro";
+import Footer from "../../components/footer.astro";
+import YouTube from "../../components/YouTube.astro";
+import { articulos } from "../../data/revista";
+
+export function getStaticPaths() {
+  return articulos.map(art => ({
+    params: { slug: art.slug },
+    props: { articulo: art }
+  }));
+}
+
+const { articulo } = Astro.props;
+const relacionados = articulos.filter(a => a.categoria === articulo.categoria && a.slug !== articulo.slug);
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={articulo.extracto} />
+    <title>{articulo.titulo} | Revista El Pozón | Casa Museo Pozón</title>
+    <ClientRouter />
+  </head>
+  <body class="bg-white font-sans overflow-x-hidden">
+    <SocialSidebar />
+    <Navbar />
+
+    <main>
+      <!-- Hero -->
+      <section class="relative min-h-[50vh] flex items-center justify-center bg-museum-cream pt-20">
+        <div class="absolute inset-0 bg-gradient-to-b from-museum-gold/5 to-transparent pointer-events-none"></div>
+        <div class="relative z-20 text-center px-8 max-w-4xl mx-auto" transition:animate="fade">
+          <div class="flex items-center justify-center gap-6 mb-8">
+            <span class="text-museum-gold font-bold text-[10px] uppercase tracking-widest">{articulo.categoria}</span>
+            <span class="w-4 h-[1px] bg-museum-gold/30"></span>
+            <span class="text-zinc-400 text-[10px] uppercase tracking-widest">{articulo.fecha}</span>
+          </div>
+          <h1 class="text-5xl md:text-7xl font-display text-museum-dark mb-8 leading-tight">{articulo.titulo}</h1>
+          <div class="flex items-center justify-center gap-4">
+            <span class="text-xs font-semibold uppercase tracking-widest text-museum-dark/40">{articulo.autor.nombre}</span>
+            {articulo.autor.invitado && (
+              <span class="text-[9px] font-bold uppercase tracking-widest text-museum-gold bg-museum-gold/10 px-3 py-1 rounded-full">Voz del Territorio</span>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <!-- Contenido del Artículo -->
+      <div class="max-w-3xl mx-auto px-8 py-20">
+        <!-- Video -->
+        {articulo.youtubeUrl && (
+          <div class="mb-16 rounded-[2rem] overflow-hidden shadow-2xl">
+            <YouTube id={articulo.youtubeUrl} title={articulo.titulo} />
+          </div>
+        )}
+
+        <!-- Crónica -->
+        <div class="prose-custom" set:html={articulo.contenido} />
+
+        <!-- Etiquetas -->
+        {articulo.etiquetas.length > 0 && (
+          <div class="mt-16 pt-12 border-t border-zinc-100">
+            <div class="flex flex-wrap gap-3">
+              {articulo.etiquetas.map(tag => (
+                <span class="text-[9px] font-bold uppercase tracking-widest text-museum-dark/50 bg-zinc-100 px-4 py-2 rounded-full">{tag}</span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Bio del Autor -->
+        <div class="mt-16 bg-museum-cream/50 p-10 rounded-[2rem] border border-museum-gold/10">
+          <div class="flex items-start gap-6">
+            <div class="w-16 h-16 rounded-full bg-museum-gold/20 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-sm font-bold text-museum-dark uppercase tracking-widest">{articulo.autor.nombre}</span>
+                {articulo.autor.invitado && (
+                  <span class="text-[9px] font-bold uppercase tracking-widest text-museum-gold bg-museum-gold/10 px-3 py-1 rounded-full">Voz del Territorio</span>
+                )}
+              </div>
+              <p class="text-xs font-light text-museum-dark/60 leading-relaxed">{articulo.autor.bio}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Artículos Relacionados -->
+      {relacionados.length > 0 && (
+        <section class="py-24 px-8 bg-museum-cream/30 border-t border-zinc-100">
+          <div class="max-w-4xl mx-auto">
+            <h3 class="text-2xl font-display text-museum-dark mb-16 text-center uppercase tracking-widest">Artículos <span class="text-museum-gold">Relacionados</span></h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {relacionados.slice(0, 2).map(rel => (
+                <a href={`/revista/${rel.slug}`} class="group">
+                  <div class="aspect-video bg-zinc-200 rounded-[2rem] overflow-hidden shadow-lg mb-6">
+                    <div class="w-full h-full bg-gradient-to-br from-museum-gold/20 to-museum-dark/10 flex items-center justify-center">
+                      <span class="text-[9px] font-bold uppercase tracking-widest text-museum-gold/60">{rel.categoria}</span>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-4 mb-3">
+                    <span class="text-museum-gold font-bold text-[9px] uppercase tracking-widest">{rel.categoria}</span>
+                    <span class="text-zinc-400 text-[9px] uppercase tracking-widest">{rel.fecha}</span>
+                  </div>
+                  <h4 class="text-xl font-display text-museum-dark group-hover:text-museum-gold transition-colors">{rel.titulo}</h4>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <!-- Back to Revista -->
+      <section class="py-24 text-center bg-white">
+        <a href="/revista" class="group inline-flex items-center gap-6 px-12 py-6 border border-museum-dark/20 rounded-full hover:bg-museum-dark hover:text-white transition-all duration-700">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:-translate-x-2 transition-transform"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"/></svg>
+          <span class="text-xs font-bold uppercase tracking-[0.3em]">Volver a la Revista</span>
+        </a>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>

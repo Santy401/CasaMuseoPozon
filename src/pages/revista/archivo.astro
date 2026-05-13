@@ -1,0 +1,52 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../../styles/global.css";
+import SocialSidebar from "../../components/SocialSidebar.astro";
+import Navbar from "../../components/navbar.astro";
+import Footer from "../../components/footer.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Archivo de ediciones digitales de la Revista El Pozón: Memoria Viva. Descarga PDFs de nuestras publicaciones." />
+    <title>Archivo | Revista El Pozón | Casa Museo Pozón</title>
+    <ClientRouter />
+  </head>
+  <body class="bg-museum-cream font-sans overflow-x-hidden">
+    <SocialSidebar />
+    <Navbar />
+
+    <main>
+      <section class="relative min-h-[60vh] flex items-center justify-center bg-museum-cream pt-20">
+        <div class="absolute inset-0 bg-gradient-to-b from-museum-gold/5 to-transparent pointer-events-none"></div>
+        <div class="relative z-20 text-center px-8" transition:animate="fade">
+          <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Ediciones Digitales</span>
+          <h1 class="text-6xl md:text-8xl font-display text-museum-dark mb-10 leading-none">
+            Archivo <br/> <span class="text-museum-gold italic">Revista</span>
+          </h1>
+          <div class="w-24 h-1 bg-museum-gold mx-auto"></div>
+        </div>
+      </section>
+
+      <div class="max-w-3xl mx-auto px-8 py-32 text-center">
+        <div class="bg-white p-20 rounded-[3rem] shadow-xl shadow-museum-dark/5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold/30 mx-auto mb-10">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          <h2 class="text-4xl font-display text-museum-dark mb-6">Próximamente</h2>
+          <p class="text-sm font-light text-museum-dark/60 leading-relaxed max-w-md mx-auto mb-12">Estamos preparando las ediciones digitales de nuestra revista. Muy pronto podrás descargar aquí los PDFs de cada publicación.</p>
+          <a href="/revista" class="group inline-flex items-center gap-6 px-12 py-6 border border-museum-dark/20 rounded-full hover:bg-museum-dark hover:text-white transition-all duration-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:-translate-x-2 transition-transform"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"/></svg>
+            <span class="text-xs font-bold uppercase tracking-[0.3em]">Volver a la Revista</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>

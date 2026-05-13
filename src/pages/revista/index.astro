@@ -1,0 +1,238 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../../styles/global.css";
+import SocialSidebar from "../../components/SocialSidebar.astro";
+import Navbar from "../../components/navbar.astro";
+import Footer from "../../components/footer.astro";
+import { articulos, categorias, ultimaEdicion } from "../../data/revista";
+
+const articulosOrdenados = [...articulos].sort((a, b) => b.fecha.localeCompare(a.fecha));
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Revista El Pozón: Memoria Viva — Crónicas, memorias y saberes del territorio pozonero. Artículos con video y crónica escrita sobre patrimonio, cultura e identidad de El Pozón, Cartagena." />
+    <title>Revista El Pozón: Memoria Viva | Casa Museo Pozón</title>
+    <ClientRouter />
+  </head>
+  <body class="bg-museum-cream font-sans overflow-x-hidden">
+    <SocialSidebar />
+    <Navbar />
+
+    <main>
+      <!-- ═══════════════════════════════════════
+           PORTADA — Diseño tipo revista
+      ═══════════════════════════════════════ -->
+      <section class="relative min-h-screen flex flex-col bg-museum-dark pt-20 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-museum-dark via-museum-dark to-museum-gold/5 pointer-events-none"></div>
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-museum-gold/5 blur-3xl rounded-full pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-museum-gold/[0.02] blur-3xl rounded-full pointer-events-none"></div>
+
+        <div class="relative z-10 flex-1 flex flex-col justify-between px-8 md:px-16 lg:px-24 py-12 md:py-16 max-w-7xl mx-auto w-full">
+          <!-- Masthead -->
+          <div transition:animate="fade">
+            <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-6 uppercase block">Edición Digital</span>
+            <h1 class="text-7xl md:text-9xl lg:text-[10rem] font-display text-white leading-none tracking-tight">
+              Revista<br/>
+              <span class="text-museum-gold italic">El Pozón</span>
+            </h1>
+            <p class="text-sm md:text-lg font-light text-white/30 mt-4 tracking-[0.4em] uppercase">Memoria Viva</p>
+          </div>
+
+          <!-- Cover Contents -->
+          <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 items-end mt-16 lg:mt-0">
+            <!-- Editorial / Presentación General -->
+            <div class="lg:col-span-3" transition:animate="fade">
+              <div class="flex items-center gap-4 mb-6">
+                <span class="w-12 h-[2px] bg-museum-gold"></span>
+                <span class="text-museum-gold font-bold text-[10px] uppercase tracking-[0.3em]">Editorial</span>
+              </div>
+              <h2 class="text-4xl md:text-5xl lg:text-6xl font-display text-white mb-6 leading-tight">
+                Crónicas, memorias <br/>y saberes del <span class="text-museum-gold italic">territorio</span>
+              </h2>
+              <p class="text-base md:text-lg font-light text-white/50 leading-relaxed max-w-xl mb-10">
+                Un espacio digital donde la memoria de El Pozón cobra vida a través de crónicas, videos y relatos de su gente. Exploramos el patrimonio, la cultura y la identidad de un territorio que se niega a ser olvidado.
+              </p>
+              <div class="flex flex-wrap gap-6">
+                <span class="text-white/30 text-[10px] font-bold uppercase tracking-widest">Memoria Viva</span>
+                <span class="text-white/20">|</span>
+                <span class="text-white/30 text-[10px] font-bold uppercase tracking-widest">Voces del Territorio</span>
+                <span class="text-white/20">|</span>
+                <span class="text-white/30 text-[10px] font-bold uppercase tracking-widest">Turismo Comunitario</span>
+                <span class="text-white/20">|</span>
+                <span class="text-white/30 text-[10px] font-bold uppercase tracking-widest">Patrimonio</span>
+              </div>
+            </div>
+
+            <!-- Última Edición -->
+            <div class="lg:col-span-2 border-l border-museum-gold/10 pl-8 md:pl-12">
+              <span class="text-[9px] font-bold tracking-[0.3em] uppercase text-museum-gold/50 mb-8 block">Última Edición</span>
+              <div class="flex flex-col gap-8">
+                <div class="bg-white/5 rounded-[2rem] overflow-hidden border border-museum-gold/10">
+                  <div class="aspect-[4/3] bg-gradient-to-br from-museum-gold/10 to-museum-dark/30 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold/30">
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center gap-3 mb-3">
+                    <span class="text-museum-gold font-bold text-[9px] uppercase tracking-widest">Edición #{ultimaEdicion.numero}</span>
+                    <span class="w-2 h-[1px] bg-museum-gold/20"></span>
+                    <span class="text-zinc-600 text-[9px] uppercase tracking-widest">{ultimaEdicion.fecha}</span>
+                  </div>
+                  <h3 class="text-xl font-display text-white mb-3 leading-tight">{ultimaEdicion.titulo}</h3>
+                  <p class="text-xs font-light text-white/40 leading-relaxed mb-6">{ultimaEdicion.descripcion}</p>
+                  {ultimaEdicion.pdfUrl ? (
+                    <a href={ultimaEdicion.pdfUrl} target="_blank" class="text-[9px] font-bold uppercase tracking-widest text-museum-gold hover:text-white transition-colors inline-flex items-center gap-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                      Descargar PDF
+                    </a>
+                  ) : (
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-museum-gold/40 inline-flex items-center gap-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                      Próximamente en PDF
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scroll Indicator -->
+          <div class="flex flex-col items-center gap-4 mt-16 md:mt-0">
+            <span class="text-[8px] font-bold tracking-[0.4em] uppercase text-white/20">Descubrir</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold/40 animate-bounce"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- Transición Portada → Contenido -->
+      <div class="bg-white py-16 md:py-20">
+        <div class="max-w-4xl mx-auto px-8 text-center">
+          <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-6 uppercase block">Índice</span>
+          <h2 class="text-4xl md:text-5xl font-display text-museum-dark leading-tight">
+            Contenido <span class="text-museum-gold italic">de la Edición</span>
+          </h2>
+          <div class="w-16 h-[2px] bg-museum-gold mx-auto mt-8"></div>
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto px-8 py-20">
+        <!-- Categorías -->
+        <div class="mb-20">
+          <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-museum-dark/30 mb-8 border-b border-zinc-200 pb-4 text-center">Filtrar por Categoría</h4>
+          <nav class="flex flex-wrap justify-center gap-x-10 gap-y-4 filter-nav">
+            <button data-filter="all" class="text-xs font-bold text-museum-gold transition-all">00. Todas</button>
+            {categorias.map((cat, i) => (
+              <button data-filter={cat.id} class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold transition-all">0{i + 1}. {cat.nombre}</button>
+            ))}
+          </nav>
+        </div>
+
+        <!-- Grid de Artículos -->
+        <div class="space-y-32">
+          {articulosOrdenados.map(art => (
+            <article class="group article-card" data-categoria={art.categoria}>
+              <a href={`/revista/${art.slug}`} class="flex flex-col md:flex-row gap-12 items-start">
+                <div class="w-full md:w-1/2 aspect-video bg-zinc-200 rounded-[2rem] overflow-hidden shadow-2xl relative group">
+                  {art.imagen ? (
+                    <img src={art.imagen} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
+                  ) : (
+                    <div class="w-full h-full bg-gradient-to-br from-museum-gold/20 to-museum-dark/10 flex items-center justify-center">
+                      <div class="text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold/40 mx-auto mb-4">
+                          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-museum-gold/60">{art.categoria}</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div class="w-full md:w-1/2">
+                  <div class="flex items-center gap-6 mb-6">
+                    <span class="text-museum-gold font-bold text-[10px] uppercase tracking-widest">{art.categoria}</span>
+                    <span class="text-zinc-400 text-[10px] uppercase tracking-widest">{art.fecha}</span>
+                  </div>
+                  <h2 class="text-3xl font-display text-museum-dark mb-6 group-hover:text-museum-gold transition-colors">{art.titulo}</h2>
+                  <p class="flex items-center gap-2 mb-4">
+                    <span class="text-[10px] font-semibold uppercase tracking-widest text-museum-dark/40">{art.autor.nombre}</span>
+                    {art.autor.invitado && (
+                      <span class="text-[9px] font-bold uppercase tracking-widest text-museum-gold bg-museum-gold/10 px-3 py-1 rounded-full">Voz del Territorio</span>
+                    )}
+                  </p>
+                  <p class="text-sm font-light text-museum-dark/60 leading-relaxed mb-8">{art.extracto}</p>
+                  <span class="text-[10px] font-bold uppercase tracking-widest border-b border-museum-gold pb-1 hover:border-museum-dark transition-all">Leer Artículo Completo</span>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <!-- Voces del Territorio CTA -->
+        <section class="mt-32 bg-museum-dark text-white p-16 rounded-[3rem] relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-96 h-96 bg-museum-gold/5 blur-3xl rounded-full pointer-events-none"></div>
+          <div class="relative z-10 text-center max-w-2xl mx-auto">
+            <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-6 uppercase block">Voces del Territorio</span>
+            <h2 class="text-4xl md:text-5xl font-display mb-8 leading-tight">¿Eres líder comunitario o talento local?</h2>
+            <p class="text-sm font-light text-white/60 leading-relaxed mb-10">Este espacio es para ti. Publica tu columna, comparte tu visión y haz parte de la memoria viva de El Pozón. Queremos escuchar tu voz.</p>
+            <a href="/#contacto" class="bg-museum-gold text-museum-cream px-10 py-5 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-museum-dark transition-all duration-500 shadow-xl shadow-museum-gold/10 inline-block">Quiero Publicar</a>
+          </div>
+        </section>
+
+        <!-- Archivo de la Revista -->
+        <section class="mt-32 bg-museum-cream/50 p-16 rounded-[3rem] border border-museum-gold/10 text-center">
+          <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-6 uppercase block">Archivo</span>
+          <h2 class="text-4xl md:text-5xl font-display text-museum-dark mb-8 leading-tight">Ediciones Digitales</h2>
+          <p class="text-sm font-light text-museum-dark/60 leading-relaxed max-w-xl mx-auto mb-10">Próximamente podrás descargar aquí las ediciones PDF de nuestra revista. Un archivo vivo de la memoria del territorio pozonero.</p>
+          <a href="/revista/archivo" class="border border-museum-dark/30 text-museum-dark px-10 py-5 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-museum-dark hover:text-white transition-all duration-500 inline-block">Explorar Archivo</a>
+        </section>
+      </div>
+
+      <section class="py-24 text-center">
+        <a href="/" class="group inline-flex items-center gap-6 px-12 py-6 border border-museum-dark/20 rounded-full hover:bg-museum-dark hover:text-white transition-all duration-700">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:-translate-x-2 transition-transform"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"/></svg>
+          <span class="text-xs font-bold uppercase tracking-[0.3em]">Volver al Inicio</span>
+        </a>
+      </section>
+    </main>
+
+    <Footer />
+
+    <script>
+      function initRevistaFilters() {
+        const buttons = document.querySelectorAll('.filter-nav button');
+        const cards = document.querySelectorAll('.article-card');
+
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const filter = btn.getAttribute('data-filter');
+            buttons.forEach(b => b.classList.replace('text-museum-gold', 'text-museum-dark/60'));
+            btn.classList.replace('text-museum-dark/60', 'text-museum-gold');
+
+            cards.forEach(card => {
+              const categoria = card.getAttribute('data-categoria');
+              if (filter === 'all' || categoria === filter) {
+                card.style.display = 'block';
+                card.style.opacity = '0';
+                setTimeout(() => {
+                  card.style.opacity = '1';
+                  card.style.transition = 'opacity 0.5s ease-in-out';
+                }, 10);
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          });
+        });
+      }
+
+      initRevistaFilters();
+      document.addEventListener('astro:after-swap', initRevistaFilters);
+    </script>
+  </body>
+</html>
