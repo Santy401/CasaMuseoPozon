@@ -111,9 +111,9 @@ export const articulos: ArticuloRevista[] = [
     fecha: "10 Mayo 2026",
     categoria: "Memoria Viva",
     autor: {
-      nombre: "Alicia Martínez",
+      nombre: "Rigoberto Castro Pérez",
       invitado: false,
-      bio: "Representante Legal de la Fundación Casa Museo del Pozón. Lideresa comunitaria y gestora cultural del territorio pozonero."
+      bio: "Representante Legal y Director Ejecutivo de la Fundación Casa Museo del Pozón. Historiador, investigador territorial y arquitecto del Modelo Museal Turístico Territorial."
     },
     youtubeUrl: "https://youtu.be/WYitZwv2XzA",
     extracto: "Un recorrido por la memoria viva de El Pozón, donde cada rincón del barrio cuenta una historia de resistencia, identidad y dignidad cultural.",
