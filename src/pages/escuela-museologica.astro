@@ -1,0 +1,147 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import SocialSidebar from "../components/SocialSidebar.astro";
+import Navbar from "../components/navbar.astro";
+import Footer from "../components/footer.astro";
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Escuela de Museología | Casa Museo Pozón</title>
+        <ClientRouter />
+	</head>
+	<body class="bg-white font-sans overflow-x-hidden">
+        <SocialSidebar />
+		<Navbar />
+        
+        <main>
+            <!-- Hero Header -->
+            <section class="relative min-h-[60vh] flex items-center justify-center bg-museum-dark pt-20 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/70 via-museum-dark/90 to-museum-dark z-10"></div>
+                <div class="absolute inset-0 opacity-40 bg-[url('/EscuelaMuseologica.jpg')] bg-cover bg-center"></div>
+                
+                <div class="relative z-20 text-center px-8 max-w-5xl" transition:animate="fade">
+                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Formación y Ciudadanía</span>
+                    <h1 class="text-5xl md:text-7xl font-display text-white mb-10 leading-tight">
+                        Escuela de <br/> <span class="text-museum-gold italic">Museología</span>
+                    </h1>
+                    <div class="w-24 h-1 bg-museum-gold mx-auto mb-10"></div>
+                    <p class="max-w-3xl mx-auto text-museum-cream/80 text-lg md:text-xl font-light leading-relaxed mb-12">
+                        Formación para la Gestión del Patrimonio Barrial: Empoderando a la comunidad como guardiana de su propia historia.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Main Content Section -->
+            <section class="py-32 px-8 md:px-16 lg:px-24 bg-white relative">
+                <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
+                    <div class="w-full lg:w-3/5">
+                        <div class="inline-block px-4 py-1 bg-museum-gold/10 text-museum-gold text-[10px] font-bold tracking-widest uppercase rounded-full mb-8">Propósito Educativo</div>
+                        <h2 class="text-3xl md:text-5xl font-display text-museum-dark mb-10 leading-tight">Empoderar a los <span class="text-museum-gold">Líderes y Jóvenes</span></h2>
+                        <p class="text-museum-dark/70 text-lg font-light leading-relaxed mb-8">
+                            Un espacio de formación técnica y ciudadana diseñado para empoderar a los líderes locales y jóvenes en la protección, curaduría y difusión de la memoria histórica y cultural de sus territorios.
+                        </p>
+                        <p class="text-museum-dark/70 text-lg font-light leading-relaxed mb-12">
+                            Creemos que el patrimonio no es algo estático guardado en vitrinas, sino un organismo vivo que requiere de mediadores comprometidos con la identidad de su barrio.
+                        </p>
+
+                        <div class="bg-museum-cream/30 p-12 rounded-[3rem] border border-museum-gold/10 relative overflow-hidden">
+                             <div class="absolute top-0 right-0 w-32 h-32 bg-museum-gold/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>
+                             <h3 class="text-2xl font-display text-museum-dark mb-8 uppercase tracking-widest text-museum-gold">Nuestra Visión</h3>
+                             <p class="text-2xl md:text-3xl font-light text-museum-dark leading-snug italic">
+                                "Convertir a los habitantes en los propios guardianes y narradores de su patrimonio vivo."
+                             </p>
+                        </div>
+                    </div>
+
+                    <div class="w-full lg:w-2/5 space-y-8">
+                        <div class="p-10 bg-museum-dark rounded-[2.5rem] text-white">
+                            <h4 class="text-museum-gold font-display text-xs tracking-widest uppercase mb-8">Líneas de Trabajo</h4>
+                            <ul class="space-y-6">
+                                <li class="flex gap-6 items-start">
+                                    <div class="w-10 h-10 rounded-full border border-museum-gold/30 flex items-center justify-center text-museum-gold flex-shrink-0">01</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm mb-2 uppercase">Curaduría Comunitaria</h5>
+                                        <p class="text-xs text-white/50 font-light">Selección y organización participativa de objetos y relatos territoriales.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-6 items-start">
+                                    <div class="w-10 h-10 rounded-full border border-museum-gold/30 flex items-center justify-center text-museum-gold flex-shrink-0">02</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm mb-2 uppercase">Conservación Preventiva</h5>
+                                        <p class="text-xs text-white/50 font-light">Técnicas básicas para la preservación de archivos y piezas arqueológicas locales.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-6 items-start">
+                                    <div class="w-10 h-10 rounded-full border border-museum-gold/30 flex items-center justify-center text-museum-gold flex-shrink-0">03</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm mb-2 uppercase">Mediación Cultural</h5>
+                                        <p class="text-xs text-white/50 font-light">Formación de guías y mediadores que narren la historia con dignidad y ética.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="aspect-square rounded-[2.5rem] overflow-hidden shadow-2xl relative group">
+                            <img src="/EscuelaMuseologicaNoBg.png" class="w-full h-full object-contain p-12 bg-white transition-transform duration-700 group-hover:scale-110" alt="Logo Escuela" />
+                            <div class="absolute inset-0 bg-museum-gold/5 pointer-events-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Methodology Section -->
+            <section class="py-32 bg-museum-cream px-8 md:px-16 lg:px-24">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-24">
+                        <h2 class="text-4xl md:text-5xl font-display text-museum-dark mb-6">Metodología de Formación</h2>
+                        <p class="text-museum-dark/60 font-light max-w-2xl mx-auto">Basada en el Modelo A.C.O., nuestra escuela combina la teoría técnica con la práctica territorial directa.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="bg-white p-10 rounded-3xl shadow-xl hover:-translate-y-2 transition-all">
+                             <h4 class="text-museum-gold font-display text-5xl opacity-20 mb-6">A</h4>
+                             <h5 class="font-bold text-sm uppercase mb-4">Aulas Vivas</h5>
+                             <p class="text-xs text-museum-dark/60 leading-relaxed font-light">Aprendizaje en las calles, plazas y patios del barrio El Pozón.</p>
+                        </div>
+                        <div class="bg-white p-10 rounded-3xl shadow-xl hover:-translate-y-2 transition-all">
+                             <h4 class="text-museum-gold font-display text-5xl opacity-20 mb-6">C</h4>
+                             <h5 class="font-bold text-sm uppercase mb-4">Co-creación</h5>
+                             <p class="text-xs text-museum-dark/60 leading-relaxed font-light">Estudiantes y docentes construyen juntos los contenidos museográficos.</p>
+                        </div>
+                        <div class="bg-white p-10 rounded-3xl shadow-xl hover:-translate-y-2 transition-all">
+                             <h4 class="text-museum-gold font-display text-5xl opacity-20 mb-6">O</h4>
+                             <h5 class="font-bold text-sm uppercase mb-4">Orgánico</h5>
+                             <p class="text-xs text-museum-dark/60 leading-relaxed font-light">Respeto por los ritmos y procesos culturales de la comunidad.</p>
+                        </div>
+                        <div class="bg-white p-10 rounded-3xl shadow-xl hover:-translate-y-2 transition-all">
+                             <h4 class="text-museum-gold font-display text-5xl opacity-20 mb-6">!</h4>
+                             <h5 class="font-bold text-sm uppercase mb-4">Impacto</h5>
+                             <p class="text-xs text-museum-dark/60 leading-relaxed font-light">Resultados tangibles que benefician la resiliencia del territorio.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Call to Action -->
+            <section class="py-32 px-8 bg-museum-dark text-white relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+                <div class="max-w-4xl mx-auto text-center relative z-10">
+                    <h2 class="text-3xl md:text-5xl font-display mb-10">¿Quieres ser parte de la próxima cohorte?</h2>
+                    <p class="text-lg font-light text-white/60 mb-12">Estamos formando a la nueva generación de guardianes del patrimonio del Pozón. Inscríbete para recibir información sobre nuestros próximos talleres.</p>
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                        <a href="/#contacto" class="bg-museum-gold text-museum-dark px-12 py-5 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-white transition-all">Quiero Participar</a>
+                        <a href="/pedagogia-territorial" class="border border-white/20 text-white px-12 py-5 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-museum-dark transition-all">Ver Pedagogía</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <Footer />
+	</body>
+</html>
