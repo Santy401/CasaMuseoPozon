@@ -1,0 +1,266 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import SocialSidebar from "../components/SocialSidebar.astro";
+import Navbar from "../components/navbar.astro";
+import Footer from "../components/footer.astro";
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Red Museológica | Centro de Investigación y Memoria del Pozón</title>
+        <ClientRouter />
+	</head>
+	<body class="bg-white font-sans overflow-x-hidden">
+        <SocialSidebar />
+		<Navbar />
+        
+        <main>
+            <!-- Hero Header -->
+            <section class="relative min-h-[70vh] flex items-center justify-center bg-museum-dark pt-20 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/70 via-museum-dark/90 to-museum-dark z-10"></div>
+                <div class="absolute inset-0 opacity-30 bg-[url('/RedMuseologicaLogo.png')] bg-cover bg-center scale-110 blur-sm mix-blend-overlay"></div>
+                
+                <div class="relative z-20 text-center px-8 max-w-5xl" transition:animate="fade">
+                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Ecosistema de Activación Patrimonial</span>
+                    <h1 class="text-5xl md:text-7xl font-display text-white mb-10 leading-tight">
+                        Red <span class="text-museum-gold">Museológica</span>
+                    </h1>
+                    <div class="w-24 h-1 bg-museum-gold mx-auto mb-10"></div>
+                    <p class="max-w-3xl mx-auto text-museum-cream/80 text-lg md:text-xl font-light leading-relaxed mb-12">
+                        Centro de Investigación y Memoria del Pozón: Una alianza estratégica para consolidar la identidad y resiliencia territorial.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 1. Presentación y Justificación -->
+            <section class="py-32 px-8 md:px-16 lg:px-24 bg-white relative">
+                <div class="max-w-7xl mx-auto">
+                    <div class="flex flex-col lg:flex-row gap-20 items-center">
+                        <div class="w-full lg:w-1/2">
+                            <span class="text-museum-gold font-bold tracking-widest text-[10px] uppercase mb-4 block">01. Alianza Estratégica</span>
+                            <h2 class="text-3xl md:text-5xl font-display text-museum-dark mb-8">Presentación y Justificación</h2>
+                            <p class="text-museum-dark/70 text-lg font-light leading-relaxed mb-6">
+                                Este proyecto surge como una alianza estratégica liderada por la <strong>Fundación Casa Museo Pozón</strong> en colaboración con las instituciones públicas y privadas del sector.
+                            </p>
+                            <p class="text-museum-dark/70 text-lg font-light leading-relaxed">
+                                Su propósito es consolidar un Ecosistema de Activación Patrimonial donde la investigación científica, la memoria histórica y la educación formal converjan para fortalecer el tejido social y la resiliencia territorial de las comunidades.
+                            </p>
+                            <div class="mt-10 p-8 bg-museum-cream/50 rounded-2xl border-l-4 border-museum-gold">
+                                <p class="italic text-museum-dark/80 font-medium">
+                                    "La red no es solo una estructura administrativa; es un organismo vivo que busca rescatar el conocimiento de las tecnologías ancestrales."
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-museum-dark p-8 rounded-2xl text-white transform hover:-translate-y-2 transition-transform duration-500">
+                                    <h4 class="text-museum-gold font-display text-3xl mb-2">Ancestral</h4>
+                                    <p class="text-xs opacity-60 uppercase tracking-widest">Tecnologías</p>
+                                </div>
+                                <div class="bg-museum-gold p-8 rounded-2xl text-museum-dark mt-8 transform hover:-translate-y-2 transition-transform duration-500">
+                                    <h4 class="font-display text-3xl mb-2">Concheros</h4>
+                                    <p class="text-[10px] opacity-80 uppercase tracking-widest font-bold">Depósitos Arqueológicos</p>
+                                </div>
+                                <div class="col-span-2 bg-museum-cream border border-museum-gold/20 p-8 rounded-2xl text-museum-dark transform hover:-translate-y-2 transition-transform duration-500">
+                                    <h4 class="font-display text-3xl mb-2">Identidad</h4>
+                                    <p class="text-xs opacity-60 uppercase tracking-widest">Herramientas de Progreso</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Marco Pedagógico: Modelo A.C.O. -->
+            <section class="py-32 bg-museum-cream px-8 md:px-16 lg:px-24">
+                <div class="max-w-7xl mx-auto text-center mb-24">
+                    <span class="text-museum-gold font-bold tracking-widest text-[10px] uppercase mb-4 block">02. Educación Orgánica</span>
+                    <h2 class="text-4xl md:text-6xl font-display text-museum-dark mb-8">Marco Pedagógico: <span class="text-museum-gold">Modelo A.C.O.</span></h2>
+                    <p class="text-museum-dark/60 max-w-3xl mx-auto font-light text-lg">
+                        Aprendizaje Comunitario Orgánico: El sustento pedagógico de nuestra Red Museológica.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
+                    <!-- Aprendizaje Situado -->
+                    <div class="bg-white p-12 rounded-3xl shadow-xl shadow-museum-dark/5 border border-transparent hover:border-museum-gold/20 transition-all group">
+                        <div class="w-16 h-16 bg-museum-cream rounded-2xl flex items-center justify-center text-museum-gold mb-8 group-hover:bg-museum-gold group-hover:text-white transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-display text-museum-dark mb-6">Aprendizaje Situado</h3>
+                        <p class="text-museum-dark/60 font-light leading-relaxed">
+                            El barrio y el museo se convierten en extensiones del aula, donde el conocimiento surge de la observación directa del territorio y su historia.
+                        </p>
+                    </div>
+
+                    <!-- Pedagogía de la Memoria -->
+                    <div class="bg-white p-12 rounded-3xl shadow-xl shadow-museum-dark/5 border border-transparent hover:border-museum-gold/20 transition-all group md:translate-y-12">
+                        <div class="w-16 h-16 bg-museum-cream rounded-2xl flex items-center justify-center text-museum-gold mb-8 group-hover:bg-museum-gold group-hover:text-white transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-display text-museum-dark mb-6">Pedagogía de la Memoria</h3>
+                        <p class="text-museum-dark/60 font-light leading-relaxed">
+                            El uso de la historia local como eje transversal para el desarrollo de competencias en ciencias sociales, artes y ética.
+                        </p>
+                    </div>
+
+                    <!-- Investigación-Acción -->
+                    <div class="bg-white p-12 rounded-3xl shadow-xl shadow-museum-dark/5 border border-transparent hover:border-museum-gold/20 transition-all group">
+                        <div class="w-16 h-16 bg-museum-cream rounded-2xl flex items-center justify-center text-museum-gold mb-8 group-hover:bg-museum-gold group-hover:text-white transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 2H8.6c-.4 0-.8.2-1.1.5-.3.3-.5.7-.5 1.1v12.8c0 .4.2.8.5 1.1.3.3.7.5 1.1.5h9.8c.4 0 .8-.2 1.1-.5.3-.3.5-.7.5-1.1V6.5L15.5 2z"/><path d="M3 7.6v12.8c0 .4.2.8.5 1.1.3.3.7.5 1.1.5h9.8"/><path d="M15 2v4.5h4.5"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-display text-museum-dark mb-6">Investigación-Acción</h3>
+                        <p class="text-museum-dark/60 font-light leading-relaxed">
+                            Los estudiantes participan activamente en la documentación de la memoria viva de su entorno, no solo como receptores de información.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Objetivos Estratégicos -->
+            <section class="py-32 bg-white px-8 md:px-16 lg:px-24">
+                <div class="max-w-7xl mx-auto border border-museum-gold/20 rounded-[3rem] p-12 md:p-24 overflow-hidden relative">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-museum-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                    
+                    <div class="relative z-10">
+                        <span class="text-museum-gold font-bold tracking-widest text-[10px] uppercase mb-4 block">03. Metas Clave</span>
+                        <h2 class="text-3xl md:text-5xl font-display text-museum-dark mb-12">Objetivos Estratégicos</h2>
+                        
+                        <div class="mb-16">
+                            <h3 class="text-xl font-bold text-museum-gold uppercase tracking-widest mb-6">Objetivo General</h3>
+                            <p class="text-2xl md:text-3xl font-light text-museum-dark leading-tight">
+                                Establecer una red colaborativa que funcione como epicentro para el intercambio de conocimientos ancestrales y la implementación del <span class="text-museum-gold font-bold">Modelo A.C.O.</span>
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                            <div class="flex gap-6">
+                                <span class="text-museum-gold font-display text-4xl">01</span>
+                                <p class="text-museum-dark/70 font-light">Estandarizar procesos de investigación territorial ante el <strong class="text-museum-dark">SIMCO (13001-15)</strong>.</p>
+                            </div>
+                            <div class="flex gap-6">
+                                <span class="text-museum-gold font-display text-4xl">02</span>
+                                <p class="text-museum-dark/70 font-light">Proveer recursos digitales y museográficos para planes de área educativos.</p>
+                            </div>
+                            <div class="flex gap-6">
+                                <span class="text-museum-gold font-display text-4xl">03</span>
+                                <p class="text-museum-dark/70 font-light">Crear una plataforma oficial para la difusión de hallazgos comunitarios.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Ejes de Acción y Operatividad -->
+            <section class="py-32 bg-museum-dark text-white px-8 md:px-16 lg:px-24">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-24">
+                        <span class="text-museum-gold font-bold tracking-widest text-[10px] uppercase mb-4 block">04. Operatividad</span>
+                        <h2 class="text-4xl md:text-6xl font-display mb-8">Ejes de Acción</h2>
+                        <p class="text-museum-cream/60 max-w-2xl font-light text-lg">La red opera bajo tres pilares fundamentales que garantizan su impacto territorial.</p>
+                    </div>
+
+                    <div class="space-y-12">
+                        <!-- Pilar 1 -->
+                        <div class="flex flex-col md:flex-row gap-12 items-center p-12 rounded-[2rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
+                            <div class="w-full md:w-1/3">
+                                <h3 class="text-3xl font-display text-museum-gold group-hover:scale-105 transition-transform">Investigación Territorial</h3>
+                            </div>
+                            <div class="w-full md:w-2/3">
+                                <p class="text-museum-cream/80 font-light text-lg leading-relaxed">
+                                    Espacio técnico dedicado a documentar la historia de los concheros y las ancestralidades presentes en el ADN del Pozón.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Pilar 2 -->
+                        <div class="flex flex-col md:flex-row gap-12 items-center p-12 rounded-[2rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
+                            <div class="w-full md:w-1/3">
+                                <h3 class="text-3xl font-display text-museum-gold group-hover:scale-105 transition-transform">Innovación Educativa</h3>
+                            </div>
+                            <div class="w-full md:w-2/3">
+                                <p class="text-museum-cream/80 font-light text-lg leading-relaxed">
+                                    Las instituciones aliadas adoptan el marco pedagógico A.C.O. para transformar el currículo tradicional en uno orgánico y contextualizado.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Pilar 3 -->
+                        <div class="flex flex-col md:flex-row gap-12 items-center p-12 rounded-[2rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
+                            <div class="w-full md:w-1/3">
+                                <h3 class="text-3xl font-display text-museum-gold group-hover:scale-105 transition-transform">Gestión de Memoria</h3>
+                            </div>
+                            <div class="w-full md:w-2/3">
+                                <p class="text-museum-cream/80 font-light text-lg leading-relaxed">
+                                    Sistema de préstamo y rotación de materiales museográficos para que la historia "viva" circule por cada institución.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Conexión con la Cátedra de la Identidad Barrial -->
+            <section class="py-32 bg-white px-8 md:px-16 lg:px-24">
+                <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
+                    <div class="w-full lg:w-2/5">
+                        <span class="text-museum-gold font-bold tracking-widest text-[10px] uppercase mb-4 block">05. Brazo Operativo</span>
+                        <h2 class="text-3xl md:text-5xl font-display text-museum-dark mb-8 leading-tight">Cátedra de la <br/><span class="text-museum-gold">Identidad Barrial</span></h2>
+                        <div class="w-20 h-1 bg-museum-gold mb-8"></div>
+                        <p class="text-museum-dark/60 text-lg font-light leading-relaxed">
+                            La Red servirá como el brazo operativo para implementar la Cátedra, integrando la arqueología local en el ADN educativo.
+                        </p>
+                    </div>
+                    <div class="w-full lg:w-3/5 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div class="p-8 border border-museum-gold/10 rounded-2xl hover:bg-museum-cream/30 transition-colors">
+                            <h4 class="font-bold text-museum-dark mb-4 uppercase tracking-wider text-xs">Integración Curricular</h4>
+                            <p class="text-museum-dark/70 text-sm font-light">Módulos pedagógicos basados en la arqueología local e historia del asentamiento.</p>
+                        </div>
+                        <div class="p-8 border border-museum-gold/10 rounded-2xl hover:bg-museum-cream/30 transition-colors">
+                            <h4 class="font-bold text-museum-dark mb-4 uppercase tracking-wider text-xs">Talleres de Co-creación</h4>
+                            <p class="text-museum-dark/70 text-sm font-light">Docentes y estudiantes producen sus propias micro-exhibiciones comunitarias.</p>
+                        </div>
+                        <div class="p-8 border border-museum-gold/10 rounded-2xl hover:bg-museum-cream/30 transition-colors col-span-1 sm:col-span-2">
+                            <h4 class="font-bold text-museum-dark mb-4 uppercase tracking-wider text-xs">Circulación de Contenidos</h4>
+                            <p class="text-museum-dark/70 text-sm font-light">Herramientas digitales para que el conocimiento del Centro de Investigación llegue de forma dinámica a todos.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Identidad e Imagen Institucional -->
+            <section class="py-32 bg-museum-cream px-8">
+                <div class="max-w-4xl mx-auto text-center">
+                    <img src="/RedMuseologicaLogo.png" alt="Sello Red Académica Museológica" class="w-48 md:w-64 mx-auto mb-12 drop-shadow-2xl" />
+                    <h2 class="text-3xl md:text-4xl font-display text-museum-dark mb-8">Identidad Institucional</h2>
+                    <p class="text-lg font-light text-museum-dark/70 mb-12 italic">
+                        "El sello de la Red Académica Museológica representa la unión de manos, instituciones y saberes en torno al espiral de la vida, símbolo de nuestra memoria ancestral compartida."
+                    </p>
+                    
+                    <div class="bg-white p-12 rounded-[2rem] shadow-xl border border-museum-gold/20 text-left">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <div>
+                                <h4 class="text-[10px] font-black uppercase tracking-[0.3em] text-museum-gold mb-4">Liderado por</h4>
+                                <p class="text-museum-dark font-display text-xl mb-1">Fundación Casa Museo Pozón</p>
+                                <p class="text-museum-dark/50 text-sm">NIT 901939559-4</p>
+                            </div>
+                            <div>
+                                <h4 class="text-[10px] font-black uppercase tracking-[0.3em] text-museum-gold mb-4">Ubicación</h4>
+                                <p class="text-museum-dark font-display text-xl mb-1">Sector Islita, Cartagena</p>
+                                <p class="text-museum-dark/50 text-sm">Trasv. 57 81-12, El Pozón</p>
+                            </div>
+                        </div>
+                        <div class="mt-12 pt-12 border-t border-museum-gold/10 text-center">
+                            <p class="text-museum-gold font-bold tracking-widest uppercase text-sm">Hacia una pedagogía de la memoria y la identidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <Footer />
+	</body>
+</html>
