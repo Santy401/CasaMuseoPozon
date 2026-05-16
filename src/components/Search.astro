@@ -1,0 +1,173 @@
+---
+const searchItems = [
+    { title: "Inicio", description: "Página principal de la Casa Museo Pozón", url: "/", keywords: ["home", "principal", "inicio", "bienvenida"] },
+    { title: "Sala Memoria Ancestral", description: "Conoce nuestra historia y quiénes somos", url: "/quienes-somos", keywords: ["historia", "nosotros", "quienes somos", "ancestral", "memoria", "fundacion", "mision", "vision", "objetivos"] },
+    { title: "Socios", description: "Aliados y socios estratégicos", url: "/socios", keywords: ["aliados", "partners", "socios", "cooperacion", "instituciones", "apoyo"] },
+    { title: "Representante Legal", description: "Información sobre Rigoberto Castro Pérez", url: "/#representante", keywords: ["director", "rigoberto castro perez", "liderazgo", "representante", "arquitecto de la memoria", "gestor cultural"] },
+    { title: "Portafolio", description: "Nuestros proyectos y documentos institucionales", url: "/#portafolio", keywords: ["documentos", "pdf", "descargas", "portafolio", "plan maestro", "ficha tecnica"] },
+    { title: "Cómo Apoyar", description: "Formas de contribuir con el museo", url: "/como-apoyar", keywords: ["donar", "voluntariado", "ayuda", "apoyo", "donaciones", "contribucion"] },
+    { title: "Modelo Museal", description: "Estrategia de innovación social y memoria viva", url: "/modelo-museal", keywords: ["metodologia", "social", "modelo", "museo vivo", "turismo territorial", "innovacion social", "ecosistema de memoria"] },
+    { title: "Memoria Viva", description: "Sistematización de relatos y archivos comunitarios", url: "/modelo-museal#memoria-viva", keywords: ["relatos", "archivos", "cartografia", "resignificacion", "memoria viva"] },
+    { title: "Educación Territorial", description: "Cátedra de Identidad Barrial y metodologías sentipensantes", url: "/modelo-museal#educacion", keywords: ["catedra", "identidad", "sentipensante", "aulas vivas", "educacion territorial"] },
+    { title: "Turismo Popular", description: "Rutas simbólicas y mediadores comunitarios", url: "/modelo-museal#turismo", keywords: ["rutas", "mediadores", "turismo popular", "experiencias inmersivas", "dignidad"] },
+    { title: "Economía Creativa", description: "Emprendimientos y circuitos de comercialización cultural", url: "/modelo-museal#economia", keywords: ["emprendimientos", "productos identitarios", "comercializacion", "economia creativa", "economia solidaria"] },
+    { title: "Nodos Museales", description: "Red de espacios culturales en el territorio", url: "/nodos-museales", keywords: ["nodos", "territorio", "espacios", "red de museos", "mapa de nodos"] },
+    { title: "Recorrido Museal", description: "Experiencia de visita por el museo", url: "/#recorrido-museal", keywords: ["visita", "turismo", "recorrido", "mapa", "guia"] },
+    { title: "Colección Arqueológica", description: "Vestigios y piezas históricas", url: "/coleccion", keywords: ["arqueologia", "piezas", "historia", "coleccion", "vestigios", "hallazgos"] },
+    { title: "Infraestructura", description: "Nuestras instalaciones y espacios físicos", url: "/infraestructura", keywords: ["edificio", "construccion", "espacios", "arquitectura", "planta fisica", "diseño"] },
+    { title: "Red Académica Museológica", description: "Colaboración académica y profesional", url: "/red-museologica", keywords: ["academia", "universidad", "red", "museologia", "investigacion", "expertos"] },
+    { title: "Pedagogía Territorial", description: "Educación y saberes locales", url: "/pedagogia-territorial", keywords: ["educacion", "clases", "saberes", "pedagogia", "aprendizaje", "comunidad"] },
+    { title: "Modelo A.C.O.", description: "Apropiación, Construcción y Organización", url: "/pedagogia-territorial#modelo-aco", keywords: ["aco", "apropiacion", "construccion", "organización", "modelo pedagogico"] },
+    { title: "Cátedra de Identidad", description: "Formación en identidad y territorio", url: "/pedagogia-territorial#catedra", keywords: ["catedra", "identidad", "formacion", "territorio", "pertenencia"] },
+    { title: "Escuela Museológica", description: "Programa de formación técnica", url: "/escuela-museologica", keywords: ["escuela", "estudio", "tecnico", "museologia", "capacitacion", "empleo"] },
+    { title: "Proyectos Sociales", description: "Impacto comunitario y social", url: "/proyectos-sociales", keywords: ["comunidad", "social", "impacto", "proyectos", "transformacion", "bienestar"] },
+    { title: "Eventos", description: "Próximas actividades y agenda cultural", url: "/eventos", keywords: ["agenda", "calendario", "actividades", "eventos", "programacion"] },
+    { title: "Noticias", description: "Actualidad y novedades del museo", url: "/noticias", keywords: ["blog", "actualidad", "novedades", "noticias", "prensa", "articulos"] },
+    { title: "Galería", description: "Registro visual de nuestras actividades", url: "/galeria", keywords: ["fotos", "imagenes", "video", "galeria", "multimedia", "album"] },
+    { title: "Revista El Pozón", description: "Publicación digital de la fundación", url: "/revista", keywords: ["revista", "lectura", "publicacion", "digital", "magazín", "edicion"] },
+    { title: "Contacto", description: "Ubicación y canales de comunicación", url: "/#contacto", keywords: ["telefono", "email", "donde estamos", "contacto", "direccion", "ubicacion", "redes sociales"] },
+];
+---
+
+<div id="search-overlay" class="fixed inset-0 bg-museum-dark/60 backdrop-blur-md z-[150] opacity-0 invisible transition-all duration-300 flex items-start justify-center pt-20 md:pt-32 px-6">
+    <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden transform scale-95 transition-all duration-300" id="search-modal">
+        <!-- Search Input Header -->
+        <div class="p-6 border-b border-museum-gold/10 flex items-center gap-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-museum-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input 
+                type="text" 
+                id="search-input" 
+                placeholder="Busca secciones, temas o palabras clave..." 
+                class="w-full bg-transparent border-none focus:ring-0 text-xl text-museum-dark placeholder:text-museum-dark/30 font-light"
+                autocomplete="off"
+            />
+            <button id="close-search" class="p-2 hover:bg-museum-cream rounded-full transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-museum-dark/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Results Area -->
+        <div id="search-results" class="max-h-[60vh] overflow-y-auto p-4 flex flex-col gap-2">
+            <div id="search-placeholder" class="py-12 text-center">
+                <p class="text-museum-dark/40 text-sm italic">Escribe para empezar a buscar en la Casa Museo...</p>
+            </div>
+            <div id="results-list" class="hidden flex flex-col gap-1">
+                <!-- Results will be injected here -->
+            </div>
+            <div id="no-results" class="hidden py-12 text-center">
+                <p class="text-museum-dark/60 font-medium">No se encontraron resultados</p>
+                <p class="text-museum-dark/40 text-sm mt-1">Intenta con otras palabras clave</p>
+            </div>
+        </div>
+
+        <!-- Footer / Shortcuts -->
+        <div class="bg-museum-cream/50 p-4 border-t border-museum-gold/5 flex justify-between items-center text-[10px] text-museum-dark/40 uppercase tracking-widest font-bold">
+            <div class="flex gap-4">
+                <span class="flex items-center gap-1"><kbd class="bg-white px-1.5 py-0.5 rounded border border-museum-gold/20 shadow-sm">ESC</kbd> para cerrar</span>
+                <span class="flex items-center gap-1 hidden md:flex"><kbd class="bg-white px-1.5 py-0.5 rounded border border-museum-gold/20 shadow-sm">↑↓</kbd> para navegar</span>
+            </div>
+            <span>Casa Museo El Pozón</span>
+        </div>
+    </div>
+</div>
+
+<script define:vars={{ searchItems }}>
+    function initSearch() {
+        const overlay = document.getElementById('search-overlay');
+        const modal = document.getElementById('search-modal');
+        const input = document.getElementById('search-input');
+        const closeBtn = document.getElementById('close-search');
+        const resultsList = document.getElementById('results-list');
+        const placeholder = document.getElementById('search-placeholder');
+        const noResults = document.getElementById('no-results');
+        const searchTriggers = document.querySelectorAll('.search-trigger');
+
+        function toggleSearch(isOpen) {
+            if (isOpen) {
+                overlay?.classList.remove('invisible', 'opacity-0');
+                modal?.classList.remove('scale-95');
+                modal?.classList.add('scale-100');
+                document.body.style.overflow = 'hidden';
+                setTimeout(() => input?.focus(), 100);
+            } else {
+                overlay?.classList.add('invisible', 'opacity-0');
+                modal?.classList.remove('scale-100');
+                modal?.classList.add('scale-95');
+                document.body.style.overflow = '';
+                if (input) input.value = '';
+                renderResults('');
+            }
+        }
+
+        function renderResults(query) {
+            if (!query) {
+                resultsList?.classList.add('hidden');
+                placeholder?.classList.remove('hidden');
+                noResults?.classList.add('hidden');
+                return;
+            }
+
+            const normalizedQuery = query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            const filtered = searchItems.filter(item => {
+                const text = `${item.title} ${item.description} ${item.keywords.join(' ')}`.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                return text.includes(normalizedQuery);
+            });
+
+            if (filtered.length > 0) {
+                resultsList.innerHTML = filtered.map((item, index) => `
+                    <a href="${item.url}" class="group flex flex-col p-4 rounded-2xl hover:bg-museum-gold/10 transition-all border border-transparent hover:border-museum-gold/20">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-museum-dark font-display text-lg group-hover:text-museum-gold transition-colors">${item.title}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-museum-gold opacity-0 group-hover:opacity-100 transition-all transform -translate-x-2 group-hover:translate-x-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                        <p class="text-museum-dark/50 text-xs font-light">${item.description}</p>
+                    </a>
+                `).join('');
+                resultsList?.classList.remove('hidden');
+                placeholder?.classList.add('hidden');
+                noResults?.classList.add('hidden');
+            } else {
+                resultsList?.classList.add('hidden');
+                placeholder?.classList.add('hidden');
+                noResults?.classList.remove('hidden');
+            }
+        }
+
+        searchTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleSearch(true);
+            });
+        });
+
+        closeBtn?.addEventListener('click', () => toggleSearch(false));
+        overlay?.addEventListener('click', (e) => {
+            if (e.target === overlay) toggleSearch(false);
+        });
+
+        input?.addEventListener('input', (e) => {
+            renderResults(e.target.value);
+        });
+
+        // Keyboard shortcuts
+        window.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                toggleSearch(true);
+            }
+            if (e.key === 'Escape') {
+                toggleSearch(false);
+            }
+        });
+    }
+
+    // Initialize
+    initSearch();
+    document.addEventListener('astro:after-swap', initSearch);
+</script>
