@@ -69,6 +69,37 @@ export const categorias: CategoriaRevista[] = [
 
 export const articulos: ArticuloRevista[] = [
   {
+    slug: "dia-internacional-de-los-museos-memoria-viva",
+    titulo: "Día Internacional de los Museos: La Memoria Viva que Late en El Pozón",
+    fecha: "17 Mayo 2026",
+    categoria: "Memoria Viva",
+    autor: {
+      nombre: "Casa Museo Pozón",
+      invitado: false,
+      bio: "Fundación Casa Museo del Pozón, Cartagena de Indias. Revitalizamos, preservamos y promovemos el patrimonio cultural, histórico y biocultural del territorio pozonero."
+    },
+    youtubeUrl: "https://youtu.be/7Yo_je8ZTPk?feature=shared",
+    extracto: "En el Día Internacional de los Museos, celebramos a nuestra Casa Museo no como un simple edificio, sino como un ser vivo que custodia la memoria colectiva y la identidad del territorio pozonero.",
+    contenido: `
+      <p class="text-lg font-light leading-relaxed mb-8">El viaje comienza aquí. Hay lugares en el mundo donde el tiempo no pasa, sino que se resguarda. Sitios donde el silencio habla, las paredes susurran secretos de otras épocas y el arte se convierte en el lenguaje universal del alma. Hoy, en el Día Internacional de los Museos, queremos celebrar ese milagro con nuestra comunidad.</p>
+
+      <h3 class="text-2xl font-display text-museum-dark mb-6">Un Ser Vivo que Late con la Comunidad</h3>
+      <p class="font-light leading-relaxed mb-6">Nuestra Casa Museo no es solo un edificio de muros firmes y salas ordenadas; es un ser vivo que late con la memoria de la gente y del territorio. Es un cofre donde cada objeto, cada cuadro y cada rincón custodian un fragmento de lo que fuimos, una respuesta a lo que somos y una pregunta abierta hacia lo que seremos.</p>
+
+      <h3 class="text-2xl font-display text-museum-dark mb-6">El Poder de la Pausa</h3>
+      <p class="font-light leading-relaxed mb-6">Vivimos en un mundo que corre de prisa, pero los espacios museales comunitarios tienen un superpoder: el don de la pausa. Esta pausa nos invita a detener el tiempo, a escuchar con el corazón y a mirar el pasado para reflexionar sobre nuestro presente y construir colectivamente el futuro de nuestro barrio.</p>
+
+      <blockquote class="border-l-4 border-museum-gold pl-8 py-4 my-12 bg-museum-cream/50 rounded-r-2xl">
+        <p class="text-xl font-display italic text-museum-dark/80">"Ven a contemplar, a sentir y a encontrarte. Recorrer un museo comunitario es una forma de descubrirnos a nosotros mismos a través de la mirada de los demás."</p>
+        <footer class="text-xs font-bold tracking-widest uppercase text-museum-gold mt-4">— Casa Museo Pozón</footer>
+      </blockquote>
+
+      <p class="font-light leading-relaxed">Te invitamos a ver nuestro video conmemorativo y a sumergirte en esta experiencia de identidad, arte y memoria territorial. ¡Feliz Día Internacional de los Museos!</p>
+    `,
+    imagen: "https://i.ytimg.com/vi/7Yo_je8ZTPk/hqdefault.jpg",
+    etiquetas: ["Día de los Museos", "memoria viva", "patrimonio", "comunidad", "El Pozón"]
+  },
+  {
     slug: "prospeccion-arqueologica-en-el-pozon",
     titulo: "Prospección Arqueológica en El Pozón: La Memoria Bajo Nuestros Pies",
     fecha: "13 Mayo 2026",
@@ -78,7 +109,7 @@ export const articulos: ArticuloRevista[] = [
       invitado: false,
       bio: "Fundación Casa Museo del Pozón, Cartagena de Indias. Revitalizamos, preservamos y promovemos el patrimonio cultural, histórico y biocultural del territorio pozonero."
     },
-    youtubeUrl: "https://www.youtube.com/watch?v=46eaYp6t_mI",
+    youtubeUrl: "https://www.youtube.com/watch?v=Q1BJFgH5OAk",
     extracto: "Un equipo de arqueólogos liderado por la Dra. Diana Carvajal realiza excavaciones controladas en el sector de La Islita para estudiar los concheros y revelar la ocupación humana histórica del territorio pozonero.",
     contenido: `
       <p class="text-lg font-light leading-relaxed mb-8">El barrio El Pozón guarda bajo sus pies una historia que antecede a la Cartagena colonial. Una historia escrita en conchas, sedimentos y estratos que un equipo de arqueólogos ha comenzado a desenterrar en el sector de La Islita.</p>
