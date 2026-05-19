@@ -113,64 +113,60 @@ import Layout from "../layouts/Layout.astro";
                 </div>
             </section>
 
-            <!-- Cátedra de Identidad Section -->
+            <!-- Cátedra de Identidad Section (Summary View) -->
             <section id="catedra" class="py-32 px-8 md:px-16 lg:px-24 bg-museum-cream/30">
                 <div class="max-w-7xl mx-auto">
-                    <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                         <div class="max-w-2xl">
                             <span class="text-museum-gold font-bold tracking-widest text-[10px] uppercase mb-4 block">Formación Ciudadana</span>
                             <h2 class="text-4xl md:text-6xl font-display text-museum-dark">Cátedra de la <br/><span class="text-museum-gold italic">Identidad Barrial Pozonera</span></h2>
                         </div>
                         <div class="pb-4">
                             <p class="text-museum-dark/50 text-sm font-light max-w-xs leading-relaxed italic">
-                                "Un viaje de cuatro etapas hacia el reconocimiento del ser pozonero."
+                                "Un viaje transformador hacia el autorreconocimiento del ser pozonero."
                             </p>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <!-- Module 1 -->
-                        <div class="bg-white p-12 rounded-[3rem] shadow-xl border border-zinc-100 flex gap-8 items-start hover:shadow-2xl transition-all group">
-                            <span class="text-5xl font-display text-museum-gold/20 group-hover:text-museum-gold transition-colors">01</span>
-                            <div>
-                                <h4 class="text-xl font-display text-museum-dark mb-4">Raíces y Arqueología Profunda</h4>
-                                <p class="text-sm text-museum-dark/60 font-light leading-relaxed">Exploración del origen del territorio, desde el Conchero hasta los primeros asentamientos populares.</p>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <p class="text-museum-dark/70 font-light text-lg leading-relaxed">
+                                La Cátedra de la Identidad Barrial Pozonera es nuestro programa pedagógico insignia para la juventud, diseñado para desactivar estigmas y despertar el orgullo territorial a través de la <strong>Arqueología de la Autoestima</strong>. 
+                            </p>
+                            <p class="text-museum-dark/60 font-light text-base leading-relaxed">
+                                Basada en la metodología del Modelo A.C.O., esta cátedra se estructura en cuatro módulos formativos que guían a los estudiantes a través de las raíces milenarias, los mapas comunitarios, los acuerdos de gobernanza y la proyección de futuros bioculturales.
+                            </p>
+                            <div class="pt-4">
+                                <a href="/catedra-identidad" class="inline-flex items-center gap-4 bg-museum-gold text-museum-cream px-10 py-5 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-museum-dark transition-all duration-500">
+                                    Explorar la Cátedra Completa
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                </a>
                             </div>
                         </div>
 
-                        <!-- Module 2 -->
-                        <div class="bg-white p-12 rounded-[3rem] shadow-xl border border-zinc-100 flex gap-8 items-start hover:shadow-2xl transition-all group">
-                            <span class="text-5xl font-display text-museum-gold/20 group-hover:text-museum-gold transition-colors">02</span>
-                            <div>
-                                <h4 class="text-xl font-display text-museum-dark mb-4">Cartografía de las Memorias</h4>
-                                <p class="text-sm text-museum-dark/60 font-light leading-relaxed">Mapeo colectivo de los hitos simbólicos, personajes y relatos que configuran nuestra identidad.</p>
-                            </div>
+                        <!-- 4 Modules Quick Cards Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <a href="/catedra-identidad" class="p-6 bg-white rounded-2xl border border-museum-gold/10 hover:border-museum-gold/30 hover:shadow-md transition-all group block">
+                                <span class="text-museum-gold font-display font-bold text-2xl mb-2 block group-hover:scale-105 transition-transform">01</span>
+                                <h4 class="text-sm font-bold text-museum-dark mb-2">Raíces y Arqueología</h4>
+                                <p class="text-xs text-museum-dark/50 font-light leading-relaxed">Exploración del origen del conchero ancestral a los asentamientos populares.</p>
+                            </a>
+                            <a href="/catedra-identidad" class="p-6 bg-white rounded-2xl border border-museum-gold/10 hover:border-museum-gold/30 hover:shadow-md transition-all group block">
+                                <span class="text-museum-gold font-display font-bold text-2xl mb-2 block group-hover:scale-105 transition-transform">02</span>
+                                <h4 class="text-sm font-bold text-museum-dark mb-2">Cartografía de las Memorias</h4>
+                                <p class="text-xs text-museum-dark/50 font-light leading-relaxed">Descolonización de la geografía urbana mediante mapas colectivos del afecto.</p>
+                            </a>
+                            <a href="/catedra-identidad" class="p-6 bg-white rounded-2xl border border-museum-gold/10 hover:border-museum-gold/30 hover:shadow-md transition-all group block">
+                                <span class="text-museum-gold font-display font-bold text-2xl mb-2 block group-hover:scale-105 transition-transform">03</span>
+                                <h4 class="text-sm font-bold text-museum-dark mb-2">Gobernanza y Paz</h4>
+                                <p class="text-xs text-museum-dark/50 font-light leading-relaxed">Liderazgo ético de base y herramientas para la convivencia pacífica.</p>
+                            </a>
+                            <a href="/catedra-identidad" class="p-6 bg-white rounded-2xl border border-museum-gold/10 hover:border-museum-gold/30 hover:shadow-md transition-all group block">
+                                <span class="text-museum-gold font-display font-bold text-2xl mb-2 block group-hover:scale-105 transition-transform">04</span>
+                                <h4 class="text-sm font-bold text-museum-dark mb-2">Futuros Bioculturales</h4>
+                                <p class="text-xs text-museum-dark/50 font-light leading-relaxed">Sostenibilidad y escalabilidad global de la ciencia comunitaria.</p>
+                            </a>
                         </div>
-
-                        <!-- Module 3 -->
-                        <div class="bg-white p-12 rounded-[3rem] shadow-xl border border-zinc-100 flex gap-8 items-start hover:shadow-2xl transition-all group">
-                            <span class="text-5xl font-display text-museum-gold/20 group-hover:text-museum-gold transition-colors">03</span>
-                            <div>
-                                <h4 class="text-xl font-display text-museum-dark mb-4">Gobernanza y Paz Territorial</h4>
-                                <p class="text-sm text-museum-dark/60 font-light leading-relaxed">Construcción de liderazgos éticos y herramientas para la convivencia pacífica y el desarrollo social.</p>
-                            </div>
-                        </div>
-
-                        <!-- Module 4 -->
-                        <div class="bg-white p-12 rounded-[3rem] shadow-xl border border-zinc-100 flex gap-8 items-start hover:shadow-2xl transition-all group">
-                            <span class="text-5xl font-display text-museum-gold/20 group-hover:text-museum-gold transition-colors">04</span>
-                            <div>
-                                <h4 class="text-xl font-display text-museum-dark mb-4">Futuros y Proyección Biocultural</h4>
-                                <p class="text-sm text-museum-dark/60 font-light leading-relaxed">Visión de sostenibilidad y escalabilidad de los saberes locales hacia el mundo.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-20 text-center">
-                         <div class="inline-flex flex-col items-center gap-6">
-                             <p class="text-xs font-bold uppercase tracking-[0.3em] text-museum-dark/30">¿Interesado en participar?</p>
-                             <a href="/#contacto" class="bg-museum-gold text-white px-12 py-5 rounded-full text-xs font-bold tracking-widest uppercase hover:bg-museum-dark transition-all shadow-xl">Inscribirse en la Cátedra</a>
-                         </div>
                     </div>
                 </div>
             </section>

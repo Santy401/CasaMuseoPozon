@@ -1,0 +1,185 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const planes = [
+    {
+        name: "Experiencia Segmentada",
+        price: "$35.000",
+        desc: "Ideal para visitas puntuales. Un viaje interactivo a la historia y cultura directamente en nuestras instalaciones (1h 30m).",
+        features: [
+            "Exposición fotográfica y documental",
+            "Inmersión en el sitio arqueológico",
+            "Contextualización histórica con guía",
+            "Conexión creativa y degustaciones",
+            "Espacio de reflexión barrial"
+        ],
+        highlight: false
+    },
+    {
+        name: "Plan Integral (Todo el Día)",
+        price: "$290.000",
+        desc: "Experiencia completa e inmersiva recorriendo la memoria del territorio. Transporte, fotografía y atenciones incluidas.",
+        features: [
+            "Punto de encuentro: Las Letras (Sesión fotográfica)",
+            "Transporte panorámico (Chiva o Bici-coches)",
+            "Recorrido guiado Casa Museo Pozón y Gastronomía",
+            "Kit Turístico (Hidratación, escarapela, almuerzo)",
+            "Intercambio de saberes y acompañamiento local"
+        ],
+        highlight: true
+    }
+];
+---
+
+<Layout 
+  title="Ruta Turística Comunitaria | Casa Museo El Pozón"
+  description="Destapa la historia de un barrio con ritmo y sabor sin igual. Conoce nuestros planes turísticos comunitarios y apoya nuestra sostenibilidad."
+>
+  <!-- Hero Section -->
+  <section class="relative min-h-[60vh] flex items-center justify-center bg-museum-dark pt-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/50 via-museum-dark/80 to-museum-dark z-10"></div>
+    <div class="absolute inset-0 opacity-25 bg-[url('/Secsion1.png')] bg-cover bg-center mix-blend-overlay scale-105"></div>
+    
+    <div class="relative z-20 text-center px-6 max-w-5xl" transition:animate="fade">
+      <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-6 uppercase block">Turismo con Raíz Popular</span>
+      <h1 class="text-4xl md:text-7xl font-display text-white mb-8 leading-tight">
+        Ruta Turística <br/> <span class="text-museum-gold italic">Comunitaria</span>
+      </h1>
+      <div class="w-24 h-1 bg-museum-gold mx-auto mb-8"></div>
+      <p class="max-w-3xl mx-auto text-museum-cream/80 text-base md:text-xl font-light leading-relaxed italic">
+        "Destapa la historia de un barrio con ritmo y sabor sin igual."
+      </p>
+    </div>
+  </section>
+
+  <!-- Logo & Introduction Section -->
+  <section class="py-24 px-6 md:px-12 lg:px-24 bg-white relative">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <!-- New Tourism Logo Container -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative group w-full max-w-[400px]">
+            <div class="absolute inset-0 bg-museum-gold/10 rounded-[3rem] blur-xl group-hover:bg-museum-gold/20 transition-all"></div>
+            <div class="relative bg-white p-6 rounded-[3rem] border border-museum-gold/15 shadow-2xl overflow-hidden">
+              <img 
+                src="/ModeloTuristicoLogo.jpeg" 
+                alt="Modelo Turístico Logo" 
+                class="w-full h-auto rounded-[2rem] object-cover hover:scale-105 transition-transform duration-500"
+              />
+              <div class="mt-6 text-center">
+                <span class="text-[10px] font-bold tracking-[0.25em] text-museum-gold uppercase block">Sello Colectivo</span>
+                <p class="text-xs text-museum-dark/50 font-light mt-1">Marca Registrada de la Red de Turismo Popular de El Pozón</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text Details -->
+        <div class="lg:col-span-7 space-y-8">
+          <div class="space-y-4">
+            <span class="text-museum-gold font-bold tracking-widest text-[10px] uppercase block">El Modelo de Turismo Social</span>
+            <h2 class="text-3xl md:text-4xl font-display text-museum-dark">Una Experiencia Sentipensante</h2>
+          </div>
+          <p class="text-museum-dark/70 text-lg font-light leading-relaxed">
+            Nuestra Ruta Turística Comunitaria no es un recorrido convencional. Es una estrategia de museología social orientada a dignificar el patrimonio biocultural, arqueológico e histórico de El Pozón, liderado y operado por jóvenes locales formados como mediadores.
+          </p>
+          <p class="text-museum-dark/60 font-light text-base leading-relaxed">
+            A través de bici-coches, recorridos gastronómicos, visitas al santuario del humedal y apreciación del vibrante muralismo local, los visitantes conectan directamente con la memoria popular y apoyan el desarrollo económico de las familias del territorio.
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+            <div class="flex items-start gap-4">
+              <span class="w-2 h-2 rounded-full bg-museum-gold mt-2"></span>
+              <div>
+                <h4 class="text-sm font-bold text-museum-dark">Inclusión Social</h4>
+                <p class="text-xs text-museum-dark/50 font-light mt-1">Generamos oportunidades de empleo y formación para jóvenes del barrio.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="w-2 h-2 rounded-full bg-museum-gold mt-2"></span>
+              <div>
+                <h4 class="text-sm font-bold text-museum-dark">Arte Mural</h4>
+                <p class="text-xs text-museum-dark/50 font-light mt-1">Las calles narran la epopeya popular mediante el color y el activismo gráfico.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="w-2 h-2 rounded-full bg-museum-gold mt-2"></span>
+              <div>
+                <h4 class="text-sm font-bold text-museum-dark">Cocina Tradicional</h4>
+                <p class="text-xs text-museum-dark/50 font-light mt-1">Rescate de recetas tradicionales elaboradas por matronas del territorio.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="w-2 h-2 rounded-full bg-museum-gold mt-2"></span>
+              <div>
+                <h4 class="text-sm font-bold text-museum-dark">Señalética Interactiva</h4>
+                <p class="text-xs text-museum-dark/50 font-light mt-1">Navegación inteligente que vincula puntos físicos con testimonios orales.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Planes y Precios Section -->
+  <section id="precios" class="py-24 px-6 md:px-12 lg:px-24 bg-museum-cream/30 border-t border-museum-gold/15">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Cartagena Popular</span>
+        <h2 class="text-3xl md:text-5xl font-display text-museum-dark mb-6">Planes Turísticos</h2>
+        <p class="text-museum-dark/60 font-light text-sm md:text-base max-w-2xl mx-auto">
+          "Destapa la historia de un barrio con ritmo y sabor sin igual". Tu aporte garantiza la sostenibilidad de nuestra misión comunitaria.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        {planes.map(plan => (
+          <div class={`relative bg-white rounded-3xl p-8 md:p-12 border transition-all duration-500 flex flex-col justify-between ${plan.highlight ? 'border-museum-gold shadow-2xl shadow-museum-gold/10 scale-100 lg:scale-105 z-10' : 'border-zinc-200 shadow-xl hover:border-museum-gold/40'}`}>
+            {plan.highlight && (
+              <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-museum-gold text-museum-dark text-[9px] font-bold uppercase tracking-widest px-4 py-1 rounded-full">
+                Recomendado
+              </div>
+            )}
+            <div>
+              <h3 class="text-2xl font-display text-museum-dark mb-4">{plan.name}</h3>
+              <div class="flex items-baseline gap-2 mb-6">
+                <span class="text-5xl font-display text-museum-gold">{plan.price}</span>
+                <span class="text-[10px] text-museum-dark/40 font-bold uppercase tracking-widest">COP / pers.</span>
+              </div>
+              <p class="text-sm font-light text-museum-dark/60 mb-8 pb-8 border-b border-zinc-100 min-h-[80px] leading-relaxed">
+                {plan.desc}
+              </p>
+              <ul class="space-y-4 mb-8">
+                {plan.features.map(feature => (
+                  <li class="flex items-start gap-3">
+                    <span class="text-museum-gold mt-0.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span class="text-xs text-museum-dark/70 font-light leading-relaxed">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <a href="/#contacto" class={`block w-full text-center py-4 rounded-full text-[10px] font-bold tracking-widest uppercase transition-colors ${plan.highlight ? 'bg-museum-dark text-white hover:bg-museum-gold' : 'bg-museum-cream text-museum-dark hover:bg-museum-dark hover:text-white'}`}>
+              Reservar Ahora
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-museum-dark text-white text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-display mb-6">¿Deseas personalizar tu visita?</h2>
+      <p class="text-museum-cream/70 font-light text-base mb-10 max-w-xl mx-auto">
+        Ofrecemos tarifas especiales para colegios, grupos académicos e investigadores. Consúltanos para diseñar una experiencia a tu medida.
+      </p>
+      <a href="/#contacto" class="bg-museum-gold text-museum-cream px-10 py-5 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-museum-dark transition-all duration-500">
+        Cotizar Visita Personalizada
+      </a>
+    </div>
+  </section>
+</Layout>

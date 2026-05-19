@@ -1,0 +1,669 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout 
+  title="Cátedra de la Identidad Barrial Pozonera | Casa Museo El Pozón"
+  description="Programa de formación ciudadana decolonial y saberes bioculturales basado en el territorio y el humedal de El Pozón."
+>
+  <!-- Hero Section -->
+  <section class="relative min-h-[60vh] flex items-center justify-center bg-museum-dark pt-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/60 via-museum-dark/85 to-museum-dark z-10"></div>
+    <div class="absolute inset-0 opacity-25 bg-[url('/RedMuseologicaLogo.png')] bg-cover bg-center mix-blend-overlay scale-105"></div>
+    
+    <div class="relative z-20 text-center px-6 max-w-5xl" transition:animate="fade">
+      <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-6 uppercase block">Formación Ciudadana y Decolonial</span>
+      <h1 class="text-4xl md:text-7xl font-display text-white mb-8 leading-tight">
+        Cátedra de la <br/> <span class="text-museum-gold italic">Identidad Barrial Pozonera</span>
+      </h1>
+      <div class="w-24 h-1 bg-museum-gold mx-auto mb-8"></div>
+      <p class="max-w-3xl mx-auto text-museum-cream/80 text-base md:text-xl font-light leading-relaxed mb-6 italic">
+        "El territorio como aula viva y la memoria como la principal herramienta de aprendizaje y formación ciudadana."
+      </p>
+    </div>
+  </section>
+
+  <!-- Introduction & Propósito Central -->
+  <section class="py-20 px-6 md:px-12 lg:px-24 bg-white relative">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="text-museum-gold font-bold tracking-widest text-[10px] uppercase mb-4 block">Propósito Central</span>
+      <h2 class="text-2xl md:text-4xl font-display text-museum-dark mb-6">La Arqueología de la Autoestima</h2>
+      <p class="text-museum-dark/70 text-lg font-light leading-relaxed mb-12">
+        La Cátedra activa la memoria milenaria y el ecosistema de saberes colectivos de El Pozón para cimentar una ciudadanía orgánica en las juventudes. Su objetivo es transformar radicalmente la percepción del entorno: pasar del estigma de habitar un "barrio de invasión marginal" al orgullo profundo de reconocerse herederos y guardianes de un territorio biocultural milenario.
+      </p>
+
+      <!-- Stepper summary of the 5-phase Route (ACO) -->
+      <div class="bg-museum-cream/40 p-8 rounded-[2rem] border border-museum-gold/15 text-left mb-12">
+        <h4 class="text-xs font-bold uppercase tracking-[0.25em] text-museum-gold mb-6 text-center">Ruta Metodológica Común (Modelo ACO)</h4>
+        <div class="grid grid-cols-5 gap-2 relative">
+          <!-- Phase lines -->
+          <div class="absolute top-6 left-[10%] right-[10%] h-[2px] bg-museum-gold/20 -z-0 hidden md:block"></div>
+          
+          <div class="flex flex-col items-center text-center z-10 col-span-5 md:col-span-1">
+            <span class="w-12 h-12 rounded-full bg-museum-dark text-museum-gold flex items-center justify-center font-display font-bold text-lg border border-museum-gold/30 mb-3 shadow-md shadow-museum-gold/5">1</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-museum-dark">Obtener</span>
+            <span class="text-[9px] text-museum-dark/50 font-light mt-1 hidden md:block">Excavar información del territorio</span>
+          </div>
+          <div class="flex flex-col items-center text-center z-10 col-span-5 md:col-span-1">
+            <span class="w-12 h-12 rounded-full bg-museum-dark text-museum-gold flex items-center justify-center font-display font-bold text-lg border border-museum-gold/30 mb-3 shadow-md shadow-museum-gold/5">2</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-museum-dark">Opinar</span>
+            <span class="text-[9px] text-museum-dark/50 font-light mt-1 hidden md:block">Círculos de palabra y debates</span>
+          </div>
+          <div class="flex flex-col items-center text-center z-10 col-span-5 md:col-span-1">
+            <span class="w-12 h-12 rounded-full bg-museum-dark text-museum-gold flex items-center justify-center font-display font-bold text-lg border border-museum-gold/30 mb-3 shadow-md shadow-museum-gold/5">3</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-museum-dark">Proponer</span>
+            <span class="text-[9px] text-museum-dark/50 font-light mt-1 hidden md:block">Talleres de ideación y codiseño</span>
+          </div>
+          <div class="flex flex-col items-center text-center z-10 col-span-5 md:col-span-1">
+            <span class="w-12 h-12 rounded-full bg-museum-dark text-museum-gold flex items-center justify-center font-display font-bold text-lg border border-museum-gold/30 mb-3 shadow-md shadow-museum-gold/5">4</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-museum-dark">Gestionar</span>
+            <span class="text-[9px] text-museum-dark/50 font-light mt-1 hidden md:block">Acción comunitaria en Minga</span>
+          </div>
+          <div class="flex flex-col items-center text-center z-10 col-span-5 md:col-span-1">
+            <span class="w-12 h-12 rounded-full bg-museum-dark text-museum-gold flex items-center justify-center font-display font-bold text-lg border border-museum-gold/30 mb-3 shadow-md shadow-museum-gold/5">5</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-museum-dark">Evaluar</span>
+            <span class="text-[9px] text-museum-dark/50 font-light mt-1 hidden md:block">Cosecha e indexación de memorias</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Modules Section -->
+  <section class="py-24 px-6 md:px-12 lg:px-24 bg-museum-cream/30 border-t border-museum-gold/10 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-museum-gold font-bold tracking-widest text-[10px] uppercase mb-4 block">Estructura Curricular</span>
+        <h2 class="text-3xl md:text-5xl font-display text-museum-dark mb-4">Sólida Formación por Módulos</h2>
+        <p class="text-museum-dark/60 font-light text-base max-w-2xl mx-auto">Explora la síntesis detallada de los contenidos curriculares creados para consolidar la memoria y el liderazgo biocultural.</p>
+      </div>
+
+      <!-- Module Selector Buttons (Tabs) -->
+      <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-16 max-w-4xl mx-auto bg-museum-cream/80 p-2 rounded-2xl md:rounded-full border border-museum-gold/10">
+        <button 
+          id="btn-mod1" 
+          class="flex-1 min-w-[150px] px-6 py-4 rounded-xl md:rounded-full text-[10px] md:text-xs font-bold tracking-wider uppercase transition-all duration-300 bg-museum-gold text-white shadow-md cursor-pointer"
+          onclick="switchModule(1)"
+        >
+          01. Arqueología
+        </button>
+        <button 
+          id="btn-mod2" 
+          class="flex-1 min-w-[150px] px-6 py-4 rounded-xl md:rounded-full text-[10px] md:text-xs font-bold tracking-wider uppercase transition-all duration-300 text-museum-dark/60 hover:text-museum-gold cursor-pointer"
+          onclick="switchModule(2)"
+        >
+          02. Cartografía
+        </button>
+        <button 
+          id="btn-mod3" 
+          class="flex-1 min-w-[150px] px-6 py-4 rounded-xl md:rounded-full text-[10px] md:text-xs font-bold tracking-wider uppercase transition-all duration-300 text-museum-dark/60 hover:text-museum-gold cursor-pointer"
+          onclick="switchModule(3)"
+        >
+          03. Gobernanza
+        </button>
+        <button 
+          id="btn-mod4" 
+          class="flex-1 min-w-[150px] px-6 py-4 rounded-xl md:rounded-full text-[10px] md:text-xs font-bold tracking-wider uppercase transition-all duration-300 text-museum-dark/60 hover:text-museum-gold cursor-pointer"
+          onclick="switchModule(4)"
+        >
+          04. Futuros
+        </button>
+      </div>
+
+      <!-- Modules Display Area -->
+      <div class="relative min-h-[600px]">
+        
+        <!-- MODULE 1 CONTENT -->
+        <div id="content-mod1" class="transition-all duration-500 opacity-100 block transform translate-y-0">
+          <!-- Background Styling Pattern for Mod 1: Pottery texture / Earth colors -->
+          <div class="bg-white rounded-[3rem] shadow-xl border border-museum-gold/10 p-8 md:p-14 relative overflow-hidden">
+            <!-- Decorative SVG pattern -->
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#c4a052_1.5px,transparent_1.5px)] [background-size:24px_24px] -z-0"></div>
+            
+            <div class="relative z-10">
+              <div class="flex flex-col lg:flex-row justify-between items-start gap-8 mb-10 pb-10 border-b border-museum-gold/10">
+                <div class="max-w-3xl">
+                  <span class="text-museum-gold font-bold tracking-widest text-[9px] uppercase mb-3 block">Módulo 01 · Arqueología de la Autoestima</span>
+                  <h3 class="text-3xl md:text-4xl font-display text-museum-dark mb-4">Raíces y Arqueología Profunda</h3>
+                  <p class="text-museum-dark/70 font-light leading-relaxed">
+                    Este módulo activa la memoria milenaria y el ecosistema de saberes colectivos de El Pozón para cimentar una ciudadanía orgánica en las juventudes. A través de la Pedagogía Decolonial como Arte Vivo, los estudiantes comprenden que El Pozón no nació de la informalidad urbana reciente, sino que es un organismo vivo con capas de historia, biodiversidad y resistencia que respiran desde el suelo arqueológico prehispánico.
+                  </p>
+                </div>
+                <div class="bg-museum-dark text-museum-gold p-6 rounded-2xl text-center w-full lg:w-44 flex-shrink-0">
+                  <span class="block text-5xl font-display font-bold leading-none mb-1">01</span>
+                  <span class="text-[9px] font-bold uppercase tracking-widest text-white/50">Módulo Uno</span>
+                </div>
+              </div>
+
+              <!-- Ejes Temáticos -->
+              <div class="mb-12">
+                <h4 class="text-xs font-black uppercase tracking-[0.25em] text-museum-gold mb-6">Ejes Temáticos Fundamentales</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div class="p-6 rounded-2xl bg-museum-cream/40 border border-museum-gold/10">
+                    <h5 class="text-sm font-bold text-museum-dark mb-3">1. El Suelo Ancestral y el Conchero</h5>
+                    <p class="text-xs text-museum-dark/60 font-light leading-relaxed">Sistematización y estudio de los asentamientos precolombinos en la zona estuarina. Evidencia arqueológica de la coexistencia milenaria con el humedal.</p>
+                  </div>
+                  <div class="p-6 rounded-2xl bg-museum-cream/40 border border-museum-gold/10">
+                    <h5 class="text-sm font-bold text-museum-dark mb-3">2. Épica del Poblamiento Popular</h5>
+                    <p class="text-xs text-museum-dark/60 font-light leading-relaxed">Investigación de la autoconstrucción, el relleno solidario del manglar, la gestión comunitaria del agua y la lucha política por el derecho a la ciudad.</p>
+                  </div>
+                  <div class="p-6 rounded-2xl bg-museum-cream/40 border border-museum-gold/10">
+                    <h5 class="text-sm font-bold text-museum-dark mb-3">3. Epistemologías de la Fluidez</h5>
+                    <p class="text-xs text-museum-dark/60 font-light leading-relaxed">Estudio de continuidades afrocaribeñas y afroindígenas. La relación con la ciénaga y los caños mediante pesca tradicional y oralidad de las mayoras.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ruta Metodológica en 5 fases -->
+              <div class="mb-12">
+                <h4 class="text-xs font-black uppercase tracking-[0.25em] text-museum-gold mb-6">Ruta de Formación Ciudadana (5 Fases)</h4>
+                <div class="space-y-4">
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 1 · Obtener</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Excavando la Identidad</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Laboratorios de campo y expediciones sensibles al sitio arqueológico y a los repositorios de la Casa Museo. Cosecha de relatos de origen mediante entrevistas dialógicas a matronas y patriarcas fundadores.</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 2 · Opinar</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">La Palabra Decolonial</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Círculos de palabra intergeneracionales para debatir sobre la justicia epistémica, el derecho al territorio y cómo la historia milenaria sana las heridas de exclusión urbana (Arqueología de la Autoestima).</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 3 · Proponer</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Semillas de Futuro</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Talleres de ideación y urbanismo orgánico (Design Thinking comunitario) para formular propuestas que integren la ecología del humedal con la memoria histórica (maquetas de espacios públicos, señalética con nombres originarios).</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 4 · Gestionar</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Guardianes de la Memoria Viva</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Acciones colectivas y mingas comunitarias para la limpieza, delimitación y protección de puntos arqueológicos o ambientales críticos. Creación del "Museo en la Calle" mediante muralismo de resistencia.</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 5 · Evaluar</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Cosecha de Identidad</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Espacio de evaluación narrativa y performativa del cambio ontológico del estudiante. Cierre simbólico con la ExpoFuturo Pozonero itinerante en las plazas del barrio, interpretando el himno local como manifiesto de dignidad.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recursos y Activadores Epistémicos -->
+              <div class="mb-12">
+                <h4 class="text-xs font-black uppercase tracking-[0.25em] text-museum-gold mb-6">Recursos y Activadores Epistémicos</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm font-light">
+                  <div class="flex gap-4">
+                    <span class="text-museum-gold">✦</span>
+                    <p class="text-museum-dark/70"><strong>Patrimonio Material y Arqueológico:</strong> Tiestos de cerámica prehispánica, conchas, herramientas de pesca tradicionales y cartografías históricas facilitadas por la Fundación.</p>
+                  </div>
+                  <div class="flex gap-4">
+                    <span class="text-museum-gold">✦</span>
+                    <p class="text-museum-dark/70"><strong>Bibliotecas Vivas:</strong> "Mayoras", sabedores botánicos, pescadores ancestrales, luthieres de la champeta y líderes de las Juntas de Acción Comunal (JAC).</p>
+                  </div>
+                  <div class="flex gap-4">
+                    <span class="text-museum-gold">✦</span>
+                    <p class="text-museum-dark/70"><strong>Tecnologías de la Memoria:</strong> Dispositivos móviles para el registro transmedia de las tradiciones orales, alimentando de forma permanente el Archivo Comunitario Vivo (ACV).</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Síntesis de Impacto y Botones -->
+              <div class="pt-8 border-t border-museum-gold/10 flex flex-col md:flex-row justify-between items-center gap-8 bg-museum-cream/10 p-6 rounded-2xl">
+                <div>
+                  <span class="text-[9px] font-black uppercase tracking-widest text-museum-gold block mb-1">Síntesis de Impacto</span>
+                  <p class="text-xs text-museum-dark/70 font-light max-w-xl">La juventud se consolida en el nivel de Agencia y Soberanía Territorial. Se reconocen como archivos caminantes para defender su soberanía cultural ante agendas del mundo contemporáneo.</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+                  <a href="/pdfs/MODELO DE APRENDIZAJE COMUNITARIO ORGÁNICO.pdf" target="_blank" class="bg-museum-gold text-white text-center px-6 py-4 rounded-xl text-[9px] font-bold tracking-widest uppercase hover:bg-museum-dark transition-all shadow-md">
+                    📥 Descargar Guía Pedagógica M1
+                  </a>
+                  <a href="/galeria" class="border border-museum-dark/30 text-museum-dark hover:bg-museum-dark hover:text-white text-center px-6 py-4 rounded-xl text-[9px] font-bold tracking-widest uppercase transition-all">
+                    Ver Archivo Vivo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODULE 2 CONTENT -->
+        <div id="content-mod2" class="transition-all duration-500 opacity-0 hidden transform translate-y-4">
+          <!-- Background Styling Pattern for Mod 2: Lines like community map or contours of wetland -->
+          <div class="bg-white rounded-[3rem] shadow-xl border border-museum-gold/10 p-8 md:p-14 relative overflow-hidden">
+            <!-- Contour Map SVG design overlay -->
+            <div class="absolute inset-0 opacity-[0.04] pointer-events-none -z-0">
+              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 100 Q 150 50 300 120 T 600 80 T 900 150 T 1200 90 T 1500 130" fill="none" stroke="#c4a052" stroke-width="2"/>
+                <path d="M 0 150 Q 200 100 400 180 T 800 130 T 1200 200 T 1600 150" fill="none" stroke="#c4a052" stroke-width="2"/>
+                <path d="M 0 200 Q 250 150 500 240 T 1000 190 T 1500 260" fill="none" stroke="#c4a052" stroke-width="2"/>
+              </svg>
+            </div>
+            
+            <div class="relative z-10">
+              <div class="flex flex-col lg:flex-row justify-between items-start gap-8 mb-10 pb-10 border-b border-museum-gold/10">
+                <div class="max-w-3xl">
+                  <span class="text-museum-gold font-bold tracking-widest text-[9px] uppercase mb-3 block">Módulo 02 · Descolonizar la Geografía Urbana</span>
+                  <h3 class="text-3xl md:text-4xl font-display text-museum-dark mb-4">Cartografía de las Memorias</h3>
+                  <p class="text-museum-dark/70 font-light leading-relaxed">
+                    Si en el primer módulo excavamos el "disco duro" milenario de El Pozón, este módulo faculta a las juventudes para actuar como Cartógrafos de lo Invisible. El propósito es eminentemente pedagógico y político: los estudiantes comprenden críticamente que la cartografía oficial y hegemónica de la ciudad a menudo invisibiliza o excluye las realidades de la periferia. Mapear no consiste en trazar líneas frías sobre cemento o asfalto; es un acto de memoria encarnada.
+                  </p>
+                </div>
+                <div class="bg-museum-gold text-museum-dark p-6 rounded-2xl text-center w-full lg:w-44 flex-shrink-0">
+                  <span class="block text-5xl font-display font-bold leading-none mb-1">02</span>
+                  <span class="text-[9px] font-bold uppercase tracking-widest text-museum-dark/50">Módulo Dos</span>
+                </div>
+              </div>
+
+              <!-- Ejes Temáticos -->
+              <div class="mb-12">
+                <h4 class="text-xs font-black uppercase tracking-[0.25em] text-museum-gold mb-6">Ejes Temáticos Fundamentales</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div class="p-6 rounded-2xl bg-museum-cream/40 border border-museum-gold/10">
+                    <h5 class="text-sm font-bold text-museum-dark mb-3">1. Geografías de la Resistencia</h5>
+                    <p class="text-xs text-museum-dark/60 font-light leading-relaxed">Mapeo crítico de las fronteras invisibles y los hitos fundacionales del barrio. Lugares donde la comunidad libró batallas colectivas por los servicios públicos.</p>
+                  </div>
+                  <div class="p-6 rounded-2xl bg-museum-cream/40 border border-museum-gold/10">
+                    <h5 class="text-sm font-bold text-museum-dark mb-3">2. Biografías Caminantes</h5>
+                    <p class="text-xs text-museum-dark/60 font-light leading-relaxed">Registro de líderes, mayoras, sabedores y artistas cotidianos que moldearon el tejido social. El cuerpo y el testimonio oral como contenedores primarios de la verdad histórica.</p>
+                  </div>
+                  <div class="p-6 rounded-2xl bg-museum-cream/40 border border-museum-gold/10">
+                    <h5 class="text-sm font-bold text-museum-dark mb-3">3. Humedal y Fronteras Bioculturales</h5>
+                    <p class="text-xs text-museum-dark/60 font-light leading-relaxed">Mapeo sensible de la relación simbiótica entre el casco urbano y el ecosistema del agua. El humedal redefinido como un sujeto de derecho y cuidado colectivo.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ruta Metodológica en 5 fases -->
+              <div class="mb-12">
+                <h4 class="text-xs font-black uppercase tracking-[0.25em] text-museum-gold mb-6">Ruta de Formación Ciudadana (5 Fases)</h4>
+                <div class="space-y-4">
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 1 · Obtener</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Derivas Sensoriales</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Expediciones de campo, caminatas sensibles y recorridos de observación con diarios de campo por los sectores del barrio. Registro de los hitos espaciales e infraestructura autoconstruida.</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 2 · Opinar</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">El Derecho a ser Nombrados</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Círculos de palabra intergeneracionales y foros de pensamiento decolonial. Los estudiantes analizan de qué manera la exclusión cartográfica oficial afecta la autoestima del barrio.</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 3 · Proponer</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">El Contra-Mapa del Pozón</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Talleres participativos de diseño geo-estratégico. Las juventudes aplican convenciones iconográficas propias y mapas del afecto que visibilizan lo que la cartografía tradicional oculta.</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 4 · Gestionar</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Cartografía en la Calle</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Mingas comunitarias con las JAC y colectivos artísticos. Ejecución de murales cartográficos y señalización física de las calles con los nombres de sus fundadores e hitos históricos.</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 5 · Evaluar</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Cosecha de Memorias</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Evaluación de apropiación socio-espacial. Los estudiantes sustentan públicamente los contra-mapas e indexan las coordenadas de los hitos en los repositorios virtuales de la Fundación.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recursos y Activadores Cartográficos -->
+              <div class="mb-12">
+                <h4 class="text-xs font-black uppercase tracking-[0.25em] text-museum-gold mb-6">Recursos y Activadores Cartográficos</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm font-light">
+                  <div class="flex gap-4">
+                    <span class="text-museum-gold">✦</span>
+                    <p class="text-museum-dark/70"><strong>Cartografía Crítica y Sensible:</strong> Planos satelitales libres, mapas históricos del IGAC desmantelados críticamente, pliegos de papel kraft y paletas de colores basadas en los tonos del territorio.</p>
+                  </div>
+                  <div class="flex gap-4">
+                    <span class="text-museum-gold">✦</span>
+                    <p class="text-museum-dark/70"><strong>Biotecnologías de la Comunicación:</strong> Dispositivos móviles para el registro sonoro y audiovisual de las entrevistas biográficas, capturando la corporalidad de la memoria caminante.</p>
+                  </div>
+                  <div class="flex gap-4">
+                    <span class="text-museum-gold">✦</span>
+                    <p class="text-museum-dark/70"><strong>El Archivo Comunitario Vivo (ACV):</strong> Uso estratégico del fondo fotográfico y testimonial del museo para validar históricamente los hitos mapeados y georreferenciados.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Síntesis de Impacto y Botones -->
+              <div class="pt-8 border-t border-museum-gold/10 flex flex-col md:flex-row justify-between items-center gap-8 bg-museum-cream/10 p-6 rounded-2xl">
+                <div>
+                  <span class="text-[9px] font-black uppercase tracking-widest text-museum-gold block mb-1">Síntesis de Impacto</span>
+                  <p class="text-xs text-museum-dark/70 font-light max-w-xl">Las juventudes se consagran como Cartógrafos decoloniales de su propia historia. Quedan dotados de competencias para disputar los relatos de exclusión y proyectar con orgullo la geografía biocultural del Pozón.</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+                  <a href="/nodos-museales" class="bg-museum-gold text-white text-center px-6 py-4 rounded-xl text-[9px] font-bold tracking-widest uppercase hover:bg-museum-dark transition-all shadow-md">
+                    🗺️ Explorar el Contra-Mapa Virtual
+                  </a>
+                  <a href="/pedagogia-territorial" class="border border-museum-dark/30 text-museum-dark hover:bg-museum-dark hover:text-white text-center px-6 py-4 rounded-xl text-[9px] font-bold tracking-widest uppercase transition-all">
+                    Descargar Ficha Metodológica
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODULE 3 CONTENT -->
+        <div id="content-mod3" class="transition-all duration-500 opacity-0 hidden transform translate-y-4">
+          <!-- Background Styling Pattern for Mod 3: Woven patterns / Earth, blue and gold colors -->
+          <div class="bg-white rounded-[3rem] shadow-xl border border-museum-gold/10 p-8 md:p-14 relative overflow-hidden">
+            <!-- Decorative SVG weave overlay -->
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none -z-0">
+              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="weave" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 0 20 L 40 20 M 20 0 L 20 40 M 0 0 L 40 40 M 0 40 L 40 0" fill="none" stroke="#c4a052" stroke-width="1"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#weave)" />
+              </svg>
+            </div>
+            
+            <div class="relative z-10">
+              <div class="flex flex-col lg:flex-row justify-between items-start gap-8 mb-10 pb-10 border-b border-museum-gold/10">
+                <div class="max-w-3xl">
+                  <span class="text-museum-gold font-bold tracking-widest text-[9px] uppercase mb-3 block">Módulo 03 · Acuerdos Orgánicos que Germinan</span>
+                  <h3 class="text-3xl md:text-4xl font-display text-museum-dark mb-4">Gobernanza y Paz Territorial</h3>
+                  <p class="text-museum-dark/70 font-light leading-relaxed">
+                    Tras excavar las raíces (Módulo 1) y trazar los mapas del afecto (Módulo 2), este tercer módulo faculta a las juventudes para asumir su rol político como arquitectos de la paz territorial y gestores de la gobernanza comunitaria. El propósito central es formar liderazgos éticos y críticos que no repliquen las lógicas clientelistas del poder. La escuela se integra como un Ecosistema de Saberes Colectivos.
+                  </p>
+                </div>
+                <div class="bg-museum-dark text-museum-gold p-6 rounded-2xl text-center w-full lg:w-44 flex-shrink-0">
+                  <span class="block text-5xl font-display font-bold leading-none mb-1">03</span>
+                  <span class="text-[9px] font-bold uppercase tracking-widest text-white/50">Módulo Tres</span>
+                </div>
+              </div>
+
+              <!-- Ejes Temáticos -->
+              <div class="mb-12">
+                <h4 class="text-xs font-black uppercase tracking-[0.25em] text-museum-gold mb-6">Ejes Temáticos Fundamentales</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div class="p-6 rounded-2xl bg-museum-cream/40 border border-museum-gold/10">
+                    <h5 class="text-sm font-bold text-museum-dark mb-3">1. Liderazgo Ético y de Base</h5>
+                    <p class="text-xs text-museum-dark/60 font-light leading-relaxed">Liderazgos decoloniales basados en el servicio, la reciprocidad y la ética del cuidado. Revisión histórica de los comités de base y JAC que pavimentaron el barrio.</p>
+                  </div>
+                  <div class="p-6 rounded-2xl bg-museum-cream/40 border border-museum-gold/10">
+                    <h5 class="text-sm font-bold text-museum-dark mb-3">2. Mediación Orgánica</h5>
+                    <p class="text-xs text-museum-dark/60 font-light leading-relaxed">Metodologías situadas para la resolución pacífica de tensiones. El diálogo intergeneracional como tecnología principal para sanar el tejido social.</p>
+                  </div>
+                  <div class="p-6 rounded-2xl bg-museum-cream/40 border border-museum-gold/10">
+                    <h5 class="text-sm font-bold text-museum-dark mb-3">3. Gobernanza del Territorio-Anfibio</h5>
+                    <p class="text-xs text-museum-dark/60 font-light leading-relaxed">Defensa y co-gestión de bienes comunes (caños, manglar, espacios comunitarios). La ciénaga como sujeto de derecho para una administración simétrica.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ruta Metodológica en 5 fases -->
+              <div class="mb-12">
+                <h4 class="text-xs font-black uppercase tracking-[0.25em] text-museum-gold mb-6">Ruta de Formación Ciudadana (5 Fases)</h4>
+                <div class="space-y-4">
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 1 · Obtener</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Auditorías de Convivencia</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Expediciones para identificar tensiones socioambientales y focos de conflicto. Cartografía del riesgo social y mapeo de redes de apoyo comunitarias.</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 2 · Opinar</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Círculos del Sentipensar</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Foros y debates decoloniales sobre justicia restaurativa, equidad de género y derechos humanos. Confrontación de visiones hegemónicas de seguridad.</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 3 · Proponer</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Banco de Soluciones Orgánicas</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Talleres de co-creación estratégica. Los estudiantes diseñan agendas locales de paz, protocolos comunitarios de mediación y proyectos de innovación social.</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 4 · Gestionar</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Mingas por la Paz y la No-Violencia</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Acciones de transformación en articulación con mediadores locales, JAC y colectivos culturales. Recuperación física de esquinas críticas mediante laboratorios artísticos.</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 5 · Evaluar</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Asambleas de Gobernanza Popular</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Evaluación auténtica donde las células formativas sustentan públicamente sus pactos de convivencia ante líderes y defensores de derechos humanos.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recursos y Activadores de Gobernanza -->
+              <div class="mb-12">
+                <h4 class="text-xs font-black uppercase tracking-[0.25em] text-museum-gold mb-6">Recursos y Activadores de Gobernanza</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm font-light">
+                  <div class="flex gap-4">
+                    <span class="text-museum-gold">✦</span>
+                    <p class="text-museum-dark/70"><strong>Ecosistema Vivo de Líderes:</strong> Participación de los defensores históricos del territorio y comités de conciliación de las JAC como maestros de la mediación empírica.</p>
+                  </div>
+                  <div class="flex gap-4">
+                    <span class="text-museum-gold">✦</span>
+                    <p class="text-museum-dark/70"><strong>Dispositivos de Registro:</strong> Herramientas digitales transmedia para documentar pactos, registrar testimonios de paz y resolver conflictos de forma asertiva.</p>
+                  </div>
+                  <div class="flex gap-4">
+                    <span class="text-museum-gold">✦</span>
+                    <p class="text-museum-dark/70"><strong>Espacios de Mediación:</strong> La Casa Museo Pozón como el epicentro neutral y asambleario de convergencia epistémica, diálogo ético y formación ciudadana.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Síntesis de Impacto y Botones -->
+              <div class="pt-8 border-t border-museum-gold/10 flex flex-col md:flex-row justify-between items-center gap-8 bg-museum-cream/10 p-6 rounded-2xl">
+                <div>
+                  <span class="text-[9px] font-black uppercase tracking-widest text-museum-gold block mb-1">Síntesis de Impacto</span>
+                  <p class="text-xs text-museum-dark/70 font-light max-w-xl">Las juventudes alcanzan el nivel avanzado de Agencia y Autonomía Política. Se validan como sujetos de paz con competencias para agenciar el desarrollo endógeno de El Pozón.</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+                  <a href="/proyectos-sociales" class="bg-museum-gold text-white text-center px-6 py-4 rounded-xl text-[9px] font-bold tracking-widest uppercase hover:bg-museum-dark transition-all shadow-md">
+                    📜 Ver los Pactos de Convivencia
+                  </a>
+                  <a href="/pedagogia-territorial" class="border border-museum-dark/30 text-museum-dark hover:bg-museum-dark hover:text-white text-center px-6 py-4 rounded-xl text-[9px] font-bold tracking-widest uppercase transition-all">
+                    Descargar Portafolio Metodológico
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODULE 4 CONTENT -->
+        <div id="content-mod4" class="transition-all duration-500 opacity-0 hidden transform translate-y-4">
+          <!-- Background Styling Pattern for Mod 4: Expansion waves / Fibonacci spirals / Gold & Cream -->
+          <div class="bg-white rounded-[3rem] shadow-xl border border-museum-gold/10 p-8 md:p-14 relative overflow-hidden">
+            <!-- Decorative SVG Golden spiral / Wave patterns -->
+            <div class="absolute inset-0 opacity-[0.04] pointer-events-none -z-0">
+              <svg width="100%" height="100%" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 400 300 A 10 10 0 0 1 410 300 A 20 20 0 0 1 390 300 A 40 40 0 0 1 430 300 A 80 80 0 0 1 350 300 A 160 160 0 0 1 510 300 A 320 320 0 0 1 190 300" fill="none" stroke="#c4a052" stroke-width="2.5" stroke-dasharray="5 5"/>
+              </svg>
+            </div>
+            
+            <div class="relative z-10">
+              <div class="flex flex-col lg:flex-row justify-between items-start gap-8 mb-10 pb-10 border-b border-museum-gold/10">
+                <div class="max-w-3xl">
+                  <span class="text-museum-gold font-bold tracking-widest text-[9px] uppercase mb-3 block">Módulo 04 · Soberanía Creativa e Innovación Glocal</span>
+                  <h3 class="text-3xl md:text-4xl font-display text-museum-dark mb-4">Futuros y Proyección Biocultural</h3>
+                  <p class="text-museum-dark/70 font-light leading-relaxed">
+                    Este módulo final corona el proceso formativo catapultando a las juventudes hacia la Soberanía Creativa y la Proyección Biocultural. Los estudiantes comprenden críticamente que las periferias urbanas no son solo receptoras de ayuda, sino matrices de ciencia comunitaria capaces de exportar soluciones al planeta. Hibridan los saberes tradicionales con herramientas contemporáneas.
+                  </p>
+                </div>
+                <div class="bg-museum-gold text-museum-dark p-6 rounded-2xl text-center w-full lg:w-44 flex-shrink-0">
+                  <span class="block text-5xl font-display font-bold leading-none mb-1">04</span>
+                  <span class="text-[9px] font-bold uppercase tracking-widest text-museum-dark/50">Módulo Cuatro</span>
+                </div>
+              </div>
+
+              <!-- Ejes Temáticos -->
+              <div class="mb-12">
+                <h4 class="text-xs font-black uppercase tracking-[0.25em] text-museum-gold mb-6">Ejes Temáticos Fundamentales</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div class="p-6 rounded-2xl bg-museum-cream/40 border border-museum-gold/10">
+                    <h5 class="text-sm font-bold text-museum-dark mb-3">1. Industrias Culturales y Economía Circular</h5>
+                    <p class="text-xs text-museum-dark/60 font-light leading-relaxed">Traducir activos bioculturales (gastronomía, patrimonio sonoro, luthería ecológica) en proyectos sostenibles que generen bienestar sin extractivismo cultural.</p>
+                  </div>
+                  <div class="p-6 rounded-2xl bg-museum-cream/40 border border-museum-gold/10">
+                    <h5 class="text-sm font-bold text-museum-dark mb-3">2. Ecodiseño y Mitigación Climática</h5>
+                    <p class="text-xs text-museum-dark/60 font-light leading-relaxed">Soluciones basadas en la naturaleza empleando el metabolismo circular del barrio: reciclaje de polímeros, permacultura urbana y cuidado de manglares.</p>
+                  </div>
+                  <div class="p-6 rounded-2xl bg-museum-cream/40 border border-museum-gold/10">
+                    <h5 class="text-sm font-bold text-museum-dark mb-3">3. Soberanía Comunicativa Transmedia</h5>
+                    <p class="text-xs text-museum-dark/60 font-light leading-relaxed">Apropiación de podcasts, cortometrajes y cómics afrofuturistas para registrar sus propias visiones de porvenir, rompiendo los discursos estigmatizadores.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ruta Metodológica en 5 fases -->
+              <div class="mb-12">
+                <h4 class="text-xs font-black uppercase tracking-[0.25em] text-museum-gold mb-6">Ruta de Formación Ciudadana (5 Fases)</h4>
+                <div class="space-y-4">
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 1 · Obtener</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Mapeo de Activos de Innovación</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Expediciones etnográficas para identificar las tecnologías de vida y saberes ancestrales con potencial productivo, sostenible o narrativo.</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 2 · Opinar</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Debates de la Justicia Biocultural</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Círculos de palabra intergeneracionales para reflexionar sobre los límites éticos del turismo, economía popular y la geopolítica del conocimiento.</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 3 · Proponer</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Codiseño y Maquetación</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Talleres interactivos de co-creación donde las células estudiantiles diseñan circuitos de ecoturismo comunitario, permacultura y ecodiseño.</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 4 · Gestionar</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Gran Hito: ExpoFuturo Pozonero</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Feria interactiva y museografía expandida en el espacio público. Los estudiantes presentan prototipos, maquetas y stands de saberes a la comunidad y agencias internacionales.</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-4 items-start p-5 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-museum-gold/25 transition-all">
+                    <span class="px-3 py-1 bg-museum-dark text-museum-gold rounded-full text-[9px] font-bold tracking-widest uppercase">Fase 5 · Evaluar</span>
+                    <div>
+                      <h5 class="text-xs font-bold text-museum-dark mb-1">Entrega Soberana del Plan de Futuro</h5>
+                      <p class="text-xs text-museum-dark/50 font-light">Hito político-pedagógico. Entrega formal de la bitácora de porvenir del Pozón a las JAC y validación del proceso en las asambleas de la Casa Museo.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recursos y Activadores Bioculturales -->
+              <div class="mb-12">
+                <h4 class="text-xs font-black uppercase tracking-[0.25em] text-museum-gold mb-6">Recursos y Activadores Bioculturales</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm font-light">
+                  <div class="flex gap-4">
+                    <span class="text-museum-gold">✦</span>
+                    <p class="text-museum-dark/70"><strong>El Archivo Comunitario Vivo (ACV):</strong> Fuente primaria de legitimación histórica que cimenta y valida las visiones de futuro de los estudiantes.</p>
+                  </div>
+                  <div class="flex gap-4">
+                    <span class="text-museum-gold">✦</span>
+                    <p class="text-museum-dark/70"><strong>Prototipado y Transmedia:</strong> Herramientas digitales, materiales reciclados del barrio, fibras nativas y software libre de edición.</p>
+                  </div>
+                  <div class="flex gap-4">
+                    <span class="text-museum-gold">✦</span>
+                    <p class="text-museum-dark/70"><strong>Ecosistema Manglar y Patios:</strong> El aula viva definitiva donde se ensayan los pilotos ecológicos y las rutas de ecoturismo popular.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Síntesis de Impacto y Botones -->
+              <div class="pt-8 border-t border-museum-gold/10 flex flex-col md:flex-row justify-between items-center gap-8 bg-museum-cream/10 p-6 rounded-2xl">
+                <div>
+                  <span class="text-[9px] font-black uppercase tracking-widest text-museum-gold block mb-1">Síntesis de Impacto</span>
+                  <p class="text-xs text-museum-dark/70 font-light max-w-xl">La juventud se titula en Soberanía Epistémica, Agencia de Futuros y Escalabilidad Global, demostrando que El Pozón es una matriz científica para el porvenir biocultural global.</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+                  <a href="/revista" class="bg-museum-gold text-white text-center px-6 py-4 rounded-xl text-[9px] font-bold tracking-widest uppercase hover:bg-museum-dark transition-all shadow-md">
+                    🚀 Explorar Prototipos y Narrativas ExpoFuturo
+                  </a>
+                  <a href="/pedagogia-territorial" class="border border-museum-dark/30 text-museum-dark hover:bg-museum-dark hover:text-white text-center px-6 py-4 rounded-xl text-[9px] font-bold tracking-widest uppercase transition-all">
+                    Descargar Currículo Completo (M1-4)
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA: Join the Cátedra -->
+  <section class="py-24 bg-museum-dark text-white text-center relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+      <span class="text-museum-gold font-bold tracking-widest text-[10px] uppercase mb-4 block">Inscripciones Abiertas</span>
+      <h2 class="text-3xl md:text-5xl font-display mb-6">Forma Parte del Ecosistema de Saberes</h2>
+      <p class="text-museum-cream/70 text-base md:text-lg font-light max-w-2xl mx-auto mb-10">
+        ¿Eres docente, estudiante, líder barrial o institución interesada en implementar o cursar la Cátedra de la Identidad Barrial? Escríbenos para articular esfuerzos en red.
+      </p>
+      <a href="/#contacto" class="inline-flex items-center gap-4 bg-museum-gold text-museum-cream px-10 py-5 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-museum-dark transition-all duration-500 shadow-xl shadow-museum-gold/10">
+        Contactar y Articular
+      </a>
+    </div>
+  </section>
+
+  <!-- JavaScript to handle interactive tabs switching -->
+  <script is:inline>
+    function switchModule(moduleNum) {
+      // Hide all content divs
+      for (let i = 1; i <= 4; i++) {
+        const contentDiv = document.getElementById('content-mod' + i);
+        const btn = document.getElementById('btn-mod' + i);
+        
+        if (contentDiv) {
+          if (i === moduleNum) {
+            contentDiv.classList.remove('hidden', 'opacity-0', 'translate-y-4');
+            contentDiv.classList.add('block', 'opacity-100', 'translate-y-0');
+          } else {
+            contentDiv.classList.remove('block', 'opacity-100', 'translate-y-0');
+            contentDiv.classList.add('hidden', 'opacity-0', 'translate-y-4');
+          }
+        }
+        
+        if (btn) {
+          if (i === moduleNum) {
+            btn.classList.remove('text-museum-dark/60', 'hover:text-museum-gold');
+            btn.classList.add('bg-museum-gold', 'text-white', 'shadow-md');
+          } else {
+            btn.classList.remove('bg-museum-gold', 'text-white', 'shadow-md');
+            btn.classList.add('text-museum-dark/60', 'hover:text-museum-gold');
+          }
+        }
+      }
+    }
+  </script>
+</Layout>

@@ -73,37 +73,38 @@ import Navbar from "../components/navbar.astro";
                         </div>
                     </div>
                 </div>
-            </section>
-
-
-            <!-- 3. Ruta Turística Comunitaria -->
-            <section class="py-32 px-8 md:px-16 lg:px-24">
-                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-                    <div class="relative order-2 lg:order-1">
-                         <div class="aspect-[4/5] bg-zinc-100 rounded-[3rem] overflow-hidden shadow-2xl relative">
-                              <div class="absolute inset-0 bg-[url('/Secsion1.png')] bg-cover bg-center grayscale opacity-30"></div>
-                              <div class="absolute inset-0 bg-gradient-to-t from-museum-dark flex flex-col justify-end p-12">
-                                  <p class="text-museum-gold font-display text-2xl uppercase tracking-widest">Ruta Barrial</p>
-                              </div>
+                 <!-- 3. Ruta Turística Comunitaria (Summary View) -->
+            <section class="py-32 px-8 md:px-16 lg:px-24 bg-zinc-50 border-y border-zinc-100">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <!-- Left: Graphic Card showing the new logo -->
+                    <div class="relative order-2 lg:order-1 flex justify-center">
+                         <div class="w-full max-w-[440px] aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl relative group bg-white border border-museum-gold/15 p-4">
+                              <img 
+                                src="/ModeloTuristicoLogo.jpeg" 
+                                alt="Ruta Turística Logo" 
+                                class="w-full h-full object-cover rounded-[1.8rem] group-hover:scale-105 transition-transform duration-700" 
+                              />
                          </div>
                     </div>
-                    <div class="order-1 lg:order-2">
-                        <div class="flex items-center gap-4 mb-8">
+                    <!-- Right: Info -->
+                    <div class="order-1 lg:order-2 space-y-6">
+                        <div class="flex items-center gap-4">
                              <div class="w-12 h-12 bg-museum-gold/10 rounded-xl flex items-center justify-center text-museum-gold">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l-4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>
                              </div>
                              <h2 class="text-4xl font-display text-museum-dark">Ruta Turística Comunitaria</h2>
                         </div>
-                        <p class="text-museum-dark/70 text-lg font-light leading-relaxed mb-8 italic">"Territorio, memoria y turismo con raíz popular."</p>
-                        <p class="text-museum-dark/60 font-light leading-relaxed mb-10">
-                            Una estrategia que dignifica el patrimonio biocultural y arqueológico mediante un recorrido experiencial inclusivo para grupos vulnerables y visitantes internacionales.
+                        <p class="text-museum-gold font-bold tracking-widest text-[10px] uppercase">Cartagena Popular</p>
+                        <p class="text-museum-dark/70 text-lg font-light leading-relaxed italic">"Destapa la historia de un barrio con ritmo y sabor sin igual."</p>
+                        <p class="text-museum-dark/60 font-light leading-relaxed">
+                            Una estrategia integral de turismo social y comunitario que dignifica nuestro patrimonio biocultural y arqueológico a través de recorridos guiados por mediadores locales.
                         </p>
-                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <li class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-museum-dark/40"><span class="w-2 h-2 rounded-full bg-museum-gold"></span> Inclusión Social</li>
-                            <li class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-museum-dark/40"><span class="w-2 h-2 rounded-full bg-museum-gold"></span> Arte Mural</li>
-                            <li class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-museum-dark/40"><span class="w-2 h-2 rounded-full bg-museum-gold"></span> Cocina Tradicional</li>
-                            <li class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-museum-dark/40"><span class="w-2 h-2 rounded-full bg-museum-gold"></span> Señalética Interactiva</li>
-                        </ul>
+                        <div class="pt-4">
+                            <a href="/turismo-comunitario" class="inline-flex items-center gap-4 bg-museum-gold text-museum-cream px-10 py-5 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-museum-dark transition-all duration-500 shadow-md">
+                                Ver Planes y Detalles
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
