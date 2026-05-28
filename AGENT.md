@@ -134,7 +134,7 @@ Institucional (dropdown):
   - Portafolio → /#portafolio
 Experiencia (dropdown):
   - Modelo Museal → /modelo-museal
-  - Nodos Museales → /#nodos-museales
+  - Estaciones Museales → /#nodos-museales
   - Recorrido Museal → /#recorrido-museal
 Comunidad (dropdown):
   - Proyectos Sociales → /#proyectos-sociales
@@ -189,7 +189,7 @@ Estructura monolítica de scroll con secciones importadas de `src/views/`:
 | `/quienes-somos` | `src/pages/quienes-somos.astro` | Historia, misión, fotos institucionales |
 | `/socios` | `src/pages/socios.astro` | Junta directiva y miembros activos |
 | `/modelo-museal` | `src/pages/modelo-museal.astro` | Los 4 pilares del modelo museal |
-| `/nodos-museales` | `src/pages/nodos-museales.astro` | 4 nodos: Cartográfico, Memoteca, Lab, Huerta |
+| `/nodos-museales` | `src/pages/nodos-museales.astro` | 4 estaciones: Cartográfica, Memoteca, Lab, Huerta |
 | `/recorrido-museal` | `src/pages/recorrido-museal.astro` | Ruta de recorrido por el museo |
 | `/proyectos-sociales` | `src/pages/proyectos-sociales.astro` | Proyectos comunitarios activos |
 | `/portafolio` | `src/pages/portafolio.astro` | Portafolio institucional |
@@ -399,7 +399,7 @@ Se usa **Lucide Icons** como SVG inline (no dependencia npm, copiar paths direct
 1. **Bienvenida** (Inicio) — Impacto máximo, nombre del museo gigante
 2. **Quiénes Somos** — Misión y mirada institucional
 3. **Modelo Museal** — Los 4 pilares estratégicos
-4. **Nodos Museales** — Espacios físicos del ecosistema
+4. **Estaciones Museales** — Espacios físicos del ecosistema
 5. **Recorrido Museal** — La experiencia de visita
 6. **Proyectos Sociales** — Impacto comunitario
 7. **Portafolio** — Documentos y recursos descargables

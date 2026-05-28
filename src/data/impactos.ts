@@ -95,7 +95,7 @@ export const proyectosMapa: ProyectoMapa[] = [
     lat: 10.3925,
     lng: -75.4780,
     tipo: 'cultural',
-    descripcion: 'Sede principal y nodos museales activos'
+    descripcion: 'Sede principal y estaciones museales activas'
   },
   {
     id: '3',
@@ -107,7 +107,7 @@ export const proyectosMapa: ProyectoMapa[] = [
   },
   {
     id: '4',
-    nombre: 'Nodo Cartográfico',
+    nombre: 'Estación Cartográfica',
     lat: 10.3915,
     lng: -75.4800,
     tipo: 'social',
