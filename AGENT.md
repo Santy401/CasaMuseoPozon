@@ -134,7 +134,7 @@ Institucional (dropdown):
   - Portafolio → /#portafolio
 Experiencia (dropdown):
   - Modelo Museal → /modelo-museal
-  - Estaciones Museales → /#nodos-museales
+  - Nodos Museales → /#nodos-museales
   - Recorrido Museal → /#recorrido-museal
 Comunidad (dropdown):
   - Proyectos Sociales → /#proyectos-sociales
@@ -399,7 +399,7 @@ Se usa **Lucide Icons** como SVG inline (no dependencia npm, copiar paths direct
 1. **Bienvenida** (Inicio) — Impacto máximo, nombre del museo gigante
 2. **Quiénes Somos** — Misión y mirada institucional
 3. **Modelo Museal** — Los 4 pilares estratégicos
-4. **Estaciones Museales** — Espacios físicos del ecosistema
+4. **Nodos Museales** — Espacios físicos del ecosistema
 5. **Recorrido Museal** — La experiencia de visita
 6. **Proyectos Sociales** — Impacto comunitario
 7. **Portafolio** — Documentos y recursos descargables

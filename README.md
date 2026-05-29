@@ -21,7 +21,7 @@ La Casa Museo El Pozón no es solo un repositorio de objetos; es un **Modelo Mus
 
 El proyecto se estructura a través de una red de impacto territorial:
 
-*   **Estaciones Museales:** Espacios físicos distribuidos en el barrio (La Huerta, Memoteca, Laboratorio Creativo, etc.) que actúan como centros de saber.
+*   **Nodos Museales:** Espacios físicos distribuidos en el barrio (La Huerta, Memoteca, Laboratorio Creativo, etc.) que actúan como centros de saber.
 *   **Recorrido Museal:** Una experiencia curada que conecta la arqueología Zenú con la vida cotidiana contemporánea.
 *   **Modelo A.C.O. (Aprendizaje Comunitario Orgánico):** Metodología pedagógica propia para la formación de líderes y ciudadanos conscientes.
 
