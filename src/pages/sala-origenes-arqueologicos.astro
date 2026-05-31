@@ -1,0 +1,139 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import SocialSidebar from "../components/SocialSidebar.astro";
+import Navbar from "../components/navbar.astro";
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Sala 1: Orígenes Arqueológicos | Casa Museo Pozón</title>
+        <ClientRouter />
+	</head>
+	<body class="bg-museum-dark font-sans overflow-x-hidden text-white">
+        <SocialSidebar />
+		<Navbar />
+        
+        <main class="pt-32 pb-24 px-8 md:px-16 lg:px-24 max-w-5xl mx-auto">
+            <!-- Header -->
+            <div class="mb-20 text-center relative">
+                <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Sala 1</span>
+                <h1 class="text-4xl md:text-6xl font-display mb-8">Orígenes Arqueológicos</h1>
+                <div class="w-24 h-1 bg-museum-gold mx-auto mb-8"></div>
+                <h3 class="text-xl text-white/90 font-display mb-6">"La Tierra como Archivo Profundo del Territorio Pozonero: Un Territorio que Asciende"</h3>
+                <p class="text-white/70 text-lg font-light max-w-4xl mx-auto leading-relaxed italic mb-8">
+                    "Desde las huellas más antiguas inscritas en la tierra hasta la memoria viva que sostiene nuestra identidad actual."
+                </p>
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl text-left">
+                    <strong class="text-museum-gold block mb-2 uppercase tracking-widest text-xs">Eje Pedagógico</strong>
+                    <p class="text-white/80 font-light">El suelo como el primer documento histórico, el conchero como biblioteca material y las tecnologías ancestrales de adaptación biocultural como cimientos de la soberanía y la autoestima comunitaria.</p>
+                </div>
+            </div>
+
+            <!-- Content Sections -->
+            <div class="space-y-16">
+                
+                <!-- Propósito Formativo -->
+                <section>
+                    <h2 class="text-2xl font-display text-museum-gold mb-6 flex items-center gap-4">
+                        <span class="w-8 h-8 rounded-full bg-museum-gold/10 flex items-center justify-center text-sm">1</span> 
+                        Propósito Formativo: Un Espacio Muestrario de Convergencia Activa
+                    </h2>
+                    <div class="text-white/70 font-light leading-relaxed space-y-4">
+                        <p>Este componente constituye el umbral temporal y fundacional del recorrido museológico, consolidándose físicamente como un espacio muestrario exclusivo dentro de las instalaciones de la Casa Museo, en una Sala Especial de Exhibición Permanente e Interactiva.</p>
+                        <p>No se concibe como una colección arqueológica pasiva o contemplativa, sino como el punto de inicio del trayecto Un Territorio que Asciende y un nodo del Museo Vivo donde estudiantes, visitantes e investigadores convergen y participan de forma activa.</p>
+                        <p>Bajo el Modelo ACO, su propósito pedagógico y decolonial es desmantelar la narrativa hegemónica que reduce a El Pozón a un "barrio de invasión reciente". La sala funciona como un aula viva y un laboratorio de investigación comunitaria donde los usuarios manipulan réplicas, analizan estratigrafías y descubren las capas milenarias de dignidad y adaptación que respiran desde el suelo ancestral.</p>
+                    </div>
+                </section>
+
+                <!-- Ejes Temáticos -->
+                <section>
+                    <h2 class="text-2xl font-display text-museum-gold mb-6 flex items-center gap-4">
+                        <span class="w-8 h-8 rounded-full bg-museum-gold/10 flex items-center justify-center text-sm">2</span> 
+                        Ejes Temáticos Fundamentales
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white/5 border border-white/10 p-6 rounded-xl hover:border-museum-gold/50 transition-colors">
+                            <h4 class="text-white font-bold mb-3">Eje 1: El Suelo Ancestral y Muestrario Técnico del Conchero</h4>
+                            <p class="text-white/60 text-sm font-light">Sistematización, estudio y montaje interactivo de los asentamientos precolombinos en la zona estuarina (con especial énfasis en los hallazgos del sector La Islita). Los concheros y los vestigios cerámicos tempranos se disponen en la sala especial como el primer gran archivo material de El Pozón, permitiendo a estudiantes e investigadores analizar directamente en las vitrinas didácticas una relación milenaria y sostenible de coexistencia con el humedal.</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 p-6 rounded-xl hover:border-museum-gold/50 transition-colors">
+                            <h4 class="text-white font-bold mb-3">Eje 2: Biotecnologías Prehispánicas y Adaptación al Entorno-Anfibio</h4>
+                            <p class="text-white/60 text-sm font-light">Espacio de experimentación sobre las ciencias y artes de los primeros nativos americanos para habitar el ecosistema de ciénagas y manglares. Se exhiben y estudian las técnicas de recolección de moluscos, herramientas de caza y pesca, y el uso del caracol como tecnología utilitaria, alimenticia y ritual, validando estos saberes antiguos en mesas de trabajo colectivas.</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 p-6 rounded-xl hover:border-museum-gold/50 transition-colors">
+                            <h4 class="text-white font-bold mb-3">Eje 3: Un Territorio que Asciende (Línea de Tiempo)</h4>
+                            <p class="text-white/60 text-sm font-light">Construcción material y visual del continuo histórico que conecta los vestigios prehispánicos con el poblamiento popular actual. Este eje conceptualiza los procesos de autoconstrucción y el relleno solidario como una continuación directa de la tenacidad de los primeros habitantes. En la sala, investigadores y comunidad unen el pasado arqueológico con las memorias vivas.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Ruta Metodológica -->
+                <section>
+                    <h2 class="text-2xl font-display text-museum-gold mb-6 flex items-center gap-4">
+                        <span class="w-8 h-8 rounded-full bg-museum-gold/10 flex items-center justify-center text-sm">3</span> 
+                        Ruta Metodológica en 5 Fases (Modelo ACO)
+                    </h2>
+                    <p class="text-white/70 font-light mb-6">La secuencia didáctica convierte esta sala especial en un laboratorio interactivo de excavación, curaduría social y diálogo de saberes.</p>
+                    <div class="space-y-4">
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-museum-gold text-museum-dark font-bold px-3 py-1 rounded text-xs mt-1 shrink-0">Fase 1</div>
+                            <p class="text-white/70 font-light"><strong class="text-white">Obtener Información (“Derivas de la Tierra Profunda”):</strong> Estudiantes e investigadores recolectan relatos, datos de campo y registran hallazgos fortuitos de tiestos cerámicos o conchas en los patios del barrio, trasladando estos insumos a la sala del museo para su estudio.</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-museum-gold text-museum-dark font-bold px-3 py-1 rounded text-xs mt-1 shrink-0">Fase 2</div>
+                            <p class="text-white/70 font-light"><strong class="text-white">Opinar (“Círculos del Tiempo Profundo en Sala”):</strong> Encuentros de debate decolonial dentro del espacio exclusivo del museo. Jóvenes, investigadores y visitantes contrastan la historia oficial de Cartagena con la memoria milenaria de El Pozón, reflexionando sobre el derecho de las comunidades populares a poseer y narrar su propio patrimonio.</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-museum-gold text-museum-dark font-bold px-3 py-1 rounded text-xs mt-1 shrink-0">Fase 3</div>
+                            <p class="text-white/70 font-light"><strong class="text-white">Proponer (“Laboratorios de Ecodiseño Curatorial”):</strong> Talleres participativos en la sala aplicando Design Thinking comunitario. Los estudiantes seleccionan las piezas del muestrario, diseñan la distribución museográfica de los estratos del suelo y redactan colectivamente las fichas didácticas.</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-museum-gold text-museum-dark font-bold px-3 py-1 rounded text-xs mt-1 shrink-0">Fase 4</div>
+                            <p class="text-white/70 font-light"><strong class="text-white">Gestionar (“Minga del Montaje Arqueológico”):</strong> Trabajo colectivo para la adecuación y ambientación física de la sala especial. Se construyen vitrinas interactivas con materiales locales y se moldean réplicas cerámicas pedagógicas para que los visitantes puedan tocarlas.</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-museum-gold text-museum-dark font-bold px-3 py-1 rounded text-xs mt-1 shrink-0">Fase 5</div>
+                            <p class="text-white/70 font-light"><strong class="text-white">Evaluar (“Inauguración de la Memoria Milenaria”):</strong> Activación de la sala a través de recorridos guiados interactivos coliderados por las juventudes para escuelas locales y académicos. Las cartografías, inventarios y registros se indexan de manera soberana en el Archivo Comunitario Vivo (ACV).</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recursos -->
+                <section>
+                    <h2 class="text-2xl font-display text-museum-gold mb-6 flex items-center gap-4">
+                        <span class="w-8 h-8 rounded-full bg-museum-gold/10 flex items-center justify-center text-sm">4</span> 
+                        Recursos y Activadores
+                    </h2>
+                    <ul class="list-disc list-inside text-white/70 font-light space-y-3 marker:text-museum-gold">
+                        <li><strong class="text-white">La Sala Física Especial:</strong> Espacio exclusivo de exhibición interactiva que recrea un perfil estratigráfico del suelo pozonero. Cuenta con muestrarios de material malacológico, fragmentos cerámicos, maquetas del ecosistema de conchero y lupas para el público.</li>
+                        <li><strong class="text-white">El Muestrario de Convergencia Activa:</strong> Mesas de laboratorio y dispositivos didácticos dentro de la sala diseñados para que se realicen ejercicios de catalogación, dibujo arqueológico y lectura cartográfica en vivo.</li>
+                        <li><strong class="text-white">El Ecosistema Transmedia ACV en Sala:</strong> Pantallas táctiles y estaciones multimedia integradas que albergan el catálogo digital de las piezas, modelos interactivos en 3D de los vestigios cerámicos y cápsulas audiovisuales.</li>
+                    </ul>
+                </section>
+
+                <!-- Impacto -->
+                <section class="bg-museum-gold/10 border border-museum-gold/30 p-8 rounded-2xl">
+                    <h2 class="text-2xl font-display text-museum-gold mb-4 flex items-center gap-4">
+                        <span class="w-8 h-8 rounded-full bg-museum-gold flex items-center justify-center text-museum-dark text-sm">5</span> 
+                        Síntesis de Impacto Ciudadano
+                    </h2>
+                    <p class="text-white/80 font-light leading-relaxed">
+                        Al culminar las etapas de la Sala de Orígenes Arqueológicos en este entorno de convergencia, los participantes alcanzan el nivel avanzado de <strong>Soberanía Histórica, Agencia Patrimonial y Gobernanza Territorial</strong>. Al concebir esta sala especial como un escenario vivo de co-investigación, las juventudes y los investigadores se consagran como custodios de un patrimonio ancestral. Quedan plenamente dotados de competencias críticas para defender el territorio pozonero, resignificar su identidad desde el estrato más profundo de la tierra y liderar con orgullo los horizontes de la sostenibilidad y la paz comunitaria ante el mundo.
+                    </p>
+                </section>
+                
+                <div class="pt-12 text-center">
+                    <a href="/recorrido-museal" class="inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-colors uppercase tracking-widest text-xs font-bold text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        Volver al Recorrido Museal
+                    </a>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

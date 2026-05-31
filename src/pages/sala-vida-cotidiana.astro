@@ -1,0 +1,139 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import SocialSidebar from "../components/SocialSidebar.astro";
+import Navbar from "../components/navbar.astro";
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Sala 3: Vida Cotidiana y Resistencia | Casa Museo Pozón</title>
+        <ClientRouter />
+	</head>
+	<body class="bg-museum-dark font-sans overflow-x-hidden text-white">
+        <SocialSidebar />
+		<Navbar />
+        
+        <main class="pt-32 pb-24 px-8 md:px-16 lg:px-24 max-w-5xl mx-auto">
+            <!-- Header -->
+            <div class="mb-20 text-center relative">
+                <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Sala 3</span>
+                <h1 class="text-4xl md:text-6xl font-display mb-8">Vida Cotidiana de los Primeros Habitantes</h1>
+                <div class="w-24 h-1 bg-museum-gold mx-auto mb-8"></div>
+                <h3 class="text-xl text-white/90 font-display mb-6">"La Vida Cotidiana como Patrimonio y Resistencia: Un Territorio que Asciende"</h3>
+                <p class="text-white/70 text-lg font-light max-w-4xl mx-auto leading-relaxed italic mb-8">
+                    "Desde las huellas más antiguas inscritas en la tierra hasta la memoria viva que sostiene nuestra identidad actual."
+                </p>
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl text-left">
+                    <strong class="text-museum-gold block mb-2 uppercase tracking-widest text-xs">Eje Pedagógico</strong>
+                    <p class="text-white/80 font-light">La microhistoria doméstica como gran narrativa, la cultura material del hogar como documento de dignidad y los oficios tradicionales como saberes de resistencia y soberanía popular.</p>
+                </div>
+            </div>
+
+            <!-- Content Sections -->
+            <div class="space-y-16">
+                
+                <!-- Propósito Formativo -->
+                <section>
+                    <h2 class="text-2xl font-display text-museum-gold mb-6 flex items-center gap-4">
+                        <span class="w-8 h-8 rounded-full bg-museum-gold/10 flex items-center justify-center text-sm">1</span> 
+                        Propósito Formativo: Un Espacio Muestrario de Convergencia Activa
+                    </h2>
+                    <div class="text-white/70 font-light leading-relaxed space-y-4">
+                        <p>Este componente se consolida físicamente como un espacio muestrario exclusivo dentro de las instalaciones de la Casa Museo, ubicándose en una Sala Especial de Exhibición Permanente.</p>
+                        <p>No se concibe como una colección estática de antigüedades, sino como el tercer peldaño del recorrido Un Territorio que Asciende y un nodo del Museo Vivo donde estudiantes, visitantes e investigadores convergen y participan de forma activa.</p>
+                        <p>Bajo el Modelo ACO, su objetivo pedagógico es subvertir la jerarquía histórica oficial y situar la intimidad del hogar, los oficios populares y la cocina tradicional como el patrimonio definitivo de El Pozón. La sala funciona como un aula viva interactiva donde los usuarios manipulan réplicas, escuchan testimonios y participan directamente en la dignificación de la gesta comunitaria que levantó el barrio.</p>
+                    </div>
+                </section>
+
+                <!-- Ejes Temáticos -->
+                <section>
+                    <h2 class="text-2xl font-display text-museum-gold mb-6 flex items-center gap-4">
+                        <span class="w-8 h-8 rounded-full bg-museum-gold/10 flex items-center justify-center text-sm">2</span> 
+                        Ejes Temáticos Fundamentales
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white/5 border border-white/10 p-6 rounded-xl hover:border-museum-gold/50 transition-colors">
+                            <h4 class="text-white font-bold mb-3">Eje 1: Arqueología Doméstica y Muestrario de Cultura Material</h4>
+                            <p class="text-white/60 text-sm font-light">Catalogación, conservación y montaje interactivo de los objetos cotidianos que acompañaron el poblamiento contemporáneo del barrio (siglos XIX, XX y XXI). Los candiles, las planchas de carbón, las máquinas de coser y las tinajas de barro se disponen en la sala especial como monumentos materiales del esfuerzo familiar.</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 p-6 rounded-xl hover:border-museum-gold/50 transition-colors">
+                            <h4 class="text-white font-bold mb-3">Eje 2: Cocina Tradicional, Fogones de Resistencia y Alimentación Anfibia</h4>
+                            <p class="text-white/60 text-sm font-light">Resguardo y experimentación de la herencia culinaria que garantizó la subsistencia en el humedal. La sala integra un espacio didáctico enfocado en los saberes ligados al procesamiento del maíz, el uso de la hoja de plátano y las recetas de ciénaga, vinculando de manera directa la soberanía alimentaria con la Huerta de la Memoria.</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 p-6 rounded-xl hover:border-museum-gold/50 transition-colors">
+                            <h4 class="text-white font-bold mb-3">Eje 3: Oficios Populares, Economías de Base y la Épica del Relleno</h4>
+                            <p class="text-white/60 text-sm font-light">Reconstrucción interactiva de las memorias laborales de los fundadores y fundadoras (lavanderas, constructores, parteras, pescadores). Se visibiliza con fuerza la dimensión de género en el sostenimiento de la vida y el esfuerzo colectivo de las mingas para ganarle terreno al fango.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Ruta Metodológica -->
+                <section>
+                    <h2 class="text-2xl font-display text-museum-gold mb-6 flex items-center gap-4">
+                        <span class="w-8 h-8 rounded-full bg-museum-gold/10 flex items-center justify-center text-sm">3</span> 
+                        Ruta Metodológica en 5 Fases (Modelo ACO)
+                    </h2>
+                    <p class="text-white/70 font-light mb-6">La secuencia didáctica convierte esta sala especial en un laboratorio de investigación y acción colectiva donde todos los actores interactúan.</p>
+                    <div class="space-y-4">
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-museum-gold text-museum-dark font-bold px-3 py-1 rounded text-xs mt-1 shrink-0">Fase 1</div>
+                            <p class="text-white/70 font-light"><strong class="text-white">Obtener Información (“Cacería de Objetos con Historia”):</strong> Estudiantes e investigadores realizan expediciones sensibles por las casas del barrio para identificar enseres domésticos en desuso, registrando las historias de vida de las familias fundadoras para traerlas al muestrario del museo.</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-museum-gold text-museum-dark font-bold px-3 py-1 rounded text-xs mt-1 shrink-0">Fase 2</div>
+                            <p class="text-white/70 font-light"><strong class="text-white">Opinar (“Círculos de la Palabra Hogareña”):</strong> Encuentros decoloniales dentro de la sala especial donde visitantes y jóvenes debaten cómo la historia oficial invisibiliza los aportes de las economías populares y las mujeres, reivindicando que la verdadera historia territorial se teje intramuros.</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-museum-gold text-museum-dark font-bold px-3 py-1 rounded text-xs mt-1 shrink-0">Fase 3</div>
+                            <p class="text-white/70 font-light"><strong class="text-white">Proponer (“Laboratorios del Diseño Cotidiano”):</strong> Talleres participativos en la sala multimedia y de exhibición aplicando Design Thinking comunitario. Los estudiantes seleccionan las piezas, planifican la distribución de la vivienda fundacional a escala dentro de la sala y redactan las cédulas biográficas de cada objeto.</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-museum-gold text-museum-dark font-bold px-3 py-1 rounded text-xs mt-1 shrink-0">Fase 4</div>
+                            <p class="text-white/70 font-light"><strong class="text-white">Gestionar (“Minga del Montaje Intramuros”):</strong> Trabajo colectivo dentro del espacio exclusivo del museo para la adecuación y ambientación física de la sala común. Paralelamente, se instalan conectores que enlazan este espacio muestrario con los hogares del barrio que aún conservan activas sus prácticas tradicionales.</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-museum-gold text-museum-dark font-bold px-3 py-1 rounded text-xs mt-1 shrink-0">Fase 5</div>
+                            <p class="text-white/70 font-light"><strong class="text-white">Evaluar (“Apertura de la Casa Común”):</strong> Activación de la sala a través de recorridos guiados intergeneracionales coliderados por las juventudes. El inventario digitalizado de objetos, los recetarios recuperados en los talleres y los testimonios audiovisuales se indexan de manera soberana en el Archivo Comunitario Vivo (ACV).</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recursos -->
+                <section>
+                    <h2 class="text-2xl font-display text-museum-gold mb-6 flex items-center gap-4">
+                        <span class="w-8 h-8 rounded-full bg-museum-gold/10 flex items-center justify-center text-sm">4</span> 
+                        Recursos y Activadores
+                    </h2>
+                    <ul class="list-disc list-inside text-white/70 font-light space-y-3 marker:text-museum-gold">
+                        <li><strong class="text-white">La Sala Física Especial:</strong> Espacio exclusivo de exhibición que recrea la atmósfera de un hogar fundacional: enseres domésticos originales (tinajas, planchas, radios antiguos), herramientas de los oficios tradicionales, muestras de la cocina comunitaria y estaciones multimedia con auriculares para los relatos orales.</li>
+                        <li><strong class="text-white">El Muestrario Vivo de Convergencia:</strong> Mobiliario adaptado para que estudiantes e investigadores puedan realizar mediciones, catalogación técnica en vivo y talleres de cartografía social de la "Épica del Relleno" junto a los visitantes.</li>
+                        <li><strong class="text-white">El Puente Transmedia ACV:</strong> Pantallas integradas en la sala que proyectan la memoria fotográfica de los primeros hogares y permiten a los visitantes interactuar con el mapa digital de las faenas históricas y el recetario anfíbio de la plataforma web.</li>
+                    </ul>
+                </section>
+
+                <!-- Impacto -->
+                <section class="bg-museum-gold/10 border border-museum-gold/30 p-8 rounded-2xl">
+                    <h2 class="text-2xl font-display text-museum-gold mb-4 flex items-center gap-4">
+                        <span class="w-8 h-8 rounded-full bg-museum-gold flex items-center justify-center text-museum-dark text-sm">5</span> 
+                        Síntesis de Impacto Ciudadano
+                    </h2>
+                    <p class="text-white/80 font-light leading-relaxed">
+                        Al culminar los procesos de la Sala de la Vida Cotidiana, los participantes alcanzan el nivel de <strong>Soberanía Histórica, Conciencia Crítica de Género y Gobernanza Comunitaria</strong>. Al concebir este espacio como un escenario de encuentro y construcción activa, las juventudes, investigadores y visitantes de El Pozón resignifican su realidad. Comprenden que la resiliencia y el ingenio doméstico son los cimientos pedagógicos para diseñar soluciones contemporáneas a los desafíos del territorio, consolidándose como co-creadores y guardianes de la dignidad de la historia popular de El Pozón.
+                    </p>
+                </section>
+                
+                <div class="pt-12 text-center">
+                    <a href="/recorrido-museal" class="inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-colors uppercase tracking-widest text-xs font-bold text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        Volver al Recorrido Museal
+                    </a>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,139 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import SocialSidebar from "../components/SocialSidebar.astro";
+import Navbar from "../components/navbar.astro";
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Sala 2: Cultura Zenú y Memoria Ancestral | Casa Museo Pozón</title>
+        <ClientRouter />
+	</head>
+	<body class="bg-museum-dark font-sans overflow-x-hidden text-white">
+        <SocialSidebar />
+		<Navbar />
+        
+        <main class="pt-32 pb-24 px-8 md:px-16 lg:px-24 max-w-5xl mx-auto">
+            <!-- Header -->
+            <div class="mb-20 text-center relative">
+                <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Sala 2</span>
+                <h1 class="text-4xl md:text-6xl font-display mb-8">Cultura Zenú y Memoria Ancestral</h1>
+                <div class="w-24 h-1 bg-museum-gold mx-auto mb-8"></div>
+                <h3 class="text-xl text-white/90 font-display mb-6">"El Legado Zenú y Afroindígena como Fuerza Viva del Territorio: Un Territorio que Asciende"</h3>
+                <p class="text-white/70 text-lg font-light max-w-4xl mx-auto leading-relaxed italic mb-8">
+                    "Desde las huellas más antiguas inscritas en la tierra hasta la memoria viva que sostiene nuestra identidad actual."
+                </p>
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl text-left">
+                    <strong class="text-museum-gold block mb-2 uppercase tracking-widest text-xs">Eje Pedagógico</strong>
+                    <p class="text-white/80 font-light">La continuidad cultural como trinchera, la hibridación afroindígena como matriz de identidad y las tecnologías ancestrales del cuerpo, el tejido y el pensamiento hidráulico como guías de resistencia contemporánea.</p>
+                </div>
+            </div>
+
+            <!-- Content Sections -->
+            <div class="space-y-16">
+                
+                <!-- Propósito Formativo -->
+                <section>
+                    <h2 class="text-2xl font-display text-museum-gold mb-6 flex items-center gap-4">
+                        <span class="w-8 h-8 rounded-full bg-museum-gold/10 flex items-center justify-center text-sm">1</span> 
+                        Propósito Formativo: Un Espacio Muestrario de Convergencia Activa
+                    </h2>
+                    <div class="text-white/70 font-light leading-relaxed space-y-4">
+                        <p>Este componente se consolida como el segundo peldaño del recorrido museológico, ubicándose físicamente como un espacio muestrario exclusivo dentro de las instalaciones de la Casa Museo, en una Sala Especial de Exhibición Permanente.</p>
+                        <p>No se concibe como una colección arqueológica pasiva o contemplativa, sino como el núcleo de la continuidad del trayecto Un Territorio que Asciende y un nodo del Museo Vivo donde estudiantes, visitantes e investigadores convergen y participan de forma activa.</p>
+                        <p>Si la estación anterior responde a ¿de dónde venimos?, este espacio museológico responde colectivamente a ¿quiénes somos hoy?. Bajo el Modelo ACO, su objetivo político y decolonial es demostrar que la identidad de El Pozón es el resultado de un poderoso entramado trenzado entre el legado Zenú y la herencia africana. La sala funciona como un aula viva interactiva donde los usuarios manipulan réplicas, experimentan con técnicas de trenzado y analizan el pensamiento hidráulico prehispánico, reconociéndose como portadores de una fuerza viva y milenaria.</p>
+                    </div>
+                </section>
+
+                <!-- Ejes Temáticos -->
+                <section>
+                    <h2 class="text-2xl font-display text-museum-gold mb-6 flex items-center gap-4">
+                        <span class="w-8 h-8 rounded-full bg-museum-gold/10 flex items-center justify-center text-sm">2</span> 
+                        Ejes Temáticos Fundamentales
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white/5 border border-white/10 p-6 rounded-xl hover:border-museum-gold/50 transition-colors">
+                            <h4 class="text-white font-bold mb-3">Eje 1: El Tejido Intercultural y el Muestrario del Entramado Afroindígena</h4>
+                            <p class="text-white/60 text-sm font-light">Estudio crítico e interactivo de los procesos de hibridación cultural, el cimarronaje y los encuentros históricos entre comunidades indígenas y afrodescendientes en el Caribe colombiano. Se investiga cómo este sincretismo modeló la espiritualidad, la medicina tradicional y los mitos compartidos, disponiendo en la sala especial elementos que permiten a estudiantes e investigadores analizar la base de la identidad vecinal de El Pozón.</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 p-6 rounded-xl hover:border-museum-gold/50 transition-colors">
+                            <h4 class="text-white font-bold mb-3">Eje 2: Tecnologías del Pensamiento Hidráulico y el Manglar</h4>
+                            <p class="text-white/60 text-sm font-light">Análisis y apropiación práctica de los sistemas ancestrales de manejo de aguas de la cultura Zenú (canales, camellones) y su diálogo con el habitar anfíbio contemporáneo. Este eje conecta la ingeniería prehispánica de adaptación a las inundaciones con las luchas actuales del barrio por la soberanía ambiental, la defensa de los caños y la protección biocultural del manglar.</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 p-6 rounded-xl hover:border-museum-gold/50 transition-colors">
+                            <h4 class="text-white font-bold mb-3">Eje 3: El Arte del Trenzado y las Memorias del Cuerpo</h4>
+                            <p class="text-white/60 text-sm font-light">Laboratorios de investigación aplicada y práctica sobre las estéticas del tejido (uso de la caña flecha, fibras nativas) y los saberes corporales tradicionales (la culinaria local, los bailes cantados, los peinados cimarrones). El cuerpo se asume como el primer territorio de memoria, donde cada trenza, ritmo y sabor custodia una herencia viva de libertad.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Ruta Metodológica -->
+                <section>
+                    <h2 class="text-2xl font-display text-museum-gold mb-6 flex items-center gap-4">
+                        <span class="w-8 h-8 rounded-full bg-museum-gold/10 flex items-center justify-center text-sm">3</span> 
+                        Ruta Metodológica en 5 Fases (Modelo ACO)
+                    </h2>
+                    <p class="text-white/70 font-light mb-6">La secuencia didáctica convierte esta sala especial en un laboratorio activo de diálogo de saberes, co-creación y acción social donde todos los actores interactúan de manera directa.</p>
+                    <div class="space-y-4">
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-museum-gold text-museum-dark font-bold px-3 py-1 rounded text-xs mt-1 shrink-0">Fase 1</div>
+                            <p class="text-white/70 font-light"><strong class="text-white">Obtener Información (“Derivas de Saberes Étnicos”):</strong> Estudiantes e investigadores realizan recorridos por el barrio para identificar y caracterizar a parteras, médicos tradicionales, tejedores y portadores de la memoria culinaria en los Patios Productivos, recopilando insumos orales y materiales.</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-museum-gold text-museum-dark font-bold px-3 py-1 rounded text-xs mt-1 shrink-0">Fase 2</div>
+                            <p class="text-white/70 font-light"><strong class="text-white">Opinar (“Círculos del Fuego y la Palabra en Sala”):</strong> Encuentros decoloniales dentro del espacio exclusivo de la sala entre juventudes, investigadores y visitantes mayores del barrio. Se debate críticamente cómo la historia oficial ha invisibilizado el mestizaje afroindígena popular, reafirmando el derecho a la autoidentificación.</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-museum-gold text-museum-dark font-bold px-3 py-1 rounded text-xs mt-1 shrink-0">Fase 3</div>
+                            <p class="text-white/70 font-light"><strong class="text-white">Proponer (“Laboratorios del Tejido y el Diseño”):</strong> Talleres participativos en la sala multimedia aplicando Design Thinking comunitario. Los estudiantes co-crean la museografía interactiva, diseñan réplicas didácticas de canastos Zenú, esquematizan los canales hidráulicos antiguos y formulan la documentación de la medicina tradicional anfibia.</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-museum-gold text-museum-dark font-bold px-3 py-1 rounded text-xs mt-1 shrink-0">Fase 4</div>
+                            <p class="text-white/70 font-light"><strong class="text-white">Gestionar (“Minga de la Memoria Colectiva en Sala”):</strong> Trabajo comunitario para la adecuación física y ambientación didáctica de la Sala de Cultura Zenú y Memoria Ancestral. Se montan talleres abiertos de trenzado y medicina herbolaria que integran directamente la vida de la comunidad a la experiencia física del espacio.</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-museum-gold text-museum-dark font-bold px-3 py-1 rounded text-xs mt-1 shrink-0">Fase 5</div>
+                            <p class="text-white/70 font-light"><strong class="text-white">Evaluar (“Apertura del Entramado Ancestral”):</strong> Activación de la sala mediante guías comunitarias transmedia lideradas por las juventudes para las instituciones educativas locales. Los inventarios de plantas medicinales, cartografías y muestras de trenzado se indexan soberanamente en el Archivo Comunitario Vivo (ACV).</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recursos -->
+                <section>
+                    <h2 class="text-2xl font-display text-museum-gold mb-6 flex items-center gap-4">
+                        <span class="w-8 h-8 rounded-full bg-museum-gold/10 flex items-center justify-center text-sm">4</span> 
+                        Recursos y Activadores
+                    </h2>
+                    <ul class="list-disc list-inside text-white/70 font-light space-y-3 marker:text-museum-gold">
+                        <li><strong class="text-white">La Sala Física Especial:</strong> Espacio de exhibición interactivo que alberga fibras vegetales nativas (caña flecha, totumos), muestras de plantas vivas y deshidratadas de la Huerta de la Memoria, piezas textiles comunitarias, cartografías de los sistemas hidráulicos indígenas y el banco de archivos sonoros con cantos y mitos.</li>
+                        <li><strong class="text-white">El Muestrario de Convergencia Activa:</strong> Mesas de laboratorio y dispositivos didácticos dentro de la sala diseñados para que estudiantes, investigadores y visitantes realicen ejercicios prácticos de trenzado, formulación etnobotánica y mapeo de tecnologías hidráulicas en vivo.</li>
+                        <li><strong class="text-white">El Repositorio Digital ACV Transmedia en Sala:</strong> Pantallas táctiles y estaciones multimedia integradas en el espacio que recopilan videos tutoriales de técnicas de trenzado tradicional, la guía digitalizada de etnobotánica de El Pozón y los podcasts biográficos de los sabedores ancestrales de la comunidad.</li>
+                    </ul>
+                </section>
+
+                <!-- Impacto -->
+                <section class="bg-museum-gold/10 border border-museum-gold/30 p-8 rounded-2xl">
+                    <h2 class="text-2xl font-display text-museum-gold mb-4 flex items-center gap-4">
+                        <span class="w-8 h-8 rounded-full bg-museum-gold flex items-center justify-center text-museum-dark text-sm">5</span> 
+                        Síntesis de Impacto Ciudadano
+                    </h2>
+                    <p class="text-white/80 font-light leading-relaxed">
+                        Al completar los procesos de la Sala de Cultura Zenú y Memoria Ancestral en este entorno de convergencia, los participantes se titulan en el nivel avanzado de <strong>Gobernanza Cultural, Identidad Étnica y Agencia Territorial</strong>. Al concebir esta sala especial como un escenario vivo de co-investigación, las juventudes y los investigadores se consagran como herederos legítimos de un patrimonio milenario. Quedan plenamente dotados de competencias críticas para defender el territorio pozonero, usar el pasado hidráulico y la resistencia cimarrona como herramientas contra el racismo epistémico, y liderar el diseño de futuros sostenibles, equitativos y en paz desde la raíz profunda de su territorio.
+                    </p>
+                </section>
+                
+                <div class="pt-12 text-center">
+                    <a href="/recorrido-museal" class="inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-colors uppercase tracking-widest text-xs font-bold text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        Volver al Recorrido Museal
+                    </a>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
