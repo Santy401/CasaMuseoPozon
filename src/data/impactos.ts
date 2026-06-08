@@ -107,7 +107,7 @@ export const proyectosMapa: ProyectoMapa[] = [
   },
   {
     id: '4',
-    nombre: 'Estación Cartográfica',
+    nombre: 'Nodo Cartográfico',
     lat: 10.3915,
     lng: -75.4800,
     tipo: 'social',
