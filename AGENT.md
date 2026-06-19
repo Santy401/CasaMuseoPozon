@@ -17,10 +17,9 @@
 | **Cuenta donaciones** | Banco Caja Social — Ahorros: 24154765394 |
 
 ### Redes sociales oficiales
-- Facebook: https://www.facebook.com/casamuseopozon
-- Instagram: https://www.instagram.com/casamuseopozon/
-- YouTube: https://www.youtube.com/@casamuseopozon
-- TikTok: https://www.tiktok.com/@casamuseopozon
+- Instagram: https://www.instagram.com/casapozonmuseo/
+- YouTube: https://www.youtube.com/@Casapozonmuseo
+- TikTok: https://www.tiktok.com/@casapozonmuseo
 
 ### Misión institucional
 Revitalizar, preservar y promover el patrimonio cultural, histórico y biocultural del territorio pozonero. Fomentar la participación comunitaria, la sostenibilidad ambiental y el tejido social.

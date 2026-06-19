@@ -66,7 +66,7 @@ La plataforma está construida con tecnologías de última generación para gara
 Estamos abiertos a alianzas con entidades gubernamentales, museos internacionales y organizaciones de cooperación que compartan nuestra visión de **Transformación Social a través de la Memoria**.
 
 *   **Ubicación:** Barrio El Pozón, Cartagena de Indias, Colombia.
-*   **Instagram:** [@casamuseopozon](https://www.instagram.com/casamuseopozon/)
+*   **Instagram:** [@casapozonmuseo](https://www.instagram.com/casapozonmuseo/)
 *   **Web:** [www.casapozonmuseo.site](https://www.casapozonmuseo.site)
 
 ---
