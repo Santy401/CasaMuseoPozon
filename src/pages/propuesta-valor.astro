@@ -1,0 +1,618 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import SocialSidebar from "../components/SocialSidebar.astro";
+import Navbar from "../components/navbar.astro";
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Propuesta de Valor | Casa Museo Pozón</title>
+		<meta name="description" content="Conoce la propuesta de valor y el pitch deck de la Fundación Casa Museo Pozón — un modelo de justicia cognitiva, educación comunitaria y preservación patrimonial desde El Pozón, Cartagena." />
+        <ClientRouter />
+	</head>
+	<body class="bg-museum-cream font-sans overflow-x-hidden">
+        <SocialSidebar />
+		<Navbar />
+
+        <main>
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- HERO DRAMÁTICO -->
+            <!-- ═══════════════════════════════════════════ -->
+            <section class="relative min-h-screen flex items-center justify-center bg-museum-dark pt-20 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/40 via-museum-dark/80 to-museum-dark z-10"></div>
+                <div class="absolute inset-0 opacity-15 bg-[url('/imagenes/fondo-seccion.png')] bg-cover bg-center mix-blend-luminosity scale-110"></div>
+                <!-- Línea decorativa vertical -->
+                <div class="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-museum-gold/20 to-transparent z-10 hidden lg:block"></div>
+
+                <div class="relative z-20 text-center px-8 max-w-6xl" transition:animate="fade">
+                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[9px] md:text-[11px] mb-10 uppercase block">Fundación Casa Museo Pozón — Código 13001-15</span>
+                    <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-display text-white mb-8 leading-[1.05]">
+                        Propuesta <br/> <span class="text-museum-gold">de Valor</span>
+                    </h1>
+                    <div class="w-32 h-[2px] bg-museum-gold mx-auto mb-10"></div>
+                    <p class="max-w-3xl mx-auto text-museum-cream/60 text-lg md:text-xl font-light leading-relaxed mb-14">
+                        Donde la tierra guarda memoria y la comunidad diseña su propio conocimiento.
+                    </p>
+                    <a href="#epigrafe" class="inline-flex items-center gap-3 border border-museum-gold/30 text-museum-gold px-8 py-4 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-museum-gold hover:text-museum-dark transition-all duration-500">
+                        Conoce Nuestra Historia
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                    </a>
+                </div>
+
+                <!-- Scroll indicator -->
+                <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-white/20 animate-bounce">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- EPÍGRAFE / CITA DE APERTURA -->
+            <!-- ═══════════════════════════════════════════ -->
+            <section id="epigrafe" class="py-28 md:py-40 px-8 bg-museum-cream relative overflow-hidden">
+                <!-- Decoración de fondo -->
+                <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[18rem] md:text-[28rem] font-display text-museum-gold/[0.03] whitespace-nowrap select-none pointer-events-none leading-none">PITCH</span>
+                
+                <div class="max-w-4xl mx-auto text-center relative z-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold/30 mx-auto mb-10"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3z"/></svg>
+                    <blockquote class="text-2xl md:text-3xl lg:text-4xl font-display text-museum-dark leading-relaxed mb-10 italic">
+                        "Imagina despertar un día y descubrir que en el patio de tu casa existe un tesoro arqueológico —un conchero prehispánico de gran valor patrimonial— capaz de reescribir la narrativa y la historia de tu ciudad."
+                    </blockquote>
+                    <div class="w-16 h-[2px] bg-museum-gold mx-auto mb-8"></div>
+                    <p class="text-museum-dark/50 text-sm font-light tracking-wide">
+                        Rigoberto Castro Pérez — Fundador
+                    </p>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- EL DESCUBRIMIENTO — Storytelling visual -->
+            <!-- ═══════════════════════════════════════════ -->
+            <section class="py-28 md:py-36 px-8 md:px-16 lg:px-24 bg-white relative">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                        <!-- Texto -->
+                        <div>
+                            <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-6 uppercase block">El Origen</span>
+                            <div class="flex items-center gap-4 mb-8">
+                                <span class="w-12 h-[2px] bg-museum-gold"></span>
+                                <h2 class="text-3xl md:text-4xl font-display text-museum-dark uppercase tracking-widest">El Hallazgo</h2>
+                            </div>
+                            <div class="space-y-6 text-museum-dark/75 font-light leading-relaxed text-lg">
+                                <p>
+                                    Eso no es ficción; lo viví hace más de dos décadas. Siendo estudiante de historia, descubrí que los patrios vecinos guardaban las claves de nuestro pasado.
+                                </p>
+                                <p>
+                                    Pero en medio de ese hallazgo, atrapado en un entorno de <strong class="text-museum-dark font-medium">abandono, silencio y exclusión</strong>, encontré algo aún más poderoso: una comunidad con una riqueza cultural inmensa, pero invisibilizada.
+                                </p>
+                                <p class="text-museum-dark font-medium italic border-l-2 border-museum-gold pl-6">
+                                    Ahí comprendí que el verdadero patrimonio no se limita a los restos en la tierra; reside también en la memoria, los saberes, la vida cotidiana y la inmensa capacidad de una comunidad para construir su propio camino.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Imagen -->
+                        <div class="relative">
+                            <div class="h-[500px] relative rounded-2xl overflow-hidden shadow-2xl group">
+                                <div class="absolute inset-0 border-2 border-museum-gold/20 m-5 rounded-xl z-20 transition-transform duration-700 group-hover:scale-95 pointer-events-none"></div>
+                                <img src="/imagenes/quienes-somos-1.png" alt="El Hallazgo - Conchero prehispánico" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                            </div>
+                            <!-- Tarjeta decorativa flotante -->
+                            <div class="absolute -bottom-6 -left-6 bg-museum-dark text-white p-6 rounded-xl shadow-2xl z-30 hidden md:block">
+                                <p class="text-[10px] text-museum-gold uppercase tracking-[0.2em] mb-1 font-bold">Valor Patrimonial</p>
+                                <p class="text-sm font-light text-white/70">Conchero prehispánico<br/>de gran significado</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- LÍNEA DE TIEMPO — Cronología visual -->
+            <!-- ═══════════════════════════════════════════ -->
+            <section class="py-28 md:py-36 bg-museum-cream px-8 md:px-16 lg:px-24 relative overflow-hidden">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-20 relative">
+                        <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-4 uppercase block">Nuestro Camino</span>
+                        <h2 class="text-4xl md:text-5xl font-display text-museum-dark mb-6">De la Tierra a la Transformación</h2>
+                        <div class="w-24 h-1 bg-museum-gold mx-auto mb-8"></div>
+                        <span class="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 -translate-y-12 text-[7rem] font-display text-museum-gold/[0.04] whitespace-nowrap select-none pointer-events-none">CRONOLOGÍA</span>
+                    </div>
+
+                    <!-- Timeline -->
+                    <div class="relative">
+                        <!-- Línea vertical central -->
+                        <div class="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-museum-gold/20"></div>
+
+                        <!-- Hitos -->
+                        <div class="space-y-16">
+                            <!-- 1. El Descubrimiento -->
+                            <div class="relative flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-16">
+                                <div class="md:w-1/2 md:text-right pl-12 md:pl-0">
+                                    <span class="text-museum-gold font-bold tracking-[0.3em] text-[10px] uppercase">Hace más de 20 años</span>
+                                    <h3 class="text-2xl font-display text-museum-dark mt-3 mb-3">El Descubrimiento</h3>
+                                    <p class="text-museum-dark/60 font-light text-sm leading-relaxed">Un estudiante de historia encuentra un conchero prehispánico en los patios de El Pozón, reescribiendo la narrativa de la ciudad.</p>
+                                </div>
+                                <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-museum-gold flex items-center justify-center z-10 shadow-lg shadow-museum-gold/30">
+                                    <div class="w-3 h-3 rounded-full bg-white"></div>
+                                </div>
+                                <div class="md:w-1/2 pl-12 md:pl-0"></div>
+                            </div>
+
+                            <!-- 2. La Toma de Conciencia -->
+                            <div class="relative flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-16">
+                                <div class="md:w-1/2 md:text-right pl-12 md:pl-0 hidden md:block"></div>
+                                <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-museum-dark flex items-center justify-center z-10 shadow-lg">
+                                    <div class="w-3 h-3 rounded-full bg-museum-gold"></div>
+                                </div>
+                                <div class="md:w-1/2 pl-12 md:pl-0">
+                                    <span class="text-museum-gold font-bold tracking-[0.3em] text-[10px] uppercase">El Proceso</span>
+                                    <h3 class="text-2xl font-display text-museum-dark mt-3 mb-3">La Toma de Conciencia</h3>
+                                    <p class="text-museum-dark/60 font-light text-sm leading-relaxed">En medio del hallazgo, se revela una comunidad con riqueza cultural inmensa pero invisibilizada — abandono, silencio y exclusión.</p>
+                                </div>
+                            </div>
+
+                            <!-- 3. La Comprensión -->
+                            <div class="relative flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-16">
+                                <div class="md:w-1/2 md:text-right pl-12 md:pl-0">
+                                    <span class="text-museum-gold font-bold tracking-[0.3em] text-[10px] uppercase">La Visión</span>
+                                    <h3 class="text-2xl font-display text-museum-dark mt-3 mb-3">La Comprensión</h3>
+                                    <p class="text-museum-dark/60 font-light text-sm leading-relaxed">El verdadero patrimonio no está solo en la tierra: reside en la memoria, los saberes, la vida cotidiana y la capacidad de la comunidad.</p>
+                                </div>
+                                <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-museum-gold flex items-center justify-center z-10 shadow-lg shadow-museum-gold/30">
+                                    <div class="w-3 h-3 rounded-full bg-white"></div>
+                                </div>
+                                <div class="md:w-1/2 pl-12 md:pl-0 hidden md:block"></div>
+                            </div>
+
+                            <!-- 4. El Nacimiento -->
+                            <div class="relative flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-16">
+                                <div class="md:w-1/2 md:text-right pl-12 md:pl-0 hidden md:block"></div>
+                                <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-museum-dark flex items-center justify-center z-10 shadow-lg">
+                                    <div class="w-3 h-3 rounded-full bg-museum-gold"></div>
+                                </div>
+                                <div class="md:w-1/2 pl-12 md:pl-0">
+                                    <span class="text-museum-gold font-bold tracking-[0.3em] text-[10px] uppercase">La Fundación</span>
+                                    <h3 class="text-2xl font-display text-museum-dark mt-3 mb-3">Nace la Casa Museo</h3>
+                                    <p class="text-museum-dark/60 font-light text-sm leading-relaxed">Así nace la Fundación Casa Museo Pozón (código 13001-15) — la Casa Museo de la Memoria del Pozón — desde las entrañas de El Pozón.</p>
+                                </div>
+                            </div>
+
+                            <!-- 5. Hoy -->
+                            <div class="relative flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-16">
+                                <div class="md:w-1/2 md:text-right pl-12 md:pl-0">
+                                    <span class="text-museum-gold font-bold tracking-[0.3em] text-[10px] uppercase">Actualidad</span>
+                                    <h3 class="text-2xl font-display text-museum-dark mt-3 mb-3">Vanguardia desde la Periferia</h3>
+                                    <p class="text-museum-dark/60 font-light text-sm leading-relaxed">Personería jurídica consolidada, tecnología de punta operada, y un modelo que demuestra que la periferia es un epicentro de vanguardia pedagógica.</p>
+                                </div>
+                                <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-museum-gold flex items-center justify-center z-10 shadow-lg shadow-museum-gold/30 ring-4 ring-museum-gold/20">
+                                    <div class="w-3 h-3 rounded-full bg-white"></div>
+                                </div>
+                                <div class="md:w-1/2 pl-12 md:pl-0 hidden md:block"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- PROBLEMA vs SOLUCIÓN — Contraste visual -->
+            <!-- ═══════════════════════════════════════════ -->
+            <section class="py-28 md:py-36 px-8 md:px-16 lg:px-24 bg-white relative">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-20">
+                        <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-4 uppercase block">El Contexto</span>
+                        <h2 class="text-4xl md:text-5xl font-display text-museum-dark mb-6">Lo Que Encontramos</h2>
+                        <div class="w-24 h-1 bg-museum-gold mx-auto"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-2xl">
+                        <!-- Columna: El Problema -->
+                        <div class="bg-museum-dark text-white p-12 md:p-16 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-40 h-40 bg-red-500/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                            <span class="text-[10px] font-bold tracking-[0.4em] uppercase text-white/40 mb-6 block">El Problema</span>
+                            <h3 class="text-2xl md:text-3xl font-display mb-10">Un Territorio <span class="text-red-400">Invisible</span></h3>
+                            <ul class="space-y-6">
+                                <li class="flex gap-4 items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-400 flex-shrink-0 mt-1"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                                    <p class="text-white/60 font-light text-sm leading-relaxed">Abandono institucional y social persistente</p>
+                                </li>
+                                <li class="flex gap-4 items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-400 flex-shrink-0 mt-1"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                                    <p class="text-white/60 font-light text-sm leading-relaxed">Silencio sobre el patrimonio cultural local</p>
+                                </li>
+                                <li class="flex gap-4 items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-400 flex-shrink-0 mt-1"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                                    <p class="text-white/60 font-light text-sm leading-relaxed">Exclusión de las comunidades de su propia historia</p>
+                                </li>
+                                <li class="flex gap-4 items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-400 flex-shrink-0 mt-1"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                                    <p class="text-white/60 font-light text-sm leading-relaxed">Racismo epistémico: saberes comunitarios ignorados</p>
+                                </li>
+                                <li class="flex gap-4 items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-400 flex-shrink-0 mt-1"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                                    <p class="text-white/60 font-light text-sm leading-relaxed">Periferia tratada como problema social a asistir</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Columna: La Solución -->
+                        <div class="bg-museum-cream text-museum-dark p-12 md:p-16 relative overflow-hidden">
+                            <div class="absolute bottom-0 left-0 w-40 h-40 bg-museum-gold/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+                            <span class="text-[10px] font-bold tracking-[0.4em] uppercase text-museum-gold mb-6 block">La Solución</span>
+                            <h3 class="text-2xl md:text-3xl font-display mb-10">Un Modelo de <span class="text-museum-gold">Vanguardia</span></h3>
+                            <ul class="space-y-6">
+                                <li class="flex gap-4 items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold flex-shrink-0 mt-1"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                                    <p class="text-museum-dark/70 font-light text-sm leading-relaxed">Museo vivo que conecta historia, arqueología y memoria</p>
+                                </li>
+                                <li class="flex gap-4 items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold flex-shrink-0 mt-1"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                                    <p class="text-museum-dark/70 font-light text-sm leading-relaxed">Modelo A.C.O. de aprendizaje comunitario orgánico</p>
+                                </li>
+                                <li class="flex gap-4 items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold flex-shrink-0 mt-1"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                                    <p class="text-museum-dark/70 font-light text-sm leading-relaxed">Laboratorios transmedia de vanguardia tecnológica</p>
+                                </li>
+                                <li class="flex gap-4 items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold flex-shrink-0 mt-1"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                                    <p class="text-museum-dark/70 font-light text-sm leading-relaxed">Justicia cognitiva: soberanía del conocimiento propio</p>
+                                </li>
+                                <li class="flex gap-4 items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold flex-shrink-0 mt-1"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                                    <p class="text-museum-dark/70 font-light text-sm leading-relaxed">La periferia como epicentro, no como problema</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- QUÉ SOMOS — Presentación institucional -->
+            <!-- ═══════════════════════════════════════════ -->
+            <section class="py-28 md:py-36 bg-museum-cream px-8 md:px-16 lg:px-24 relative overflow-hidden">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                        <!-- Imagen -->
+                        <div class="relative order-2 lg:order-1">
+                            <div class="h-[450px] md:h-[550px] relative rounded-2xl overflow-hidden shadow-2xl group">
+                                <div class="absolute inset-0 border-2 border-museum-gold/20 m-5 rounded-xl z-20 transition-transform duration-700 group-hover:scale-95 pointer-events-none"></div>
+                                <img src="/imagenes/quienes-somos-2.webp" alt="Casa Museo Pozón" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                            </div>
+                            <!-- Badge flotante -->
+                            <div class="absolute -top-4 -right-4 bg-white p-5 rounded-xl shadow-2xl z-30 hidden md:block">
+                                <p class="text-[9px] text-museum-gold uppercase tracking-[0.2em] font-bold mb-1">Código</p>
+                                <p class="text-xl font-display text-museum-dark">13001-15</p>
+                            </div>
+                        </div>
+
+                        <!-- Texto -->
+                        <div class="order-1 lg:order-2">
+                            <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-6 uppercase block">Quiénes Somos</span>
+                            <div class="flex items-center gap-4 mb-8">
+                                <span class="w-12 h-[2px] bg-museum-gold"></span>
+                                <h2 class="text-3xl md:text-4xl font-display text-museum-dark uppercase tracking-widest">La Fundación</h2>
+                            </div>
+                            <div class="space-y-6 text-museum-dark/75 font-light leading-relaxed text-lg">
+                                <p>
+                                    Así nace la <strong class="text-museum-dark font-medium">Fundación Casa Museo Pozón</strong> —también concebida como la Casa Museo de la Memoria del Pozón— desde las entrañas de El Pozón, una tierra de cultura vibrante donde <strong class="text-museum-gold font-medium">su gente es nuestro activo más valioso y subestimado</strong>.
+                                </p>
+                                <p>
+                                    Somos esa Cartagena popular y museológica que opera como un puente vivo entre la historia, la arqueología, la memoria y la educación.
+                                </p>
+                            </div>
+                            <!-- Dato clave -->
+                            <div class="mt-10 bg-white p-6 rounded-xl border border-museum-gold/10 shadow-sm">
+                                <p class="text-[10px] text-museum-gold uppercase tracking-[0.2em] mb-2 font-bold">Lema Institucional</p>
+                                <p class="text-sm font-display text-museum-dark italic">"Revitalizando y preservando los entornos bioculturales, arqueológicos, creativos y de saberes ancestrales para el desarrollo sostenible del territorio pozonero hacia una cultura de paz"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- NUESTRO MODELO — Tarjetas sobre fondo oscuro -->
+            <!-- ═══════════════════════════════════════════ -->
+            <section class="py-28 md:py-36 bg-museum-dark text-white relative overflow-hidden">
+                <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+                <!-- Decoración -->
+                <span class="absolute top-10 right-10 text-[14rem] font-display text-white/[0.015] select-none pointer-events-none leading-none hidden lg:block">MODELO</span>
+
+                <div class="max-w-7xl mx-auto px-8 relative z-10">
+                    <div class="text-center mb-20">
+                        <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-6 uppercase block">Nuestra Metodología</span>
+                        <h2 class="text-4xl md:text-5xl font-display text-white mb-6">Modelo <span class="text-museum-gold">Transformador</span></h2>
+                        <div class="w-24 h-1 bg-museum-gold mx-auto mb-8"></div>
+                        <p class="max-w-2xl mx-auto text-white/50 font-light leading-relaxed">
+                            Creemos firmemente que el conocimiento no pertenece únicamente a las aulas universitarias tradicionales; también nace en los barrios, en la experiencia de nuestros adultos mayores y en la memoria de quienes han construido este territorio.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- A.C.O. -->
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 hover:border-museum-gold/30 transition-all duration-500 group">
+                            <div class="w-14 h-14 rounded-xl bg-museum-gold/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            </div>
+                            <h3 class="text-lg font-display text-white mb-3 group-hover:text-museum-gold transition-colors">A.C.O.</h3>
+                            <p class="text-[10px] text-museum-gold uppercase tracking-wider mb-3 font-bold">Aprendizaje Comunitario Orgánico</p>
+                            <p class="text-white/50 font-light text-sm leading-relaxed">Metodología pedagógica propia que nace del territorio y valid a los sabedores como los verdaderos científicos de su historia.</p>
+                        </div>
+
+                        <!-- Transmedia -->
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 hover:border-museum-gold/30 transition-all duration-500 group">
+                            <div class="w-14 h-14 rounded-xl bg-museum-gold/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold"><path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"/><circle cx="2" cy="20" r="0"/></svg>
+                            </div>
+                            <h3 class="text-lg font-display text-white mb-3 group-hover:text-museum-gold transition-colors">Laboratorios Transmedia</h3>
+                            <p class="text-[10px] text-museum-gold uppercase tracking-wider mb-3 font-bold">Vanguardia Tecnológica</p>
+                            <p class="text-white/50 font-light text-sm leading-relaxed">Tecnología de punta aplicada a la preservación patrimonial y la educación comunitaria.</p>
+                        </div>
+
+                        <!-- Justicia Cognitiva -->
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 hover:border-museum-gold/30 transition-all duration-500 group">
+                            <div class="w-14 h-14 rounded-xl bg-museum-gold/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h18"/></svg>
+                            </div>
+                            <h3 class="text-lg font-display text-white mb-3 group-hover:text-museum-gold transition-colors">Justicia Cognitiva</h3>
+                            <p class="text-[10px] text-museum-gold uppercase tracking-wider mb-3 font-bold">Ingeniería Educativa Propia</p>
+                            <p class="text-white/50 font-light text-sm leading-relaxed">Reemplazando el racismo epistémico por la soberanía de una comunidad que diseña su propio conocimiento.</p>
+                        </div>
+
+                        <!-- Sabedores -->
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 hover:border-museum-gold/30 transition-all duration-500 group">
+                            <div class="w-14 h-14 rounded-xl bg-museum-gold/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <h3 class="text-lg font-display text-white mb-3 group-hover:text-museum-gold transition-colors">Sabedores y Matronas</h3>
+                            <p class="text-[10px] text-museum-gold uppercase tracking-wider mb-3 font-bold">Los Científicos de su Historia</p>
+                            <p class="text-white/50 font-light text-sm leading-relaxed">Validamos a nuestros sabedores y matronas como los verdaderos científicos de su historia y memoria.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- LO QUE DEMOSTRAMOS — Stats animados -->
+            <!-- ═══════════════════════════════════════════ -->
+            <section class="py-24 bg-museum-dark text-white relative overflow-hidden border-t border-white/5">
+                <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+                <div class="max-w-7xl mx-auto px-8 relative z-10">
+                    <div class="text-center mb-16">
+                        <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-4 uppercase block">Hechos Que Respaldan</span>
+                        <h2 class="text-3xl md:text-4xl font-display text-white mb-4">Lo Que Ya Logramos</h2>
+                        <div class="w-20 h-1 bg-museum-gold mx-auto"></div>
+                    </div>
+
+                    <div id="propuesta-stats" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+                        <div class="stat-card opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+                            <p class="text-5xl md:text-6xl font-display text-museum-gold mb-3 hover:scale-110 transition-transform duration-500">
+                                <span class="counter" data-target="150">0</span>+
+                            </p>
+                            <p class="text-[10px] tracking-[0.2em] font-bold uppercase opacity-50">Relatos Sistematizados</p>
+                        </div>
+                        <div class="stat-card opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+                            <p class="text-5xl md:text-6xl font-display text-museum-gold mb-3 hover:scale-110 transition-transform duration-500">
+                                <span class="counter" data-target="800">0</span>+
+                            </p>
+                            <p class="text-[10px] tracking-[0.2em] font-bold uppercase opacity-50">Beneficiarios Directos</p>
+                        </div>
+                        <div class="stat-card opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+                            <p class="text-5xl md:text-6xl font-display text-museum-gold mb-3 hover:scale-110 transition-transform duration-500">
+                                <span class="counter" data-target="250">0</span>K+
+                            </p>
+                            <p class="text-[10px] tracking-[0.2em] font-bold uppercase opacity-50">Impacto Digital Alcanzado</p>
+                        </div>
+                        <div class="stat-card opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+                            <p class="text-5xl md:text-6xl font-display text-museum-gold mb-3 hover:scale-110 transition-transform duration-500">
+                                <span class="counter" data-target="15">0</span>
+                            </p>
+                            <p class="text-[10px] tracking-[0.2em] font-bold uppercase opacity-50">Instituciones Vinculadas</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- CITA DESTACADA -->
+            <!-- ═══════════════════════════════════════════ -->
+            <section class="py-24 md:py-32 px-8 bg-museum-cream relative overflow-hidden">
+                <div class="max-w-4xl mx-auto text-center relative z-10">
+                    <div class="w-16 h-16 rounded-full bg-museum-gold/10 flex items-center justify-center mx-auto mb-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-museum-gold"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                    </div>
+                    <blockquote class="text-xl md:text-2xl lg:text-3xl font-display text-museum-dark leading-relaxed italic mb-8">
+                        "No nos limitamos a exhibir el pasado. Transformamos la oralidad y la arqueología local en una ingeniería de justicia cognitiva y educación propia."
+                    </blockquote>
+                    <div class="w-12 h-[2px] bg-museum-gold mx-auto"></div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- PRÓXIMO PASO — Roadmap visual -->
+            <!-- ═══════════════════════════════════════════ -->
+            <section class="py-28 md:py-36 px-8 md:px-16 lg:px-24 bg-white relative">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-20 relative">
+                        <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-4 uppercase block">Estrategia</span>
+                        <h2 class="text-4xl md:text-5xl font-display text-museum-dark mb-6">El Próximo <span class="text-museum-gold">Salto</span></h2>
+                        <div class="w-24 h-1 bg-museum-gold mx-auto mb-8"></div>
+                        <p class="max-w-2xl mx-auto text-museum-dark/60 font-light leading-relaxed">
+                            Hemos construido el andamiaje técnico y comunitario. Nuestro siguiente paso estratégico es claro y escalable.
+                        </p>
+                    </div>
+
+                    <!-- Roadmap Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Paso 1 -->
+                        <div class="relative bg-museum-cream p-10 rounded-3xl border border-museum-gold/10 hover:border-museum-gold/30 transition-all duration-500 hover:-translate-y-2 group">
+                            <div class="absolute top-6 right-8 text-[5rem] font-display text-museum-gold/[0.06] select-none pointer-events-none leading-none group-hover:text-museum-gold/10 transition-colors">01</div>
+                            <span class="text-museum-gold font-bold tracking-[0.3em] text-[10px] uppercase mb-6 block">Paso 1</span>
+                            <h3 class="text-xl font-display text-museum-dark mb-4">Integración Educativa</h3>
+                            <p class="text-museum-dark/60 font-light text-sm leading-relaxed mb-6">Llevar la experiencia a mayor nivel integrándola formalmente en los <strong class="text-museum-dark font-medium">Proyectos Educativos Institucionales (PEI)</strong> de la región.</p>
+                            <div class="w-full h-px bg-museum-gold/20 mb-4"></div>
+                            <span class="text-[9px] text-museum-gold font-bold tracking-wider uppercase">Impacto: Educación Regional</span>
+                        </div>
+
+                        <!-- Paso 2 -->
+                        <div class="relative bg-museum-cream p-10 rounded-3xl border border-museum-gold/10 hover:border-museum-gold/30 transition-all duration-500 hover:-translate-y-2 group">
+                            <div class="absolute top-6 right-8 text-[5rem] font-display text-museum-gold/[0.06] select-none pointer-events-none leading-none group-hover:text-museum-gold/10 transition-colors">02</div>
+                            <span class="text-museum-gold font-bold tracking-[0.3em] text-[10px] uppercase mb-6 block">Paso 2</span>
+                            <h3 class="text-xl font-display text-museum-dark mb-4">Alianzas Estratégicas</h3>
+                            <p class="text-museum-dark/60 font-light text-sm leading-relaxed mb-6">Articular con <strong class="text-museum-dark font-medium">organizaciones culturales y aliados nacionales e internacionales</strong> para ampliar el alcance del modelo.</p>
+                            <div class="w-full h-px bg-museum-gold/20 mb-4"></div>
+                            <span class="text-[9px] text-museum-gold font-bold tracking-wider uppercase">Impacto: Red Nacional e Internacional</span>
+                        </div>
+
+                        <!-- Paso 3 -->
+                        <div class="relative bg-museum-cream p-10 rounded-3xl border border-museum-gold/10 hover:border-museum-gold/30 transition-all duration-500 hover:-translate-y-2 group">
+                            <div class="absolute top-6 right-8 text-[5rem] font-display text-museum-gold/[0.06] select-none pointer-events-none leading-none group-hover:text-museum-gold/10 transition-colors">03</div>
+                            <span class="text-museum-gold font-bold tracking-[0.3em] text-[10px] uppercase mb-6 block">Paso 3</span>
+                            <h3 class="text-xl font-display text-museum-dark mb-4">Escalabilidad</h3>
+                            <p class="text-museum-dark/60 font-light text-sm leading-relaxed mb-6">Escalar el modelo a territorios populares de Colombia y América Latina, demostrando que <strong class="text-museum-dark font-medium">dignidad y soberanía se construyen desde la memoria</strong>.</p>
+                            <div class="w-full h-px bg-museum-gold/20 mb-4"></div>
+                            <span class="text-[9px] text-museum-gold font-bold tracking-wider uppercase">Impacto: Modelo Replicable</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- INVITACIÓN — CTA elaborado -->
+            <!-- ═══════════════════════════════════════════ -->
+            <section class="py-28 md:py-36 bg-museum-dark text-white relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10 bg-[url('/imagenes/fondo-seccion.png')] bg-cover bg-center mix-blend-overlay"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/60 via-museum-dark/90 to-museum-dark z-10"></div>
+
+                <div class="max-w-5xl mx-auto px-8 relative z-20 text-center">
+                    <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-8 uppercase block">Invitación</span>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-display text-white mb-10 leading-tight">
+                        Sé Parte del <br/> <span class="text-museum-gold">Cambio</span>
+                    </h2>
+                    <div class="w-24 h-1 bg-museum-gold mx-auto mb-12"></div>
+
+                    <blockquote class="text-lg md:text-xl text-museum-cream/70 font-light italic leading-relaxed max-w-3xl mx-auto mb-14 border-l-2 border-museum-gold/40 pl-8 text-left">
+                        "No buscamos simple asistencia filantrópica; te invitamos a ser nuestro aliado estratégico e inversor en un modelo de alto impacto. Tu inversión no solo preservará el pasado: dará un sentido transformador al presente de la infancia, abrirá oportunidades reales para las juventudes, fortalecerá nuestra identidad y demostrará que el desarrollo, la dignidad y la soberanía también se construyen desde la memoria y la educación."
+                    </blockquote>
+
+                    <div class="flex flex-col md:flex-row justify-center gap-6 mb-16">
+                        <a href="https://wa.me/573126153148" target="_blank" class="inline-flex items-center justify-center gap-3 bg-museum-gold text-museum-dark px-10 py-5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-white transition-all duration-500 shadow-xl shadow-museum-gold/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            Ser Aliado Estratégico
+                        </a>
+                        <a href="mailto:fundacioncasamuseopozon@gmail.com" class="inline-flex items-center justify-center gap-3 border border-white/20 text-white px-10 py-5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-museum-dark transition-all duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            Contáctanos
+                        </a>
+                        <a href="/como-apoyar" class="inline-flex items-center justify-center gap-3 border border-museum-gold/30 text-museum-gold px-10 py-5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-museum-gold hover:text-museum-dark transition-all duration-500">
+                            Ver Formas de Apoyar
+                        </a>
+                    </div>
+
+                    <!-- Firma -->
+                    <div class="border-t border-white/10 pt-10">
+                        <p class="text-white/40 text-sm font-light mb-1">Con fe en este camino,</p>
+                        <p class="text-xl font-display text-museum-gold">Rigoberto Castro Pérez</p>
+                        <p class="text-[10px] text-white/30 uppercase tracking-[0.2em] mt-1">Fundador — Casa Museo Pozón</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- CONTACTO / FOOTER CTA -->
+            <!-- ═══════════════════════════════════════════ -->
+            <section class="py-20 px-8 bg-museum-cream">
+                <div class="max-w-4xl mx-auto text-center">
+                    <p class="text-museum-dark/40 text-xs font-light tracking-wide mb-6">Fundación Casa Museo Pozón · El Pozón, Cartagena de Indias, Bolívar</p>
+                    <div class="flex flex-wrap justify-center gap-6 mb-10">
+                        <a href="tel:3126153148" class="text-museum-dark/50 hover:text-museum-gold transition-colors text-sm font-light flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72"/></svg>
+                            312-6153148
+                        </a>
+                        <a href="mailto:fundacioncasamuseopozon@gmail.com" class="text-museum-dark/50 hover:text-museum-gold transition-colors text-sm font-light flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            fundacioncasamuseopozon@gmail.com
+                        </a>
+                        <a href="https://www.casamuseopozon.org" target="_blank" class="text-museum-dark/50 hover:text-museum-gold transition-colors text-sm font-light flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            www.casamuseopozon.org
+                        </a>
+                    </div>
+
+                    <div class="border-t border-museum-gold/10 pt-10 mt-10 flex flex-col md:flex-row justify-center gap-6">
+                        <a href="/pdfs/PORTAFOLIO INSTITUCIONAL.pdf" target="_blank" class="inline-block bg-museum-gold text-museum-dark px-8 py-4 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-white transition-all duration-500 shadow-xl">
+                            Descargar Portafolio
+                        </a>
+                        <a href="/pdfs/PLAN ESTRATÉGICO 2026-2028.pdf" target="_blank" class="inline-block bg-museum-dark text-white px-8 py-4 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-museum-gold transition-all duration-500 shadow-xl">
+                            Plan Estratégico 2026-2028
+                        </a>
+                        <a href="/" class="inline-block border border-museum-dark/30 text-museum-dark px-8 py-4 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-museum-dark hover:text-white transition-all duration-500">
+                            Volver a Inicio
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SCRIPT: Stats Animation -->
+        <!-- ═══════════════════════════════════════════ -->
+        <script>
+            function initPropuestaStats() {
+                const statsContainer = document.querySelector('#propuesta-stats');
+                if (!statsContainer) return;
+
+                const countUp = (el) => {
+                    const target = parseInt(el.getAttribute('data-target'));
+                    const duration = 2000;
+                    const startTime = performance.now();
+
+                    const animate = (currentTime) => {
+                        const elapsedTime = currentTime - startTime;
+                        const progress = Math.min(elapsedTime / duration, 1);
+                        const easeOutExpo = 1 - Math.pow(2, -10 * progress);
+                        const currentValue = Math.floor(easeOutExpo * target);
+                        
+                        el.textContent = currentValue;
+
+                        if (progress < 1) {
+                            requestAnimationFrame(animate);
+                        } else {
+                            el.textContent = target;
+                        }
+                    };
+
+                    requestAnimationFrame(animate);
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const cards = entry.target.querySelectorAll('.stat-card');
+                            cards.forEach((card, index) => {
+                                setTimeout(() => {
+                                    card.classList.remove('opacity-0', 'translate-y-10');
+                                    card.classList.add('opacity-100', 'translate-y-0');
+                                    
+                                    const counter = card.querySelector('.counter');
+                                    if (counter) countUp(counter);
+                                }, index * 200);
+                            });
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                observer.observe(statsContainer);
+            }
+
+            initPropuestaStats();
+            document.addEventListener('astro:after-swap', initPropuestaStats);
+        </script>
+	</body>
+</html>
