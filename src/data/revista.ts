@@ -157,5 +157,36 @@ export const articulos: ArticuloRevista[] = [
     `,
     imagen: "",
     etiquetas: ["memoria viva", "identidad", "museo comunitario", "territorio"]
+  },
+  {
+    slug: "el-pozon-memoria-y-territorio",
+    titulo: "El Pozón: Memoria y Territorio",
+    fecha: "18 Agosto 2026",
+    categoria: "Memoria Viva",
+    autor: {
+      nombre: "Casa Museo Pozón",
+      invitado: false,
+      bio: "Fundación Casa Museo del Pozón, Cartagena de Indias. Revitalizamos, preservamos y promovemos el patrimonio cultural, histórico y biocultural del territorio pozonero."
+    },
+    youtubeUrl: "https://youtu.be/eb47cRvxvow?si=b-EWZeI0seXHT6ot",
+    extracto: "Un recorrido por la memoria viva de El Pozón, explorando la identidad, el patrimonio y la resistencia cultural de este territorio cartagenero.",
+    contenido: `
+      <p class="text-lg font-light leading-relaxed mb-8">El Pozón es mucho más que un barrio en la periferia de Cartagena. Es un territorio donde la memoria se respira en cada calle, donde la identidad se construye colectivamente y donde la resistencia cultural se manifiesta en cada gesto de su gente.</p>
+
+      <h3 class="text-2xl font-display text-museum-dark mb-6">Un Territorio de Memoria</h3>
+      <p class="font-light leading-relaxed mb-6">En este recorrido visual y sonoro, descubrimos cómo la memoria viva de El Pozón se mantiene a través de las generaciones. Cada rincón guarda historias de lucha, de alegría y de una comunidad que se niega a ser olvidada.</p>
+
+      <h3 class="text-2xl font-display text-museum-dark mb-6">Patrimonio Vivo</h3>
+      <p class="font-light leading-relaxed mb-6">El patrimonio de El Pozón no está encerrado en vitrinas: está en las voces de los abuelos, en las manos de las artesanas, en los ritmos que accompagnan la vida cotidiana. Este es un museo vivo, donde la historia se narra y se vive cada día.</p>
+
+      <blockquote class="border-l-4 border-museum-gold pl-8 py-4 my-12 bg-museum-cream/50 rounded-r-2xl">
+        <p class="text-xl font-display italic text-museum-dark/80">"La memoria no es cosa del pasado: es una fuerza viva que nos impulsa hacia el futuro."</p>
+        <footer class="text-xs font-bold tracking-widest uppercase text-museum-gold mt-4">— Casa Museo Pozón</footer>
+      </blockquote>
+
+      <p class="font-light leading-relaxed">Te invitamos a mirar este video y a sumergirte en la experiencia de El Pozón: un territorio donde la memoria, la identidad y la cultura se entrelazan para construir un futuro con dignidad.</p>
+    `,
+    imagen: "https://i.ytimg.com/vi/eb47cRvxvow/hqdefault.jpg",
+    etiquetas: ["memoria viva", "territorio", "identidad", "patrimonio", "El Pozón"]
   }
 ];
