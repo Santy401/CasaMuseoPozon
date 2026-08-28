@@ -26,7 +26,8 @@ const navItems = [
     },
     { 
         name: "Infraestructura", 
-        href: "/infraestructura"
+        href: "/infraestructura",
+        hideOnMobile: true
     },
     { 
         name: "Saberes", 
@@ -162,7 +163,7 @@ const navItems = [
         </div>
 
         <ul class="flex flex-col gap-6">
-            {navItems.map(item => (
+            {navItems.filter(item => !item.hideOnMobile).map(item => (
                 <li class="border-b border-museum-gold/10 pb-4">
                     {item.children ? (
                         <div class="flex flex-col gap-4">
