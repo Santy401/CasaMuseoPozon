@@ -221,40 +221,40 @@ const socios = [
         <Footer />
 
         <!-- Modal Perfil Socio -->
-        <div id="modal-socio" class="fixed inset-0 z-[9999] hidden">
-            <div id="modal-overlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
-            <div class="relative z-10 flex items-center justify-center min-h-screen p-4 md:p-8">
-                <div id="modal-content" class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden transform scale-95 opacity-0 transition-all duration-300">
+        <div id="modal-socio" class="fixed inset-0 z-[9999] hidden overflow-y-auto">
+            <div id="modal-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+            <div class="relative z-10 flex items-start justify-center min-h-screen p-4 pt-8 pb-8 md:items-center md:p-8">
+                <div id="modal-content" class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full transform scale-95 opacity-0 transition-all duration-300 my-auto">
                     <!-- Header con foto -->
-                    <div class="relative bg-museum-dark p-8 text-center">
-                        <button id="modal-close" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
+                    <div class="relative bg-museum-dark p-6 md:p-8 text-center rounded-t-3xl">
+                        <button id="modal-close" class="absolute top-3 right-3 md:top-4 md:right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                         </button>
-                        <div id="modal-image" class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-6 border-4 border-museum-gold/30 overflow-hidden bg-museum-cream flex items-center justify-center">
+                        <div id="modal-image" class="w-28 h-28 md:w-40 md:h-40 rounded-full mx-auto mb-4 md:mb-6 border-4 border-museum-gold/30 overflow-hidden bg-museum-cream flex items-center justify-center">
                         </div>
-                        <div id="modal-badge" class="inline-block text-[10px] font-bold text-museum-gold tracking-[0.2em] uppercase bg-museum-gold/10 px-4 py-2 rounded-full border border-museum-gold/20 mb-4"></div>
-                        <h2 id="modal-nombre" class="text-2xl md:text-3xl font-display text-white mb-2"></h2>
-                        <p id="modal-rol" class="text-xs font-bold text-museum-gold/70 uppercase tracking-widest"></p>
+                        <div id="modal-badge" class="inline-block text-[10px] font-bold text-museum-gold tracking-[0.2em] uppercase bg-museum-gold/10 px-4 py-2 rounded-full border border-museum-gold/20 mb-3 md:mb-4"></div>
+                        <h2 id="modal-nombre" class="text-xl md:text-3xl font-display text-white mb-2"></h2>
+                        <p id="modal-rol" class="text-[10px] md:text-xs font-bold text-museum-gold/70 uppercase tracking-widest"></p>
                     </div>
 
                     <!-- Contenido scrolleable -->
-                    <div class="p-8 overflow-y-auto max-h-[50vh]">
-                        <div class="flex items-center justify-between mb-6 text-[10px] text-museum-dark/40">
+                    <div class="p-5 md:p-8" style="-webkit-overflow-scrolling: touch;">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-5 md:mb-6 gap-1 text-[10px] text-museum-dark/40">
                             <span id="modal-codigo" class="font-mono"></span>
                             <span id="modal-ingreso" class="italic"></span>
                         </div>
 
-                        <div class="mb-6">
+                        <div class="mb-5 md:mb-6">
                             <p class="text-[10px] font-bold text-museum-gold uppercase tracking-widest mb-3">Reconocimiento Simbólico</p>
-                            <p id="modal-reconocimiento" class="text-sm font-light text-museum-dark/70 leading-relaxed italic"></p>
+                            <p id="modal-reconocimiento" class="text-xs md:text-sm font-light text-museum-dark/70 leading-relaxed italic"></p>
                         </div>
 
-                        <div id="modal-descripcion-container" class="pt-6 border-t border-museum-gold/10">
+                        <div id="modal-descripcion-container" class="pt-5 md:pt-6 border-t border-museum-gold/10">
                             <p class="text-[10px] font-bold text-museum-gold uppercase tracking-widest mb-3">Impacto Institucional</p>
-                            <p id="modal-descripcion" class="text-sm font-light text-museum-dark/60 leading-relaxed"></p>
+                            <p id="modal-descripcion" class="text-xs md:text-sm font-light text-museum-dark/60 leading-relaxed"></p>
                         </div>
 
-                        <div class="mt-8 pt-6 border-t border-museum-gold/10 flex justify-center">
+                        <div class="mt-6 md:mt-8 pt-5 md:pt-6 border-t border-museum-gold/10 flex justify-center pb-2">
                             <div class="flex items-center gap-2 text-[10px] font-medium text-museum-dark/40">
                                 <div class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)]"></div>
                                 <span id="modal-estado" class="uppercase tracking-widest"></span>
@@ -304,6 +304,7 @@ const socios = [
 
                 modal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
+                document.documentElement.style.overflow = 'hidden';
 
                 requestAnimationFrame(() => {
                     overlay.classList.remove('opacity-0');
@@ -325,7 +326,9 @@ const socios = [
 
                 setTimeout(() => {
                     modal.classList.add('hidden');
+                    modal.scrollTop = 0;
                     document.body.style.overflow = '';
+                    document.documentElement.style.overflow = '';
                 }, 300);
             }
 
