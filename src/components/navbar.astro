@@ -27,7 +27,8 @@ const navItems = [
     { 
         name: "Infraestructura", 
         href: "/infraestructura",
-        hideOnMobile: true
+        hideOnMobile: true,
+        hideOnDesktop: true
     },
     { 
         name: "Saberes", 
@@ -67,7 +68,7 @@ const navItems = [
     
     <!-- Desktop Navigation -->
     <ul class="hidden md:flex items-center gap-10">
-        {navItems.map(item => (
+        {navItems.filter(item => !item.hideOnDesktop).map(item => (
             <li class="relative group">
                 {item.children ? (
                     <button class="flex items-center gap-1 text-[11px] font-bold tracking-[0.15em] uppercase text-museum-dark/70 group-hover:text-museum-gold transition-all cursor-pointer py-2">
