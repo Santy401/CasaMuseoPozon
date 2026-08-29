@@ -1,73 +1,72 @@
-# 🏛️ Casa Museo El Pozón: Memoria, Cultura y Transformación Social
+# Casa Museo El Pozon: Memoria, Cultura y Transformacion Social
 
 > **"Memoria que transforma. Comunidad que resiste. Futuro que se construye."**
 
-Este repositorio contiene la plataforma digital de la **Fundación Casa Museo El Pozón**, una institución museística comunitaria en Cartagena de Indias, Colombia, dedicada a la preservación de la memoria histórica y la activación del desarrollo territorial a través de la cultura y la pedagogía.
+Digital platform for the **Fundacion Casa Museo El Pozon**, a community museum in Cartagena de Indias, Colombia, dedicated to preserving historical memory and activating territorial development through culture and pedagogy.
 
 ---
 
-## 🌟 Visión Estratégica 2026
+## Vision Estrategica 2026
 
-La Casa Museo El Pozón no es solo un repositorio de objetos; es un **Modelo Museal Vivo** diseñado para la transformación social. Nuestra visión para el 2026 se centra en:
+The Casa Museo El Pozon is not just a repository of objects — it is a **Living Museum Model** designed for social transformation.
 
-1.  **Escalabilidad Nacional e Internacional:** Proyectar el modelo de gestión comunitaria de El Pozón como un referente replicable en otros territorios con desafíos similares a nivel mundial.
-2.  **Oferta Pedagógica Integral:** Consolidar la **Cátedra de Identidad Barrial** a través de 4 módulos especializados dirigidos a colegios, corporaciones, fundaciones y juntas de acción comunal.
-3.  **Turismo Cultural Comunitario:** Posicionar al barrio El Pozón como un destino de turismo consciente, donde el visitante conecta con la historia viva y la resistencia cultural.
-4.  **Digitalización de la Memoria:** Mantener un archivo vivo y accesible de hallazgos arqueológicos, procesos sociales y eventos comunitarios.
-
----
-
-## 🧩 El Modelo Museal
-
-El proyecto se estructura a través de una red de impacto territorial:
-
-*   **Nodos Museales:** Espacios físicos distribuidos en el barrio (La Huerta, Memoteca, Laboratorio Creativo, etc.) que actúan como centros de saber.
-*   **Recorrido Museal:** Una experiencia curada que conecta la arqueología Zenú con la vida cotidiana contemporánea.
-*   **Modelo A.C.O. (Aprendizaje Comunitario Orgánico):** Metodología pedagógica propia para la formación de líderes y ciudadanos conscientes.
+1. **National and International Scalability:** Projecting the community management model of El Pozon as a replicable reference in other territories with similar challenges worldwide.
+2. **Integral Pedagogical Offer:** Consolidating the **Catedra de Identidad Barrial** through 4 specialized modules for schools, corporations, foundations, and community action boards.
+3. **Community Cultural Tourism:** Positioning the El Pozon neighborhood as a destination for conscious tourism, where visitors connect with living history and cultural resistance.
+4. **Memory Digitization:** Maintaining a living and accessible archive of archaeological finds, social processes, and community events.
 
 ---
 
-## 📚 Oferta de Servicios y Capacitación
+## The Museum Model
 
-Actualmente desarrollamos módulos de formación diseñados para que:
-*   **Empresas y Fundaciones:** Fortalezcan la identidad y el sentido de pertenencia de sus equipos humanos.
-*   **Colegios y Universidades:** Integren la pedagogía territorial y la historia local en sus currículos.
-*   **Territorios:** Aprendan a replicar el modelo de "Museo Vivo" para activar su propia memoria histórica.
+The project is structured through a network of territorial impact:
 
-*Modalidades: Presencial y Virtual.*
-
----
-
-## 🛠️ Stack Tecnológico
-
-La plataforma está construida con tecnologías de última generación para garantizar el máximo rendimiento y visibilidad:
-
-*   **Framework:** [Astro](https://astro.build/) (Arquitectura de Islas para máxima velocidad).
-*   **Styling:** [Tailwind CSS](https://tailwindcss.com/) (Diseño responsivo y premium).
-*   **Optimización:** SEO Avanzado, accesibilidad (WCAG) y carga progresiva de imágenes.
-*   **Hosting:** Despliegue continuo con optimización de activos estáticos.
+*   **Museum Nodes:** Physical spaces distributed across the neighborhood (La Huerta, Memoteca, Laboratorio Creativo, etc.) that act as centers of knowledge.
+*   **Museum Tour:** A curated experience connecting Zenu archaeology with contemporary daily life.
+*   **A.C.O. Model (Organic Community Learning):** Own pedagogical methodology for training leaders and conscious citizens.
 
 ---
 
-## 🚀 Roadmap de Desarrollo
+## Services and Training
 
-- [x] Infraestructura Audiovisual (Integración YouTube).
-- [x] Galería de Memoria Interactiva (38+ activos visuales).
-- [x] Sistema de Filtros para Eventos y Noticias.
-- [x] Repositorio de Documentación Institucional (PDFs).
-- [ ] **Próximo:** Versión Bilingüe (Inglés) para proyección internacional.
-- [ ] **Próximo:** Sección de "Modelo de Replicabilidad" para escalabilidad nacional.
-- [ ] **Próximo:** Pasarela de Donaciones y Membresías.
+We develop training modules designed for:
+*   **Companies and Foundations:** Strengthen identity and sense of belonging in their teams.
+*   **Schools and Universities:** Integrate territorial pedagogy and local history into their curricula.
+*   **Territories:** Learn to replicate the "Living Museum" model to activate their own historical memory.
+
+*Modalities: In-person and Virtual.*
 
 ---
 
-## 🤝 Contacto y Colaboración
+## Tech Stack
 
-Estamos abiertos a alianzas con entidades gubernamentales, museos internacionales y organizaciones de cooperación que compartan nuestra visión de **Transformación Social a través de la Memoria**.
+*   **Framework:** [Astro](https://astro.build/) (Island Architecture for maximum speed).
+*   **Styling:** [Tailwind CSS](https://tailwindcss.com/) (Responsive, premium design).
+*   **Components:** [React](https://react.dev/) (Interactive galleries).
+*   **Animation:** [GSAP](https://gsap.com/) (Scroll-driven animations).
+*   **Optimization:** Advanced SEO, accessibility (WCAG), progressive image loading.
 
-*   **Ubicación:** Barrio El Pozón, Cartagena de Indias, Colombia.
+---
+
+## Development Roadmap
+
+- [x] Audiovisual Infrastructure (YouTube integration)
+- [x] Interactive Memory Gallery (38+ visual assets)
+- [x] Event and News Filter System
+- [x] Institutional Documentation Repository (PDFs)
+- [ ] **Next:** Bilingual Version (English) for international projection
+- [ ] **Next:** "Replicability Model" section for national scalability
+- [ ] **Next:** Donations and Memberships Gateway
+
+---
+
+## Contact and Collaboration
+
+We are open to alliances with government entities, international museums, and cooperation organizations that share our vision of **Social Transformation through Memory**.
+
+*   **Location:** Barrio El Pozon, Cartagena de Indias, Colombia.
 *   **Instagram:** [@casapozonmuseo](https://www.instagram.com/casapozonmuseo/)
 *   **Web:** [www.casapozonmuseo.site](https://www.casapozonmuseo.site)
 
 ---
-*© 2026 Casa Museo Pozón. Desarrollado con pasión por la comunidad para el mundo.*
+*2026 Casa Museo Pozon. Built with passion for the community, for the world.*
