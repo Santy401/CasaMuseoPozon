@@ -188,5 +188,68 @@ export const articulos: ArticuloRevista[] = [
     `,
     imagen: "https://i.ytimg.com/vi/eb47cRvxvow/hqdefault.jpg",
     etiquetas: ["memoria viva", "territorio", "identidad", "patrimonio", "El Pozón"]
+  },
+  {
+    slug: "teoria-aco-etnoapropiacion-cultural-foro-etnoeducativo",
+    titulo: "El territorio como cuerpo vivo: La Teoría A.C.O. y su brazo operativo en la etnoapropiación cultural",
+    fecha: "2026",
+    categoria: "Voces del Territorio",
+    autor: {
+      nombre: "Redacción Revista El Pozón",
+      invitado: false,
+      bio: "Redacción de la Revista El Pozón, plataforma comunitaria de difusión e identidad de la Fundación Casa Museo Pozón."
+    },
+    youtubeUrl: "https://youtu.be/fzs5KQxecVk?si=KeFuhnOr848FuibC",
+    extracto: "En el marco del III Foro Etnoeducativo Institucional, la Fundación Casa Museo Pozón planteó que el territorio no es un escenario geográfico neutro, sino un sujeto histórico activo y un cuerpo vivo que salvaguarda la memoria colectiva.",
+    contenido: `
+      <p class="text-lg font-light leading-relaxed mb-8">En el marco del III Foro Etnoeducativo Institucional, celebrado en el Auditorio de la Fundación Universitaria Los Libertadores en Cartagena, el debate sobre el devenir pedagógico y político de las comunidades afrocolombianas cobró una dimensión urgente y transformadora. Bajo la consigna <em>"Educar desde nuestras raíces: fortalecemos nuestra identidad y transformamos el territorio"</em>, el encuentro reunió a educadores, sabedores y líderes para evaluar el impacto de la Ley 70 de 1993 en la educación pública.</p>
+
+      <p class="font-light leading-relaxed mb-8">Durante este espacio de diálogo, la intervención de la Fundación Casa Museo Pozón planteó una premisa central: el territorio no es un escenario geográfico neutro, sino un sujeto histórico activo y un cuerpo vivo que salvaguarda la memoria colectiva.</p>
+
+      <!-- Galería del Foro -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-16">
+        <div class="rounded-[2rem] overflow-hidden shadow-2xl">
+          <img src="/foro1.jpeg" alt="III Foro Etnoeducativo Institucional - Participantes" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        </div>
+        <div class="rounded-[2rem] overflow-hidden shadow-2xl">
+          <img src="/foro2.jpeg" alt="III Foro Etnoeducativo Institucional - Intervención" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        </div>
+      </div>
+
+      <h3 class="text-2xl font-display text-museum-dark mb-6">1. El territorio como contenedor y tejido de memoria viva</h3>
+      <p class="font-light leading-relaxed mb-6">Transitar por las calles de El Pozón exige entender la memoria más allá de los archivos formales. En las comunidades populares y de ascendencia afrodescendiente, la memoria habita en la arquitectura de la autogestión, en la tradición oral de las matronas y en la resistencia cotidiana de sus pobladores.</p>
+      <p class="font-light leading-relaxed mb-6">Las calles, caños y plazas son palimpsestos donde se han grabado las luchas por la dignidad territorial y el reconocimiento étnico. Desvincular la educación de la historia del suelo que se pisa genera desarraigo. Por ello, la memoria territorial se convierte en la primera línea de defensa frente a la estigmatización y la invisibilización de las identidades populares.</p>
+
+      <h3 class="text-2xl font-display text-museum-dark mb-6 mt-12">2. La Teoría Pedagógica A.C.O. y su modelo operativo</h3>
+      <p class="font-light leading-relaxed mb-6">Para convertir esta memoria en una herramienta pedagógica efectiva, se requiere un marco estructurado. En el foro se argumentó cómo la Teoría Pedagógica del Aprendizaje Comunitario Orgánico se erige como el faro epistémico que orienta la apropiación cultural, concibiendo el conocimiento no como una abstracción impuesta, sino como un flujo vivo que emana de las dinámicas comunitarias.</p>
+      <p class="font-light leading-relaxed mb-6">Es aquí donde el Modelo de Aprendizaje Comunitario Orgánico (Modelo A.C.O.) cobra protagonismo al constituirse como la parte operativa y metodológica de dicha teoría:</p>
+
+      <div class="bg-museum-cream/50 rounded-[2rem] p-8 my-8 border border-museum-gold/10">
+        <ul class="space-y-4">
+          <li class="flex items-start gap-4">
+            <span class="w-2 h-2 rounded-full bg-museum-gold mt-2 flex-shrink-0"></span>
+            <span><strong>Traducción metodológica:</strong> El Modelo A.C.O. aterriza los principios teóricos en herramientas concretas: cartografías sociales, itinerarios de memoria y dinámicas de aula abierta donde el barrio es el texto principal.</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="w-2 h-2 rounded-full bg-museum-gold mt-2 flex-shrink-0"></span>
+            <span><strong>Etnoapropiación en la práctica:</strong> Pone en marcha estrategias para que niños y jóvenes no solo reciban la historia como un relato folclórico, sino que la usen de forma crítica para reafirmar su identidad.</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="w-2 h-2 rounded-full bg-museum-gold mt-2 flex-shrink-0"></span>
+            <span><strong>Acción transformadora:</strong> Operativiza el aprendizaje para que retorne a la comunidad en soluciones socioambientales y fortalecimiento del tejido social.</span>
+          </li>
+        </ul>
+      </div>
+
+      <h3 class="text-2xl font-display text-museum-dark mb-6 mt-12">3. Hacia una justicia etnoeducativa territorial</h3>
+      <p class="font-light leading-relaxed mb-6">La articulación entre las instituciones educativas y los espacios de memoria comunitaria demuestra que la etnoeducación debe desbordar las aulas. Al conectar las "Bibliotecas Humanas" con la operatividad del Modelo A.C.O., el proceso formativo recupera su carácter orgánico.</p>
+
+      <blockquote class="border-l-4 border-museum-gold pl-8 py-4 my-12 bg-museum-cream/50 rounded-r-2xl">
+        <p class="text-xl font-display italic text-museum-dark/80">"Al asumir la Teoría del Aprendizaje Comunitario Orgánico como guía y su modelo operativo como motor práctico, la comunidad de El Pozón reafirma que defender la memoria del territorio es la vía directa para sembrar soberanía cultural y dignidad socioeducativa."</p>
+        <footer class="text-xs font-bold tracking-widest uppercase text-museum-gold mt-4">— Fundación Casa Museo Pozón</footer>
+      </blockquote>
+    `,
+    imagen: "/foro1.jpeg",
+    etiquetas: ["foro etnoeducativo", "teoría A.C.O.", "etnoapropiación", "territorio", "memoria viva", "Ley 70"]
   }
 ];
