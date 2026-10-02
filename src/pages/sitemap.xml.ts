@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { socios } from '../data/socios';
 
 export const GET: APIRoute = () => {
   return new Response(`
@@ -21,6 +22,12 @@ export const GET: APIRoute = () => {
       <url><loc>https://www.casapozonmuseo.org/coleccion</loc></url>
       <url><loc>https://www.casapozonmuseo.org/como-apoyar</loc></url>
       <url><loc>https://www.casapozonmuseo.org/politica-privacidad</loc></url>
+      ${socios
+        .map(
+          (socio) =>
+            `<url><loc>https://www.casapozonmuseo.org/socio/${encodeURIComponent(socio.codigo)}</loc></url>`
+        )
+        .join('\n      ')}
     </urlset>
   `.trim(), {
     headers: { 'Content-Type': 'application/xml' }

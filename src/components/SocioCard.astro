@@ -1,0 +1,188 @@
+---
+import { socioUrl, type Socio } from "../data/socios";
+import { qrSvg } from "../lib/qr";
+
+interface Props {
+  socio: Socio;
+  index: number;
+}
+
+const { socio, index } = Astro.props;
+
+const url = socioUrl(socio);
+const qr = qrSvg(url, { size: 148, margin: 3 });
+---
+
+<!--
+  Credencial de socio: click voltea la tarjeta (reverso = QR a la ficha del socio).
+  El botón "Ver perfil completo" mantiene el modal existente y detiene el volteo.
+-->
+<div
+  class="socio-card group"
+  data-socio-index={index}
+  data-flipped="false"
+  data-codigo={socio.codigo}
+  tabindex="0"
+  role="button"
+  aria-pressed="false"
+  aria-label={`Credencial de ${socio.nombre}. Pulsa para voltear y ver el código QR`}
+>
+  <div class="socio-card__inner">
+    <!-- ================= FRENTE ================= -->
+    <div class="socio-card__face socio-card__front bg-white border border-museum-gold/10 rounded-3xl">
+      <div class="p-10 flex flex-col">
+        <!-- Foto -->
+        <div class="relative mb-8">
+          <div class="w-20 h-20 rounded-full bg-museum-cream border-2 border-museum-gold/20 flex items-center justify-center text-museum-gold/30 transition-colors duration-500 overflow-hidden">
+            {socio.image ? (
+              <img src={socio.image} alt={socio.nombre} class="w-full h-full object-cover" loading="lazy" />
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+            )}
+          </div>
+          <div class="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-white border border-museum-gold/10 flex items-center justify-center text-museum-gold">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+        </div>
+
+        <!-- Identificación -->
+        <div class="mb-8">
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-[9px] font-bold text-museum-gold tracking-[0.2em] uppercase bg-museum-gold/5 px-3 py-1 rounded-full border border-museum-gold/10">Socio {socio.estado}</span>
+            <span class="text-[8px] text-museum-dark/30 font-mono">{socio.codigo}</span>
+          </div>
+          <h3 class="text-xl font-display text-museum-dark transition-colors">{socio.nombre}</h3>
+          <p class="text-xs font-bold text-museum-dark/40 uppercase tracking-widest mt-2">{socio.rol}</p>
+        </div>
+
+        <div class="space-y-6 flex-grow">
+          <div>
+            <p class="text-[10px] font-bold text-museum-gold uppercase tracking-widest mb-3 opacity-60">Reconocimiento Simbólico</p>
+            <p class="text-xs font-light text-museum-dark/70 leading-relaxed italic line-clamp-4">"{socio.reconocimiento}"</p>
+          </div>
+        </div>
+
+        <!-- Pie: ingreso, estado y acciones -->
+        <div class="mt-8 pt-6 border-t border-museum-gold/10">
+          <div class="flex justify-between items-center text-[10px] font-medium text-museum-dark/40 italic">
+            <span>Ingreso: {socio.ingreso}</span>
+            <div class="flex items-center gap-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)]"></div>
+              <span class="uppercase tracking-widest text-[8px]">{socio.estado}</span>
+            </div>
+          </div>
+
+          <div class="mt-6 flex items-center gap-4">
+            <button
+              type="button"
+              data-socio-profile
+              class="flex items-center gap-2 text-[9px] font-bold uppercase tracking-[0.2em] text-museum-dark/50 hover:text-museum-gold transition-colors"
+            >
+              <span class="w-8 h-[1px] bg-current transition-all"></span>
+              Ver perfil
+            </button>
+            <span class="ml-auto flex items-center gap-2 text-[9px] font-bold uppercase tracking-[0.2em] text-museum-gold/70">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3M21 21v.01M12 7v3a2 2 0 0 1-2 2H7M3 12h.01M12 3h.01M12 16v.01M16 12h1M21 12v.01M12 21v-1"/></svg>
+              Voltear
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= REVERSO (QR) ================= -->
+    <div class="socio-card__face socio-card__back bg-museum-dark rounded-3xl border border-museum-gold/20 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-museum-dark via-museum-dark to-museum-gold/10"></div>
+      <div class="relative flex flex-col items-center justify-center text-center px-8 py-10">
+        <span class="text-[8px] font-bold text-museum-gold tracking-[0.45em] uppercase mb-6">Credencial Digital</span>
+
+        <p class="text-base font-display text-white leading-tight mb-1">{socio.nombre}</p>
+        <p class="text-[8px] font-bold text-museum-gold/70 uppercase tracking-widest mb-7 text-balance">{socio.rol}</p>
+
+        <!-- QR -->
+        <a
+          href={url}
+          class="block p-4 bg-white rounded-2xl shadow-2xl shadow-black/40 group/qr transition-transform duration-500 hover:scale-[1.03]"
+          aria-label={`Abrir la ficha de ${socio.nombre} en casapozonmuseo.org`}
+        >
+          <div class="qr" set:html={qr}></div>
+        </a>
+
+        <p class="text-[8px] text-white/50 uppercase tracking-[0.2em] mt-7 mb-1">Escanea para abrir la ficha</p>
+        <p class="text-[7px] font-mono text-white/25 tracking-wider mb-7 break-all px-2">{url}</p>
+
+        <div class="flex items-center gap-3 text-[8px] font-bold text-white/40 uppercase tracking-[0.2em]">
+          <span>{socio.codigo}</span>
+          <span class="w-1 h-1 rounded-full bg-green-500"></span>
+          <span>{socio.estado}</span>
+        </div>
+
+        <div class="mt-8 flex items-center gap-3 text-[8px] font-bold uppercase tracking-[0.2em] text-white/30">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+          Toca para volver
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Contenedor con perspectiva: da profundidad al volteo */
+  .socio-card {
+    display: grid;
+    perspective: 1600px;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  .socio-card:focus-visible {
+    outline: 2px solid var(--color-museum-gold);
+    outline-offset: 6px;
+    border-radius: 1.5rem;
+  }
+
+  /* Ambas caras comparten la misma celda de la grilla => la tarjeta
+     toma la altura de la cara más alta sin posicionamiento absoluto. */
+  .socio-card__inner {
+    grid-area: 1 / 1;
+    display: grid;
+    transform-style: preserve-3d;
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .socio-card[data-flipped="true"] .socio-card__inner {
+    transform: rotateY(180deg);
+  }
+
+  .socio-card__face {
+    grid-area: 1 / 1;
+    display: flex;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+  }
+
+  /* Ambas caras se estiran a la altura de la celda compartida */
+  .socio-card__face > * {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .socio-card__back {
+    transform: rotateY(180deg);
+  }
+
+  /* Durante el giro la tarjeta se eleva ligeramente */
+  .socio-card:hover .socio-card__inner {
+    transform: translateY(-4px);
+  }
+  .socio-card[data-flipped="true"]:hover .socio-card__inner {
+    transform: rotateY(180deg) translateY(-4px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .socio-card__inner {
+      transition-duration: 0.01ms;
+    }
+  }
+</style>
