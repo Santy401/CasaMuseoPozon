@@ -1,205 +1,343 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import "../styles/global.css";
-import SocialSidebar from "../components/SocialSidebar.astro";
-import Navbar from "../components/navbar.astro";
+import Layout from "../layouts/Layout.astro";
 import YouTube from "../components/YouTube.astro";
+import RepresentanteCredencial from "../components/RepresentanteCredencial.astro";
+import { representante, representanteUrl } from "../data/representante";
+
+const url = representanteUrl();
+
+const indicadores = representante.indicadores;
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Representante Legal | Casa Museo Pozón</title>
-        <ClientRouter />
-	</head>
-	<body class="bg-white font-sans overflow-x-hidden">
-        <SocialSidebar />
-		<Navbar />
-        
-        <main>
-            <!-- Hero Header con Perfil -->
-            <section class="relative min-h-[90vh] flex items-center justify-center bg-museum-dark pt-32 overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-t from-museum-dark via-museum-dark/80 to-transparent z-10"></div>
-                <div class="absolute inset-x-0 top-0 h-full opacity-30 bg-[url('/imagenes/creator.png')] bg-cover bg-center grayscale mix-blend-overlay"></div>
-                
-                <div class="relative z-20 max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                    <div transition:animate="slide">
-                        <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Liderazgo y Visión</span>
-                        <h1 class="text-6xl md:text-8xl font-display text-white mb-6 leading-none">
-                            Rigoberto <br/> <span class="text-museum-gold">Castro Pérez</span>
-                        </h1>
-                        <p class="text-white/60 text-xl font-light leading-relaxed mb-10 max-w-xl">
-                            Historiador, investigador territorial y arquitecto del Modelo Museal Turístico Territorial de El Pozón.
-                        </p>
-                        <div class="w-24 h-1 bg-museum-gold mb-10"></div>
-                        
-                        <div class="flex gap-10">
-                            <div>
-                                <p class="text-museum-gold font-display text-3xl mb-2">25+</p>
-                                <p class="text-[9px] uppercase tracking-widest text-white/40">Años de Gestión</p>
-                            </div>
-                            <div>
-                                <p class="text-museum-gold font-display text-3xl mb-2">4</p>
-                                <p class="text-[9px] uppercase tracking-widest text-white/40">Nodos Museales</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-12 rounded-[3rem]">
-                        <p class="text-2xl font-display text-museum-gold mb-8 italic">"La memoria no está en los objetos, está en las manos que los crean, en las voces que los narran, en los territorios que resisten."</p>
-                        <p class="text-white/50 font-light text-sm leading-relaxed">
-                            Como fundador y Director Ejecutivo, Rigoberto ha liderado la creación de un modelo único que resignifica el territorio como archivo vivo y destino cultural.
-                        </p>
-                    </div>
+<Layout
+  title={`${representante.nombre} | Representante Legal | Casa Museo Pozón`}
+  description={`${representante.nombre}, ${representante.cargo} de la Fundación Casa Museo del Pozón. Credencial digital verificable, trayectoria, investigación y documentos de representación.`}
+>
+  <!-- ===================== HERO ===================== -->
+  <section class="relative min-h-[80vh] flex items-center justify-center bg-museum-dark pt-32 pb-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/90 via-museum-dark to-museum-dark z-10"></div>
+    <div class="absolute inset-0 opacity-20 bg-[url('/imagenes/creator.png')] bg-cover bg-center mix-blend-overlay"></div>
+    <div class="absolute top-0 right-0 w-96 h-96 bg-museum-gold/5 blur-3xl rounded-full pointer-events-none"></div>
+
+    <div class="relative z-20 max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div transition:animate="slide">
+        <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs uppercase block mb-6">
+          Representante Legal
+        </span>
+
+        <h1 class="text-5xl md:text-7xl font-display text-white leading-none mb-6">
+          {representante.nombrePartes.primera}<br /><span class="text-museum-gold">{representante.nombrePartes.apellidos}</span>
+        </h1>
+
+        <p class="text-museum-gold/80 text-sm md:text-base font-bold uppercase tracking-[0.2em] mb-8">
+          {representante.cargo}
+        </p>
+
+        <p class="text-white/60 text-lg font-light leading-relaxed mb-10 max-w-xl">
+          Historiador, investigador territorial y arquitecto del Modelo Museal Turístico
+          Territorial de El Pozón. La firma que respalda institucionalmente a la Fundación.
+        </p>
+
+        <div class="w-24 h-1 bg-museum-gold mb-10"></div>
+
+        <div class="flex flex-wrap gap-x-12 gap-y-6">
+          <div>
+            <p class="text-[8px] uppercase tracking-[0.3em] text-white/30 mb-2">Registro</p>
+            <p class="font-mono text-xs text-museum-gold">{representante.codigo}</p>
+          </div>
+          <div>
+            <p class="text-[8px] uppercase tracking-[0.3em] text-white/30 mb-2">Vínculo</p>
+            <p class="text-xs text-white/70 italic">{representante.vinculo}</p>
+          </div>
+          <div>
+            <p class="text-[8px] uppercase tracking-[0.3em] text-white/30 mb-2">Estado</p>
+            <p class="text-xs text-white/70 flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)]"></span>
+              {representante.estado}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Retrato -->
+      <div class="relative">
+        <div class="relative aspect-[4/5] max-w-md mx-auto rounded-[2.5rem] overflow-hidden border border-museum-gold/20 shadow-2xl bg-museum-cream">
+          <div class="absolute inset-0 border border-museum-gold/20 m-4 rounded-[2rem] z-20 pointer-events-none"></div>
+          <img src={representante.image} alt={representante.nombre} class="absolute inset-0 w-full h-full object-cover object-left" />
+        </div>
+        <div class="absolute -bottom-5 -left-5 w-24 h-24 border border-museum-gold/20 rounded-full bg-museum-gold/5 backdrop-blur-sm"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CREDENCIAL + CONTENIDO ===================== -->
+  <section class="py-24 md:py-32 px-8 md:px-16 bg-white">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-20 items-start">
+      <!-- Credencial digital con QR -->
+      <aside class="lg:sticky lg:top-28">
+        <RepresentanteCredencial variant="lg" />
+
+        <a
+          href="/socios"
+          class="mt-8 group inline-flex items-center gap-4 w-full justify-center px-8 py-5 border border-museum-dark/15 rounded-full hover:bg-museum-dark hover:text-white transition-all duration-700"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          <span class="text-[10px] font-bold uppercase tracking-[0.25em]">Ver el cuerpo colegiado</span>
+        </a>
+      </aside>
+
+      <!-- Contenido -->
+      <div class="lg:col-span-2">
+        <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase block mb-6">
+          Mandato Institucional
+        </span>
+        <h2 class="text-3xl md:text-5xl font-display text-museum-dark mb-8 leading-tight">
+          "{representante.nombre.split(" ").slice(0, 2).join(" ")},
+          <span class="text-museum-gold italic">firma viva</span> de la Fundación"
+        </h2>
+        <div class="w-20 h-1 bg-museum-gold mb-10"></div>
+        <p class="text-base md:text-lg font-light text-museum-dark/70 leading-[1.9] italic">
+          {representante.reconocimiento}
+        </p>
+
+        <div class="mt-16 pt-12 border-t border-museum-gold/10">
+          <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase block mb-6">
+            Trayectoria
+          </span>
+          <p class="text-sm md:text-base font-light text-museum-dark/60 leading-[1.9]">
+            {representante.biografia}
+          </p>
+        </div>
+
+        <!-- Indicadores -->
+        <div class="mt-16 pt-12 border-t border-museum-gold/10 grid grid-cols-1 sm:grid-cols-3 gap-8">
+          {
+            indicadores.map((ind) => (
+              <div>
+                <p class="font-display text-4xl text-museum-gold mb-2">{ind.valor}</p>
+                <p class="text-[8px] uppercase tracking-[0.3em] text-museum-dark/40">{ind.etiqueta}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="mt-16 pt-12 border-t border-museum-gold/10">
+          <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase block mb-6">
+            Impacto Institucional
+          </span>
+          <p class="text-sm md:text-base font-light text-museum-dark/60 leading-[1.9]">
+            {representante.descripcion}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SENTENCIA ===================== -->
+  <section class="py-24 md:py-32 px-8 md:px-16 bg-museum-dark relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[url('/imagenes/creator.png')] bg-cover bg-center grayscale mix-blend-overlay"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[36rem] h-[36rem] bg-museum-gold/5 blur-3xl rounded-full pointer-events-none"></div>
+    <div class="max-w-4xl mx-auto relative z-10 text-center">
+      <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-10 block">
+        Sentencia
+      </span>
+      <blockquote class="text-2xl md:text-4xl font-display text-white italic leading-tight text-balance">
+        "{representante.sentencia}"
+      </blockquote>
+      <div class="w-20 h-1 bg-museum-gold mx-auto mt-12"></div>
+      <p class="text-[10px] font-bold text-museum-gold/70 uppercase tracking-[0.3em] mt-8">
+        {representante.nombre}
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== APORTES ESTRATÉGICOS ===================== -->
+  <section class="py-24 md:py-32 px-8 md:px-16 lg:px-24 bg-zinc-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-20">
+        <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">
+          Legado
+        </span>
+        <h2 class="text-4xl md:text-5xl font-display text-museum-dark mb-6">
+          Aportes <span class="text-museum-gold italic">Estratégicos</span>
+        </h2>
+        <div class="w-20 h-1 bg-museum-gold mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {
+          representante.aportes.map((aporte) => (
+            <div class="bg-white p-10 rounded-3xl shadow-xl shadow-museum-dark/5 hover:-translate-y-2 transition-all duration-500 border border-transparent hover:border-museum-gold/20">
+              <div class="w-12 h-12 bg-museum-gold/10 rounded-xl flex items-center justify-center text-museum-gold mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="m9 9.5 2 2 4-4"/></svg>
+              </div>
+              <h3 class="text-lg font-display text-museum-dark mb-4">{aporte.titulo}</h3>
+              <p class="text-sm font-light text-museum-dark/60 leading-relaxed">{aporte.texto}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DOCUMENTO DESTACADO ===================== -->
+  <section class="py-20 px-8 md:px-16 bg-museum-dark relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[url('/imagenes/creator.png')] bg-cover bg-center grayscale mix-blend-overlay"></div>
+    <div class="max-w-5xl mx-auto relative z-10">
+      <a
+        href={representante.destacado.path}
+        target="_blank"
+        class="flex flex-col md:flex-row items-center gap-10 p-10 md:p-14 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] hover:bg-white/10 transition-all duration-500 group"
+      >
+        <div class="w-24 h-24 bg-museum-gold rounded-3xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="flex-1 text-center md:text-left">
+          <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-3 block">
+            {representante.destacado.eyebrow}
+          </span>
+          <h3 class="text-2xl md:text-4xl font-display text-white mb-3 group-hover:text-museum-gold transition-colors">
+            {representante.destacado.nombre}
+          </h3>
+          <p class="text-white/50 font-light text-sm leading-relaxed">
+            Documento público que acredita la existencia de la Fundación y la representación de
+            {representante.nombre} como su representante legal.
+          </p>
+        </div>
+        <div class="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-museum-gold group-hover:text-white transition-colors flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Descargar
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== PRODUCCIÓN ACADÉMICA ===================== -->
+  <section class="py-24 md:py-32 px-8 md:px-16 lg:px-24 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-20">
+        <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">
+          Producción Académica
+        </span>
+        <h2 class="text-4xl md:text-5xl font-display text-museum-dark mb-6">
+          Tesis e <span class="text-museum-gold italic">Investigaciones</span>
+        </h2>
+        <div class="w-20 h-1 bg-museum-gold mx-auto"></div>
+        <p class="text-museum-dark/50 font-light text-sm max-w-2xl mx-auto mt-8 leading-relaxed">
+          Trabajos académicos y de investigación que fundamentan el modelo museal y la
+          preservación del patrimonio arqueológico del territorio pozonero.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-8">
+        {
+          representante.investigaciones.map((inv) => (
+            <a
+              href={inv.path}
+              target="_blank"
+              class="flex flex-col md:flex-row items-start gap-8 p-10 bg-white rounded-[2rem] border border-zinc-100 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 group"
+            >
+              <div class="w-20 h-20 bg-museum-dark rounded-2xl flex items-center justify-center text-museum-gold flex-shrink-0 group-hover:bg-museum-gold group-hover:text-white transition-colors duration-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="m9 9.5 2 2 4-4"/></svg>
+              </div>
+              <div class="flex-1">
+                <span class="text-[9px] font-bold uppercase tracking-widest text-museum-gold mb-2 block">{inv.tipo}</span>
+                <h3 class="text-2xl font-display text-museum-dark mb-3 group-hover:text-museum-gold transition-colors">{inv.nombre}</h3>
+                <p class="text-sm font-light text-museum-dark/60 leading-relaxed mb-6">{inv.texto}</p>
+                <div class="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-museum-dark/40 group-hover:text-museum-gold transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Descargar PDF
                 </div>
-            </section>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
-            <!-- Bio Extendida -->
-            <section class="py-32 px-8 md:px-16 lg:px-24 bg-white">
-                <div class="max-w-4xl mx-auto">
-                    <div class="prose prose-zinc prose-lg max-w-none">
-                        <p class="text-museum-dark/70 text-lg font-light leading-[1.8] mb-12">
-                            Su formación académica se consolidó con investigaciones que marcaron hitos en la comprensión de Cartagena. Su estudio <strong class="text-museum-dark border-b border-museum-gold">Entre fango y pavimento</strong> analizó las tensiones entre urbanismo oficial y territorialidades populares, mientras que su investigación de maestría amplió esta mirada hacia el patrimonio y el desarrollo territorial.
-                        </p>
-                        
-                        <h2 class="text-3xl font-display text-museum-dark mt-20 mb-10">Aportes Estratégicos</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 not-prose">
-                            <div class="p-8 bg-museum-cream/30 rounded-3xl border border-museum-gold/5">
-                                <h4 class="font-bold text-xs uppercase tracking-widest text-museum-gold mb-4">Investigación</h4>
-                                <p class="text-sm text-museum-dark/60 font-light">Descubrimiento del conchero arqueológico Islita del Pozón, vinculado a las primeras culturas precerámicas de América (5350 a.C.).</p>
-                            </div>
-                            <div class="p-8 bg-museum-cream/30 rounded-3xl border border-museum-gold/5">
-                                <h4 class="font-bold text-xs uppercase tracking-widest text-museum-gold mb-4">Pedagogía</h4>
-                                <p class="text-sm text-museum-dark/60 font-light">Creador del Modelo de Aprendizaje Comunitario Orgánico (A.C.O.), reconociendo saberes locales como base educativa.</p>
-                            </div>
-                            <div class="p-8 bg-museum-cream/30 rounded-3xl border border-museum-gold/5">
-                                <h4 class="font-bold text-xs uppercase tracking-widest text-museum-gold mb-4">Simbología</h4>
-                                <p class="text-sm text-museum-dark/60 font-light">Composición del Himno de El Pozón, adoptado por instituciones como símbolo de identidad y orgullo barrial.</p>
-                            </div>
-                            <div class="p-8 bg-museum-cream/30 rounded-3xl border border-museum-gold/5">
-                                <h4 class="font-bold text-xs uppercase tracking-widest text-museum-gold mb-4">Gestión</h4>
-                                <p class="text-sm text-museum-dark/60 font-light">Integración de la Fundación a la Red de Museos de Cartagena y Bolívar en 2025.</p>
-                            </div>
-                        </div>
-                    </div>
+  <!-- ===================== VÍDEO DE GESTIÓN ===================== -->
+  <section class="py-24 md:py-32 px-8 bg-museum-cream">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">
+          Palabras
+        </span>
+        <h2 class="text-3xl md:text-4xl font-display text-museum-dark uppercase tracking-widest">
+          Vídeo de Gestión
+        </h2>
+        <div class="w-20 h-1 bg-museum-gold mx-auto mt-6"></div>
+      </div>
+      <YouTube id={representante.video} title="Vídeo de Gestión - Rigoberto Castro Pérez" className="rounded-[3rem]" />
+    </div>
+  </section>
+
+  <!-- ===================== INFORMACIÓN LEGAL ===================== -->
+  <section class="py-24 md:py-32 px-8 md:px-16 lg:px-24 bg-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col lg:flex-row gap-20 items-start">
+        <div class="w-full lg:w-1/3">
+          <span class="text-museum-gold font-bold tracking-widest text-[10px] uppercase mb-4 block">
+            Entidad ESAL
+          </span>
+          <h2 class="text-4xl font-display text-museum-dark mb-8">
+            Información<br /> <span class="text-museum-gold italic">Legal</span>
+          </h2>
+          <p class="text-museum-dark/60 font-light leading-relaxed mb-10">
+            Los documentos públicos que acreditan la existencia de la Fundación, su naturaleza
+            jurídica y la representación legal. La credencial digital con QR permite
+            verificar esta información desde cualquier dispositivo.
+          </p>
+          <div class="w-20 h-1 bg-museum-gold"></div>
+        </div>
+
+        <div class="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {
+            representante.documentosLegales.map((doc) => (
+              <a
+                href={doc.path}
+                target="_blank"
+                class="flex items-center gap-6 p-8 bg-zinc-50 rounded-3xl border border-zinc-100 hover:border-museum-gold hover:bg-white transition-all group shadow-sm"
+              >
+                <div class="w-12 h-12 bg-museum-dark rounded-xl flex items-center justify-center text-white group-hover:bg-museum-gold transition-colors flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
                 </div>
-            </section>
-
-            <!-- Documento Destacado -->
-            <section class="py-20 px-8 bg-museum-dark relative overflow-hidden">
-                <div class="absolute inset-0 opacity-10 bg-[url('/imagenes/creator.png')] bg-cover bg-center grayscale mix-blend-overlay"></div>
-                <div class="max-w-5xl mx-auto relative z-10">
-                    <a href="/pdfs/RIGOBERTO CASTRO PÉREZ.pdf" target="_blank" class="flex flex-col md:flex-row items-center gap-10 p-10 md:p-14 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] hover:bg-white/10 transition-all duration-500 group">
-                        <div class="w-24 h-24 bg-museum-gold rounded-3xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                        </div>
-                        <div class="flex-1 text-center md:text-left">
-                            <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-3 block">Documento Destacado</span>
-                            <h3 class="text-3xl md:text-4xl font-display text-white mb-3 group-hover:text-museum-gold transition-colors">Rigoberto Castro Pérez</h3>
-                            <p class="text-white/50 font-light text-sm leading-relaxed">Perfil completo, trayectoria y aportes del fundador y Director Ejecutivo de la Fundación Casa Museo Pozón.</p>
-                        </div>
-                        <div class="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-museum-gold group-hover:text-white transition-colors flex-shrink-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                            Descargar
-                        </div>
-                    </a>
+                <div class="min-w-0">
+                  <p class="text-xs font-bold text-museum-dark mb-1 leading-snug">{doc.nombre}</p>
+                  <p class="text-[9px] text-zinc-400 uppercase tracking-tighter truncate">{doc.archivo}</p>
                 </div>
-            </section>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <!-- Tesis e Investigaciones -->
-            <section class="py-32 px-8 md:px-16 lg:px-24 bg-zinc-50">
-                <div class="max-w-5xl mx-auto">
-                    <div class="text-center mb-20">
-                        <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Producción Académica</span>
-                        <h2 class="text-4xl md:text-5xl font-display text-museum-dark mb-6">Tesis e <span class="text-museum-gold italic">Investigaciones</span></h2>
-                        <div class="w-20 h-1 bg-museum-gold mx-auto"></div>
-                        <p class="text-museum-dark/50 font-light text-sm max-w-2xl mx-auto mt-8 leading-relaxed">
-                            Trabajos académicos y de investigación que fundamentan el modelo museal y la preservación del patrimonio arqueológico del territorio pozonero.
-                        </p>
-                    </div>
+  <!-- ===================== VERIFICACIÓN ===================== -->
+  <section class="py-24 md:py-28 px-8 bg-museum-dark">
+    <div class="max-w-3xl mx-auto text-center">
+      <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-8 block">
+        Credencial Digital
+      </span>
+      <p class="text-white/60 font-light text-sm md:text-base leading-relaxed mb-10 max-w-xl mx-auto">
+        Escanea el código de la credencial para abrir este apartado y verificar la
+        representación legal de la Fundación Casa Museo del Pozón.
+      </p>
+      <p class="text-museum-gold font-mono text-xs md:text-sm tracking-wider break-all px-4">
+        {url}
+      </p>
+    </div>
+  </section>
 
-                    <div class="grid grid-cols-1 gap-8">
-                        <a href="/pdfs/Coleciones Arqueologicas.pdf" target="_blank" class="flex flex-col md:flex-row items-start gap-8 p-10 bg-white rounded-[2rem] border border-zinc-100 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 group">
-                            <div class="w-20 h-20 bg-museum-dark rounded-2xl flex items-center justify-center text-museum-gold flex-shrink-0 group-hover:bg-museum-gold group-hover:text-white transition-colors duration-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="m9 9.5 2 2 4-4"/></svg>
-                            </div>
-                            <div class="flex-1">
-                                <span class="text-[9px] font-bold uppercase tracking-widest text-museum-gold mb-2 block">Tesis de Investigación</span>
-                                <h3 class="text-2xl font-display text-museum-dark mb-3 group-hover:text-museum-gold transition-colors">Colecciones Arqueológicas</h3>
-                                <p class="text-sm font-light text-museum-dark/60 leading-relaxed mb-6">
-                                    Estudio sobre las colecciones arqueológicas halladas en el territorio pozonero, documentando los vestigios precolombinos del Conchero de La Islita y su relevancia para la comprensión de las primeras culturas del Caribe colombiano.
-                                </p>
-                                <div class="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-museum-dark/40 group-hover:text-museum-gold transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                                    Descargar PDF
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Video Presentación -->
-            <section class="py-32 px-8 bg-museum-cream">
-                 <div class="max-w-5xl mx-auto">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl font-display text-museum-dark uppercase tracking-widest">Vídeo de Gestión</h2>
-                        <div class="w-20 h-1 bg-museum-gold mx-auto mt-4"></div>
-                    </div>
-                    <YouTube 
-                        id="https://www.youtube.com/watch?v=46eaYp6t_mI" 
-                        title="Vídeo de Gestión - Rigoberto Castro Pérez"
-                        className="rounded-[3rem]"
-                    />
-                 </div>
-            </section>
-
-            <!-- Información Legal y Transparencia -->
-            <section class="py-32 px-8 md:px-16 lg:px-24 bg-white relative overflow-hidden">
-                <div class="max-w-7xl mx-auto">
-                    <div class="flex flex-col lg:flex-row gap-20 items-start">
-                        <div class="w-full lg:w-1/3">
-                            <span class="text-museum-gold font-bold tracking-widest text-[10px] uppercase mb-4 block">Entidad ESAL</span>
-                            <h2 class="text-4xl font-display text-museum-dark mb-8">Información <br/> <span class="text-museum-gold italic">Legal</span></h2>
-                            <p class="text-museum-dark/60 font-light leading-relaxed mb-10">
-                                Nuestra gestión transparente respalda nuestra labor meritoria y el uso responsable de los recursos para la transformación social.
-                            </p>
-                            <div class="w-20 h-1 bg-museum-gold"></div>
-                        </div>
-
-                        <div class="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {[
-                                { n: "Certificado de Existencia y Representación", f: "CERTIFICADO...D.pdf", path: "/pdfs/CERTIFICADO DE EXISTENCIA Y REPRESENTATIVIDAD.pdf" },
-                                { n: "Registro Nacional de Museos - SIMCO", f: "2026 Cert SIMCO...Pozon.pdf", path: "/pdfs/2026 Cert SIMCO Reg Casa Museo Pozon.pdf" },
-                                { n: "RUT Institucional Actualizado", f: "RUT 2026.pdf", path: "/pdfs/RUT 2026.pdf" },
-                                { n: "Informe de Gestión y Actividades", f: "InformeCarvajal2019.pdf", path: "/pdfs/InformeCarvajal2019.pdf" },
-                                { n: "Estatutos Legales de la Fundación", f: "ESTATUTOS...OZON.pdf", path: "/pdfs/ESTATUTOS LEGALES FUNDACION CASA MUSEO POZON.pdf" },
-                                { n: "Certificación de Cumplimiento", f: "CE 3595...VAJAL.pdf", path: "/pdfs/CE 3595 CR 2636 DIANA ROCIO CARVAJAL.pdf" }
-                            ].map(doc => (
-                                <a href={doc.path} target="_blank" class="flex items-center gap-6 p-8 bg-zinc-50 rounded-3xl border border-zinc-100 hover:border-museum-gold hover:bg-white transition-all group shadow-sm">
-                                    <div class="w-12 h-12 bg-museum-dark rounded-xl flex items-center justify-center text-white group-hover:bg-museum-gold transition-colors">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-museum-dark mb-1 leading-snug">{doc.n}</p>
-                                        <p class="text-[9px] text-zinc-400 uppercase tracking-tighter">{doc.f}</p>
-                                    </div>
-                                </a>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Footer Volver -->
-            <section class="py-24 text-center">
-                 <a href="/" class="group inline-flex items-center gap-6 px-12 py-6 border border-museum-dark/20 rounded-full hover:bg-museum-dark hover:text-white transition-all duration-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:-translate-x-2 transition-transform"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"/></svg>
-                    <span class="text-xs font-bold uppercase tracking-[0.3em]">Volver al Inicio</span>
-                </a>
-            </section>
-        </main>
-	</body>
-</html>
+  <!-- ===================== VOLVER ===================== -->
+  <section class="py-24 text-center">
+    <a
+      href="/"
+      class="group inline-flex items-center gap-6 px-12 py-6 border border-museum-dark/20 rounded-full hover:bg-museum-dark hover:text-white transition-all duration-700"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:-translate-x-2 transition-transform"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      <span class="text-xs font-bold uppercase tracking-[0.3em]">Volver al Inicio</span>
+    </a>
+  </section>
+</Layout>

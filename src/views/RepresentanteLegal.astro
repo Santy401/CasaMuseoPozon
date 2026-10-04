@@ -1,40 +1,74 @@
 ---
+import RepresentanteCredencial from "../components/RepresentanteCredencial.astro";
+import { representante } from "../data/representante";
 ---
-<section id="representante" class="py-24 md:py-32 px-8 md:px-16 lg:px-24 bg-museum-cream relative">
-    <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col lg:flex-row gap-20 items-center">
-            <!-- Imagen Representante -->
-            <div class="w-full lg:w-1/2 relative group">
-                <div class="aspect-[4/5] bg-zinc-200 rounded-[3rem] overflow-hidden shadow-2xl relative">
-                    <img src="/imagenes/creator.png" alt="Rigoberto Castro Pérez" class="w-full h-full object-cover object-left grayscale group-hover:grayscale-0 transition-all duration-1000" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-museum-dark/60 via-transparent"></div>
-                    <div class="absolute bottom-10 left-10">
-                        <p class="text-white font-display text-2xl mb-2">Rigoberto Castro Pérez</p>
-                        <p class="text-museum-gold text-[10px] uppercase tracking-widest font-bold">Director Ejecutivo</p>
-                    </div>
-                </div>
-                <!-- Elemento decorativo -->
-                <div class="absolute -top-10 -left-10 w-40 h-40 bg-museum-gold/10 rounded-full -z-10 animate-pulse"></div>
+
+<!--
+  Sección del inicio. Fondo oscuro a propósito: el representante legal es la
+  firma que respalda a la Fundación y necesita leerse de un vistazo, con su
+  credencial y QR siempre visibles (nunca hay que voltear nada para verlos).
+-->
+<section id="representante" class="py-24 md:py-32 px-8 md:px-16 lg:px-24 bg-museum-dark relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[url('/imagenes/creator.png')] bg-cover bg-center grayscale mix-blend-overlay pointer-events-none"></div>
+    <div class="absolute -top-20 right-0 w-96 h-96 bg-museum-gold/5 blur-3xl rounded-full pointer-events-none"></div>
+    <div class="absolute bottom-0 -left-20 w-80 h-80 bg-museum-gold/5 blur-3xl rounded-full pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Encabezado -->
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 md:mb-20">
+            <div>
+                <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-6 uppercase block">Representante Legal</span>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-display text-white mb-6 leading-none">
+                    {representante.nombrePartes.primera} <br/>
+                    <span class="text-museum-gold italic">{representante.nombrePartes.apellidos}</span>
+                </h2>
+                <div class="w-20 h-1 bg-museum-gold"></div>
+            </div>
+            <p class="text-museum-gold/80 text-xs font-bold uppercase tracking-[0.2em] lg:text-right max-w-sm">
+                {representante.cargo}
+            </p>
+        </div>
+
+        <!-- Credencial + texto -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+            <div class="max-w-md w-full">
+                <RepresentanteCredencial variant="sm" />
+
+                <p class="text-[9px] text-white/35 uppercase tracking-[0.2em] mt-6 text-center leading-relaxed">
+                    Credencial digital verificable · código {representante.codigo}
+                </p>
             </div>
 
-            <!-- Texto -->
-            <div class="w-full lg:w-1/2">
-                <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-6 uppercase block">Liderazgo Institucional</span>
-                <h2 class="text-4xl md:text-5xl font-display text-museum-dark mb-8 leading-tight">
-                    Arquitecto de la <br/> <span class="text-museum-gold italic">Memoria Viva</span>
-                </h2>
-                
-                <p class="text-museum-dark/70 text-lg font-light leading-relaxed mb-10">
-                    Historiador y gestor cultural con más de 25 años de experiencia. Rigoberto ha liderado la creación de un modelo museal pionero que convierte al barrio El Pozón en un laboratorio de innovación comunitaria.
+            <div>
+                <p class="text-white/60 text-lg font-light leading-relaxed mb-10">
+                    Historiador y gestor cultural con más de 25 años de experiencia. {representante.nombrePartes.primera} ha liderado la creación de un modelo museal pionero que convierte al barrio El Pozón en un laboratorio de innovación comunitaria.
                 </p>
 
-                <div class="bg-white/50 p-8 rounded-[2rem] border border-museum-gold/20 mb-12 italic text-sm text-museum-dark/60 leading-relaxed">
-                    "La memoria no está en los objetos, está en las manos que los crean, en las voces que los narran, en los territorios que resisten."
+                <!-- Indicadores -->
+                <div class="grid grid-cols-3 gap-6 mb-12">
+                    {representante.indicadores.map((ind) => (
+                        <div class="border-l border-museum-gold/25 pl-5">
+                            <p class="text-museum-gold font-display text-3xl md:text-4xl mb-2 leading-none">{ind.valor}</p>
+                            <p class="text-[8px] uppercase tracking-[0.2em] text-white/35 mt-2">{ind.etiqueta}</p>
+                        </div>
+                    ))}
                 </div>
 
-                <a href="/representante-legal" class="inline-flex items-center gap-6 bg-museum-dark text-white px-10 py-5 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-museum-gold transition-all duration-500 shadow-xl">
-                    Ver Perfil Completo
-                </a>
+                <!-- Sentencia -->
+                <blockquote class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-[2rem] p-8 md:p-10 mb-12">
+                    <p class="text-white/85 text-base md:text-lg font-display italic leading-relaxed">"{representante.sentencia}"</p>
+                </blockquote>
+
+                <!-- Acciones -->
+                <div class="flex flex-wrap gap-4">
+                    <a href="/representante-legal" class="inline-flex items-center gap-4 bg-museum-gold text-museum-dark px-10 py-5 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-white transition-all duration-500 shadow-xl shadow-museum-gold/10">
+                        Ver perfil completo
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <a href="/socios" class="inline-flex items-center gap-4 border border-white/20 text-white/80 px-10 py-5 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase hover:border-museum-gold hover:text-museum-gold transition-all duration-500">
+                        Cuerpo colegiado
+                    </a>
+                </div>
             </div>
         </div>
     </div>
