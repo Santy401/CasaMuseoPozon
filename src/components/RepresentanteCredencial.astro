@@ -12,6 +12,10 @@ const { variant = "sm" } = Astro.props;
 const url = representanteUrl();
 const qrSize = variant === "lg" ? 200 : 128;
 const qr = qrSvg(url, { size: qrSize, margin: 3 });
+
+// Se muestra sin el esquema: "https://www." solo agrega ruido y hace que la
+// dirección no entre en una línea. Se deriva de la URL para que no se desincronice.
+const urlLegible = url.replace(/^https?:\/\/(www\.)?/, "");
 ---
 
 <!--
@@ -23,21 +27,21 @@ const qr = qrSvg(url, { size: qrSize, margin: 3 });
 <div class="credencial group relative bg-museum-dark rounded-[2rem] overflow-hidden border border-museum-gold/25 shadow-2xl shadow-museum-dark/20 transition-all duration-700 hover:-translate-y-2 hover:border-museum-gold/50 hover:shadow-2xl hover:shadow-museum-gold/15">
   <!-- Ambiente -->
   <div class="absolute inset-0 bg-gradient-to-br from-museum-dark via-museum-dark to-museum-gold/10 pointer-events-none"></div>
-  <div class="absolute -top-16 -right-16 w-56 h-56 bg-museum-gold/10 blur-3xl rounded-full pointer-events-none"></div>
+  <div class="absolute top-6 right-6 w-32 h-32 bg-museum-gold/10 blur-3xl rounded-full pointer-events-none"></div>
 
   <div class:list={["relative", variant === "lg" ? "p-8 md:p-10" : "p-7 md:p-8"]}>
     <!-- Cabecera institucional -->
-    <div class="flex items-center justify-between gap-4 pb-5 border-b border-museum-gold/15">
+    <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 pb-5 border-b border-museum-gold/15">
       <div class="flex items-center gap-3 min-w-0">
         <span class="w-9 h-9 rounded-lg bg-white/5 border border-museum-gold/20 flex items-center justify-center text-museum-gold flex-shrink-0">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
         </span>
         <div class="min-w-0">
-          <p class="text-[8px] font-bold text-museum-gold tracking-[0.3em] uppercase leading-tight">Fundación Casa Museo</p>
-          <p class="text-[8px] font-bold text-white/45 tracking-[0.3em] uppercase leading-tight">del Pozón</p>
+          <p class="text-[8px] font-bold text-museum-gold tracking-[0.18em] uppercase leading-tight">Fundación Casa Museo</p>
+          <p class="text-[8px] font-bold text-white/45 tracking-[0.18em] uppercase leading-tight">del Pozón</p>
         </div>
       </div>
-      <span class="text-[7px] font-bold uppercase tracking-[0.2em] text-museum-gold/80 bg-museum-gold/10 border border-museum-gold/20 rounded-full px-3 py-1.5 flex-shrink-0">
+      <span class="text-[7px] font-bold uppercase tracking-[0.15em] text-museum-gold/80 bg-museum-gold/10 border border-museum-gold/20 rounded-full px-2.5 py-1.5 flex-shrink-0 text-center leading-tight">
         {representante.estado}
       </span>
     </div>
@@ -59,24 +63,35 @@ const qr = qrSvg(url, { size: qrSize, margin: 3 });
       </div>
     </div>
 
-    <!-- Pie: QR + registro -->
-    <div class="mt-7 pt-6 border-t border-museum-gold/15 flex items-end gap-5">
+    <!--
+      Pie: QR + verificación.
+
+      El QR va apilado y centrado, no al lado del texto: la credencial se
+      renderiza también dentro de una columna estrecha (el aside sticky del
+      apartado propio mide ~330px) y en colocar el QR en línea con la
+      dirección el bloque de texto quedaba aplastado y la URL se partía en
+      fragmentos ilegibles. Apilado se lee bien en cualquier ancho.
+    -->
+    <div class="mt-7 pt-6 border-t border-museum-gold/15 text-center">
       <a
         href={url}
-        class="block p-3 bg-white rounded-xl shadow-xl shadow-black/40 transition-transform duration-500 hover:scale-[1.04] flex-shrink-0"
-        aria-label={`Abrir el apartado del Representante Legal en casapozonmuseo.org`}
+        class="block mx-auto w-fit p-3 bg-white rounded-xl shadow-xl shadow-black/40 transition-transform duration-500 hover:scale-[1.04]"
+        aria-label="Abrir el apartado del Representante Legal en casapozonmuseo.org"
       >
         <div class="qr" set:html={qr}></div>
       </a>
-      <div class="min-w-0 pb-1 flex-grow">
-        <p class="text-[7px] font-bold uppercase tracking-[0.25em] text-white/40 mb-2">Escanea para verificar</p>
-        <p class="text-[7px] font-mono text-white/30 tracking-wider break-all leading-relaxed">{url}</p>
-        <p class="text-[8px] font-mono text-museum-gold/70 tracking-wider mt-3">{representante.codigo}</p>
-      </div>
+
+      <p class="text-[8px] font-bold uppercase tracking-[0.2em] text-white/45 mt-5">
+        Escanea para verificar
+      </p>
+      <p class="text-[9px] font-mono text-white/40 tracking-wide break-words leading-relaxed mt-2 px-1">
+        {urlLegible}
+      </p>
+      <p class="text-[9px] font-mono text-museum-gold/70 tracking-wider mt-3">{representante.codigo}</p>
     </div>
 
     <!-- Sello inferior -->
-    <div class="mt-6 flex items-center justify-between gap-4">
+    <div class="mt-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
       <div class="flex items-center gap-2 text-[7px] font-bold uppercase tracking-[0.2em] text-white/35">
         <span class="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)]"></span>
         <span>Representación vigente</span>

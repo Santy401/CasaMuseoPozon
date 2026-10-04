@@ -72,7 +72,13 @@ const indicadores = representante.indicadores;
 
   <!-- ===================== CREDENCIAL + CONTENIDO ===================== -->
   <section class="py-24 md:py-32 px-8 md:px-16 bg-white">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-20 items-start">
+    <!--
+      La credencial va en una columna de ancho fijo (380px) en vez de un tercio
+      de la grilla: con `lg:grid-cols-3` el aside quedaba en ~330px y el carné
+      —que lleva un QR de 200px— no tenía espacio para la cabecera ni para la
+      dirección de verificación.
+    -->
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[380px_minmax(0,1fr)] gap-16 lg:gap-20 items-start">
       <!-- Credencial digital con QR -->
       <aside class="lg:sticky lg:top-28">
         <RepresentanteCredencial variant="lg" />
@@ -87,7 +93,7 @@ const indicadores = representante.indicadores;
       </aside>
 
       <!-- Contenido -->
-      <div class="lg:col-span-2">
+      <div>
         <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase block mb-6">
           Mandato Institucional
         </span>
