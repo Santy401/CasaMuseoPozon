@@ -69,6 +69,50 @@ export const categorias: CategoriaRevista[] = [
 
 export const articulos: ArticuloRevista[] = [
   {
+    slug: "angeles-somos-desde-los-barrios",
+    titulo: "Ángeles Somos: el cielo también se sueña desde los barrios",
+    fecha: "01 Noviembre 2026",
+    categoria: "Memoria Viva",
+    autor: {
+      nombre: "Redacción Revista El Pozón",
+      invitado: false,
+      bio: "Redacción de la Revista El Pozón, plataforma comunitaria de difusión e identidad de la Fundación Casa Museo Pozón."
+    },
+    youtubeUrl: "https://www.youtube.com/shorts/BN_WSws7OQI",
+    extracto: "Cada primero de noviembre la costa caribe se llena de voces infantiles que preguntan «¿hay ángeles para el cielo?». Una tradición que nació en Getsemaní y que en barrios como El Pozón encontró su propia forma de resistencia: compartir lo que hay para que a nadie le falte fiesta.",
+    contenido: `
+      <p class="text-lg font-light leading-relaxed mb-8">Hay preguntas que no se responden con palabras: se responden abriendo una puerta. «¿Hay ángeles para el cielo?», preguntan los niños y las niñas cada primero de noviembre, y en esa pregunta cabe una tradición entera hecha de cantos, de ollas que humean y de vecinos que se reconocen.</p>
+
+      <h3 class="text-2xl font-display text-museum-dark mb-6">La canción que abre las puertas</h3>
+      <p class="font-light leading-relaxed mb-6">«Ángeles somos, del cielo venimos, pidiendo limosna para nosotros». La copla se escucha desde los patios y se riega por las calles. Detrás de ella caminan los ángeles del barrio: niños con alas de cartón, coronas de papel y vestidos improvisados con sábanas y retazos. No son ángeles de mármol ni de vitrina. Son ángeles de tierra, de risa suelta y de zapatos polvorientos.</p>
+      <p class="font-light leading-relaxed mb-6">Lo que comenzó como una ronda de limosna se transformó, con el tiempo, en una fiesta de compartir. Cada casa aporta lo que puede: un plato de arroz, yuca, plátano, un poco de queso, dulces hechos en la cocina. Nada sobra y nada falta cuando la comunidad pone la mesa.</p>
+
+      <h3 class="text-2xl font-display text-museum-dark mb-6">Una memoria que llegó de lejos</h3>
+      <p class="font-light leading-relaxed mb-6">La tradición tiene raíces reconocidas en Getsemaní, ese barrio cartagenero donde el pueblo aprendió a convertir la escasez en celebración. Con los años, y con las familias que llegaron a los barrios populares buscando un lugar para vivir, la costumbre viajó con ellas. Se guardó en la memoria de las abuelas, en el sonsonete de las coplas y en las manos que cosían alas con lo que hubiera.</p>
+      <p class="font-light leading-relaxed mb-6">En El Pozón no se copió la fiesta: se recreó. Porque una tradición que llega a un territorio nuevo no pide permiso: se mezcla con el agua de la ciénaga, con el acento del barrio y con la manera propia de resistir. Así, la limosna se volvió convite y el convite se volvió tejido social.</p>
+
+      <h3 class="text-2xl font-display text-museum-dark mb-6">El primer cielo del Pozón</h3>
+      <p class="font-light leading-relaxed mb-6">Cuentan —y esta es una historia recreada, como se recrean las memorias de barrio: con la verdad de muchas voces y la libertad de quien la cuenta— que doña Elvira llegó al Pozón con tres hijos y un baúl donde guardaba un vestido blanco que ya nadie usaba. En noviembre de aquel primer año, las calles todavía eran arena y charcos, y los niños no conocían la canción.</p>
+      <p class="font-light leading-relaxed mb-6">Ella los reunió bajo un almendro y les enseñó la copla. No había azúcar para darles, así que puso una olla grande al fuego con lo que tenía: yuca, ñame y un pedazo de plátano. Los vecinos, al escuchar el canto, fueron saliendo con lo que había en sus cocinas. Uno trajo arroz, otra un poco de coco, alguien apareció con una tambora vieja. Esa tarde, los ángeles de cartón recorrieron el barrio y volvieron con las canastas llenas de comida y de vecindad.</p>
+      <p class="font-light leading-relaxed mb-6">Al caer la noche se repartió el sancocho en hojas de bijao y en platos prestados. Nadie preguntó quién había traído más y quién menos. Esa noche, cuenta la historia, en El Pozón nadie fue pobre: todo se compartió y todo alcanzó.</p>
+
+      <blockquote class="border-l-4 border-museum-gold pl-8 py-4 my-12 bg-museum-cream/50 rounded-r-2xl">
+        <p class="text-xl font-display italic text-museum-dark/80">"Los ángeles no bajaron del cielo: se levantaron del barrio, con alas de cartón y el corazón lleno de vecindad."</p>
+        <footer class="text-xs font-bold tracking-widest uppercase text-museum-gold mt-4">— Revista El Pozón</footer>
+      </blockquote>
+
+      <h3 class="text-2xl font-display text-museum-dark mb-6">Una casa que abre sus puertas</h3>
+      <p class="font-light leading-relaxed mb-6">Hoy la Casa Museo Pozón es uno de esos patios donde la fiesta se vuelve a vivir. Cada noviembre sus espacios se llenan de voces, disfraces y música; las familias llegan con sus canastas y la memoria se hace presente en cada canto. No se trata de exhibir la tradición como una pieza de museo, sino de sostenerla viva, con las manos y con la mesa compartida.</p>
+      <p class="font-light leading-relaxed mb-6">Por eso la Casa Museo celebra estas festividades: porque en ellas se reconoce la fuerza de un territorio que, aun con las dificultades, no ha dejado de inventar formas de encontrarse. Ángeles Somos no es solo una fecha: es una manera de decir que la solidaridad también es patrimonio.</p>
+
+      <p class="font-light leading-relaxed mb-6">Que no se apague nunca esa pregunta en las puertas. Que los niños sigan saliendo con sus alas de cartón y que las ollas sigan humeando para todos. Que El Pozón siga soñando su cielo desde el barrio, con la certeza de que la fiesta más hermosa es la que se comparte.</p>
+
+      <p class="font-light leading-relaxed">Y cuando alguien pregunte si hay ángeles para el cielo, que la respuesta sea siempre la misma: sí, aquí están. Son los del barrio. Son los nuestros.</p>
+    `,
+    imagen: "/imagenes/angeles-somos-portada.jpg",
+    etiquetas: ["Ángeles Somos", "tradición", "El Pozón", "memoria viva", "Getsemaní", "comunidad"]
+  },
+  {
     slug: "dia-internacional-de-los-museos-memoria-viva",
     titulo: "Día Internacional de los Museos: La Memoria Viva que Late en El Pozón",
     fecha: "17 Mayo 2026",
