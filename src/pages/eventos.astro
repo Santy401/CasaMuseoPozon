@@ -1,9 +1,8 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import "../styles/global.css";
-import SocialSidebar from "../components/SocialSidebar.astro";
-import Navbar from "../components/navbar.astro";
+import PageHero from "../components/PageHero.astro";
+import Layout from "../layouts/Layout.astro";
 import YouTube from "../components/YouTube.astro";
+import Btn from "../components/ui/Btn.astro";
 
 const initialEvents = [
     {
@@ -71,126 +70,9 @@ const secondaryEvents = [
     { title: "1° Encuentro de Turismo Cultural Comunitario", date: "26 Julio 2025" },
     { title: "3° Encuentro Industrias Creativas", date: "24 Junio 2025" }
 ];
----
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Eventos y Noticias | Casa Museo Pozón</title>
-        <ClientRouter />
-	</head>
-	<body class="bg-zinc-50 font-sans overflow-x-hidden">
-        <SocialSidebar />
-		<Navbar />
-        
-        <main>
-            <!-- Hero Header -->
-            <section class="relative min-h-[40vh] flex items-center justify-center bg-museum-dark pt-20">
-                <div class="relative z-20 text-center px-8" transition:animate="fade">
-                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Crónicas del Territorio</span>
-                    <h1 class="text-6xl md:text-8xl font-display text-white mb-10 leading-none">
-                        Eventos <br/> <span class="text-museum-gold italic">& Noticias</span>
-                    </h1>
-                </div>
-            </section>
-
-            <div class="max-w-4xl mx-auto px-8 py-20">
-                <!-- Filtros Horizontal -->
-                <div class="mb-20">
-                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-museum-dark/30 mb-8 border-b border-zinc-200 pb-4 text-center">Filtrar por Categoría</h4>
-                    <nav class="flex flex-wrap justify-center gap-x-10 gap-y-4 filter-nav">
-                        <button data-filter="all" class="text-xs font-bold text-museum-gold transition-all">00. Todos</button>
-                        <button data-filter="Institucional" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold transition-all">01. Institucional</button>
-                        <button data-filter="Comunidad" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold transition-all">02. Comunidad</button>
-                        <button data-filter="Turismo" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold transition-all">03. Turismo</button>
-                        <button data-filter="Patrimonio" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold transition-all">04. Patrimonio</button>
-                        <button data-filter="Academia" class="text-xs font-bold text-museum-dark/60 hover:text-museum-gold transition-all">05. Academia</button>
-                    </nav>
-                </div>
-
-                <div class="space-y-32">
-                        {initialEvents.map(event => (
-                            <article class="group event-card" data-tag={event.tag}>
-                                <div class="flex flex-col md:flex-row gap-12 items-start">
-                                    <div class="w-full md:w-1/2 aspect-video bg-zinc-200 rounded-[2rem] overflow-hidden shadow-2xl relative group">
-                                        {event.video ? (
-                                            <YouTube id={event.video} title={event.title} className="h-full w-full rounded-none shadow-none" />
-                                        ) : (
-                                            <img src={event.image || "https://images.unsplash.com/photo-1540575467063-178a50c2df87"} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
-                                        )}
-                                    </div>
-                                    <div class="w-full md:w-1/2">
-                                        <div class="flex items-center gap-6 mb-6">
-                                            <span class="text-museum-gold font-bold text-[10px] uppercase tracking-widest">{event.tag}</span>
-                                            <span class="text-zinc-400 text-[10px] uppercase tracking-widest">{event.date}</span>
-                                        </div>
-                                        <h2 class="text-3xl font-display text-museum-dark mb-6 group-hover:text-museum-gold transition-colors">{event.title}</h2>
-                                        <p class="text-sm font-light text-museum-dark/60 leading-relaxed mb-8">{event.text}</p>
-                                        <a href={event.video || event.image || "/pdfs/PORTAFOLIO INSTITUCIONAL.pdf"} target="_blank" rel="noopener noreferrer" class="text-[10px] font-bold uppercase tracking-widest border-b border-museum-gold pb-1 hover:border-museum-dark transition-all">Ver Crónica / Material</a>
-                                    </div>
-                                </div>
-                            </article>
-                        ))}
-
-                        <!-- PDF Download -->
-                        <div class="bg-museum-cream/50 p-12 rounded-[3rem] border border-museum-gold/10 flex flex-col md:flex-row justify-between items-center gap-8">
-                             <div>
-                                 <h3 class="text-2xl font-display text-museum-dark mb-2">Información Institucional 2026</h3>
-                                 <p class="text-xs text-museum-dark/50 uppercase tracking-widest">Descargar dossier de eventos y prensa</p>
-                             </div>
-                             <a href="/pdfs/PORTAFOLIO INSTITUCIONAL.pdf" target="_blank" class="bg-museum-dark text-white px-10 py-5 rounded-sm text-[10px] font-bold tracking-widest uppercase hover:bg-museum-gold transition-all">Descargar Portafolio</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <script>
-                function initFilters() {
-                    const buttons = document.querySelectorAll('.filter-nav button');
-                    const cards = document.querySelectorAll('.event-card');
-
-                    buttons.forEach(btn => {
-                        btn.addEventListener('click', () => {
-                            const filter = btn.getAttribute('data-filter');
-                            
-                            // Update active state
-                            buttons.forEach(b => b.classList.replace('text-museum-gold', 'text-museum-dark/60'));
-                            btn.classList.replace('text-museum-dark/60', 'text-museum-gold');
-
-                            cards.forEach(card => {
-                                const tag = card.getAttribute('data-tag');
-                                if (filter === 'all' || tag.includes(filter)) {
-                                    card.style.display = 'block';
-                                    card.style.opacity = '0';
-                                    setTimeout(() => {
-                                        card.style.opacity = '1';
-                                        card.style.transition = 'opacity 0.5s ease-in-out';
-                                    }, 10);
-                                } else {
-                                    card.style.display = 'none';
-                                }
-                            });
-                        });
-                    });
-                }
-
-                initFilters();
-                document.addEventListener('astro:after-swap', initFilters);
-            </script>
-
-        </main>
-        
-        <!-- Descriptive Footer Links Section (13 pieces) -->
-        <section class="py-32 px-8 bg-zinc-50 border-t border-zinc-200">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-3xl font-display text-center mb-24 uppercase tracking-widest text-museum-dark">Otras Secciones y <span class="text-museum-gold">Publicaciones</span></h2>
-                
-                <div class="space-y-20">
-                    {[
+const etiquetas = Array.from(new Set(initialEvents.map((e) => e.tag)));
+const publicaciones = [
                         { 
                             t: "MODELO DE APRENDIZAJE COMUNITARIO ORGANICO A.C.O.", 
                             d: "11.09.2025", 
@@ -233,28 +115,117 @@ const secondaryEvents = [
                             s: "Un estudio sobre la dignidad educativa desde los saberes ancestrales y la herencia afroindígena del Caribe.",
                             path: "/pdfs/MUSEO COMUNITARIO QUE ASCIENDE.pdf"
                         }
-                    ].map(item => (
-                        <div class="group border-l-4 border-transparent hover:border-museum-gold pl-8 transition-all duration-500">
-                            <p class="text-[9px] text-zinc-400 font-bold uppercase tracking-[0.2em] mb-4">{item.d}</p>
-                            <h3 class="text-2xl font-display text-museum-dark mb-6 group-hover:text-museum-gold transition-colors leading-tight uppercase">{item.t}</h3>
-                            <p class="text-md font-light text-museum-dark/60 leading-relaxed mb-8 max-w-3xl">
-                                {item.s}
-                            </p>
-                            <a href={item.path} target="_blank" class="text-[10px] font-bold uppercase tracking-[0.3em] text-museum-gold hover:text-museum-dark transition-colors inline-flex items-center gap-4">
-                                Descargar PDF
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                            </a>
-                        </div>
-                    ))}
-                    
-                    <div class="pt-20 text-center">
-                         <a href="/" class="group inline-flex items-center gap-6 px-12 py-6 border border-museum-dark/20 rounded-full hover:bg-museum-dark hover:text-white transition-all duration-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:-translate-x-2 transition-transform"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"/></svg>
-                            <span class="text-xs font-bold uppercase tracking-[0.3em]">Volver al Inicio</span>
-                        </a>
-                    </div>
+                    ];
+---
+
+<Layout
+  title="Eventos y Noticias | Casa Museo Pozón"
+  description="Eventos y Noticias — Fundación Casa Museo El Pozón, memoria viva y cultura comunitaria en Cartagena de Indias."
+  bodyClass="bg-zinc-50 font-sans overflow-x-hidden"
+>
+    <PageHero image="/galeria/INDUSTRIAS CREATIVAS.webp" group="Comunidad" current="Eventos">
+      <Fragment slot="eyebrow">Crónicas del Territorio</Fragment>
+      Eventos <span class="text-museum-gold italic">& Noticias</span>
+    </PageHero>
+
+    <section id="cronicas" class="ui-section relative bg-museum-cream px-6 md:px-16 lg:px-24 pt-16 md:pt-24 pb-24 md:pb-32">
+        <div class="max-w-7xl mx-auto">
+            <header class="mb-10 md:mb-14 flex flex-wrap items-end justify-between gap-8">
+                <div>
+                    <span class="block font-bold tracking-[0.4em] text-[10px] md:text-xs uppercase mb-5 text-museum-gold">Crónicas del territorio</span>
+                    <h2 class="font-display text-4xl md:text-6xl leading-[1.05]">Lo que hemos <span class="text-museum-gold">vivido</span></h2>
                 </div>
+                <p class="text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase text-museum-dark/50"><span id="ev-count">{initialEvents.length}</span> encuentros</p>
+            </header>
+
+            <div class="ev-filters flex gap-2 overflow-x-auto pb-4 mb-10 md:mb-14 -mx-6 px-6 md:mx-0 md:px-0 md:flex-wrap" role="group" aria-label="Filtrar por categoría">
+                <button type="button" data-filter="all" aria-pressed="true" class="ev-chip shrink-0 rounded-full border border-museum-dark bg-museum-dark text-museum-cream px-5 py-2.5 text-[10px] font-bold tracking-[0.2em] uppercase transition-colors">Todos</button>
+                {etiquetas.map((t) => <button type="button" data-filter={t} aria-pressed="false" class="ev-chip shrink-0 rounded-full border border-museum-dark/20 text-museum-dark/70 px-5 py-2.5 text-[10px] font-bold tracking-[0.2em] uppercase hover:border-museum-gold transition-colors">{t}</button>)}
             </div>
-        </section>
-	</body>
-</html>
+
+            <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="ev-grid">
+                {initialEvents.map((event) => (
+                    <li class="event-card flex [&>*]:flex-1 [&>*]:min-w-0" data-tag={event.tag}>
+                        <article data-spotlight class="pillar group relative flex flex-col overflow-hidden rounded-[1.75rem] bg-white border border-museum-dark/10 shadow-[0_25px_50px_-35px_rgba(26,26,26,0.4)] h-full">
+                            <span class="pillar-glow" aria-hidden="true"></span>
+                            <div class="relative aspect-video overflow-hidden bg-museum-dark">
+                                {event.video
+                                    ? <YouTube id={event.video} title={event.title} className="h-full w-full rounded-none shadow-none" />
+                                    : <img src={event.image || "/imagenes/participacion-caribe-1.webp"} alt={event.title} loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms]" />}
+                                <span class="absolute top-4 left-4 rounded-full bg-museum-dark/85 backdrop-blur text-museum-gold px-3.5 py-1.5 text-[9px] font-bold tracking-[0.25em] uppercase">{event.tag}</span>
+                            </div>
+                            <div class="relative p-6 md:p-7 flex flex-col flex-1">
+                                <time class="text-museum-gold font-bold text-[10px] uppercase tracking-[0.25em] mb-3">{event.date}</time>
+                                <h3 class="font-display text-xl md:text-2xl leading-snug mb-3">{event.title}</h3>
+                                <p class="text-sm font-light text-museum-dark/65 leading-relaxed mb-6">{event.text}</p>
+                                <a href={event.video || event.image || "/pdfs/PORTAFOLIO INSTITUCIONAL.pdf"} target="_blank" rel="noopener noreferrer" class="mt-auto self-start text-[10px] font-bold uppercase tracking-[0.25em] text-museum-dark border-b border-museum-gold pb-1 hover:text-museum-gold transition-colors">Ver crónica / material →</a>
+                            </div>
+                        </article>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </section>
+
+    <section id="dossier" class="relative overflow-hidden bg-museum-dark text-museum-cream px-6 md:px-16 lg:px-24 py-20 md:py-28">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+            <div>
+                <span class="block font-bold tracking-[0.4em] text-[10px] uppercase mb-4 text-museum-gold">Prensa y eventos</span>
+                <h2 class="font-display text-3xl md:text-5xl leading-tight">Información Institucional <span class="text-museum-gold">2026</span></h2>
+                <p class="mt-3 font-light text-museum-cream/70">Descargar dossier de eventos y prensa</p>
+            </div>
+            <Btn href="/pdfs/PORTAFOLIO INSTITUCIONAL.pdf" external>Descargar Portafolio</Btn>
+        </div>
+    </section>
+
+    <section id="publicaciones" class="ui-section relative bg-white px-6 md:px-16 lg:px-24 py-20 md:py-32">
+        <div class="max-w-7xl mx-auto">
+            <header class="mb-12 md:mb-16 max-w-3xl">
+                <span class="block font-bold tracking-[0.4em] text-[10px] md:text-xs uppercase mb-5 text-museum-gold">Biblioteca institucional</span>
+                <h2 class="font-display text-4xl md:text-6xl leading-[1.05]">Otras secciones y <span class="text-museum-gold">publicaciones</span></h2>
+            </header>
+            <ul class="divide-y divide-museum-dark/10 border-y border-museum-dark/10">
+                {publicaciones.map((item, i) => (
+                    <li>
+                        <a href={item.path} target="_blank" rel="noopener noreferrer" class="doc-row group grid md:grid-cols-[8rem_1fr_auto] gap-3 md:gap-10 items-center py-7 md:py-9">
+                            <span class="font-display text-museum-gold/70 text-xl tabular-nums">{item.d}</span>
+                            <span>
+                                <span class="block font-display text-xl md:text-3xl leading-snug mb-2 group-hover:text-museum-gold transition-colors">{item.t}</span>
+                                <span class="block text-sm font-light text-museum-dark/65 leading-relaxed max-w-3xl">{item.s}</span>
+                            </span>
+                            <span class="inline-flex items-center gap-3 text-[10px] font-bold tracking-[0.25em] uppercase text-museum-dark group-hover:text-museum-gold transition-colors">Descargar PDF <span class="w-9 h-9 rounded-full border border-current flex items-center justify-center group-hover:translate-x-1 transition-transform" aria-hidden="true">↓</span></span>
+                        </a>
+                    </li>
+                ))}
+            </ul>
+            <div class="mt-14 text-center"><Btn href="/" variant="outline">Volver al Inicio</Btn></div>
+        </div>
+    </section>
+
+    <script>
+        function initEventFilters() {
+            const chips = document.querySelectorAll<HTMLButtonElement>('.ev-chip');
+            const cards = document.querySelectorAll<HTMLElement>('.event-card');
+            const counter = document.getElementById('ev-count');
+            chips.forEach((chip) => chip.addEventListener('click', () => {
+                const f = chip.dataset.filter;
+                chips.forEach((c) => {
+                    const on = c === chip;
+                    c.setAttribute('aria-pressed', String(on));
+                    c.classList.toggle('bg-museum-dark', on);
+                    c.classList.toggle('text-museum-cream', on);
+                    c.classList.toggle('border-museum-dark', on);
+                });
+                let n = 0;
+                cards.forEach((card) => {
+                    const show = f === 'all' || card.dataset.tag === f;
+                    card.style.display = show ? 'flex' : 'none';
+                    if (show) n++;
+                });
+                if (counter) counter.textContent = String(n);
+            }));
+        }
+        initEventFilters();
+        document.addEventListener('astro:after-swap', initEventFilters);
+    </script>
+</Layout>

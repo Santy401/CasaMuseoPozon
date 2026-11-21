@@ -1,306 +1,138 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import "../styles/global.css";
-import SocialSidebar from "../components/SocialSidebar.astro";
-import Navbar from "../components/navbar.astro";
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
 import YouTube from "../components/YouTube.astro";
+import Section from "../components/ui/Section.astro";
+import Checklist from "../components/ui/Checklist.astro";
+import CtaBand from "../components/ui/CtaBand.astro";
+import Btn from "../components/ui/Btn.astro";
+
+const narrativa = "Desde las huellas más antiguas inscritas en la tierra hasta la memoria viva que sostiene nuestra identidad actual.";
+const salas = [
+    {
+        n: "1", etiqueta: "Sala 1 • La Tierra como Archivo Profundo", titulo: "Orígenes Arqueológicos", href: "/sala-origenes-arqueologicos",
+        foto: "/galeria/61a7a181-6ce8-473f-ae36-51c755821812.webp", tono: "bg-museum-dark text-museum-cream", oscuro: true,
+        eje: "El suelo como el primer documento histórico, el conchero como biblioteca material y las tecnologías ancestrales de adaptación biocultural como cimientos de la soberanía y la autoestima comunitaria.",
+        ejes: [
+            { title: "El Suelo Ancestral y Muestrario Técnico", text: "Sistematización, estudio y montaje interactivo de los asentamientos precolombinos en la zona estuarina." },
+            { title: "Biotecnologías Prehispánicas", text: "Espacio de experimentación sobre las ciencias y artes de los primeros nativos americanos para habitar el ecosistema." },
+            { title: "Un Territorio que Asciende", text: "Construcción material y visual del continuo histórico que conecta los vestigios con el poblamiento popular actual." },
+        ],
+        recursos: ["Explorar Catálogo", "Mapa de Hitos", "Descargar Cartilla", "Conocer Infraestructura"],
+    },
+    {
+        n: "2", etiqueta: "Sala 2 • Fuerza Viva del Territorio", titulo: "Cultura Zenú y Memoria Ancestral", href: "/sala-cultura-zenu",
+        foto: "/galeria/SALA MUSEO.webp", tono: "bg-museum-cream text-museum-dark", oscuro: false,
+        eje: "La continuidad cultural como trinchera, la hibridación afroindígena como matriz de identidad y las tecnologías ancestrales del cuerpo, el tejido y el pensamiento hidráulico como guías de resistencia contemporánea.",
+        ejes: [
+            { title: "El Tejido Intercultural", text: "Estudio crítico e interactivo de los procesos de hibridación cultural y cimarronaje en el Caribe colombiano." },
+            { title: "Tecnologías del Pensamiento Hidráulico", text: "Análisis y apropiación de los sistemas ancestrales de manejo de aguas de la cultura Zenú." },
+            { title: "El Arte del Trenzado", text: "Laboratorios de investigación sobre las estéticas del tejido y los saberes corporales tradicionales." },
+        ],
+        recursos: ["Galería Virtual", "Herbario Digital", "Descargar Cartilla", "Conocer Infraestructura"],
+    },
+    {
+        n: "3", etiqueta: "Sala 3 • Patrimonio y Resistencia", titulo: "Vida Cotidiana", href: "/sala-vida-cotidiana",
+        foto: "/galeria/411164de-a96d-4cc9-aacc-317b66d21fbc.webp", tono: "bg-white text-museum-dark", oscuro: false,
+        eje: "La microhistoria doméstica como gran narrativa, la cultura material del hogar como documento de dignidad y los oficios tradicionales como saberes de resistencia y soberanía popular.",
+        ejes: [
+            { title: "Arqueología Doméstica", text: "Catalogación, conservación y montaje interactivo de los objetos cotidianos que acompañaron el poblamiento." },
+            { title: "Cocina Tradicional y Fogones", text: "Resguardo y experimentación de la herencia culinaria que garantizó la subsistencia en el humedal." },
+            { title: "Oficios Populares y Relleno", text: "Reconstrucción interactiva de las memorias laborales de los fundadores y la épica del relleno solidario." },
+        ],
+        recursos: ["Galería Virtual", "Mapa de Hitos", "Recetario Transmedia", "Escuchar Fonoteca"],
+    },
+];
+const capsulas = [
+    { id: "https://youtu.be/zXxT9PXuueA?si=0teQJeEuLAwByKk4", t: "Historia Arqueológica" },
+    { id: "https://youtu.be/R_joFMP_aLA?si=BZEdxPWedz1mdRw5", t: "El Legado Zenú" },
+    { id: "https://youtu.be/jjuJYV3YBIQ", t: "Rostros del Pozón" },
+    { id: "https://youtu.be/jrperNvuNVA", t: "El Pozón Vivo" },
+];
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Recorrido Museal | Casa Museo Pozón</title>
-        <ClientRouter />
-	</head>
-	<body class="bg-white font-sans overflow-x-hidden">
-        <SocialSidebar />
-		<Navbar />
-        
-        <main>
-            <!-- Hero Header -->
-            <section class="relative h-[80vh] flex items-center justify-center bg-museum-dark overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/40 via-museum-dark/80 to-museum-dark z-10"></div>
-                <div class="absolute inset-0 opacity-40 bg-[url('/imagenes/fondo-seccion.png')] bg-cover bg-center grayscale mix-blend-overlay"></div>
-                
-                <div class="relative z-20 text-center px-8" transition:animate="fade">
-                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Experiencia de Memoria Ascendente</span>
-                    <h1 class="text-5xl md:text-7xl lg:text-[7rem] font-display text-white mb-10 leading-[0.9]">
-                        Recorrido <br/> <span class="text-museum-gold">Museal</span>
-                    </h1>
-                    <p class="max-w-2xl mx-auto text-white/50 text-lg font-light leading-relaxed">
-                        Un viaje que nace en la profundidad de la tierra y florece en la identidad viva de nuestro territorio.
-                    </p>
+<Layout
+  title="Recorrido Museal | Casa Museo Pozón"
+  description="Recorrido Museal — Fundación Casa Museo El Pozón, memoria viva y cultura comunitaria en Cartagena de Indias."
+  bodyClass="bg-white font-sans overflow-x-hidden"
+>
+    <PageHero image="/galeria/df86ca84-a306-4ad3-8228-797b99c5e109.webp" group="Experiencia" current="Recorrido museal">
+      <Fragment slot="eyebrow">Experiencia de Memoria Ascendente</Fragment>
+      Recorrido <span class="text-museum-gold">Museal</span>
+      <Fragment slot="lead">Un viaje que nace en la profundidad de la tierra y florece en la identidad viva de nuestro territorio.</Fragment>
+    </PageHero>
+
+    <!-- 01 Introducción territorial -->
+    <Section id="archivo-vivo" tone="cream" eyebrow="Territorio Islita">
+        <Fragment slot="title">El Pozón como <span class="text-museum-gold">Archivo Vivo</span></Fragment>
+        <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-24 items-center">
+            <p class="font-display text-2xl md:text-4xl leading-snug text-museum-dark/90 text-balance">Nuestra exposición se fundamenta en los hallazgos del sector <strong class="text-museum-gold font-normal">La Islita</strong>, un laboratorio vivo donde la tierra conserva las huellas de más de cinco mil años de ocupación humana.</p>
+            <ul class="grid grid-cols-2 gap-3">
+                {["Concheros", "Prácticas de recolección", "Cerámica", "Fragmentos domésticos"].map((t, i) => (
+                    <li class="rounded-2xl border border-museum-gold/40 bg-white p-5 md:p-6 flex flex-col justify-between min-h-[8.5rem]">
+                        <span class="font-display text-museum-gold/60 text-2xl tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+                        <span class="font-bold text-[11px] tracking-[0.2em] uppercase leading-snug">{t}</span>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </Section>
+
+    <!-- 02-04 Las tres salas -->
+    {salas.map((sala) => (
+        <section id={`sala-${sala.n}`} class:list={["ui-section relative py-20 md:py-32 px-6 md:px-16 lg:px-24", sala.tono]} data-tone={sala.oscuro ? "dark" : "light"}>
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-12 lg:gap-24">
+                <div class="lg:sticky lg:top-28 self-start">
+                    <span class="block font-bold tracking-[0.35em] text-[10px] md:text-xs uppercase mb-5 text-museum-gold">{sala.etiqueta}</span>
+                    <h2 class="font-display text-4xl md:text-6xl leading-[1.05] mb-8 text-balance">{sala.titulo}</h2>
+                    <div class="relative aspect-[4/3] rounded-[2rem] overflow-hidden mb-8 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.5)]">
+                        <img src={encodeURI(sala.foto)} alt={`Sala ${sala.n}: ${sala.titulo}`} loading="lazy" class="absolute inset-0 w-full h-full object-cover" />
+                        <span class="absolute left-5 bottom-3 font-display text-[7rem] leading-none text-transparent [-webkit-text-stroke:1.5px_rgb(245_240_232)] opacity-90" aria-hidden="true">{sala.n}</span>
+                    </div>
+                    <Btn href={sala.href} variant={sala.oscuro ? "gold" : "dark"}>Ver Sala Completa</Btn>
                 </div>
-            </section>
-
-            <!-- Introducción Territorial -->
-            <section class="py-32 px-8 md:px-16 lg:px-24 max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-display text-museum-dark mb-8">El Pozón como Archivo Vivo</h2>
-                        <p class="text-museum-dark/70 text-lg font-light leading-relaxed mb-8">
-                            Nuestra exposición se fundamenta en los hallazgos del sector <strong class="text-museum-gold">La Islita</strong>, un laboratorio vivo donde la tierra conserva las huellas de más de cinco mil años de ocupación humana.
-                        </p>
-                        <div class="grid grid-cols-2 gap-6">
-                            <div class="p-6 bg-museum-cream/30 rounded-2xl border border-museum-gold/5 flex flex-col items-center">
-                                <span class="text-museum-gold mb-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-waves"><path d="M2 6c.6.5 1.2 1 2.5 1C5.8 7 7 5 9 5s3.2 2 4.5 2c1.3 0 2.5-1 4-1 .3 0 .5.1.5.1"/><path d="M2 12c.6.5 1.2 1 2.5 1 1.3 0 2.5-2 4.5-2s3.2 2 4.5 2c1.3 0 2.5-1 4-1 .3 0 .5.1.5.1"/><path d="M2 18c.6.5 1.2 1 2.5 1 1.3 0 2.5-2 4.5-2s3.2 2 4.5 2c1.3 0 2.5-1 4-1 .3 0 .5.1.5.1"/></svg>
-                                </span>
-                                <p class="text-xs font-bold uppercase tracking-widest mb-1">Concheros</p>
-                                <p class="text-[10px] opacity-60 uppercase tracking-widest text-center">Prácticas de recolección</p>
-                            </div>
-                            <div class="p-6 bg-museum-cream/30 rounded-2xl border border-museum-gold/5 flex flex-col items-center">
-                                <span class="text-museum-gold mb-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-history"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.7 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></svg>
-                                </span>
-                                <p class="text-xs font-bold uppercase tracking-widest mb-1">Cerámica</p>
-                                <p class="text-[10px] opacity-60 uppercase tracking-widest text-center">Fragmentos domésticos</p>
-                            </div>
-                        </div>
+                <div>
+                    <blockquote class="font-display text-2xl md:text-4xl leading-snug mb-10 text-balance"><span class="text-museum-gold">“</span>{narrativa}<span class="text-museum-gold">”</span></blockquote>
+                    <div class="rounded-3xl border border-current/15 p-6 md:p-8 mb-10 bg-current/[0.04]">
+                        <span class="block text-[10px] font-bold tracking-[0.3em] uppercase text-museum-gold mb-3">Eje pedagógico</span>
+                        <p class="font-light leading-relaxed opacity-85">{sala.eje}</p>
                     </div>
-                    <div class="relative">
-                         <div class="bg-zinc-200 aspect-video rounded-[2rem] overflow-hidden shadow-2xl relative group">
-                            <div class="absolute inset-0 bg-museum-dark/20 group-hover:bg-transparent transition-all duration-700"></div>
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <span class="text-white/40 font-display text-xl uppercase tracking-widest">Territorio Islita</span>
-                            </div>
-                         </div>
-                         <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-museum-gold rounded-full flex items-center justify-center -z-10 animate-pulse opacity-50"></div>
-                    </div>
+                    <Checklist items={sala.ejes} dark={sala.oscuro} cols={1} />
+                    <ul class="mt-10 flex flex-wrap gap-2" aria-label="Recursos de la sala">
+                        {sala.recursos.map((r) => <li class="text-[11px] font-bold tracking-[0.12em] rounded-full border border-current/25 px-4 py-2 opacity-80">{r}</li>)}
+                    </ul>
                 </div>
-            </section>
+            </div>
+        </section>
+    ))}
 
-            <!-- Las 3 Salas -->
-            <section class="py-32 bg-museum-dark text-white relative">
-                 <div class="max-w-7xl mx-auto px-8">
-                     
-                     <!-- Sala 1 -->
-                      <div class="mb-48 relative overflow-hidden group">
-                           <div class="hidden md:block text-6xl md:text-[10rem] font-display text-museum-gold/[0.03] absolute -top-32 -left-10 select-none z-0 pointer-events-none transition-transform duration-1000 group-hover:translate-x-10">SALA 1</div>
-                         <div class="relative z-10 w-full mb-12">
-                             <span class="text-museum-gold font-bold text-xs tracking-widest uppercase mb-4 block">Sala 1 • La Tierra como Archivo Profundo</span>
-                             <h2 class="text-4xl md:text-5xl font-display mb-6">Orígenes Arqueológicos</h2>
-                             <p class="text-white/70 text-lg font-light leading-relaxed mb-6 max-w-3xl">
-                                <strong class="text-white">Narrativa:</strong> "Desde las huellas más antiguas inscritas en la tierra hasta la memoria viva que sostiene nuestra identidad actual."
-                             </p>
-                             <p class="text-white/50 text-base font-light leading-relaxed mb-10 max-w-3xl">
-                                <strong class="text-museum-gold">Eje Pedagógico:</strong> El suelo como el primer documento histórico, el conchero como biblioteca material y las tecnologías ancestrales de adaptación biocultural como cimientos de la soberanía y la autoestima comunitaria.
-                             </p>
-                         </div>
-                         
-                         <!-- Ejes Grid -->
-                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10 mb-16">
-                             <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors duration-300">
-                                 <h4 class="text-museum-gold text-lg font-display mb-4">El Suelo Ancestral y Muestrario Técnico</h4>
-                                 <p class="text-white/50 text-sm font-light">Sistematización, estudio y montaje interactivo de los asentamientos precolombinos en la zona estuarina.</p>
-                             </div>
-                             <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors duration-300">
-                                 <h4 class="text-museum-gold text-lg font-display mb-4">Biotecnologías Prehispánicas</h4>
-                                 <p class="text-white/50 text-sm font-light">Espacio de experimentación sobre las ciencias y artes de los primeros nativos americanos para habitar el ecosistema.</p>
-                             </div>
-                             <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors duration-300">
-                                 <h4 class="text-museum-gold text-lg font-display mb-4">Un Territorio que Asciende</h4>
-                                 <p class="text-white/50 text-sm font-light">Construcción material y visual del continuo histórico que conecta los vestigios con el poblamiento popular actual.</p>
-                             </div>
-                         </div>
-                         
-                         <!-- Action Buttons -->
-                         <div class="flex flex-wrap gap-4 relative z-10">
-                             <a href="/sala-origenes-arqueologicos" class="flex items-center gap-3 bg-museum-gold hover:bg-museum-gold/90 text-museum-dark px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-lg shadow-museum-gold/20">
-                                 Ver Sala Completa
-                             </a>
-                             <button class="flex items-center gap-3 bg-museum-gold/10 hover:bg-museum-gold/20 text-museum-gold px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all border border-museum-gold/30">
-                                 <span class="text-lg">🏺</span> Explorar Catálogo
-                             </button>
-                             <button class="flex items-center gap-3 bg-white/5 hover:bg-white/10 text-white px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all border border-white/10">
-                                 <span class="text-lg">🗺️</span> Mapa de Hitos
-                             </button>
-                             <button class="flex items-center gap-3 bg-white/5 hover:bg-white/10 text-white px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all border border-white/10">
-                                 <span class="text-lg">📜</span> Descargar Cartilla
-                             </button>
-                             <button class="flex items-center gap-3 bg-white/5 hover:bg-white/10 text-white px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all border border-white/10">
-                                 <span class="text-lg">🐚</span> Conocer Infraestructura
-                             </button>
-                         </div>
-                     </div>
+    <!-- 05 Tour virtual -->
+    <Section id="tour-virtual" tone="dark" eyebrow="Experiencia Inmersiva" align="center">
+        <Fragment slot="title">Tour Virtual <span class="text-museum-gold">Casa Museo</span></Fragment>
+        <div class="rounded-[2rem] overflow-hidden border border-museum-cream/10 shadow-[0_60px_100px_-50px_rgba(0,0,0,0.8)]">
+            <YouTube id="https://youtu.be/M7NWv4rI_Ic?si=aqNZ63fXrznK4aX1" />
+        </div>
+    </Section>
 
-                      <!-- Sala 2 -->
-                      <div class="mb-48 relative overflow-hidden group">
-                           <div class="hidden md:block text-6xl md:text-[10rem] font-display text-museum-gold/[0.03] absolute -top-32 -right-10 select-none z-0 pointer-events-none transition-transform duration-1000 group-hover:-translate-x-10 text-right">SALA 2</div>
-                         <div class="relative z-10 w-full mb-12 flex flex-col items-end text-right">
-                             <span class="text-museum-gold font-bold text-xs tracking-widest uppercase mb-4 block">Sala 2 • Fuerza Viva del Territorio</span>
-                             <h2 class="text-4xl md:text-5xl font-display mb-6">Cultura Zenú y Memoria Ancestral</h2>
-                             <p class="text-white/70 text-lg font-light leading-relaxed mb-6 max-w-3xl">
-                                <strong class="text-white">Narrativa:</strong> "Desde las huellas más antiguas inscritas en la tierra hasta la memoria viva que sostiene nuestra identidad actual."
-                             </p>
-                             <p class="text-white/50 text-base font-light leading-relaxed mb-10 max-w-3xl">
-                                <strong class="text-museum-gold">Eje Pedagógico:</strong> La continuidad cultural como trinchera, la hibridación afroindígena como matriz de identidad y las tecnologías ancestrales del cuerpo, el tejido y el pensamiento hidráulico como guías de resistencia contemporánea.
-                             </p>
-                         </div>
-                         
-                         <!-- Ejes Grid -->
-                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10 mb-16">
-                             <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors duration-300 text-left">
-                                 <h4 class="text-museum-gold text-lg font-display mb-4">El Tejido Intercultural</h4>
-                                 <p class="text-white/50 text-sm font-light">Estudio crítico e interactivo de los procesos de hibridación cultural y cimarronaje en el Caribe colombiano.</p>
-                             </div>
-                             <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors duration-300 text-left">
-                                 <h4 class="text-museum-gold text-lg font-display mb-4">Tecnologías del Pensamiento Hidráulico</h4>
-                                 <p class="text-white/50 text-sm font-light">Análisis y apropiación de los sistemas ancestrales de manejo de aguas de la cultura Zenú.</p>
-                             </div>
-                             <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors duration-300 text-left">
-                                 <h4 class="text-museum-gold text-lg font-display mb-4">El Arte del Trenzado</h4>
-                                 <p class="text-white/50 text-sm font-light">Laboratorios de investigación sobre las estéticas del tejido y los saberes corporales tradicionales.</p>
-                             </div>
-                         </div>
-                         
-                         <!-- Action Buttons -->
-                         <div class="flex flex-wrap justify-end gap-4 relative z-10">
-                             <a href="/sala-cultura-zenu" class="flex items-center gap-3 bg-museum-gold hover:bg-museum-gold/90 text-museum-dark px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-lg shadow-museum-gold/20">
-                                 Ver Sala Completa
-                             </a>
-                             <button class="flex items-center gap-3 bg-museum-gold/10 hover:bg-museum-gold/20 text-museum-gold px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all border border-museum-gold/30">
-                                 <span class="text-lg">🐚</span> Galería Virtual
-                             </button>
-                             <button class="flex items-center gap-3 bg-white/5 hover:bg-white/10 text-white px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all border border-white/10">
-                                 <span class="text-lg">🌱</span> Herbario Digital
-                             </button>
-                             <button class="flex items-center gap-3 bg-white/5 hover:bg-white/10 text-white px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all border border-white/10">
-                                 <span class="text-lg">🧶</span> Descargar Cartilla
-                             </button>
-                             <button class="flex items-center gap-3 bg-white/5 hover:bg-white/10 text-white px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all border border-white/10">
-                                 <span class="text-lg">🖥️</span> Conocer Infraestructura
-                             </button>
-                         </div>
-                     </div>
+    <!-- 06 Cápsulas -->
+    <Section id="capsulas" tone="cream" eyebrow="Galería de vídeos">
+        <Fragment slot="title">Cápsulas de <span class="text-museum-gold">Memoria</span></Fragment>
+        <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+            {capsulas.map((c) => (
+                <figure class="rounded-3xl overflow-hidden bg-museum-dark shadow-[0_30px_60px_-35px_rgba(26,26,26,0.6)]">
+                    <YouTube id={c.id} title={c.t} />
+                    <figcaption class="px-6 py-4 text-museum-cream text-[11px] font-bold tracking-[0.25em] uppercase">{c.t}</figcaption>
+                </figure>
+            ))}
+        </div>
+    </Section>
 
-                      <!-- Sala 3 -->
-                      <div class="mb-24 relative overflow-hidden group">
-                           <div class="hidden md:block text-6xl md:text-[10rem] font-display text-museum-gold/[0.03] absolute -top-32 -left-10 select-none z-0 pointer-events-none transition-transform duration-1000 group-hover:translate-x-10">SALA 3</div>
-                         <div class="relative z-10 w-full mb-12">
-                             <span class="text-museum-gold font-bold text-xs tracking-widest uppercase mb-4 block">Sala 3 • Patrimonio y Resistencia</span>
-                             <h2 class="text-4xl md:text-5xl font-display mb-6">Vida Cotidiana</h2>
-                             <p class="text-white/70 text-lg font-light leading-relaxed mb-6 max-w-3xl">
-                                <strong class="text-white">Narrativa:</strong> "Desde las huellas más antiguas inscritas en la tierra hasta la memoria viva que sostiene nuestra identidad actual."
-                             </p>
-                             <p class="text-white/50 text-base font-light leading-relaxed mb-10 max-w-3xl">
-                                <strong class="text-museum-gold">Eje Pedagógico:</strong> La microhistoria doméstica como gran narrativa, la cultura material del hogar como documento de dignidad y los oficios tradicionales como saberes de resistencia y soberanía popular.
-                             </p>
-                         </div>
-                         
-                         <!-- Ejes Grid -->
-                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10 mb-16">
-                             <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors duration-300">
-                                 <h4 class="text-museum-gold text-lg font-display mb-4">Arqueología Doméstica</h4>
-                                 <p class="text-white/50 text-sm font-light">Catalogación, conservación y montaje interactivo de los objetos cotidianos que acompañaron el poblamiento.</p>
-                             </div>
-                             <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors duration-300">
-                                 <h4 class="text-museum-gold text-lg font-display mb-4">Cocina Tradicional y Fogones</h4>
-                                 <p class="text-white/50 text-sm font-light">Resguardo y experimentación de la herencia culinaria que garantizó la subsistencia en el humedal.</p>
-                             </div>
-                             <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors duration-300">
-                                 <h4 class="text-museum-gold text-lg font-display mb-4">Oficios Populares y Relleno</h4>
-                                 <p class="text-white/50 text-sm font-light">Reconstrucción interactiva de las memorias laborales de los fundadores y la épica del relleno solidario.</p>
-                             </div>
-                         </div>
-                         
-                         <!-- Action Buttons -->
-                         <div class="flex flex-wrap gap-4 relative z-10">
-                             <a href="/sala-vida-cotidiana" class="flex items-center gap-3 bg-museum-gold hover:bg-museum-gold/90 text-museum-dark px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-lg shadow-museum-gold/20">
-                                 Ver Sala Completa
-                             </a>
-                             <button class="flex items-center gap-3 bg-museum-gold/10 hover:bg-museum-gold/20 text-museum-gold px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all border border-museum-gold/30">
-                                 <span class="text-lg">🏺</span> Galería Virtual
-                             </button>
-                             <button class="flex items-center gap-3 bg-white/5 hover:bg-white/10 text-white px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all border border-white/10">
-                                 <span class="text-lg">🗺️</span> Mapa de Hitos
-                             </button>
-                             <button class="flex items-center gap-3 bg-white/5 hover:bg-white/10 text-white px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all border border-white/10">
-                                 <span class="text-lg">🍳</span> Recetario Transmedia
-                             </button>
-                             <button class="flex items-center gap-3 bg-white/5 hover:bg-white/10 text-white px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all border border-white/10">
-                                 <span class="text-lg">🎙️</span> Escuchar Fonoteca
-                             </button>
-                         </div>
-                     </div>
-
-                 </div>
-            </section>
-
-            <!-- Tour Virtual -->
-            <section id="tour-virtual" class="py-24 px-8 md:px-16 lg:px-24 bg-museum-dark border-t border-white/10 text-center">
-                 <div class="max-w-5xl mx-auto">
-                    <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Experiencia Inmersiva</span>
-                    <h2 class="text-3xl md:text-5xl font-display text-white mb-12">Tour Virtual Casa Museo</h2>
-                    
-                    <div class="aspect-video bg-zinc-900 rounded-[2rem] overflow-hidden shadow-2xl relative border border-white/10">
-                        <YouTube id="https://youtu.be/M7NWv4rI_Ic?si=aqNZ63fXrznK4aX1" title="Tour Virtual Casa Museo Pozón" className="w-full h-full rounded-none" />
-                    </div>
-                 </div>
-            </section>
-
-            <!-- Galería de Vídeos -->
-            <section class="py-32 px-8 md:px-16 lg:px-24 bg-museum-cream">
-                 <div class="max-w-7xl mx-auto">
-                    <div class="text-center mb-20">
-                        <h2 class="text-4xl font-display text-museum-dark mb-4">Cápsulas de Memoria</h2>
-                        <div class="w-20 h-1 bg-museum-gold mx-auto"></div>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <!-- Video 1: Historia Arqueológica -->
-                        <YouTube 
-                            id="https://youtu.be/zXxT9PXuueA?si=0teQJeEuLAwByKk4" 
-                            title="Historia Arqueológica" 
-                            className="rounded-2xl shadow-2xl" 
-                        />
-
-                        <!-- Video 2: El Legado Zenú -->
-                        <YouTube 
-                            id="https://youtu.be/R_joFMP_aLA?si=BZEdxPWedz1mdRw5" 
-                            title="El Legado Zenú" 
-                            className="rounded-2xl shadow-2xl" 
-                        />
-
-                        <!-- Video 3: Rostros del Pozón -->
-                        <YouTube 
-                            id="https://youtu.be/jjuJYV3YBIQ" 
-                            title="Rostros del Pozón" 
-                            className="rounded-2xl shadow-2xl" 
-                        />
-
-                        <!-- Video 4: El Pozón Vivo -->
-                        <YouTube 
-                            id="https://youtu.be/jrperNvuNVA" 
-                            title="El Pozón Vivo" 
-                            className="rounded-2xl shadow-2xl" 
-                        />
-                    </div>
-                 </div>
-            </section>
-
-            <!-- PDF Download & Final Footer -->
-            <section class="py-32 px-8 bg-white text-center">
-                <div class="max-w-2xl mx-auto">
-                    <h3 class="text-2xl font-display text-museum-dark mb-6">Dignificamos y Proyectamos la Memoria</h3>
-                    <p class="text-museum-dark/60 font-light mb-12">Descarga nuestra guía pedagógica completa y profundiza en la historia ascendente del Pozón.</p>
-                    
-                    <a href="/guia-museal.pdf" download class="group inline-flex items-center gap-4 bg-museum-dark text-white px-10 py-5 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-museum-gold transition-all duration-500 shadow-2xl shadow-museum-dark/20">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-y-1 transition-transform"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        Descargar Guía PDF
-                    </a>
-
-                    <div class="mt-20">
-                        <a href="/" class="group text-[10px] uppercase tracking-[0.4em] font-bold text-museum-dark/30 hover:text-museum-gold transition-colors inline-flex items-center gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-                            Volver al Inicio
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </main>
-	</body>
-</html>
+    <CtaBand>
+        <Fragment slot="title">Dignificamos y proyectamos <span class="text-museum-gold">la memoria</span></Fragment>
+        Descarga nuestra guía pedagógica completa y profundiza en la historia ascendente del Pozón.
+        <Fragment slot="actions">
+            <Btn href="/pdfs/GUÍA PEDAGÓGICA INTEGRAL.pdf" external>Descargar Guía PDF</Btn>
+            <Btn href="/" variant="outline">Volver al Inicio</Btn>
+        </Fragment>
+    </CtaBand>
+</Layout>

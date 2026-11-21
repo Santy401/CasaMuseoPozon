@@ -1,67 +1,76 @@
 ---
+const aliados = [
+    { src: "/imagenes/escuela-museologica-sin-fondo.png", alt: "Escuela Museológica", label: "Escuela Museológica" },
+    { src: "/logos/Cartagena-Popular.png", alt: "Cartagena Popular", label: "Cartagena Popular" },
+];
 ---
-<section id="inicio" class="relative min-h-screen flex items-stretch overflow-hidden bg-museum-cream">
-    <!-- Mini Logos Separados -->
-    <div class="absolute bottom-6 mt-10 right-8 lg:bottom-12 lg:right-12 z-40 flex items-center gap-4">
-        <!-- Logo Escuela -->
-        <div class="bg-white p-3 md:p-4 rounded-2xl shadow-2xl border border-museum-gold/10 w-24 md:w-32 lg:w-40 h-24 md:h-32 lg:h-40 flex items-center justify-center">
-            <img 
-                src="/imagenes/escuela-museologica-sin-fondo.png" 
-                alt="Escuela Museológica Logo" 
-                class="max-w-full max-h-full object-contain"
-            />
-        </div>
-        <!-- Logo Institucional -->
-        <div class="bg-white p-3 md:p-4 rounded-2xl shadow-2xl border border-museum-gold/10 w-24 md:w-32 lg:w-40 h-24 md:h-32 lg:h-40 flex items-center justify-center">
-            <img 
-                src="/logos/Cartagena-Popular.png" 
-                alt="Casa Museo Pozón Mini Logo" 
-                class="max-w-full max-h-full object-contain"
-            />
-        </div>
-    </div>
-    
-    <!-- Left Content -->
-    <div class="relative z-20 w-full lg:w-1/2 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-32">
-        <div class="flex flex-col gap-1 mb-8">
-            <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs uppercase">Est. 2002</span>
-            <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs uppercase">NIT: 901939559-4</span>
-            <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs uppercase">SIMCO: N° 13001-15</span>
-        </div>
-        <h1 class="text-7xl md:text-8xl lg:text-[10rem] font-display text-museum-dark leading-[0.85] mb-12">
-            Casa Museo <br/> El Pozón
-        </h1>
-        
-        <div class="border-l border-museum-gold/60 pl-8 mb-14 max-w-lg">
-            <h2 class="text-museum-dark font-display text-2xl md:text-3xl mb-3">
-                Casa Museo de la Memoria Del Pozón
-            </h2>
-            <p class="text-museum-dark/70 italic mb-4 font-light text-lg">
-                Revitalizamos, preservamos y promovemos el patrimonio cultural, histórico y biocultural del territorio pozonero.
-            </p>
-            <p class="text-museum-dark/60 font-light leading-relaxed text-sm md:text-base">
-                Fomentando la participación comunitaria, la sostenibilidad ambiental y la fortaleza de nuestro tejido social.
-            </p>
-        </div>
-
-        <div class="flex flex-col sm:flex-row gap-5">
-            <a href="#portafolio" class="bg-museum-gold text-museum-cream px-10 py-5 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-museum-dark transition-all duration-500 text-center shadow-xl shadow-museum-gold/10">
-                Explorar Colección
-            </a>
-            <a href="#contacto" class="border border-museum-dark/30 text-museum-dark px-10 py-5 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-museum-dark hover:text-white transition-all duration-500 text-center">
-                Ver Horarios
-            </a>
-        </div>
-    </div>
-
-    <!-- Right Image Side -->
-    <div class="absolute inset-y-0 right-0 w-full lg:w-1/2 h-full overflow-hidden">
-        <img 
-            src="/imagenes/fondo-seccion.png" 
-            alt="Interior del Museo Pozón" 
-            class="w-full h-full object-cover object-center opacity-40 lg:opacity-100"
+<section id="inicio" data-hero class="relative min-h-svh flex items-end overflow-hidden bg-museum-dark text-museum-cream">
+    <div data-hero-media class="absolute inset-0 will-change-transform">
+        <img
+            src="/imagenes/fondo-seccion.png"
+            alt="Interior de la Casa Museo El Pozón"
+            class="absolute inset-0 w-full h-full object-cover"
+            fetchpriority="high"
+            decoding="async"
         />
-        <!-- Subtle gradient to blend with the cream background -->
-        <div class="absolute inset-0 bg-gradient-to-r from-museum-cream via-museum-cream/60 lg:from-museum-cream lg:via-transparent to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-museum-dark via-museum-dark/55 to-museum-dark/35"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-museum-dark/85 via-museum-dark/30 to-transparent"></div>
+    </div>
+
+    <div data-hero-content class="relative z-20 w-full px-8 md:px-16 lg:px-24 pt-36 pb-28 md:pb-32">
+        <div class="max-w-7xl mx-auto">
+            <div data-hero-in class="flex flex-wrap items-center gap-x-8 gap-y-2 mb-8">
+                <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs uppercase">Est. 2002</span>
+                <span class="text-museum-cream/60 font-bold tracking-[0.4em] text-[10px] md:text-xs uppercase">NIT: 901939559-4</span>
+                <span class="text-museum-cream/60 font-bold tracking-[0.4em] text-[10px] md:text-xs uppercase">SIMCO: N° 13001-15</span>
+            </div>
+
+            <h1 data-hero-title class="text-[clamp(3.4rem,10vw,9.5rem)] font-display leading-[0.9] mb-10 max-w-5xl">
+                Casa Museo <br /><span class="text-museum-gold">El Pozón</span>
+            </h1>
+
+            <div data-hero-in class="border-l border-museum-gold/70 pl-6 md:pl-8 mb-12 max-w-xl">
+                <h2 class="font-display text-2xl md:text-3xl mb-3">Casa Museo de la Memoria Del Pozón</h2>
+                <p class="text-museum-cream/80 italic font-light text-lg mb-3">
+                    Revitalizamos, preservamos y promovemos el patrimonio cultural, histórico y biocultural del territorio pozonero.
+                </p>
+                <p class="text-museum-cream/60 font-light leading-relaxed text-sm md:text-base">
+                    Fomentando la participación comunitaria, la sostenibilidad ambiental y la fortaleza de nuestro tejido social.
+                </p>
+            </div>
+
+            <div data-hero-in class="flex flex-col sm:flex-row gap-4 sm:gap-5">
+                <a href="#portafolio" class="btn-magnetic group relative overflow-hidden bg-museum-gold text-museum-dark px-10 py-5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase shadow-xl shadow-museum-gold/10">
+                    <span class="relative z-10">Explorar Colección</span>
+                    <span class="absolute inset-0 bg-museum-cream translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" aria-hidden="true"></span>
+                </a>
+                <a href="#contacto" class="btn-magnetic group relative overflow-hidden border border-museum-cream/40 text-museum-cream px-10 py-5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase">
+                    <span class="relative z-10 transition-colors duration-500 group-hover:text-museum-dark">Ver Horarios</span>
+                    <span class="absolute inset-0 bg-museum-cream translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" aria-hidden="true"></span>
+                </a>
+            </div>
+            <!-- Distintivos de procesos: cápsula de vidrio con logos circulares -->
+    <div data-hero-in class="relative z-30 mt-10 md:mt-0 md:absolute md:bottom-10 md:right-[7.5rem] lg:right-[8.5rem] flex flex-col items-start md:items-end gap-2">
+        <span class="hidden md:block text-[9px] font-bold tracking-[0.4em] uppercase text-museum-cream/60 mr-3">Procesos y programas</span>
+        <ul class="flex items-center gap-2 rounded-full bg-museum-cream/10 backdrop-blur-xl border border-museum-cream/25 p-2 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.6)]">
+            {aliados.map((a, i) => (
+                <li class="group relative">
+                    <div class={`hero-badge w-16 h-16 md:w-20 md:h-20 rounded-full bg-white flex items-center justify-center p-3 ring-2 ring-museum-gold/60 group-hover:ring-museum-gold transition-all duration-500`}>
+                        <img src={a.src} alt={a.alt} class="max-w-full max-h-full object-contain" loading="eager" />
+                    </div>
+                    <span class="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-3 whitespace-nowrap rounded-full bg-museum-dark/90 text-museum-cream text-[9px] font-bold tracking-[0.2em] uppercase px-3 py-1.5 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">{a.label}</span>
+                </li>
+            ))}
+        </ul>
+    </div>
+        </div>
+    </div>
+
+
+
+    <!-- Indicador de scroll -->
+    <div data-hero-in class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 hidden lg:flex flex-col items-center gap-2 text-museum-cream/60" aria-hidden="true">
+        <span class="text-[9px] tracking-[0.4em] uppercase">Desliza</span>
+        <span class="block w-px h-10 bg-gradient-to-b from-museum-gold to-transparent scroll-cue"></span>
     </div>
 </section>

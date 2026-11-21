@@ -1,0 +1,28 @@
+---
+export interface Item { title: string; text: string; icon?: string; tag?: string; href?: string; }
+export interface Props { items: Item[]; cols?: 2 | 3 | 4; dark?: boolean; numbered?: boolean; snap?: boolean; }
+const { items, cols = 3, dark = false, numbered = true, snap = true } = Astro.props;
+const colsCls = { 2: "md:grid-cols-2", 3: "md:grid-cols-2 lg:grid-cols-3", 4: "md:grid-cols-2 lg:grid-cols-4" }[cols];
+---
+<ul class:list={["pillars grid grid-cols-1 gap-5 md:gap-6", colsCls, snap && "snap-row"]}>
+    {items.map((it, i) => {
+        const Tag = it.href ? "a" : "div";
+        return (
+            <li class="flex [&>*]:flex-1 [&>*]:min-w-0">
+                <Tag {...(it.href ? { href: it.href } : {})} data-spotlight class:list={["pillar group relative overflow-hidden rounded-3xl p-7 md:p-9 border flex flex-col h-full", dark ? "bg-museum-cream/5 border-museum-cream/10 text-museum-cream" : "bg-white border-museum-dark/10 text-museum-dark shadow-[0_20px_50px_-35px_rgba(26,26,26,0.35)]"]}>
+                    <span class="pillar-glow" aria-hidden="true"></span>
+                    <div class="relative flex items-start justify-between mb-8">
+                        {it.icon
+                            ? <span class="w-12 h-12 rounded-2xl bg-museum-gold/15 text-museum-gold flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" set:html={it.icon} /></span>
+                            : <span />}
+                        {numbered && <span class="font-display text-4xl text-museum-gold/40 tabular-nums group-hover:text-museum-gold transition-colors duration-500">{String(i + 1).padStart(2, "0")}</span>}
+                    </div>
+                    {it.tag && <span class="relative text-[10px] font-bold tracking-[0.3em] uppercase text-museum-gold mb-3">{it.tag}</span>}
+                    <h3 class="relative font-display text-2xl md:text-[1.7rem] leading-tight mb-4">{it.title}</h3>
+                    <p class="relative text-sm md:text-[0.95rem] leading-relaxed font-light opacity-75">{it.text}</p>
+                    {it.href && <span class="relative mt-6 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] uppercase text-museum-gold">Ver más <span class="group-hover:translate-x-1.5 transition-transform duration-500">→</span></span>}
+                </Tag>
+            </li>
+        );
+    })}
+</ul>

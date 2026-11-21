@@ -1,73 +1,72 @@
 ---
+const nodos = [
+    {
+        n: "01", id: "cartografico", name: "Nodo Cartográfico", href: "/nodos-museales#cartografico",
+        desc: "Archivo vivo de memorias barriales, históricas y audiovisuales.",
+        tone: "bg-white text-museum-dark",
+        icon: '<path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/>',
+    },
+    {
+        n: "02", id: "memoteca", name: "Memoteca Digital", href: "/nodos-museales#memoteca",
+        desc: "Plataforma multimedia para la democratización del conocimiento.",
+        tone: "bg-museum-dark text-museum-cream",
+        icon: '<rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="m10 8 5 3-5 3z"/>',
+    },
+    {
+        n: "03", id: "laboratorio", name: "Laboratorio Creativo", href: "/nodos-museales#laboratorio",
+        desc: "Gestión patrimonial participativa a través del arte y el cuerpo.",
+        tone: "bg-museum-gold text-museum-dark",
+        icon: '<circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>',
+    },
+    {
+        n: "04", id: "huerta", name: "Huerta de Memoria", href: "/nodos-museales#huerta",
+        desc: "Nodo sensorial de sanación colectiva y saberes ancestrales.",
+        tone: "bg-museum-cream text-museum-dark border border-museum-gold/30",
+        icon: '<path d="M7 20h10"/><path d="M10 20c5.5-2.5 8-6.4 8-12"/><path d="M13 6.1s4.5 7 3 10"/><path d="M18 8c3.1 3 5 1 5 1"/><path d="M10 20c-5.5-2.5-8-6.4-8-12"/><path d="M7 6.1s-4.5 7-3 10"/><path d="M6 8c-3.1 3-5 1-5 1"/><path d="M12 10v10"/>',
+    },
+];
 ---
-<section id="nodos-museales" class="py-24 md:py-32 px-8 md:px-16 lg:px-24 bg-white relative overflow-hidden">
+<section id="nodos-museales" class="relative bg-museum-cream px-6 md:px-16 lg:px-24 pt-24 md:pt-36 pb-24">
     <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-20">
-            <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-4 uppercase block">Ecosistema de Memoria</span>
-            <h2 class="text-4xl md:text-5xl font-display text-museum-dark mb-6">Nodos Museales</h2>
-            <div class="w-24 h-1 bg-museum-gold mx-auto mb-8"></div>
-            <p class="max-w-2xl mx-auto text-museum-dark/60 font-light leading-relaxed">
+        <div class="grid lg:grid-cols-[5fr_7fr] gap-10 mb-14 md:mb-24 items-end">
+            <div>
+                <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-4 uppercase block">Ecosistema de Memoria</span>
+                <h2 class="text-4xl md:text-6xl font-display text-museum-dark">Nodos <span class="text-museum-gold">Museales</span></h2>
+            </div>
+            <p class="text-museum-dark/70 font-light leading-relaxed max-w-xl">
                 Nuestros centros de activación patrimonial donde se preserva, procesa y proyecta la identidad viva de El Pozón.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Nodo 1: Cartográfico -->
-            <a href="/nodos-museales#cartografico" class="group bg-museum-cream/30 p-8 rounded-3xl border border-transparent hover:border-museum-gold/30 hover:bg-white hover:shadow-2xl transition-all duration-500">
-                <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-museum-gold mb-8 shadow-sm group-hover:scale-110 transition-transform">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.617a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0l4.212 2.106Z"/><path d="M15 7.398v12.764"/><path d="M9 3.838v12.764"/></svg>
-                </div>
-                <h3 class="text-xl font-display text-museum-dark mb-4 group-hover:text-museum-gold transition-colors">Nodo Cartográfico</h3>
-                <p class="text-xs text-museum-dark/50 leading-relaxed font-light mb-6">Archivo vivo de memorias barriales, históricas y audiovisuales.</p>
-                <span class="text-[10px] font-bold tracking-widest uppercase text-museum-gold opacity-0 group-hover:opacity-100 transition-opacity inline-flex items-center gap-2">
-                    Ver Más 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </span>
-            </a>
-
-            <!-- Nodo 2: Memoteca -->
-            <a href="/nodos-museales#memoteca" class="group bg-museum-cream/30 p-8 rounded-3xl border border-transparent hover:border-museum-gold/30 hover:bg-white hover:shadow-2xl transition-all duration-500">
-                <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-museum-gold mb-8 shadow-sm group-hover:scale-110 transition-transform">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                </div>
-                <h3 class="text-xl font-display text-museum-dark mb-4 group-hover:text-museum-gold transition-colors">Memoteca Digital</h3>
-                <p class="text-xs text-museum-dark/50 leading-relaxed font-light mb-6">Plataforma multimedia para la democratización del conocimiento.</p>
-                <span class="text-[10px] font-bold tracking-widest uppercase text-museum-gold opacity-0 group-hover:opacity-100 transition-opacity inline-flex items-center gap-2">
-                    Ver Más 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </span>
-            </a>
-
-            <!-- Nodo 3: Laboratorio -->
-            <a href="/nodos-museales#laboratorio" class="group bg-museum-cream/30 p-8 rounded-3xl border border-transparent hover:border-museum-gold/30 hover:bg-white hover:shadow-2xl transition-all duration-500">
-                <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-museum-gold mb-8 shadow-sm group-hover:scale-110 transition-transform">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.707-.484 2.17-1.208.235-.37.706-.588 1.14-.467a10 10 0 0 0 7.33-10.152C22 5.052 17.5 2 12 2Z"/></svg>
-                </div>
-                <h3 class="text-xl font-display text-museum-dark mb-4 group-hover:text-museum-gold transition-colors">Laboratorio Creativo</h3>
-                <p class="text-xs text-museum-dark/50 leading-relaxed font-light mb-6">Gestión patrimonial participativa a través del arte y el cuerpo.</p>
-                <span class="text-[10px] font-bold tracking-widest uppercase text-museum-gold opacity-0 group-hover:opacity-100 transition-opacity inline-flex items-center gap-2">
-                    Ver Más 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </span>
-            </a>
-
-            <!-- Nodo 4: Huerta -->
-            <a href="/nodos-museales#huerta" class="group bg-museum-cream/30 p-8 rounded-3xl border border-transparent hover:border-museum-gold/30 hover:bg-white hover:shadow-2xl transition-all duration-500">
-                <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-museum-gold mb-8 shadow-sm group-hover:scale-110 transition-transform">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-                </div>
-                <h3 class="text-xl font-display text-museum-dark mb-4 group-hover:text-museum-gold transition-colors">Huerta de Memoria</h3>
-                <p class="text-xs text-museum-dark/50 leading-relaxed font-light mb-6">Nodo sensorial de sanación colectiva y saberes ancestrales.</p>
-                <span class="text-[10px] font-bold tracking-widest uppercase text-museum-gold opacity-0 group-hover:opacity-100 transition-opacity inline-flex items-center gap-2">
-                    Ver Más 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </span>
-            </a>
+        <!-- Tarjetas apiladas: cada nodo se queda fijo y el siguiente lo cubre al hacer scroll -->
+        <div data-stack class="relative">
+            {nodos.map((nodo, i) => (
+                <a href={nodo.href} data-stack-card class={`stack-card group sticky block rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-[0_30px_70px_-35px_rgba(26,26,26,0.5)] mb-6 md:mb-10 ${nodo.tone}`} style={`top: calc(6rem + ${i * 1.25}rem)`} aria-label={`${nodo.name}: ${nodo.desc}`}>
+                    <div class="grid md:grid-cols-[1.1fr_0.9fr] min-h-[22rem] md:min-h-[26rem]">
+                        <div class="p-8 md:p-14 flex flex-col justify-between gap-10">
+                            <span class="font-display text-6xl md:text-8xl leading-none opacity-30 tabular-nums">{nodo.n}</span>
+                            <div>
+                                <h3 class="font-display text-3xl md:text-5xl mb-4 leading-tight">{nodo.name}</h3>
+                                <p class="font-light leading-relaxed max-w-md opacity-80 mb-8">{nodo.desc}</p>
+                                <span class="inline-flex items-center gap-3 text-[10px] font-bold tracking-[0.3em] uppercase">
+                                    Ver nodo
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-2 transition-transform duration-500"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="relative hidden md:flex items-center justify-center overflow-hidden">
+                            <div class="absolute w-[26rem] h-[26rem] rounded-full border border-current opacity-10 group-hover:scale-110 transition-transform duration-1000" aria-hidden="true"></div>
+                            <div class="absolute w-[17rem] h-[17rem] rounded-full border border-current opacity-15 group-hover:scale-105 transition-transform duration-1000" aria-hidden="true"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" class="relative opacity-80 group-hover:scale-110 transition-transform duration-700" set:html={nodo.icon} />
+                        </div>
+                    </div>
+                </a>
+            ))}
         </div>
 
-        <div class="mt-20 text-center">
-            <a href="/nodos-museales" class="inline-block border border-museum-dark/20 text-museum-dark px-10 py-5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-museum-dark hover:text-white transition-all duration-500">
-                Explorar Todos los Nodos
+        <div class="mt-14 text-center">
+            <a href="/nodos-museales" class="btn-magnetic inline-block border border-museum-dark/25 text-museum-dark px-10 py-5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-museum-dark hover:text-museum-cream transition-colors duration-500">
+                Explorar todos los nodos
             </a>
         </div>
     </div>

@@ -1,0 +1,20 @@
+---
+export interface Props { items: { title: string; text?: string; tag?: string }[]; dark?: boolean; open?: number; }
+const { items, dark = false, open = 0 } = Astro.props;
+---
+<div class="divide-y" class:list={[dark ? "divide-museum-cream/15 border-y border-museum-cream/15" : "divide-museum-dark/10 border-y border-museum-dark/10"]}>
+    {items.map((it, i) => (
+        <details class="acc group" open={i === open}>
+            <summary class="flex items-center justify-between gap-6 py-6 md:py-7 cursor-pointer list-none">
+                <span class="flex items-baseline gap-5">
+                    <span class="font-display text-museum-gold/60 text-xl tabular-nums">{it.tag ?? String(i + 1).padStart(2, "0")}</span>
+                    <span class="font-display text-xl md:text-3xl leading-snug">{it.title}</span>
+                </span>
+                <span class="acc-icon shrink-0 w-10 h-10 rounded-full border border-museum-gold/50 text-museum-gold flex items-center justify-center transition-transform duration-500 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <div class="pb-8 md:pl-14 max-w-3xl font-light leading-relaxed opacity-80 text-sm md:text-base">
+                {it.text ? <p>{it.text}</p> : <slot name={`item-${i}`} />}
+            </div>
+        </details>
+    ))}
+</div>

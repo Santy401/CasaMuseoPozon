@@ -1,0 +1,15 @@
+---
+export interface Props { items: { title?: string; text: string }[]; dark?: boolean; cols?: 1 | 2; }
+const { items, dark = false, cols = 2 } = Astro.props;
+---
+<ol class:list={["grid gap-x-12 gap-y-2", cols === 2 && "md:grid-cols-2"]}>
+    {items.map((it, i) => (
+        <li class:list={["group flex gap-5 md:gap-7 py-6 md:py-8 border-b", dark ? "border-museum-cream/10" : "border-museum-dark/10"]}>
+            <span class="font-display text-3xl md:text-4xl text-museum-gold/50 group-hover:text-museum-gold transition-colors duration-500 tabular-nums leading-none pt-1">{String(i + 1).padStart(2, "0")}</span>
+            <div>
+                {it.title && <h3 class="font-display text-xl md:text-2xl mb-2 leading-snug">{it.title}</h3>}
+                <p class="font-light text-sm md:text-base leading-relaxed opacity-75">{it.text}</p>
+            </div>
+        </li>
+    ))}
+</ol>

@@ -1,0 +1,66 @@
+---
+import { piezas } from '../data/piezas';
+const total = String(piezas.length).padStart(2, '0');
+---
+<section id="coleccion-escena" data-cs class="cs relative bg-museum-cream text-museum-dark">
+    <!-- Escena fija: la pieza permanece mientras el scroll recorre el catálogo -->
+    <div class="cs-stage relative min-h-svh overflow-hidden px-8 md:px-16 lg:px-24 py-20 lg:py-0">
+        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+            <div class="absolute top-1/2 right-[8%] -translate-y-1/2 w-[46rem] h-[46rem] rounded-full border border-museum-gold/20"></div>
+            <div class="absolute top-1/2 right-[8%] -translate-y-1/2 translate-x-[8rem] w-[30rem] h-[30rem] rounded-full border border-museum-gold/15 hidden lg:block"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto min-h-svh grid lg:grid-cols-[1fr_1fr] gap-6 lg:gap-20 items-center content-center">
+            <div class="relative z-10 order-2 lg:order-none">
+                <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-4 lg:mb-6 uppercase block">Colección arqueológica · Conchero de La Islita</span>
+                <div class="cs-texts relative">
+                    {piezas.map((p, i) => (
+                        <article class="cs-text" data-cs-text aria-label={p.name}>
+                            <p class="font-display text-museum-gold text-4xl md:text-8xl leading-none mb-3 lg:mb-6 tabular-nums">{String(i + 1).padStart(2, '0')}<span class="text-museum-dark/20 text-3xl md:text-4xl"> / {total}</span></p>
+                            <h2 class="font-display text-2xl md:text-5xl leading-tight mb-3 lg:mb-5">{p.name}</h2>
+                            <div class="flex flex-wrap items-center gap-2 mb-3 lg:mb-5">
+                                <span class="text-[9px] bg-museum-dark text-museum-cream px-3 py-1.5 uppercase tracking-widest font-bold rounded-full">{p.fig}</span>
+                                <span class="text-[9px] border border-museum-gold text-museum-gold px-3 py-1.5 uppercase tracking-widest font-bold rounded-full">{p.date}</span>
+                                <span class="text-[9px] border border-museum-dark/20 text-museum-dark/60 px-3 py-1.5 uppercase tracking-widest font-bold rounded-full">{p.origin}</span>
+                            </div>
+                            <p class="text-museum-dark/70 font-light leading-relaxed max-w-md text-sm md:text-base">{p.desc}</p>
+                        </article>
+                    ))}
+                </div>
+                <a href="/coleccion" class="group inline-flex items-center gap-4 mt-5 lg:mt-10 text-museum-gold font-bold tracking-[0.2em] text-xs uppercase">
+                    <span class="w-12 h-px bg-museum-gold group-hover:w-20 transition-all duration-500"></span>
+                    Ver catálogo completo
+                </a>
+            </div>
+
+            <div class="cs-visual relative z-10 order-1 lg:order-none mx-auto w-full max-w-[13.5rem] sm:max-w-[18rem] lg:max-w-[34rem] aspect-square">
+                <div class="absolute inset-[6%] rounded-full bg-white shadow-[0_40px_90px_-40px_rgba(26,26,26,0.45)]"></div>
+                {piezas.map((p) => (
+                    <img data-cs-img src={p.img} alt={p.name} loading="lazy" decoding="async" class="cs-piece absolute inset-[16%] w-[68%] h-[68%] object-contain mix-blend-multiply drop-shadow-[0_24px_24px_rgba(26,26,26,0.25)]" />
+                ))}
+            </div>
+        </div>
+
+        <ol class="cs-dots absolute left-1/2 -translate-x-1/2 bottom-6 lg:bottom-10 flex items-center gap-2" aria-hidden="true">
+            {piezas.map(() => <li class="cs-dot h-1.5 w-1.5 rounded-full bg-museum-dark/20 transition-all duration-500"></li>)}
+        </ol>
+    </div>
+
+    <!-- Alternativa estática (sin JavaScript o con movimiento reducido) -->
+    <div class="cs-static px-8 md:px-16 lg:px-24 py-24">
+        <div class="max-w-7xl mx-auto">
+            <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-6 uppercase block">Colección arqueológica · Conchero de La Islita</span>
+            <h2 class="font-display text-4xl md:text-6xl mb-14">Piezas documentadas</h2>
+            <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {piezas.map((p) => (
+                    <li class="bg-white rounded-3xl p-6 border border-zinc-100">
+                        <div class="aspect-square bg-museum-cream rounded-2xl mb-5 flex items-center justify-center"><img src={p.img} alt={p.name} loading="lazy" class="max-h-[70%] object-contain mix-blend-multiply" /></div>
+                        <h3 class="font-display text-xl mb-2">{p.name}</h3>
+                        <p class="text-sm text-museum-dark/70 font-light">{p.desc}</p>
+                    </li>
+                ))}
+            </ul>
+            <a href="/coleccion" class="inline-block mt-10 text-museum-gold font-bold tracking-[0.2em] text-xs uppercase underline underline-offset-8">Ver catálogo completo</a>
+        </div>
+    </div>
+</section>

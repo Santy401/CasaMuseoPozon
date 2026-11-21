@@ -1,32 +1,31 @@
 ---
+import { redes } from "../data/redes";
 ---
 
-<div class="fixed left-2 md:left-4 top-1/2 -translate-y-1/2 z-[150] hidden lg:flex flex-col gap-10 items-center" transition:persist>
-    <!-- Top line decorator -->
-    <div class="w-px h-24 bg-gradient-to-b from-transparent via-museum-gold/60 to-museum-gold/30"></div>
-    
-    <!-- Social Icons -->
-    <a href="https://www.facebook.com/profile.php?id=61573050221655&locale=es_LA" target="_blank" aria-label="Facebook" class="text-museum-gold/60 hover:text-museum-gold hover:scale-150 transition-all duration-500 hover:drop-shadow-[0_0_8px_rgba(202,160,84,0.4)]">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-    </a>
+<aside
+    id="social-dock"
+    class="fixed left-4 xl:left-6 top-1/2 -translate-y-1/2 z-[150] hidden lg:flex flex-col items-center gap-3 py-5 px-2.5 rounded-full bg-museum-dark/75 backdrop-blur-xl border border-museum-gold/30 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.6)]"
+    aria-label="Redes sociales"
+    transition:persist
+>
+    <span class="[writing-mode:vertical-rl] rotate-180 text-[10px] font-black tracking-[0.45em] uppercase text-museum-gold select-none mb-1">Síguenos</span>
+    <span class="w-px h-8 bg-gradient-to-b from-museum-gold/70 to-transparent" aria-hidden="true"></span>
 
-    <a href="https://www.instagram.com/casapozonmuseo/" target="_blank" aria-label="Instagram" class="text-museum-gold/60 hover:text-museum-gold hover:scale-150 transition-all duration-500 hover:drop-shadow-[0_0_8px_rgba(202,160,84,0.4)]">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-    </a>
+    {redes.map((red) => (
+        <a
+            href={red.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={red.name}
+            class="social-dock__item group relative w-11 h-11 rounded-full flex items-center justify-center text-museum-cream/80 hover:text-museum-dark bg-museum-gold/0 hover:bg-museum-gold transition-colors duration-500"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={red.icon} />
+            <span class="pointer-events-none absolute left-full ml-4 whitespace-nowrap rounded-full bg-museum-gold text-museum-dark text-[10px] font-bold tracking-[0.25em] uppercase px-4 py-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 group-focus-visible:opacity-100 group-focus-visible:translate-x-0 transition-all duration-300">
+                {red.name}
+            </span>
+        </a>
+    ))}
 
-    <a href="https://www.youtube.com/@Casapozonmuseo" target="_blank" aria-label="YouTube" class="text-museum-gold/60 hover:text-museum-gold hover:scale-150 transition-all duration-500 hover:drop-shadow-[0_0_8px_rgba(202,160,84,0.4)]">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.46 5.58a2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.89 23 12 23 12s0-3.89-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
-    </a>
-
-    <a href="https://www.tiktok.com/@casapozonmuseo" target="_blank" aria-label="TikTok" class="text-museum-gold/60 hover:text-museum-gold hover:scale-150 transition-all duration-500 hover:drop-shadow-[0_0_8px_rgba(202,160,84,0.4)]">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" /></svg>
-    </a>
-
-    <!-- Bottom line decorator -->
-    <div class="w-px h-24 bg-gradient-to-t from-transparent via-museum-gold/60 to-museum-gold/30"></div>
-
-    <!-- Vertical Text -->
-    <div class="[writing-mode:vertical-lr] rotate-180 py-6 group cursor-default">
-        <span class="text-[12px] font-black tracking-[0.5em] uppercase text-museum-gold/70 group-hover:text-museum-gold transition-colors duration-500 select-none">SÍGUENOS</span>
-    </div>
-</div>
+    <span class="w-px h-8 bg-gradient-to-t from-museum-gold/70 to-transparent" aria-hidden="true"></span>
+    <span class="w-1.5 h-1.5 rounded-full bg-museum-gold animate-pulse" aria-hidden="true"></span>
+</aside>

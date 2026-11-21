@@ -1,4 +1,5 @@
 ---
+import PageHero from "../components/PageHero.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -6,20 +7,11 @@ import Layout from "../layouts/Layout.astro";
   title="Programa de Bienestar Territorial y Sanación Comunitaria | Casa Museo El Pozón"
   description="Sanación comunitaria desde el cuerpo, la espiritualidad y la tierra viva. Sala del Aliento Ancestral – Santuario Sensorial."
 >
-  <section class="relative min-h-[50vh] flex items-center justify-center bg-museum-dark pt-20 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/50 via-museum-dark/80 to-museum-dark z-10"></div>
-    <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]"></div>
-    <div class="relative z-20 text-center px-6 max-w-4xl" transition:animate="fade">
-      <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-6 uppercase block">Sala del Aliento Ancestral – Santuario Sensorial</span>
-      <h1 class="text-4xl md:text-7xl font-display text-white mb-8 leading-tight">
-        Bienestar Territorial <br/> <span class="text-museum-gold italic">y Sanación Comunitaria</span>
-      </h1>
-      <div class="w-24 h-1 bg-museum-gold mx-auto mb-8"></div>
-      <p class="max-w-3xl mx-auto text-museum-cream/80 text-base md:text-xl font-light leading-relaxed">
-        Sanación comunitaria desde el cuerpo, la espiritualidad y la tierra viva.
-      </p>
-    </div>
-  </section>
+    <PageHero image="/galeria/f48c4eeb-f362-45a7-a092-e82adcce2f3f.webp" group="Experiencia" current="Bienestar territorial">
+      <Fragment slot="eyebrow">Sala del Aliento Ancestral – Santuario Sensorial</Fragment>
+      Bienestar Territorial <span class="text-museum-gold italic">y Sanación Comunitaria</span>
+      <Fragment slot="lead">Sanación comunitaria desde el cuerpo, la espiritualidad y la tierra viva.</Fragment>
+    </PageHero>
 
   <section class="py-24 px-6 md:px-12 lg:px-24 bg-white">
     <div class="max-w-5xl mx-auto">

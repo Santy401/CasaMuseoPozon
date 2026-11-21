@@ -1,40 +1,22 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import "../styles/global.css";
-import SocialSidebar from "../components/SocialSidebar.astro";
-import Navbar from "../components/navbar.astro";
-import Footer from "../components/footer.astro";
+import PageHero from "../components/PageHero.astro";
+import Layout from "../layouts/Layout.astro";
 import SocioCard from "../components/SocioCard.astro";
 import { socios } from "../data/socios";
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Socios | Casa Museo Pozón</title>
-        <ClientRouter />
-	</head>
-	<body class="bg-white font-sans overflow-x-hidden">
-        <SocialSidebar />
-		<Navbar />
+<Layout
+  title="Socios | Casa Museo Pozón"
+  description="Socios — Fundación Casa Museo El Pozón, memoria viva y cultura comunitaria en Cartagena de Indias."
+  bodyClass="bg-white font-sans overflow-x-hidden"
+>
         
-        <main>
+        <div>
             <!-- Hero Header -->
-            <section class="relative min-h-[60vh] flex items-center justify-center bg-museum-dark pt-20 overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/80 to-museum-dark z-10"></div>
-                <div class="absolute inset-0 opacity-20 bg-[url('/imagenes/creator.png')] bg-cover bg-center mix-blend-overlay"></div>
-                
-                <div class="relative z-20 text-center px-8" transition:animate="fade">
-                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Legitimidad y Compromiso</span>
-                    <h1 class="text-6xl md:text-[8rem] lg:text-[10rem] font-display text-white mb-10 leading-none">
-                        Nuestros <br/> <span class="text-museum-gold italic">Socios</span>
-                    </h1>
-                    <div class="w-24 h-1 bg-museum-gold mx-auto"></div>
-                </div>
-            </section>
+    <PageHero image="/galeria/CARTAGENA POPULAR Y LIDERES.webp" group="Institucional" current="Socios">
+      <Fragment slot="eyebrow">Legitimidad y Compromiso</Fragment>
+      Nuestros <span class="text-museum-gold italic">Socios</span>
+    </PageHero>
 
             <!-- Members Grid -->
             <section class="py-32 px-8">
@@ -65,9 +47,7 @@ import { socios } from "../data/socios";
                    <span class="text-xs font-bold uppercase tracking-[0.3em]">Volver al Inicio</span>
                </a>
            </section>
-        </main>
-
-        <Footer />
+        </div>
 
         <!-- Modal Perfil Socio -->
         <div id="modal-socio" class="fixed inset-0 z-[9999] hidden overflow-y-auto">
@@ -230,5 +210,4 @@ import { socios } from "../data/socios";
 
             document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
         </script>
-	</body>
-</html>
+	</Layout>

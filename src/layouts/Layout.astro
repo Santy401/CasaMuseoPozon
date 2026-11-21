@@ -5,23 +5,26 @@ import Navbar from "../components/navbar.astro";
 import SocialSidebar from "../components/SocialSidebar.astro";
 import Footer from "../components/footer.astro";
 import WhatsappButton from "../components/WhatsappButton.astro";
+import MobileDock from "../components/MobileDock.astro";
 
 export interface Props {
   title: string;
   description: string;
   image?: string;
+  bodyClass?: string;
 }
 
 const { 
   title, 
   description, 
-  image = "https://www.casapozonmuseo.site/preview.jpg" 
+  image = "https://www.casapozonmuseo.site/preview.jpg",
+  bodyClass = "bg-museum-cream",
 } = Astro.props;
 
 // Construimos la URL completa dinámica según la página en la que estemos
 const canonicalURL = new URL(Astro.url.pathname, "https://www.casapozonmuseo.org");
 ---
-<html lang="es">
+<html lang="es" transition:animate="none">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.ico" />
@@ -117,7 +120,7 @@ const canonicalURL = new URL(Astro.url.pathname, "https://www.casapozonmuseo.org
       ]
     })} />
   </head>
-  <body class="overflow-x-hidden">
+  <body class={`overflow-x-hidden font-sans ${bodyClass}`}>
     <script type="text/javascript">
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
@@ -125,7 +128,34 @@ const canonicalURL = new URL(Astro.url.pathname, "https://www.casapozonmuseo.org
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
-    <div id="google_translate_element" class="absolute top-0 right-0 z-[200] p-2 opacity-50 hover:opacity-100 transition-opacity"></div>
+    <div id="preloader" role="status" aria-label="Cargando Casa Museo El Pozón">
+      <div class="relative z-10 flex flex-col items-center px-6 text-center">
+        <img id="pl-logo" class="w-28 md:w-36 h-auto opacity-0" src="/logos/casa-museo-pozon.png" alt="" width="700" height="678" fetchpriority="high" />
+        <div class="mt-10 w-44 md:w-56 h-px bg-museum-cream/15 overflow-hidden" aria-hidden="true">
+          <span id="pl-bar" class="block h-full w-full bg-museum-gold origin-left scale-x-0"></span>
+        </div>
+        <p id="pl-caption" class="mt-6 text-[10px] font-bold tracking-[0.5em] uppercase text-museum-cream/60">Casa Museo de la Memoria del Pozón</p>
+        <p class="mt-2 text-[10px] tracking-[0.3em] text-museum-gold tabular-nums"><span id="pl-count">0</span>%</p>
+      </div>
+    </div>
+    <script is:inline>
+      try {
+        if (sessionStorage.getItem('pozon-intro') || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.getElementById('preloader')?.remove();
+        }
+      } catch (e) {}
+    </script>
+    <noscript><style>#preloader,#page-curtain{display:none!important}</style></noscript>
+    <div id="page-curtain" aria-hidden="true" transition:persist>
+      <div class="curtain-bars"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="curtain-content">
+        <img id="curtain-logo" class="w-16 md:w-20 h-auto mb-6" src="/logos/casa-museo-pozon.png" alt="" width="700" height="678" />
+        <span class="curtain-kicker">Casa Museo El Pozón</span>
+        <span class="curtain-mask"><strong id="curtain-title" class="curtain-title">Cargando</strong></span>
+        <i class="curtain-line"></i>
+      </div>
+    </div>
+    <div id="scroll-progress" aria-hidden="true"></div>
     <SocialSidebar />
     <Navbar />
     
@@ -135,5 +165,10 @@ const canonicalURL = new URL(Astro.url.pathname, "https://www.casapozonmuseo.org
 
     <Footer />
     <WhatsappButton />
+    <MobileDock />
+    <script>
+      import "../scripts/motion";
+      import "../scripts/forms";
+    </script>
   </body>
 </html>

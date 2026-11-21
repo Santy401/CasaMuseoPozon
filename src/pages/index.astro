@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Inicio from "../views/Inicio.astro";
+import ColeccionSticky from "../views/ColeccionSticky.astro";
+import Manifiesto from "../views/Manifiesto.astro";
+import Linea from "../views/Linea.astro";
 import Aliados from "../views/Aliados.astro";
 import QuienesSomos from "../views/QuienesSomos.astro";
 import ModeloMuseal from "../views/ModeloMuseal.astro";
@@ -25,23 +28,32 @@ import Contacto from "../views/Contacto.astro";
   title="Casa Museo El Pozón | Memoria y Cultura en Cartagena"
   description="La Casa Museo El Pozón es un espacio dedicado a la preservación de la memoria histórica, cultural y social de nuestra comunidad en Cartagena. Descubre nuestros nodos museales y proyectos."
 >
+  <!-- 1. Presentación -->
   <Inicio />
-  <Aliados />
+  <Manifiesto />
+  <!-- 2. El patrimonio: escena fija con la colección -->
+  <ColeccionSticky />
+  <!-- 3. Quiénes somos y su historia -->
   <QuienesSomos />
+  <Linea />
+  <!-- 4. Cómo trabajamos -->
   <ModeloMuseal />
-  <RedMuseologicaSection />
-  <EscuelaMuseologicaSection />
   <NodosMuseales />
   <RecorridoMuseal />
+  <!-- 5. Comunidad y saberes -->
   <ProyectosSociales />
   <Galeria />
-  <Portafolio />
-  <Documentos />
+  <RedMuseologicaSection />
+  <EscuelaMuseologicaSection />
   <Eventos />
-  <RepresentanteLegal />
   <Testimonios />
   <Prensa />
-
+  <!-- 6. Institucional -->
+  <Aliados />
+  <Portafolio />
+  <Documentos />
+  <RepresentanteLegal />
   <Faq />
+  <!-- 7. Visítanos -->
   <Contacto />
 </Layout>

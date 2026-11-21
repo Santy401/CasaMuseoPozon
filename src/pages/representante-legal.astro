@@ -18,28 +18,22 @@ const indicadores = representante.indicadores;
     <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/90 via-museum-dark to-museum-dark z-10"></div>
     <div class="absolute inset-0 opacity-20 bg-[url('/imagenes/creator.png')] bg-cover bg-center mix-blend-overlay"></div>
     <div class="absolute top-0 right-0 w-96 h-96 bg-museum-gold/5 blur-3xl rounded-full pointer-events-none"></div>
-
     <div class="relative z-20 max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-      <div transition:animate="slide">
+      <div>
         <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs uppercase block mb-6">
           Representante Legal
         </span>
-
         <h1 class="text-5xl md:text-7xl font-display text-white leading-none mb-6">
           {representante.nombrePartes.primera}<br /><span class="text-museum-gold">{representante.nombrePartes.apellidos}</span>
         </h1>
-
         <p class="text-museum-gold/80 text-sm md:text-base font-bold uppercase tracking-[0.2em] mb-8">
           {representante.cargo}
         </p>
-
         <p class="text-white/60 text-lg font-light leading-relaxed mb-10 max-w-xl">
           Historiador, investigador territorial y arquitecto del Modelo Museal Turístico
           Territorial de El Pozón. La firma que respalda institucionalmente a la Fundación.
         </p>
-
         <div class="w-24 h-1 bg-museum-gold mb-10"></div>
-
         <div class="flex flex-wrap gap-x-12 gap-y-6">
           <div>
             <p class="text-[8px] uppercase tracking-[0.3em] text-white/30 mb-2">Registro</p>
@@ -58,7 +52,6 @@ const indicadores = representante.indicadores;
           </div>
         </div>
       </div>
-
       <!-- Retrato -->
       <div class="relative">
         <div class="relative aspect-[4/5] max-w-md mx-auto rounded-[2.5rem] overflow-hidden border border-museum-gold/20 shadow-2xl bg-museum-cream">

@@ -1,0 +1,13 @@
+---
+export interface Stat { value: number; suffix?: string; label: string; }
+export interface Props { stats: Stat[]; dark?: boolean; }
+const { stats, dark = false } = Astro.props;
+---
+<dl class:list={["grid grid-cols-2 lg:grid-cols-4 gap-px rounded-3xl overflow-hidden border", dark ? "bg-museum-cream/10 border-museum-cream/10" : "bg-museum-dark/10 border-museum-dark/10"]}>
+    {stats.map((s) => (
+        <div class:list={["p-7 md:p-10", dark ? "bg-museum-dark" : "bg-museum-cream"]}>
+            <dd class="font-display text-5xl md:text-7xl text-museum-gold leading-none mb-3 tabular-nums"><span data-count={s.value} data-suffix={s.suffix ?? ""}>{s.value}{s.suffix ?? ""}</span></dd>
+            <dt class="text-[10px] md:text-[11px] font-bold tracking-[0.25em] uppercase opacity-60">{s.label}</dt>
+        </div>
+    ))}
+</dl>

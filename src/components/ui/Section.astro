@@ -1,0 +1,32 @@
+---
+export interface Props {
+    id?: string;
+    tone?: "cream" | "white" | "dark" | "gold";
+    eyebrow?: string;
+    /** Alineación de la cabecera. */
+    align?: "left" | "center";
+    class?: string;
+    narrow?: boolean;
+}
+const { id, tone = "cream", eyebrow, align = "left", class: extra = "", narrow = false } = Astro.props;
+const tones = {
+    cream: "bg-museum-cream text-museum-dark",
+    white: "bg-white text-museum-dark",
+    dark: "bg-museum-dark text-museum-cream",
+    gold: "bg-museum-gold text-museum-dark",
+};
+const hasTitle = Astro.slots.has("title");
+const hasLead = Astro.slots.has("lead");
+---
+<section id={id} class:list={["ui-section relative py-20 md:py-32 px-6 md:px-16 lg:px-24", tones[tone], extra]} data-tone={tone}>
+    <div class:list={["mx-auto", narrow ? "max-w-4xl" : "max-w-7xl"]}>
+        {(hasTitle || eyebrow) && (
+            <header class:list={["mb-12 md:mb-20", align === "center" ? "text-center mx-auto max-w-3xl" : "max-w-3xl"]}>
+                {eyebrow && <span class="block font-bold tracking-[0.4em] text-[10px] md:text-xs uppercase mb-5 text-museum-gold">{eyebrow}</span>}
+                {hasTitle && <h2 class="font-display text-4xl md:text-6xl leading-[1.05] text-balance"><slot name="title" /></h2>}
+                {hasLead && <p class:list={["mt-6 font-light leading-relaxed text-base md:text-lg opacity-75", align === "center" && "mx-auto"]}><slot name="lead" /></p>}
+            </header>
+        )}
+        <slot />
+    </div>
+</section>

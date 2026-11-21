@@ -38,22 +38,16 @@ const iniciales = socioResuelto.nombre
     <div class="absolute inset-0 bg-gradient-to-b from-museum-dark/90 via-museum-dark to-museum-dark z-10"></div>
     <div class="absolute inset-0 opacity-20 bg-[url('/imagenes/creator.png')] bg-cover bg-center mix-blend-overlay"></div>
     <div class="absolute top-0 right-0 w-96 h-96 bg-museum-gold/5 blur-3xl rounded-full pointer-events-none"></div>
-
     <div class="relative z-20 max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-      <div transition:animate="slide">
+      <div>
         <a href="/socios" class="inline-flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.3em] text-museum-gold/70 hover:text-museum-gold transition-colors mb-10">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
           Cuerpo Colegiado
         </a>
-
         <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs uppercase block mb-6">Socio {socioResuelto.estado}</span>
-
         <h1 class="text-5xl md:text-7xl font-display text-white leading-none mb-6">{socioResuelto.nombre}</h1>
-
         <p class="text-museum-gold/80 text-sm md:text-base font-bold uppercase tracking-[0.2em] mb-8">{socioResuelto.rol}</p>
-
         <div class="w-24 h-1 bg-museum-gold mb-10"></div>
-
         <div class="flex flex-wrap gap-x-12 gap-y-6">
           <div>
             <p class="text-[8px] uppercase tracking-[0.3em] text-white/30 mb-2">Código</p>
@@ -72,7 +66,6 @@ const iniciales = socioResuelto.nombre
           </div>
         </div>
       </div>
-
       <!-- Retrato -->
       <div class="relative">
         <div class="relative aspect-[4/5] max-w-md mx-auto rounded-[2.5rem] overflow-hidden border border-museum-gold/20 shadow-2xl bg-museum-cream flex items-center justify-center">

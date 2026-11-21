@@ -1,9 +1,5 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import "../../styles/global.css";
-import SocialSidebar from "../../components/SocialSidebar.astro";
-import Navbar from "../../components/navbar.astro";
-import Footer from "../../components/footer.astro";
+import Layout from "../../layouts/Layout.astro";
 import YouTube from "../../components/YouTube.astro";
 import { articulos } from "../../data/revista";
 
@@ -18,25 +14,17 @@ const { articulo } = Astro.props;
 const relacionados = articulos.filter(a => a.categoria === articulo.categoria && a.slug !== articulo.slug);
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={articulo.extracto} />
-    <title>{articulo.titulo} | Revista El Pozón | Casa Museo Pozón</title>
-    <ClientRouter />
-  </head>
-  <body class="bg-white font-sans overflow-x-hidden">
-    <SocialSidebar />
-    <Navbar />
+<Layout
+  title={`${articulo.titulo} | Revista El Pozón | Casa Museo Pozón`}
+  description={`${articulo.titulo} — Fundación Casa Museo El Pozón, memoria viva y cultura comunitaria en Cartagena de Indias.`}
+  bodyClass="bg-white font-sans overflow-x-hidden"
+>
 
-    <main>
+    <div>
       <!-- Hero -->
       <section class="relative min-h-[50vh] flex items-center justify-center bg-museum-cream pt-20">
         <div class="absolute inset-0 bg-gradient-to-b from-museum-gold/5 to-transparent pointer-events-none"></div>
-        <div class="relative z-20 text-center px-8 max-w-4xl mx-auto" transition:animate="fade">
+        <div class="relative z-20 text-center px-8 max-w-4xl mx-auto">
           <div class="flex items-center justify-center gap-6 mb-8">
             <span class="text-museum-gold font-bold text-[10px] uppercase tracking-widest">{articulo.categoria}</span>
             <span class="w-4 h-[1px] bg-museum-gold/30"></span>
@@ -126,8 +114,5 @@ const relacionados = articulos.filter(a => a.categoria === articulo.categoria &&
           <span class="text-xs font-bold uppercase tracking-[0.3em]">Volver a la Revista</span>
         </a>
       </section>
-    </main>
-
-    <Footer />
-  </body>
-</html>
+    </div>
+  </Layout>

@@ -1,36 +1,20 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import "../../styles/global.css";
-import SocialSidebar from "../../components/SocialSidebar.astro";
-import Navbar from "../../components/navbar.astro";
-import Footer from "../../components/footer.astro";
+import PageHero from "../../components/PageHero.astro";
+import Layout from "../../layouts/Layout.astro";
+
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Archivo de ediciones digitales de la Revista El Pozón: Memoria Viva. Descarga PDFs de nuestras publicaciones." />
-    <title>Archivo | Revista El Pozón | Casa Museo Pozón</title>
-    <ClientRouter />
-  </head>
-  <body class="bg-museum-cream font-sans overflow-x-hidden">
-    <SocialSidebar />
-    <Navbar />
+<Layout
+  title="Archivo | Revista El Pozón | Casa Museo Pozón"
+  description="Archivo de ediciones digitales de la Revista El Pozón: Memoria Viva. Descarga PDFs de nuestras publicaciones."
+  bodyClass="bg-museum-cream font-sans overflow-x-hidden"
+>
 
-    <main>
-      <section class="relative min-h-[60vh] flex items-center justify-center bg-museum-cream pt-20">
-        <div class="absolute inset-0 bg-gradient-to-b from-museum-gold/5 to-transparent pointer-events-none"></div>
-        <div class="relative z-20 text-center px-8" transition:animate="fade">
-          <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Ediciones Digitales</span>
-          <h1 class="text-6xl md:text-8xl font-display text-museum-dark mb-10 leading-none">
-            Archivo <br/> <span class="text-museum-gold italic">Revista</span>
-          </h1>
-          <div class="w-24 h-1 bg-museum-gold mx-auto"></div>
-        </div>
-      </section>
+    <div>
+    <PageHero image="/galeria/79b7841c-cc34-4ae9-ac18-87f3799ff3f0.webp" group="Comunidad" current="Archivo">
+      <Fragment slot="eyebrow">Ediciones Digitales</Fragment>
+      Archivo <span class="text-museum-gold italic">Revista</span>
+    </PageHero>
 
       <div class="max-w-3xl mx-auto px-8 py-32 text-center">
         <div class="bg-white p-20 rounded-[3rem] shadow-xl shadow-museum-dark/5">
@@ -45,8 +29,5 @@ import Footer from "../../components/footer.astro";
           </a>
         </div>
       </div>
-    </main>
-
-    <Footer />
-  </body>
-</html>
+    </div>
+  </Layout>

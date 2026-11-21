@@ -1,0 +1,47 @@
+---
+export interface Props {
+    /** Foto real de fondo (ruta pública). */
+    image?: string;
+    /** Sección de la navbar a la que pertenece (migas de pan). */
+    group?: string;
+    /** Nombre corto de la página para las migas de pan. */
+    current?: string;
+    /** Posición del foco de la foto, p. ej. "50% 30%". */
+    focus?: string;
+}
+const { image, group, current, focus = "50% 40%" } = Astro.props;
+const has = {
+    eyebrow: Astro.slots.has("eyebrow"),
+    lead: Astro.slots.has("lead"),
+    actions: Astro.slots.has("actions"),
+};
+---
+<section class="page-hero relative min-h-[84svh] md:min-h-[88svh] flex items-end overflow-hidden bg-museum-dark text-museum-cream">
+    <div class="absolute inset-0" aria-hidden="true">
+        {image
+            ? <img src={encodeURI(image)} alt="" class="w-full h-full object-cover" style={`object-position:${focus}`} fetchpriority="high" decoding="async" />
+            : <div class="w-full h-full bg-[radial-gradient(60%_60%_at_70%_30%,rgba(196,160,82,0.25),transparent_70%)]"></div>}
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-museum-dark via-museum-dark/65 to-museum-dark/30" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-museum-dark/85 via-museum-dark/35 to-transparent" aria-hidden="true"></div>
+
+    <div class="relative z-20 w-full px-6 md:px-16 lg:px-24 pt-40 pb-14 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-4xl">
+                <nav aria-label="Ruta" class="flex flex-wrap items-center gap-2 text-[10px] md:text-[11px] font-bold tracking-[0.25em] uppercase text-museum-cream/60 mb-8">
+                    <a href="/" class="hero-crumb">Inicio</a>
+                    {group && <><span aria-hidden="true" class="text-museum-gold">/</span><span>{group}</span></>}
+                    {current && <><span aria-hidden="true" class="text-museum-gold">/</span><span class="text-museum-cream" aria-current="page">{current}</span></>}
+                </nav>
+                {has.eyebrow && <span class="block text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs uppercase mb-6"><slot name="eyebrow" /></span>}
+                <h1 class="font-display text-[clamp(2.6rem,8.2vw,7.2rem)] leading-[0.98] text-museum-cream mb-8 text-balance"><slot /></h1>
+                {has.lead && <p class="max-w-2xl text-museum-cream/75 text-base md:text-xl font-light leading-relaxed border-l border-museum-gold/60 pl-5 md:pl-7"><slot name="lead" /></p>}
+                {has.actions && <div class="mt-10 flex flex-wrap gap-4"><slot name="actions" /></div>}
+            </div>
+        </div>
+    </div>
+
+    <div class="absolute bottom-6 right-6 md:right-16 z-30 hidden md:flex items-center gap-3 text-museum-cream/50 text-[9px] tracking-[0.4em] uppercase" aria-hidden="true">
+        Desliza <span class="block w-12 h-px bg-gradient-to-r from-museum-gold to-transparent scroll-cue-x"></span>
+    </div>
+</section>

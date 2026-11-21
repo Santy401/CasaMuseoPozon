@@ -9,34 +9,32 @@ const previewImages = [
 ];
 ---
 
-<section id="galeria-preview" class="py-32 px-8 md:px-16 lg:px-24 bg-white relative overflow-hidden">
+<section id="galeria-preview" class="py-28 md:py-36 px-8 md:px-16 lg:px-24 bg-museum-cream relative overflow-hidden">
     <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
+        <div class="flex flex-col lg:flex-row justify-between lg:items-end mb-14 md:mb-20 gap-8">
             <div class="max-w-2xl">
                 <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-4 uppercase block">Archivo Gráfico</span>
-                <h2 class="text-4xl md:text-5xl font-display text-museum-dark mb-6">Galería de Memoria</h2>
+                <h2 class="text-4xl md:text-6xl font-display text-museum-dark mb-6">Galería de Memoria</h2>
                 <p class="text-museum-dark/60 font-light leading-relaxed">
                     Momentos capturados que narran nuestra historia, desde hallazgos arqueológicos hasta encuentros comunitarios transformadores.
                 </p>
             </div>
-            <a href="/galeria" class="group/btn text-xs font-bold tracking-widest uppercase border-b-2 border-museum-gold pb-2 hover:text-museum-gold transition-colors inline-flex items-center gap-2">
+            <a href="/galeria" class="group/btn text-xs font-bold tracking-widest uppercase border-b-2 border-museum-gold pb-2 hover:text-museum-gold transition-colors inline-flex items-center gap-2 w-max">
                 Explorar galería completa
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover/btn:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[11rem] md:auto-rows-[14rem] gap-3 md:gap-5">
             {previewImages.map((image, index) => (
-                <div class={`aspect-square overflow-hidden rounded-2xl group relative cursor-pointer ${index % 2 === 0 ? 'md:translate-y-4' : 'md:-translate-y-4'} transition-transform duration-1000`}>
-                    <img 
-                        src={image.src} 
-                        alt={image.title} 
-                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
-                    />
-                    <div class="absolute inset-0 bg-museum-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-4">
-                        <span class="text-[8px] font-bold text-white uppercase tracking-[0.2em] text-center">{image.title}</span>
-                    </div>
-                </div>
+                <a href="/galeria" class={`group relative overflow-hidden rounded-3xl bg-museum-dark ${['col-span-2 row-span-2', '', 'row-span-2', '', 'md:col-span-2', ''][index] ?? ''}`} aria-label={`Ver galería: ${image.title}`}>
+                    <img src={image.src} alt={image.title} loading="lazy" class="absolute inset-0 w-full h-full object-cover grayscale-[60%] group-hover:grayscale-0 transition-[filter] duration-700" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-museum-dark/80 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <span class="absolute left-5 bottom-5 right-5 flex items-center justify-between text-museum-cream text-[10px] font-bold uppercase tracking-[0.25em]">
+                        {image.title}
+                        <span class="w-9 h-9 rounded-full bg-museum-gold text-museum-dark flex items-center justify-center translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500" aria-hidden="true">→</span>
+                    </span>
+                </a>
             ))}
         </div>
     </div>

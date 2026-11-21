@@ -1,43 +1,102 @@
 ---
+import { redes, contacto } from "../data/redes";
+
+const explora = [
+    { name: "Quiénes somos", href: "/quienes-somos" },
+    { name: "Modelo Museal", href: "/modelo-museal" },
+    { name: "Nodos Museales", href: "/nodos-museales" },
+    { name: "Colección Arqueológica", href: "/coleccion" },
+    { name: "Turismo Comunitario", href: "/turismo-comunitario" },
+    { name: "Escuela Museológica", href: "/escuela-museologica" },
+];
+const comunidad = [
+    { name: "Proyectos Sociales", href: "/proyectos-sociales" },
+    { name: "Eventos", href: "/eventos" },
+    { name: "Noticias", href: "/noticias" },
+    { name: "Galería", href: "/galeria" },
+    { name: "Revista El Pozón", href: "/revista" },
+    { name: "Cómo Apoyar", href: "/como-apoyar" },
+];
 ---
-<footer class="py-20 px-8 md:px-16 lg:px-24 bg-white border-t border-zinc-100">
-    <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-12">
-            <div class="flex items-center justify-center">
-                 <img src="/logos/casa-museo-pozon.webp" alt="Casa Museo Pozón" class="w-40 md:w-48 h-auto object-contain opacity-40 grayscale hover:grayscale-0 hover:opacity-60 transition-all duration-700" />
+<footer class="relative bg-museum-dark text-museum-cream overflow-hidden" data-no-anim>
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[60rem] h-[30rem] bg-museum-gold/10 blur-3xl rounded-full pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Boletín -->
+    <div class="relative border-b border-museum-cream/10">
+        <div class="max-w-7xl mx-auto px-8 md:px-16 lg:px-24 py-16 md:py-20 grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+                <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase block mb-4">Boletín informativo</span>
+                <h2 class="font-display text-3xl md:text-4xl leading-tight">Noticias, crónicas y programación de la Casa Museo.</h2>
             </div>
-            
-            <div class="flex flex-col items-center md:items-end gap-4">
-                 <p class="text-[10px] font-bold text-museum-dark/40 uppercase tracking-[0.4em]">Fundación Casa Museo del Pozón</p>
-                 <p class="text-[9px] text-museum-dark/30 font-light italic text-center md:text-right">Memoria que transforma. Comunidad que resiste. Futuro que se construye.</p>
-                 
-                 <div class="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-3 mt-6">
-                     <a href="https://www.facebook.com/profile.php?id=61573050221655&locale=es_LA" target="_blank" class="text-[10px] font-black uppercase tracking-[0.2em] text-museum-dark/60 hover:text-museum-gold transition-colors">Facebook</a>
-                     <a href="https://www.instagram.com/casapozonmuseo/" target="_blank" class="text-[10px] font-black uppercase tracking-[0.2em] text-museum-dark/60 hover:text-museum-gold transition-colors">Instagram</a>
-                     <a href="https://www.youtube.com/@Casapozonmuseo" target="_blank" class="text-[10px] font-black uppercase tracking-[0.2em] text-museum-dark/60 hover:text-museum-gold transition-colors">Youtube</a>
-                     <a href="https://www.tiktok.com/@casapozonmuseo" target="_blank" class="text-[10px] font-black uppercase tracking-[0.2em] text-museum-dark/60 hover:text-museum-gold transition-colors">TikTok</a>
-                      <a href="/galeria" class="text-[10px] font-black uppercase tracking-[0.2em] text-museum-dark/60 hover:text-museum-gold transition-colors">Galería</a>
-                 </div>
+            <div>
+                <form data-form="newsletter" class="flex flex-col sm:flex-row gap-3" novalidate={false}>
+                    <label for="nl-correo" class="sr-only">Correo electrónico</label>
+                    <input id="nl-correo" name="correo" type="email" required autocomplete="email" placeholder="Tu correo electrónico" class="flex-1 min-w-0 bg-museum-cream/5 border border-museum-cream/20 focus:border-museum-gold rounded-full px-7 py-4 text-sm outline-none transition-colors placeholder:text-museum-cream/40" />
+                    <button type="submit" class="btn-magnetic group relative overflow-hidden bg-museum-gold text-museum-dark rounded-full px-8 py-4 text-[10px] font-bold tracking-[0.25em] uppercase whitespace-nowrap">
+                        <span class="relative z-10">Suscribirme</span>
+                        <span class="absolute inset-0 bg-museum-cream translate-y-full group-hover:translate-y-0 transition-transform duration-500" aria-hidden="true"></span>
+                    </button>
+                </form>
+                <p data-form-done hidden role="status" class="mt-4 text-sm text-museum-gold"><span data-form-done-msg></span></p>
+                <p class="mt-3 text-[11px] text-museum-cream/40">Al suscribirte se abre tu correo con la solicitud lista para enviar a la Fundación.</p>
             </div>
         </div>
-        
-        <div class="mt-20 border-t border-zinc-100 pt-16 flex flex-col lg:flex-row gap-12 justify-between items-center bg-museum-cream/30 p-6 md:p-12 rounded-3xl">
-            <div class="max-w-md text-center lg:text-left">
-                <h3 class="text-xl font-display text-museum-dark mb-2">Boletín Informativo</h3>
-                <p class="text-xs text-museum-dark/60 font-light">Suscríbete para recibir noticias, crónicas y programación de nuestros próximos eventos y actividades institucionales.</p>
+    </div>
+
+    <!-- Columnas -->
+    <div class="relative max-w-7xl mx-auto px-8 md:px-16 lg:px-24 py-16 grid sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-12">
+        <div>
+            <a href="/" class="inline-flex items-center gap-4 group" aria-label="Casa Museo Pozón — Inicio">
+                <img src="/logos/casa-museo-pozon.webp" alt="" width="84" height="81" class="w-20 h-auto" loading="lazy" />
+            </a>
+            <p class="mt-6 font-display text-xl leading-snug max-w-xs">Fundación Casa Museo del Pozón</p>
+            <p class="mt-3 text-sm text-museum-cream/50 font-light italic max-w-xs">Memoria que transforma. Comunidad que resiste. Futuro que se construye.</p>
+            <div class="flex gap-3 mt-8">
+                {redes.map((red) => (
+                    <a href={red.href} target="_blank" rel="noopener noreferrer" aria-label={red.name} class="w-11 h-11 rounded-full border border-museum-cream/20 flex items-center justify-center text-museum-cream/70 hover:bg-museum-gold hover:border-museum-gold hover:text-museum-dark transition-all duration-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={red.icon} />
+                    </a>
+                ))}
             </div>
-            <form class="flex w-full max-w-md gap-4">
-                <input type="email" placeholder="TU CORREO ELECTRÓNICO" class="w-full bg-white border border-zinc-200 px-6 py-4 text-[10px] tracking-widest focus:border-museum-gold outline-none transition-colors uppercase font-bold rounded-full" required />
-                <button type="submit" class="bg-museum-dark text-white px-8 py-4 rounded-full text-[10px] font-bold tracking-widest uppercase hover:bg-museum-gold transition-colors whitespace-nowrap">Suscribirse</button>
-            </form>
         </div>
-        
-        <div class="mt-16 pt-10 border-t border-zinc-50 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p class="text-[8px] uppercase tracking-widest text-museum-dark/30">© 2026 Casa Museo Pozón. Todos los derechos reservados.</p>
+
+        <nav aria-label="Explora">
+            <h3 class="text-[10px] font-bold tracking-[0.4em] uppercase text-museum-gold mb-6">Explora</h3>
+            <ul class="space-y-3">
+                {explora.map((l) => <li><a href={l.href} class="footer-link text-sm text-museum-cream/70 hover:text-museum-cream">{l.name}</a></li>)}
+            </ul>
+        </nav>
+
+        <nav aria-label="Comunidad">
+            <h3 class="text-[10px] font-bold tracking-[0.4em] uppercase text-museum-gold mb-6">Comunidad</h3>
+            <ul class="space-y-3">
+                {comunidad.map((l) => <li><a href={l.href} class="footer-link text-sm text-museum-cream/70 hover:text-museum-cream">{l.name}</a></li>)}
+            </ul>
+        </nav>
+
+        <div>
+            <h3 class="text-[10px] font-bold tracking-[0.4em] uppercase text-museum-gold mb-6">Visítanos</h3>
+            <address class="not-italic text-sm text-museum-cream/70 leading-relaxed space-y-4">
+                <p>Sector La Islita, Calle Las Palmas, trasversal 57 81-12 con Mz 50 Lote 02<br />Barrio El Pozón — Cartagena, Colombia</p>
+                <p><a href={`tel:+${contacto.whatsapp}`} class="footer-link hover:text-museum-cream">{contacto.telefono}</a><br /><span class="text-museum-cream/50">Fijo: {contacto.fijo}</span></p>
+                <p><a href={`mailto:${contacto.email}`} class="footer-link text-museum-gold text-[13px] sm:whitespace-nowrap break-all sm:break-normal">{contacto.email}</a></p>
+            </address>
+        </div>
+    </div>
+
+    <!-- Wordmark gigante -->
+    <div class="relative px-4 pt-6 pb-10 md:pb-16 select-none" aria-hidden="true">
+        <p class="font-display text-center leading-[0.95] text-[clamp(4.5rem,19vw,17rem)] text-transparent [-webkit-text-stroke:1px_rgb(196_160_82/0.45)] whitespace-nowrap">El Pozón</p>
+    </div>
+
+    <div class="relative border-t border-museum-cream/10">
+        <div class="max-w-7xl mx-auto px-8 md:px-16 lg:px-24 py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-[0.2em] text-museum-cream/40">
+            <p>© 2026 Casa Museo Pozón. Todos los derechos reservados.</p>
             <div class="flex items-center gap-4">
-                <a href="/politica-privacidad" class="text-[8px] uppercase tracking-widest text-museum-dark/40 hover:text-museum-gold transition-colors">Política de Privacidad</a>
-                <span class="text-museum-dark/20">•</span>
-                <p class="text-[8px] uppercase tracking-widest text-museum-dark/30">Cartagena de Indias - Colombia</p>
+                <a href="/politica-privacidad" class="hover:text-museum-gold transition-colors">Política de Privacidad</a>
+                <span aria-hidden="true">•</span>
+                <p>Cartagena de Indias — Colombia</p>
+                <div id="google_translate_element" class="opacity-70 hover:opacity-100 transition-opacity min-h-[1.5rem] max-w-[9rem] overflow-hidden"></div>
             </div>
         </div>
     </div>

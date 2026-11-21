@@ -1,9 +1,7 @@
 ---
-import { ClientRouter } from "astro:transitions";
-import "../styles/global.css";
-import SocialSidebar from "../components/SocialSidebar.astro";
-import Navbar from "../components/navbar.astro";
-
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import Btn from "../components/ui/Btn.astro";
 const documents = [
   {
     title: "CERTIFICADO SIMCO 2026",
@@ -48,274 +46,103 @@ const documents = [
     category: "Educación",
   },
 ];
+const destacados = [
+  { k: "Portafolio Pozón", href: "/pdfs/PORTAFOLIO INSTITUCIONAL.pdf" },
+  { k: "Plan Operativo", href: "/pdfs/PLAN ESTRATÉGICO 2026-2028.pdf" },
+  { k: "Certificado SIMCO", href: "/pdfs/2026 Cert SIMCO Reg Casa Museo Pozon.pdf" },
+];
+const categorias = Array.from(new Set(documents.map((d) => d.category)));
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Portafolio Institucional | Casa Museo Pozón</title>
-    <ClientRouter />
-  </head>
-  <body class="bg-zinc-50 font-sans overflow-x-hidden">
-    <SocialSidebar />
-    <Navbar />
+<Layout
+  title="Portafolio Institucional | Casa Museo Pozón"
+  description="Portafolio Institucional — Fundación Casa Museo El Pozón, memoria viva y cultura comunitaria en Cartagena de Indias."
+  bodyClass="bg-zinc-50 font-sans overflow-x-hidden"
+>
+    <PageHero image="/galeria/PRESENTACION METODOLOGIA MUSEAL-0.webp" group="Institucional" current="Portafolio">
+      <Fragment slot="eyebrow">Documentación Estratégica</Fragment>
+      Portafolio <span class="text-museum-gold italic">Digital</span>
+    </PageHero>
 
-    <main>
-      <!-- Hero Header -->
-      <section
-        class="relative min-h-[50vh] flex items-center justify-center bg-museum-dark pt-20"
-      >
-        <div
-          class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"
-        >
+    <section id="destacados" class="ui-section relative bg-museum-dark text-museum-cream px-6 md:px-16 lg:px-24 py-20 md:py-28">
+        <div class="max-w-7xl mx-auto">
+            <span class="block font-bold tracking-[0.4em] text-[10px] md:text-xs uppercase mb-5 text-museum-gold">Los tres imprescindibles</span>
+            <h2 class="font-display text-4xl md:text-6xl leading-[1.05] mb-12 md:mb-16">Descargas <span class="text-museum-gold">destacadas</span></h2>
+            <ul class="grid md:grid-cols-3 gap-5 md:gap-6">
+                {destacados.map((d, i) => (
+                    <li class="flex [&>*]:flex-1 [&>*]:min-w-0">
+                        <a href={d.href} target="_blank" rel="noopener noreferrer" data-spotlight class="pillar group relative overflow-hidden rounded-[2rem] border border-museum-cream/15 bg-museum-cream/5 p-8 md:p-10 min-h-[15rem] flex flex-col justify-between text-museum-cream">
+                            <span class="pillar-glow" aria-hidden="true"></span>
+                            <span class="relative font-display text-5xl text-museum-gold/60 group-hover:text-museum-gold transition-colors tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+                            <span class="relative">
+                                <span class="block text-[10px] font-bold tracking-[0.35em] uppercase text-museum-gold mb-3">Descargar</span>
+                                <span class="flex items-end justify-between gap-4"><span class="font-display text-2xl md:text-3xl leading-tight">{d.k}</span><span class="w-11 h-11 shrink-0 rounded-full bg-museum-gold text-museum-dark flex items-center justify-center group-hover:translate-y-1 transition-transform" aria-hidden="true">↓</span></span>
+                            </span>
+                        </a>
+                    </li>
+                ))}
+            </ul>
         </div>
-        <div class="relative z-20 text-center px-8" transition:animate="fade">
-          <span
-            class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block"
-            >Documentación Estratégica</span
-          >
-          <h1
-            class="text-5xl md:text-7xl font-display text-white mb-10 leading-none"
-          >
-            Portafolio <br />
-            <span class="text-museum-gold">Digital</span>
-          </h1>
-          <div class="w-24 h-1 bg-museum-gold mx-auto"></div>
-        </div>
-      </section>
+    </section>
 
-      <!-- PDF Highlights -->
-      <section
-        class="py-20 px-8 bg-museum-gold -mt-10 relative z-30 max-w-5xl mx-auto rounded-3xl shadow-2xl"
-      >
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <a
-            href="/pdfs/PORTAFOLIO INSTITUCIONAL.pdf"
-            target="_blank"
-            class="flex flex-col items-center text-center p-6 bg-museum-dark rounded-2xl hover:-translate-y-2 transition-transform duration-500 group/item"
-          >
-            <span
-              class="text-museum-gold mb-4 group-hover/item:scale-110 transition-transform"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-file-text"
-                ><path
-                  d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
-                ></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path
-                  d="M10 9H8"></path><path d="M16 13H8"></path><path
-                  d="M16 17H8"></path></svg
-              >
-            </span>
-            <p
-              class="text-[10px] font-bold text-museum-gold uppercase tracking-[0.2em] mb-2"
-            >
-              Descargar
-            </p>
-            <p class="text-white text-xs font-bold leading-tight">
-              Portafolio Pozón
-            </p>
-          </a>
-          <a
-            href="/pdfs/PLAN ESTRATÉGICO 2026-2028.pdf"
-            target="_blank"
-            class="flex flex-col items-center text-center p-6 bg-museum-dark rounded-2xl hover:-translate-y-2 transition-transform duration-500 group/item"
-          >
-            <span
-              class="text-museum-gold mb-4 group-hover/item:scale-110 transition-transform"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-file-text"
-                ><path
-                  d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
-                ></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path
-                  d="M10 9H8"></path><path d="M16 13H8"></path><path
-                  d="M16 17H8"></path></svg
-              >
-            </span>
-            <p
-              class="text-[10px] font-bold text-museum-gold uppercase tracking-[0.2em] mb-2"
-            >
-              Descargar
-            </p>
-            <p class="text-white text-xs font-bold leading-tight">
-              Plan Operativo
-            </p>
-          </a>
-          <a
-            href="/pdfs/2026 Cert SIMCO Reg Casa Museo Pozon.pdf"
-            target="_blank"
-            class="flex flex-col items-center text-center p-6 bg-museum-dark rounded-2xl hover:-translate-y-2 transition-transform duration-500 group/item"
-          >
-            <span
-              class="text-museum-gold mb-4 group-hover/item:scale-110 transition-transform"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-file-text"
-                ><path
-                  d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
-                ></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path
-                  d="M10 9H8"></path><path d="M16 13H8"></path><path
-                  d="M16 17H8"></path></svg
-              >
-            </span>
-            <p
-              class="text-[10px] font-bold text-museum-gold uppercase tracking-[0.2em] mb-2"
-            >
-              Descargar
-            </p>
-            <p class="text-white text-xs font-bold leading-tight">
-              Certificado SIMCO
-            </p>
-          </a>
-        </div>
-      </section>
-
-      <!-- Grid de Publicaciones y Sub-secciones -->
-      <section class="py-32 px-8 max-w-7xl mx-auto">
-        <div class="text-center mb-20">
-          <p
-            class="text-museum-dark/40 text-[10px] uppercase tracking-widest font-bold mb-4 font-display"
-          >
-            Archivos y Publicaciones
-          </p>
-          <h2 class="text-4xl font-display text-museum-dark">
-            Explorar Contenidos
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {
-            documents.map((doc) => (
-              <div class="bg-white border border-zinc-100 rounded-[2.5rem] p-10 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col group h-full">
-                <div class="flex justify-between items-start mb-8">
-                  <span class="bg-museum-cream text-museum-gold px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest">
-                    {doc.category}
-                  </span>
-                  <span class="text-museum-dark/20 text-[10px] font-bold">
-                    {doc.date}
-                  </span>
+    <section id="archivo" class="ui-section relative bg-museum-cream px-6 md:px-16 lg:px-24 py-20 md:py-32">
+        <div class="max-w-7xl mx-auto">
+            <header class="mb-10 md:mb-14 flex flex-wrap items-end justify-between gap-8">
+                <div>
+                    <span class="block font-bold tracking-[0.4em] text-[10px] md:text-xs uppercase mb-5 text-museum-gold">Archivos y Publicaciones</span>
+                    <h2 class="font-display text-4xl md:text-6xl leading-[1.05]">Explorar <span class="text-museum-gold">Contenidos</span></h2>
                 </div>
-                <h3 class="text-xl font-display text-museum-dark mb-4 group-hover:text-museum-gold transition-colors flex-grow">
-                  {doc.title}
-                </h3>
-                <p class="text-sm font-light text-museum-dark/50 leading-relaxed mb-8">
-                  {doc.subtitle}
-                </p>
-                <a
-                  href={`/pdfs/${doc.slug}`}
-                  target="_blank"
-                  class="inline-flex items-center gap-4 text-[10px] font-bold tracking-widest uppercase text-museum-dark/40 group-hover:text-museum-gold transition-colors group-hover:gap-6"
-                >
-                  Descargar PDF
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <>
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="12 5 19 12 12 19" />
-                    </>
-                  </svg>
-                </a>
-              </div>
-            ))
-          }
-        </div>
+                <div class="flex gap-2 overflow-x-auto pb-2 -mx-6 px-6 md:mx-0 md:px-0 md:flex-wrap" role="group" aria-label="Filtrar por categoría">
+                    <button type="button" data-filter="all" aria-pressed="true" class="doc-chip shrink-0 rounded-full border border-museum-dark bg-museum-dark text-museum-cream px-5 py-2.5 text-[10px] font-bold tracking-[0.2em] uppercase transition-colors">Todos</button>
+                    {categorias.map((c) => <button type="button" data-filter={c} aria-pressed="false" class="doc-chip shrink-0 rounded-full border border-museum-dark/20 text-museum-dark/70 px-5 py-2.5 text-[10px] font-bold tracking-[0.2em] uppercase hover:border-museum-gold transition-colors">{c}</button>)}
+                </div>
+            </header>
 
-        <!-- Blog Section Dummy -->
-        <div class="mt-40 border-t border-zinc-200 pt-32 text-center">
-          <h3 class="text-2xl font-display text-museum-dark mb-10 italic">
-            Últimas publicaciones en nuestro blog corporativo
-          </h3>
-          <div
-            class="max-w-4xl mx-auto bg-museum-dark rounded-[3rem] p-20 text-white relative overflow-hidden"
-          >
-            <div
-              class="absolute inset-0 bg-museum-gold/5 blur-3xl rounded-full translate-x-1/2 translate-y-1/2"
-            >
-            </div>
-            <div class="relative z-10">
-              <p
-                class="text-museum-gold font-bold text-[10px] uppercase tracking-[0.4em] mb-6"
-              >
-                Lectura Destacada
-              </p>
-              <h4 class="text-3xl md:text-4xl font-display mb-8">
-                Pedagogía Decolonial como Arte Vivo y Memoria Encarnada
-              </h4>
-              <p class="text-white/60 font-light mb-12">
-                Un análisis profundo desde los Saberes Afrocaribeños y
-                Afroindígenas del barrio El Pozón.
-              </p>
-              <a
-                href="#"
-                class="inline-block bg-white text-museum-dark px-6 py-3 md:px-10 md:py-5 rounded-full text-[10px] font-bold tracking-widest uppercase hover:bg-museum-gold transition-colors"
-                >Continuar Leyendo</a
-              >
-            </div>
-          </div>
+            <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                {documents.map((doc) => (
+                    <li class="doc-card flex [&>*]:flex-1 [&>*]:min-w-0" data-cat={doc.category}>
+                        <a href={`/pdfs/${doc.slug}`} target="_blank" rel="noopener noreferrer" data-spotlight class="pillar group relative overflow-hidden rounded-[1.75rem] bg-white border border-museum-dark/10 p-7 md:p-8 flex flex-col h-full shadow-[0_25px_50px_-35px_rgba(26,26,26,0.4)]">
+                            <span class="pillar-glow" aria-hidden="true"></span>
+                            <div class="relative flex items-center justify-between gap-4 mb-8">
+                                <span class="rounded-full bg-museum-dark text-museum-gold px-3.5 py-1.5 text-[9px] font-bold tracking-[0.25em] uppercase">{doc.category}</span>
+                                <time class="text-[10px] tracking-[0.2em] uppercase text-museum-dark/45">{doc.date}</time>
+                            </div>
+                            <h3 class="relative font-display text-xl md:text-2xl leading-snug mb-3 group-hover:text-museum-gold transition-colors">{doc.title}</h3>
+                            <p class="relative text-sm font-light text-museum-dark/65 leading-relaxed mb-8">{doc.subtitle}</p>
+                            <span class="relative mt-auto inline-flex items-center gap-3 text-[10px] font-bold tracking-[0.25em] uppercase text-museum-dark group-hover:text-museum-gold transition-colors">Descargar PDF <span class="group-hover:translate-y-1 transition-transform" aria-hidden="true">↓</span></span>
+                        </a>
+                    </li>
+                ))}
+            </ul>
         </div>
+    </section>
 
-        <!-- Footer Volver -->
-        <div class="text-center mt-32">
-          <a
-            href="/"
-            class="group text-[10px] uppercase tracking-[0.4em] font-bold text-museum-dark/20 hover:text-museum-gold transition-colors inline-flex items-center gap-3"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="group-hover:-translate-x-1 transition-transform"
-              ><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg
-            >
-            Volver a la Página Principal
-          </a>
+    <section id="blog" class="ui-section relative bg-white px-6 md:px-16 lg:px-24 py-20 md:py-28">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="block font-bold tracking-[0.4em] text-[10px] md:text-xs uppercase mb-5 text-museum-gold">Lectura Destacada</span>
+            <h2 class="font-display text-3xl md:text-5xl leading-tight mb-6 text-balance">Pedagogía Decolonial como Arte Vivo y Memoria Encarnada</h2>
+            <p class="font-light text-museum-dark/70 max-w-2xl mx-auto mb-10 leading-relaxed">Un análisis profundo desde los Saberes Afrocaribeños y Afroindígenas del barrio El Pozón. Últimas publicaciones en nuestro blog corporativo.</p>
+            <div class="flex flex-wrap justify-center gap-3"><Btn href="/revista" variant="dark">Continuar Leyendo</Btn><Btn href="/" variant="outline">Volver al Inicio</Btn></div>
         </div>
-      </section>
-    </main>
-  </body>
-</html>
+    </section>
+
+    <script>
+        function initDocFilters() {
+            const chips = document.querySelectorAll<HTMLButtonElement>('.doc-chip');
+            const cards = document.querySelectorAll<HTMLElement>('.doc-card');
+            chips.forEach((chip) => chip.addEventListener('click', () => {
+                const f = chip.dataset.filter;
+                chips.forEach((c) => {
+                    const on = c === chip;
+                    c.setAttribute('aria-pressed', String(on));
+                    c.classList.toggle('bg-museum-dark', on);
+                    c.classList.toggle('text-museum-cream', on);
+                    c.classList.toggle('border-museum-dark', on);
+                });
+                cards.forEach((card) => { card.style.display = f === 'all' || card.dataset.cat === f ? 'flex' : 'none'; });
+            }));
+        }
+        initDocFilters();
+        document.addEventListener('astro:after-swap', initDocFilters);
+    </script>
+</Layout>

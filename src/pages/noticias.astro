@@ -1,9 +1,7 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import "../styles/global.css";
-import SocialSidebar from "../components/SocialSidebar.astro";
-import Navbar from "../components/navbar.astro";
-
+import PageHero from "../components/PageHero.astro";
+import Layout from "../layouts/Layout.astro";
+import Btn from "../components/ui/Btn.astro";
 interface NewsItem {
     title: string;
     tag: string;
@@ -89,69 +87,108 @@ const newsItems: NewsItem[] = [
         image: "https://i.ytimg.com/vi/fzs5KQxecVk/hqdefault.jpg"
     }
 ];
+
+const etiquetas = ["Todas", ...Array.from(new Set(newsItems.map((n) => n.tag)))];
+const [destacada, ...resto] = newsItems;
+const esExterno = (u: string) => /^https?:/.test(u);
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Noticias | Casa Museo Pozón</title>
-        <ClientRouter />
-	</head>
-	<body class="bg-zinc-50 font-sans overflow-x-hidden">
-        <SocialSidebar />
-		<Navbar />
-        
-        <main>
-            <!-- Hero Header -->
-            <section class="relative min-h-[40vh] flex items-center justify-center bg-museum-dark pt-20">
-                <div class="relative z-20 text-center px-8" transition:animate="fade">
-                    <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-8 uppercase block">Actualidad y Novedades</span>
-                    <h1 class="text-6xl md:text-8xl font-display text-white mb-10 leading-none">
-                        Noticias <br/> <span class="text-museum-gold italic">& Destacados</span>
-                    </h1>
-                </div>
-            </section>
+<Layout
+  title="Noticias | Casa Museo Pozón"
+  description="Noticias — Fundación Casa Museo El Pozón, memoria viva y cultura comunitaria en Cartagena de Indias."
+  bodyClass="bg-zinc-50 font-sans overflow-x-hidden"
+>
+    <PageHero image="/galeria/IPCC Y ALCALDIA.webp" group="Comunidad" current="Noticias">
+      <Fragment slot="eyebrow">Actualidad y Novedades</Fragment>
+      Noticias <span class="text-museum-gold italic">& Destacados</span>
+    </PageHero>
 
-            <div class="max-w-4xl mx-auto px-8 py-20">
-                <div class="space-y-32">
-                        {newsItems.map(news => (
-                            <article class="group event-card" data-tag={news.tag}>
-                                <div class="flex flex-col md:flex-row gap-12 items-start">
-                                    <div class="w-full md:w-1/2 aspect-video bg-zinc-200 rounded-[2rem] overflow-hidden shadow-2xl relative group">
-                                        <img src={news.image} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
-                                    </div>
-                                    <div class="w-full md:w-1/2">
-                                        <div class="flex items-center gap-6 mb-6">
-                                            <span class="text-museum-gold font-bold text-[10px] uppercase tracking-widest">{news.tag}</span>
-                                            <span class="text-zinc-400 text-[10px] uppercase tracking-widest">{news.date}</span>
-                                        </div>
-                                        <h2 class="text-3xl font-display text-museum-dark mb-6 group-hover:text-museum-gold transition-colors">{news.title}</h2>
-                                        <p class="text-sm font-light text-museum-dark/60 leading-relaxed mb-8">{news.text}</p>
-                                        <a href={news.url} target="_blank" rel="noopener noreferrer" class="text-[10px] font-bold uppercase tracking-widest border-b border-museum-gold pb-1 hover:border-museum-dark transition-all">Leer Noticia Completa</a>
-                                        {news.urlAlterna && (
-                                            <a href={news.urlAlterna} target="_blank" rel="noopener noreferrer" class="ml-6 text-[10px] font-bold uppercase tracking-widest text-museum-dark/50 border-b border-museum-gold/40 pb-1 hover:text-museum-gold hover:border-museum-gold transition-all">Ver en YouTube</a>
-                                        )}
-                                    </div>
+    <section id="destacada" class="ui-section relative bg-museum-cream px-6 md:px-16 lg:px-24 pt-20 md:pt-28 pb-10">
+        <div class="max-w-7xl mx-auto">
+            <span class="block font-bold tracking-[0.4em] text-[10px] md:text-xs uppercase mb-5 text-museum-gold">Lo más reciente</span>
+            <h2 class="font-display text-4xl md:text-6xl leading-[1.05] mb-10 md:mb-14">Noticia <span class="text-museum-gold">destacada</span></h2>
+            <article class="group relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-museum-dark text-museum-cream min-h-[28rem] md:min-h-[34rem] flex items-end shadow-[0_50px_100px_-50px_rgba(26,26,26,0.7)]">
+                <img src={destacada.image} alt={destacada.title} loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-[1500ms]" />
+                <div class="absolute inset-0 bg-gradient-to-t from-museum-dark via-museum-dark/60 to-transparent"></div>
+                <div class="relative p-7 md:p-14 max-w-3xl">
+                    <div class="flex items-center gap-5 mb-5">
+                        <span class="rounded-full bg-museum-gold text-museum-dark px-4 py-1.5 text-[10px] font-bold tracking-[0.25em] uppercase">{destacada.tag}</span>
+                        <span class="text-[10px] tracking-[0.25em] uppercase text-museum-cream/70">{destacada.date}</span>
+                    </div>
+                    <h3 class="font-display text-3xl md:text-6xl leading-[1.05] mb-5 text-balance">{destacada.title}</h3>
+                    <p class="font-light leading-relaxed text-museum-cream/80 mb-8 max-w-2xl">{destacada.text}</p>
+                    <div class="flex flex-wrap gap-3">
+                        <Btn href={destacada.url} external={esExterno(destacada.url)}>Ver noticia</Btn>
+                        {destacada.urlAlterna && <Btn href={destacada.urlAlterna} external variant="outline">Ver en YouTube</Btn>}
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="archivo-noticias" class="ui-section relative bg-museum-cream px-6 md:px-16 lg:px-24 pt-10 pb-24 md:pb-32">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-wrap items-end justify-between gap-6 border-b border-museum-dark/10 pb-6 mb-10">
+                <h2 class="font-display text-3xl md:text-5xl">Más <span class="text-museum-gold">novedades</span></h2>
+                <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrar por categoría">
+                    {etiquetas.map((t, i) => (
+                        <button type="button" data-filter={t} aria-pressed={i === 0} class:list={["news-chip rounded-full border px-5 py-2.5 text-[10px] font-bold tracking-[0.2em] uppercase transition-colors", i === 0 ? "bg-museum-dark text-museum-cream border-museum-dark" : "border-museum-dark/20 text-museum-dark/70 hover:border-museum-gold"]}>{t}</button>
+                    ))}
+                </div>
+            </div>
+
+            <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                {resto.map((news) => (
+                    <li class="news-card flex [&>*]:flex-1 [&>*]:min-w-0" data-tag={news.tag}>
+                        <article data-spotlight class="pillar group relative flex flex-col overflow-hidden rounded-[1.75rem] bg-white border border-museum-dark/10 shadow-[0_25px_50px_-35px_rgba(26,26,26,0.4)] h-full">
+                            <span class="pillar-glow" aria-hidden="true"></span>
+                            <div class="relative aspect-video overflow-hidden bg-zinc-200">
+                                <img src={news.image} alt={news.title} loading="lazy" class="absolute inset-0 w-full h-full object-cover grayscale-[60%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[1200ms]" />
+                            </div>
+                            <div class="relative p-6 md:p-7 flex flex-col flex-1">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <span class="text-museum-gold font-bold text-[10px] uppercase tracking-[0.25em]">{news.tag}</span>
+                                    <span class="text-museum-dark/40 text-[10px] uppercase tracking-[0.2em]">{news.date}</span>
                                 </div>
-                            </article>
-                        ))}
-                </div>
-            </div>
-        </main>
-        
-        <!-- Descriptive Footer Links Section -->
-        <section class="py-32 px-8 bg-zinc-50 border-t border-zinc-200">
-            <div class="max-w-5xl mx-auto">
-                <div class="pt-20 text-center">
-                     <a href="/" class="group inline-flex items-center gap-6 px-12 py-6 border border-museum-dark/20 rounded-full hover:bg-museum-dark hover:text-white transition-all duration-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:-translate-x-2 transition-transform"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"/></svg>
-                        <span class="text-xs font-bold uppercase tracking-[0.3em]">Volver al Inicio</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-	</body>
-</html>
+                                <h3 class="font-display text-xl md:text-2xl leading-snug mb-3">{news.title}</h3>
+                                <p class="text-sm font-light text-museum-dark/65 leading-relaxed mb-6 line-clamp-4">{news.text}</p>
+                                <div class="mt-auto flex flex-wrap items-center gap-x-6 gap-y-2">
+                                    <a href={news.url} {...(esExterno(news.url) ? { target: "_blank", rel: "noopener noreferrer" } : {})} class="text-[10px] font-bold uppercase tracking-[0.25em] text-museum-dark border-b border-museum-gold pb-1 hover:text-museum-gold transition-colors">Ver noticia →</a>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                ))}
+            </ul>
+            <p id="news-empty" hidden class="text-center py-16 text-museum-dark/50">No hay noticias en esta categoría.</p>
+            <div class="mt-16 text-center"><Btn href="/" variant="outline">Volver al Inicio</Btn></div>
+        </div>
+    </section>
+
+    <script>
+        function initNewsFilter() {
+            const chips = document.querySelectorAll<HTMLButtonElement>('.news-chip');
+            const cards = document.querySelectorAll<HTMLElement>('.news-card');
+            const empty = document.getElementById('news-empty');
+            chips.forEach((chip) => chip.addEventListener('click', () => {
+                const tag = chip.dataset.filter;
+                chips.forEach((c) => {
+                    const on = c === chip;
+                    c.setAttribute('aria-pressed', String(on));
+                    c.classList.toggle('bg-museum-dark', on);
+                    c.classList.toggle('text-museum-cream', on);
+                    c.classList.toggle('border-museum-dark', on);
+                });
+                let visible = 0;
+                cards.forEach((card) => {
+                    const show = tag === 'Todas' || card.dataset.tag === tag;
+                    card.style.display = show ? 'flex' : 'none';
+                    if (show) visible++;
+                });
+                if (empty) empty.hidden = visible > 0;
+            }));
+        }
+        initNewsFilter();
+        document.addEventListener('astro:after-swap', initNewsFilter);
+    </script>
+</Layout>

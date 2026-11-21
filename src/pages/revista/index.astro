@@ -1,29 +1,17 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import "../../styles/global.css";
-import SocialSidebar from "../../components/SocialSidebar.astro";
-import Navbar from "../../components/navbar.astro";
-import Footer from "../../components/footer.astro";
+import Layout from "../../layouts/Layout.astro";
 import { articulos, categorias, ultimaEdicion } from "../../data/revista";
 
 const articulosOrdenados = [...articulos].sort((a, b) => b.fecha.localeCompare(a.fecha));
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Revista El Pozón: Memoria Viva — Crónicas, memorias y saberes del territorio pozonero. Artículos con video y crónica escrita sobre patrimonio, cultura e identidad de El Pozón, Cartagena." />
-    <title>Revista El Pozón: Memoria Viva | Casa Museo Pozón</title>
-    <ClientRouter />
-  </head>
-  <body class="bg-museum-cream font-sans overflow-x-hidden">
-    <SocialSidebar />
-    <Navbar />
+<Layout
+  title="Revista El Pozón: Memoria Viva | Casa Museo Pozón"
+  description="Revista El Pozón: Memoria Viva — Crónicas, memorias y saberes del territorio pozonero. Artículos con video y crónica escrita sobre patrimonio, cultura e identidad de El Pozón, Cartagena."
+  bodyClass="bg-museum-cream font-sans overflow-x-hidden"
+>
 
-    <main>
+    <div>
       <!-- ═══════════════════════════════════════
            PORTADA — Diseño tipo revista
       ═══════════════════════════════════════ -->
@@ -31,10 +19,9 @@ const articulosOrdenados = [...articulos].sort((a, b) => b.fecha.localeCompare(a
         <div class="absolute inset-0 bg-gradient-to-br from-museum-dark via-museum-dark to-museum-gold/5 pointer-events-none"></div>
         <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-museum-gold/5 blur-3xl rounded-full pointer-events-none"></div>
         <div class="absolute bottom-0 left-0 w-96 h-96 bg-museum-gold/[0.02] blur-3xl rounded-full pointer-events-none"></div>
-
         <div class="relative z-10 flex-1 flex flex-col justify-between px-8 md:px-16 lg:px-24 py-12 md:py-16 max-w-7xl mx-auto w-full">
           <!-- Masthead -->
-          <div transition:animate="fade">
+          <div>
             <span class="text-museum-gold font-bold tracking-[0.5em] text-[10px] md:text-xs mb-6 uppercase block">Edición Digital</span>
             <h1 class="text-7xl md:text-9xl lg:text-[10rem] font-display text-white leading-none tracking-tight">
               Revista<br/>
@@ -42,11 +29,10 @@ const articulosOrdenados = [...articulos].sort((a, b) => b.fecha.localeCompare(a
             </h1>
             <p class="text-sm md:text-lg font-light text-white/30 mt-4 tracking-[0.4em] uppercase">Memoria Viva</p>
           </div>
-
           <!-- Cover Contents -->
           <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 items-end mt-16 lg:mt-0">
             <!-- Editorial / Presentación General -->
-            <div class="lg:col-span-3" transition:animate="fade">
+            <div class="lg:col-span-3">
               <div class="flex items-center gap-4 mb-6">
                 <span class="w-12 h-[2px] bg-museum-gold"></span>
                 <span class="text-museum-gold font-bold text-[10px] uppercase tracking-[0.3em]">Editorial</span>
@@ -67,7 +53,6 @@ const articulosOrdenados = [...articulos].sort((a, b) => b.fecha.localeCompare(a
                 <span class="text-white/30 text-[10px] font-bold uppercase tracking-widest">Patrimonio</span>
               </div>
             </div>
-
             <!-- Última Edición -->
             <div class="lg:col-span-2 border-l border-museum-gold/10 pl-8 md:pl-12">
               <span class="text-[9px] font-bold tracking-[0.3em] uppercase text-museum-gold/50 mb-8 block">Última Edición</span>
@@ -102,7 +87,6 @@ const articulosOrdenados = [...articulos].sort((a, b) => b.fecha.localeCompare(a
               </div>
             </div>
           </div>
-
           <!-- Scroll Indicator -->
           <div class="flex flex-col items-center gap-4 mt-16 md:mt-0">
             <span class="text-[8px] font-bold tracking-[0.4em] uppercase text-white/20">Descubrir</span>
@@ -199,9 +183,7 @@ const articulosOrdenados = [...articulos].sort((a, b) => b.fecha.localeCompare(a
           <span class="text-xs font-bold uppercase tracking-[0.3em]">Volver al Inicio</span>
         </a>
       </section>
-    </main>
-
-    <Footer />
+    </div>
 
     <script>
       function initRevistaFilters() {
@@ -234,5 +216,4 @@ const articulosOrdenados = [...articulos].sort((a, b) => b.fecha.localeCompare(a
       initRevistaFilters();
       document.addEventListener('astro:after-swap', initRevistaFilters);
     </script>
-  </body>
-</html>
+  </Layout>

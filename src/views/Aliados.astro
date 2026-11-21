@@ -14,25 +14,28 @@ const aliados = [
     { name: "Movimiento Tejidos", type: "Aliado Estratégico" }
 ];
 ---
-<section id="aliados" class="py-24 px-8 md:px-16 lg:px-24 bg-white border-b border-zinc-100">
-    <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Nuestra Red</span>
-            <h2 class="text-3xl md:text-5xl font-display text-museum-dark mb-6">Aliados y Redes</h2>
-            <p class="text-museum-dark/60 font-light text-sm md:text-base max-w-2xl mx-auto">
-                El trabajo comunitario y museal se fortalece gracias a la articulación con instituciones y organizaciones locales, regionales y nacionales.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
-            {aliados.map(aliado => (
-                <div class="flex flex-col items-center justify-center p-6 text-center bg-zinc-50 border border-zinc-100 hover:border-museum-gold/30 hover:bg-white hover:shadow-xl transition-all duration-500 rounded-2xl group min-h-[140px]">
-                    <span class="text-[8px] font-bold uppercase tracking-widest text-museum-gold mb-3 opacity-50 group-hover:opacity-100 transition-opacity">{aliado.type}</span>
-                    <h3 class="text-xs font-bold text-museum-dark/70 group-hover:text-museum-dark transition-colors uppercase tracking-widest leading-relaxed">
-                        {aliado.name}
-                    </h3>
-                </div>
-            ))}
-        </div>
+<section id="aliados" class="py-24 md:py-32 bg-museum-dark text-museum-cream overflow-hidden relative" data-no-anim>
+    <div class="px-8 md:px-16 lg:px-24 max-w-7xl mx-auto text-center mb-14 md:mb-20">
+        <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Nuestra Red</span>
+        <h2 class="text-4xl md:text-6xl font-display mb-6">Aliados y Redes</h2>
+        <p class="text-museum-cream/60 font-light text-sm md:text-base max-w-2xl mx-auto">
+            El trabajo comunitario y museal se fortalece gracias a la articulación con instituciones y organizaciones locales, regionales y nacionales.
+        </p>
     </div>
+
+    {[aliados.slice(0, 6), aliados.slice(6)].map((fila, i) => (
+        <div class="marquee group/marquee relative py-3" aria-hidden={i === 1 ? 'true' : undefined}>
+            <ul class={`marquee-track flex w-max gap-4 ${i === 1 ? 'marquee-reverse' : ''}`}>
+                {[...fila, ...fila, ...fila, ...fila].map((aliado) => (
+                    <li class="shrink-0 flex items-center gap-4 rounded-full border border-museum-cream/15 bg-museum-cream/5 px-8 py-5 hover:border-museum-gold/60 hover:bg-museum-gold/10 transition-colors duration-500">
+                        <span class="w-2 h-2 rounded-full bg-museum-gold" aria-hidden="true"></span>
+                        <span class="text-sm md:text-base font-display whitespace-nowrap">{aliado.name}</span>
+                        <span class="text-[9px] font-bold uppercase tracking-[0.25em] text-museum-gold/80 whitespace-nowrap">{aliado.type}</span>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    ))}
+    <div class="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-museum-dark to-transparent pointer-events-none z-10" aria-hidden="true"></div>
+    <div class="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-museum-dark to-transparent pointer-events-none z-10" aria-hidden="true"></div>
 </section>

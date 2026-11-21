@@ -1,0 +1,47 @@
+---
+import { hitos } from '../data/hitos';
+const total = String(hitos.length).padStart(2, '0');
+---
+<section id="linea-tiempo" class="relative py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-museum-cream overflow-clip">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-12 lg:gap-24" data-timeline>
+        <!-- Columna fija: título, año activo y contador -->
+        <div class="lg:sticky lg:top-28 self-start">
+            <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] md:text-xs mb-6 uppercase block">Memoria en el tiempo</span>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-display text-museum-dark mb-6 md:mb-8">
+                Nuestra <span class="text-museum-gold block mt-2">Historia</span>
+            </h2>
+            <div class="w-20 h-1 bg-museum-gold mb-6 md:mb-8"></div>
+            <p class="text-museum-dark/70 font-light leading-relaxed max-w-sm mb-8 lg:mb-14">
+                De los rastros en los concheros al museo comunitario: un recorrido por los hitos que han construido la Casa Museo.
+            </p>
+
+            <!-- Año activo (solo escritorio): cambia al avanzar por la línea de tiempo -->
+            <div class="hidden lg:block" aria-hidden="true">
+                <div class="overflow-hidden h-[1.05em] text-[clamp(3.5rem,7vw,7rem)] leading-none font-display">
+                    <span data-tl-year class="block tl-year-text text-transparent">{hitos[0].year}</span>
+                </div>
+                <div class="mt-6 flex items-center gap-4">
+                    <span class="font-display text-museum-gold text-xl tabular-nums"><span data-tl-count>01</span><span class="text-museum-dark/30"> / {total}</span></span>
+                    <span class="relative h-px flex-1 max-w-[12rem] bg-museum-gold/20 overflow-hidden"><span data-tl-progress class="absolute inset-0 bg-museum-gold origin-left scale-x-0"></span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Línea que se dibuja con el scroll -->
+        <ol class="relative ml-3 md:ml-6" data-timeline-list>
+            <span class="absolute left-0 top-0 bottom-0 w-px bg-museum-gold/20" aria-hidden="true"></span>
+            <span data-timeline-line class="absolute left-0 top-0 bottom-0 w-px bg-museum-gold origin-top" aria-hidden="true"></span>
+            <span data-timeline-head class="absolute -left-[6px] top-0 w-3 h-3 rounded-full bg-museum-gold shadow-[0_0_0_6px_rgba(196,160,82,0.25)] tl-head" aria-hidden="true"></span>
+            {hitos.map((hito, i) => (
+                <li data-timeline-item data-year={hito.year} data-index={i + 1} class="timeline-item relative pl-8 md:pl-12 pb-16 md:pb-24 last:pb-0">
+                    <span class="timeline-dot absolute -left-[7px] top-3 w-[15px] h-[15px] rounded-full border-2 border-museum-gold bg-museum-cream transition-all duration-500" aria-hidden="true"></span>
+                    <div class="tl-body">
+                        <span class="font-display text-museum-gold text-4xl md:text-6xl block mb-2 timeline-year tl-year-card">{hito.year}</span>
+                        <h3 class="text-sm md:text-base font-bold text-museum-dark uppercase tracking-wide mb-3">{hito.title}</h3>
+                        <p class="text-museum-dark/70 font-light text-sm md:text-base leading-relaxed max-w-xl">{hito.desc}</p>
+                    </div>
+                </li>
+            ))}
+        </ol>
+    </div>
+</section>

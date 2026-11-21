@@ -1,0 +1,89 @@
+---
+import type { Modulo } from "../../data/nodos";
+import Pillars from "./Pillars.astro";
+import StickySplit from "./StickySplit.astro";
+import Btn from "./Btn.astro";
+
+export interface Props { mod: Modulo; n: number; id: string; tone?: "cream" | "white" | "dark"; }
+const { mod, n, id, tone = "cream" } = Astro.props;
+const dark = tone === "dark";
+const tones = { cream: "bg-museum-cream text-museum-dark", white: "bg-white text-museum-dark", dark: "bg-museum-dark text-museum-cream" };
+
+// Algunos módulos traen «“cita”. Eje Pedagógico: …» en un solo párrafo: se separan para dar jerarquía.
+const m = mod.intro.match(/^(“[^”]+”)\.?\s*(Eje Pedag[óo]gico:\s*)(.*)$/s);
+const cita = m ? m[1] : null;
+const eje = m ? m[3] : null;
+const num = String(n).padStart(2, "0");
+
+const steps = mod.fases.map((f, i) => ({ kicker: f.f, title: f.t, text: f.x, tag: String(i + 1).padStart(2, "0") }));
+const ejes = mod.ejes.map((e) => ({ title: e.t.replace(/^\d+\.\s*/, ""), text: e.x }));
+---
+<section id={id} class:list={["ui-section relative py-20 md:py-32 px-6 md:px-16 lg:px-24 overflow-clip", tones[tone]]} data-tone={tone}>
+    <span class="pointer-events-none absolute -top-6 right-2 md:right-12 font-display leading-none text-[clamp(9rem,26vw,24rem)] text-transparent [-webkit-text-stroke:1px_rgb(196_160_82)] opacity-30 select-none" aria-hidden="true">{num}</span>
+
+    <div class="relative max-w-7xl mx-auto">
+        <!-- Cabecera del módulo -->
+        <header class="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-20 mb-14 md:mb-24 items-end">
+            <div>
+                <span class="block font-bold tracking-[0.35em] text-[10px] md:text-xs uppercase mb-5 text-museum-gold">{mod.kicker}</span>
+                <h2 class="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.02] text-balance">{mod.titulo}</h2>
+            </div>
+            <div>
+                {cita
+                    ? <>
+                        <p class="font-display text-xl md:text-3xl leading-snug mb-6 text-balance">{cita}</p>
+                        <div class:list={["rounded-2xl border p-5 md:p-6", dark ? "border-museum-cream/15 bg-museum-cream/5" : "border-museum-dark/10 bg-white/60"]}>
+                            <span class="block text-[10px] font-bold tracking-[0.3em] uppercase text-museum-gold mb-2">Eje pedagógico</span>
+                            <p class="font-light leading-relaxed opacity-85 text-sm md:text-base">{eje}</p>
+                        </div>
+                    </>
+                    : <p class="font-light text-base md:text-lg leading-relaxed opacity-85">{mod.intro}</p>}
+            </div>
+        </header>
+
+        <!-- Ejes temáticos -->
+        <div class="mb-20 md:mb-32">
+            <h3 class="flex items-center gap-4 text-[11px] font-bold tracking-[0.35em] uppercase text-museum-gold mb-8"><span class="w-10 h-px bg-museum-gold"></span>{mod.h4[0]}</h3>
+            <Pillars items={ejes} cols={3} dark={dark} />
+        </div>
+
+        <!-- Ruta de fases: línea de tiempo con scroll -->
+        <div class="mb-20 md:mb-32">
+            <h3 class="flex items-center gap-4 text-[11px] font-bold tracking-[0.35em] uppercase text-museum-gold mb-10 md:mb-14"><span class="w-10 h-px bg-museum-gold"></span>{mod.h4[1]}</h3>
+            <StickySplit steps={steps} dark={dark}>
+                <div class="hidden lg:block max-w-sm">
+                    <p class="font-display text-5xl xl:text-6xl leading-[1.05] mb-6">5 fases<br /><span class="text-museum-gold">una ruta viva</span></p>
+                    <p class="font-light leading-relaxed opacity-70">Cada fase se activa con la comunidad: se obtiene, se opina, se propone, se gestiona y se evalúa en colectivo.</p>
+                </div>
+                <p class="lg:hidden font-light leading-relaxed opacity-70 mb-2">Cada fase se activa con la comunidad: se obtiene, se opina, se propone, se gestiona y se evalúa en colectivo.</p>
+            </StickySplit>
+        </div>
+
+        <!-- Recursos -->
+        <div class="mb-16 md:mb-24">
+            <h3 class="flex items-center gap-4 text-[11px] font-bold tracking-[0.35em] uppercase text-museum-gold mb-8"><span class="w-10 h-px bg-museum-gold"></span>{mod.h4[2]}</h3>
+            <ul class="grid md:grid-cols-3 gap-4 md:gap-6">
+                {mod.recursos.map((r) => (
+                    <li data-spotlight class:list={["pillar relative overflow-hidden rounded-3xl p-7 border", dark ? "bg-museum-cream/5 border-museum-cream/10" : "bg-white border-museum-dark/10"]}>
+                        <span class="pillar-glow" aria-hidden="true"></span>
+                        <span class="relative block text-museum-gold text-2xl mb-4" aria-hidden="true">✦</span>
+                        <p class="relative text-sm md:text-[0.95rem] leading-relaxed font-light opacity-85"><strong class="font-bold block mb-1 text-base opacity-100">{r.t}</strong>{r.x}</p>
+                    </li>
+                ))}
+            </ul>
+        </div>
+
+        <!-- Síntesis de impacto -->
+        <div class:list={["relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] p-8 md:p-14 grid lg:grid-cols-[1.3fr_1fr] gap-10 items-center", dark ? "bg-museum-gold text-museum-dark" : "bg-museum-dark text-museum-cream"]}>
+            <div>
+                <span class:list={["block text-[10px] font-bold tracking-[0.35em] uppercase mb-4", dark ? "text-museum-dark/70" : "text-museum-gold"]}>{mod.sintesis_t}</span>
+                <p class="font-display text-2xl md:text-4xl leading-snug text-balance">{mod.sintesis}</p>
+            </div>
+            <div class="flex flex-col gap-3 lg:items-end">
+                {mod.links.filter((l) => !/Contactar/.test(l.t)).map((l, i) => (
+                    <Btn href={l.href} variant={dark ? (i === 0 ? "dark" : "outline") : (i === 0 ? "gold" : "outline")}>{l.t}</Btn>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>

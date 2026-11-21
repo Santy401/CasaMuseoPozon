@@ -1,24 +1,15 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import "../styles/global.css";
-import SocialSidebar from "../components/SocialSidebar.astro";
-import Navbar from "../components/navbar.astro";
+import Layout from "../layouts/Layout.astro";
+
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Sala 3: Vida Cotidiana y Resistencia | Casa Museo Pozón</title>
-        <ClientRouter />
-	</head>
-	<body class="bg-museum-dark font-sans overflow-x-hidden text-white">
-        <SocialSidebar />
-		<Navbar />
+<Layout
+  title="Sala 3: Vida Cotidiana y Resistencia | Casa Museo Pozón"
+  description="Sala 3: Vida Cotidiana y Resistencia — Fundación Casa Museo El Pozón, memoria viva y cultura comunitaria en Cartagena de Indias."
+  bodyClass="bg-museum-dark font-sans overflow-x-hidden text-white"
+>
         
-        <main class="pt-32 pb-24 px-8 md:px-16 lg:px-24 max-w-5xl mx-auto">
+        <div class="pt-32 pb-24 px-8 md:px-16 lg:px-24 max-w-5xl mx-auto">
             <!-- Header -->
             <div class="mb-20 text-center relative">
                 <span class="text-museum-gold font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Sala 3</span>
@@ -134,6 +125,5 @@ import Navbar from "../components/navbar.astro";
                     </a>
                 </div>
             </div>
-        </main>
-    </body>
-</html>
+        </div>
+    </Layout>

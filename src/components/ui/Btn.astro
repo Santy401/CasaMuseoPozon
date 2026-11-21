@@ -1,0 +1,14 @@
+---
+export interface Props { href: string; variant?: "gold" | "dark" | "outline" | "light"; external?: boolean; }
+const { href, variant = "gold", external = false } = Astro.props;
+const v = {
+    gold: "bg-museum-gold text-museum-dark",
+    dark: "bg-museum-dark text-museum-cream",
+    light: "bg-museum-cream text-museum-dark",
+    outline: "border border-current",
+}[variant];
+---
+<a href={href} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})} class:list={["btn-magnetic group relative overflow-hidden inline-flex items-center justify-center rounded-full px-9 py-4 text-[10px] md:text-[11px] font-bold tracking-[0.22em] uppercase", v]}>
+    <span class="relative z-10"><slot /></span>
+    <span class="absolute inset-0 bg-white/25 translate-y-full group-hover:translate-y-0 transition-transform duration-500" aria-hidden="true"></span>
+</a>
